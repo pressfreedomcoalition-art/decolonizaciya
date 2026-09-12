@@ -1,0 +1,25 @@
+# Paradox / HOI4
+*.zip
+*.rar
+*.7z
+thumbnail.bak
+.metadata
+crash*
+system.log
+error.log
+game.log
+script_system.log
+script_error.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+.cursor/
+
+# Local launcher copy (keep repo descriptor.mod; Documents pointer is local)
+# Documents/Paradox Interactive/... is outside this repo

@@ -1,0 +1,12 @@
+version="0.1.0"
+name="Millennium Dawn: Деколонизация РФ"
+tags={
+	"Alternative History"
+	"Events"
+	"National Focuses"
+	"Gameplay"
+}
+supported_version="1.19.*"
+dependencies={
+	"Millennium Dawn: A Modern Day Mod"
+}

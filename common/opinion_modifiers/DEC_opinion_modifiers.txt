@@ -1,0 +1,3 @@
+DEC_decolonised_solidarity = {
+	value = 35
+}

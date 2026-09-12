@@ -1,0 +1,98 @@
+DEC_prototype_volga_bulgaria = {
+	icon = GFX_decision_generic_national_unity
+	category = DEC_decolonisation_category
+	allowed = { always = yes }
+	visible = {
+		OR = {
+			tag = SOV
+			is_major = yes
+		}
+		NOT = { country_exists = VBG }
+		has_global_flag = DEC_wave_active
+	}
+	available = {
+		OR = {
+			tag = SOV
+			SOV = { has_war = yes }
+			has_global_flag = DEC_debug_force
+		}
+	}
+	cost = 50
+	fire_only_once = yes
+	days_remove = 14
+	ai_will_do = {
+		base = 5
+		modifier = {
+			factor = 0
+			tag = SOV
+			has_stability > 0.55
+		}
+	}
+	complete_effect = {
+		log = "[GetDateText]: [This.GetName]: DEC_prototype_volga_bulgaria complete"
+		set_global_flag = DEC_vbg_process
+	}
+	remove_effect = {
+		log = "[GetDateText]: [This.GetName]: DEC_prototype_volga_bulgaria remove"
+		SOV = { country_event = { id = dec.2 days = 1 } }
+	}
+}
+
+DEC_prototype_circassia = {
+	icon = GFX_decision_generic_national_unity
+	category = DEC_decolonisation_category
+	allowed = { always = yes }
+	visible = {
+		OR = {
+			tag = SOV
+			is_major = yes
+		}
+		NOT = { country_exists = CIR }
+		has_global_flag = DEC_wave_active
+	}
+	available = {
+		OR = {
+			tag = SOV
+			SOV = { has_war = yes }
+			has_global_flag = DEC_debug_force
+		}
+	}
+	cost = 50
+	fire_only_once = yes
+	days_remove = 14
+	ai_will_do = {
+		base = 5
+		modifier = {
+			factor = 0
+			tag = SOV
+			has_stability > 0.55
+		}
+	}
+	complete_effect = {
+		log = "[GetDateText]: [This.GetName]: DEC_prototype_circassia complete"
+		set_global_flag = DEC_cir_process
+	}
+	remove_effect = {
+		log = "[GetDateText]: [This.GetName]: DEC_prototype_circassia remove"
+		SOV = { country_event = { id = dec.3 days = 1 } }
+	}
+}
+
+DEC_debug_start_wave = {
+	icon = GFX_decision_generic_form_nation
+	category = DEC_decolonisation_category
+	allowed = { always = yes }
+	visible = {
+		is_debug = yes
+		NOT = { has_global_flag = DEC_wave_active }
+	}
+	available = { always = yes }
+	cost = 0
+	fire_only_once = yes
+	complete_effect = {
+		log = "[GetDateText]: [This.GetName]: DEC_debug_start_wave"
+		set_global_flag = DEC_wave_active
+		set_global_flag = DEC_debug_force
+		news_event = { id = dec.1 hours = 6 }
+	}
+}

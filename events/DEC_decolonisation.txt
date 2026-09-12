@@ -1,0 +1,155 @@
+##############################
+# Decolonizaciya — prototype events
+##############################
+
+add_namespace = dec
+
+# News: decolonisation wave begins
+news_event = {
+	id = dec.1
+	title = dec.1.t
+	desc = dec.1.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = dec.1.a
+		log = "[GetDateText]: [This.GetName]: dec.1.a executed"
+	}
+}
+
+# SOV: Volga Bulgaria declares restoration (releases VBG on Chuvashia core land)
+country_event = {
+	id = dec.2
+	title = dec.2.t
+	desc = dec.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = dec.2.a
+		log = "[GetDateText]: [This.GetName]: dec.2.a executed"
+		if = {
+			limit = { NOT = { country_exists = VBG } }
+			1135 = { add_core_of = VBG }
+			release = VBG
+			VBG = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+				country_event = { id = dec.4 hours = 2 }
+			}
+		}
+		ai_chance = { base = 40 }
+	}
+
+	option = {
+		name = dec.2.b
+		log = "[GetDateText]: [This.GetName]: dec.2.b executed"
+		add_stability = -0.05
+		add_political_power = -50
+		1135 = {
+			add_core_of = VBG
+			add_claim_by = VBG
+		}
+		ai_chance = { base = 60 }
+	}
+}
+
+# SOV: Circassian national project
+country_event = {
+	id = dec.3
+	title = dec.3.t
+	desc = dec.3.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = dec.3.a
+		log = "[GetDateText]: [This.GetName]: dec.3.a executed"
+		if = {
+			limit = { NOT = { country_exists = CIR } }
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 1127
+						state = 1125
+						state = 674
+					}
+				}
+				add_core_of = CIR
+			}
+			release = CIR
+			CIR = {
+				country_event = { id = dec.5 hours = 2 }
+			}
+		}
+		ai_chance = { base = 35 }
+	}
+
+	option = {
+		name = dec.3.b
+		log = "[GetDateText]: [This.GetName]: dec.3.b executed"
+		add_stability = -0.05
+		add_political_power = -50
+		every_owned_state = {
+			limit = {
+				OR = {
+					state = 1127
+					state = 1125
+					state = 674
+				}
+			}
+			add_core_of = CIR
+			add_claim_by = CIR
+		}
+		ai_chance = { base = 65 }
+	}
+}
+
+# VBG flavour after independence
+country_event = {
+	id = dec.4
+	title = dec.4.t
+	desc = dec.4.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = dec.4.a
+		log = "[GetDateText]: [This.GetName]: dec.4.a executed"
+		add_political_power = 75
+		add_stability = 0.10
+		if = {
+			limit = { country_exists = CHU }
+			add_opinion_modifier = { target = CHU modifier = DEC_decolonised_solidarity }
+		}
+	}
+}
+
+# CIR flavour after independence
+country_event = {
+	id = dec.5
+	title = dec.5.t
+	desc = dec.5.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = dec.5.a
+		log = "[GetDateText]: [This.GetName]: dec.5.a executed"
+		add_political_power = 75
+		add_stability = 0.05
+		add_war_support = 0.05
+		if = {
+			limit = { country_exists = ADY }
+			add_opinion_modifier = { target = ADY modifier = DEC_decolonised_solidarity }
+		}
+	}
+}

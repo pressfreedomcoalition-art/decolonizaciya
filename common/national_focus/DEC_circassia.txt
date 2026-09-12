@@ -1,0 +1,66 @@
+focus_tree = {
+	id = dec_circassia_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = CIR
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1500 }
+
+	focus = {
+		id = CIR_national_congress
+		icon = GFX_focus_generic_support_the_left_right
+		x = 5
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CIR_national_congress completed"
+			add_political_power = 100
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = CIR_reunite_circassia
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { focus = CIR_national_congress }
+		x = 5
+		y = 1
+		cost = 10
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CIR_reunite_circassia completed"
+			add_war_support = 0.10
+			every_state = {
+				limit = {
+					OR = {
+						state = 1127
+						state = 1125
+						state = 674
+					}
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT
+			}
+		}
+	}
+
+	focus = {
+		id = CIR_diaspora_return
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = CIR_reunite_circassia }
+		x = 5
+		y = 2
+		cost = 8
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CIR_diaspora_return completed"
+			add_manpower = 25000
+			add_stability = 0.05
+		}
+	}
+}

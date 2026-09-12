@@ -1,0 +1,13 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			# Prototype cores for liberatable tags (does not change ownership at start)
+			1135 = { add_core_of = VBG } # Chuvashia → Volga Bulgaria claim
+			661 = { add_claim_by = VBG }  # Tatarstan — historical Mid-Volga claim (soft)
+			1127 = { add_core_of = CIR } # Adygea
+			1125 = { add_core_of = CIR } # Karachay-Cherkessia
+			674 = { add_core_of = CIR }  # Kabardino-Balkaria
+			log = "DEC: Decolonizaciya cores applied (VBG/CIR)"
+		}
+	}
+}

@@ -1,0 +1,120 @@
+capital = 692
+2000.1.1 = {
+	set_variable = { currency_strength = 0.65 }
+	set_country_flag = dynamic_flag
+	set_variable = { gdp_per_capita = 9.500 }
+
+	add_ideas = {
+		partially_nationalized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		standard_regulations
+		recession
+		corruption_level_04
+		farmers
+		bureau_02
+		defence_02
+		police_02
+		edu_02
+		health_02
+		social_02
+		export_economy
+		volunteer_army
+		no_women_in_military
+		officer_basic_training
+		non_state_actor
+		pluralist
+		no_currency_backing
+	}
+
+	inherit_technology = SOV
+
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 65 }
+	add_to_array = { influence_array = SOV.id }
+	add_to_array = { influence_array_val = 20 }
+	add_to_array = { influence_array = UKR.id }
+	add_to_array = { influence_array_val = 15 }
+	add_to_array = { influence_array = CHI.id }
+	add_to_array = { influence_array_val = 15 }
+	add_to_array = { influence_array = JAP.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	set_popularities = {
+		democratic = 45.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 10.0
+		nationalist = 45.0
+	}
+	set_politics = {
+		ruling_party = nationalist
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+	set_variable = { party_pop_array^0 = 0.15 }
+	set_variable = { party_pop_array^2 = 0.2 }
+	set_variable = { party_pop_array^3 = 0.1 }
+	set_variable = { party_pop_array^16 = 0.1 }
+	set_variable = { party_pop_array^20 = 0.3 }
+	set_variable = { party_pop_array^21 = 0.15 }
+	set_variable = { ruling_party = 20 }
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Pavlo Vyshebaba"
+		picture = "gfx/leaders/DEC/pavlo_vyshebaba.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Sergei Furgal"
+		picture = "gfx/leaders/DEC/sergei_furgal.dds"
+		ideology = liberalism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Dmitry Berezhkov"
+		picture = "gfx/leaders/DEC/dmitry_berezhkov.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Yana Tannagasheva"
+		picture = "gfx/leaders/DEC/yana_tannagasheva.dds"
+		ideology = Western_Autocracy
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Pavel Sulyandziga"
+		picture = "gfx/leaders/DEC/pavel_sulyandziga.dds"
+		ideology = Neutral_green
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Oleksiy Goncharenko"
+		picture = "gfx/leaders/DEC/oleksiy_goncharenko.dds"
+		ideology = socialism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Artur Ankkalainen"
+		picture = "gfx/leaders/DEC/artur_ankkalainen.dds"
+		ideology = Nat_Fascism
+		traits = { }
+	}
+
+	set_variable = { overall_productivity = 950 }
+	set_variable = { cb_policy_rate = 3 }
+}

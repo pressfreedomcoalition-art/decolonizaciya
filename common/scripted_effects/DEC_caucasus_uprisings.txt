@@ -1,0 +1,548 @@
+############################################
+# Caucasian uprising + union scripted effects
+############################################
+
+DEC_uprising_spawn_militia = {
+	division_template = {
+		name = "Caucasus Volunteers"
+		is_locked = yes
+		regiments = {
+			Militia_Bat = { x = 0 y = 0 }
+			Militia_Bat = { x = 0 y = 1 }
+			Militia_Bat = { x = 1 y = 0 }
+			Militia_Bat = { x = 1 y = 1 }
+		}
+		priority = 2
+	}
+}
+
+# Uprising politics: DAG = Islamic radicals; SMO = conservatives; else nationalists
+DEC_uprising_set_islam_radicals = {
+	set_temp_variable = { rul_party_temp = 11 } # Caliphate / Islamic radicals
+	set_temp_variable = { disable_elections = 1 }
+	change_ruling_party_effect = yes
+	set_variable = { party_pop_array^11 = 0.60 }
+	add_popularity = { ideology = fascism popularity = 0.50 }
+	recalculate_party = yes
+	set_politics = { ruling_party = fascism elections_allowed = no }
+}
+
+DEC_uprising_set_nationalist = {
+	set_temp_variable = { rul_party_temp = 20 } # Nat_Populism
+	set_temp_variable = { disable_elections = 1 }
+	change_ruling_party_effect = yes
+	set_variable = { party_pop_array^20 = 0.55 }
+	add_popularity = { ideology = nationalist popularity = 0.50 }
+	recalculate_party = yes
+	set_politics = { ruling_party = nationalist elections_allowed = no }
+}
+
+DEC_uprising_set_conservative = {
+	set_temp_variable = { rul_party_temp = 1 } # Western conservatism
+	set_temp_variable = { disable_elections = 0 }
+	change_ruling_party_effect = yes
+	set_variable = { party_pop_array^1 = 0.55 }
+	add_popularity = { ideology = democratic popularity = 0.50 }
+	recalculate_party = yes
+	set_politics = { ruling_party = democratic elections_allowed = yes }
+}
+
+DEC_uprising_apply_rebel_politics = {
+	if = {
+		limit = { OR = { original_tag = DAG tag = DAG } }
+		DEC_uprising_set_islam_radicals = yes
+	}
+	else_if = {
+		limit = { OR = { original_tag = SMO tag = SMO } }
+		DEC_uprising_set_conservative = yes
+	}
+	else = {
+		DEC_uprising_set_nationalist = yes
+	}
+}
+
+DEC_uprising_free_from_SOV = {
+	# THIS = liberated rebel tag
+	if = {
+		limit = { is_subject = yes }
+		OVERLORD = {
+			set_autonomy = {
+				target = PREV
+				autonomy_state = autonomy_free
+			}
+		}
+	}
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	DEC_uprising_transfer_rifles_from_root = yes
+	set_country_flag = DEC_rebel_nation
+	DEC_uprising_apply_rebel_politics = yes
+	DEC_update_coalition = yes
+	DEC_atc_on_new_rebel = yes
+}
+
+DEC_uprising_declare_on_SOV = {
+	# ROOT = rebel tag, FROM unused
+	if = {
+		limit = { NOT = { has_war_with = SOV } }
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	# Join initiator's war if they fight SOV
+	if = {
+		limit = {
+			FROM = {
+				exists = yes
+				has_war_with = SOV
+			}
+		}
+		add_to_war = {
+			targeted_alliance = FROM
+			enemy = SOV
+			hostility_reason = asked_to_join
+		}
+	}
+}
+
+DEC_uprising_CHE = {
+	log = "DEC: Chechnya uprising — independent war vs SOV"
+	if = {
+		limit = { NOT = { country_exists = CHE } }
+		SOV = { release = CHE }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = CHE
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			CHE = { transfer_state = PREV }
+		}
+	}
+	CHE = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_militia = yes
+		672 = {
+			create_unit = {
+				division = "name = \"Ichkeria Brigade\" division_template = \"Caucasus Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = CHE
+				prioritize_location = 3672
+				count = 3
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		CHE = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+	set_global_flag = DEC_CHE_independent_uprising
+}
+
+DEC_uprising_DAG = {
+	log = "DEC: Dagestan uprising — independent war vs SOV"
+	if = {
+		limit = {
+			NOT = { country_exists = DAG }
+		}
+		SOV = { release = DAG }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = DAG
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			DAG = { transfer_state = PREV }
+		}
+	}
+	DAG = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_militia = yes
+		671 = {
+			create_unit = {
+				division = "name = \"Dagestan Brigade\" division_template = \"Caucasus Volunteers\" start_experience_factor = 0.15 start_equipment_factor = 0.7"
+				owner = DAG
+				prioritize_location = 3668
+				count = 3
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		DAG = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+	set_global_flag = DEC_DAG_independent_uprising
+}
+
+DEC_uprising_ING = {
+	log = "DEC: Ingushetia uprising — independent war vs SOV"
+	if = {
+		limit = { NOT = { country_exists = ING } }
+		SOV = { release = ING }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = ING
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			ING = { transfer_state = PREV }
+		}
+	}
+	ING = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_militia = yes
+		1126 = {
+			create_unit = {
+				division = "name = \"Ingush Brigade\" division_template = \"Caucasus Volunteers\" start_experience_factor = 0.15 start_equipment_factor = 0.7"
+				owner = ING
+				prioritize_location = 670
+				count = 2
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		ING = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+}
+
+DEC_uprising_ALANS = {
+	log = "DEC: Alans / Karachay-Balkar uprising"
+	# Karachay-Cherkessia
+	if = {
+		limit = { NOT = { country_exists = KCC } }
+		SOV = { release = KCC }
+	}
+	else = {
+		every_state = {
+			limit = {
+				state = 1125
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KCC = { transfer_state = PREV }
+		}
+	}
+	# Kabardino-Balkaria
+	if = {
+		limit = { NOT = { country_exists = KBK } }
+		SOV = { release = KBK }
+	}
+	else = {
+		every_state = {
+			limit = {
+				state = 674
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KBK = { transfer_state = PREV }
+		}
+	}
+	KCC = {
+		DEC_uprising_free_from_SOV = yes
+		DEC_uprising_spawn_militia = yes
+		1125 = {
+			create_unit = {
+				division = "name = \"Karachay Brigade\" division_template = \"Caucasus Volunteers\" start_experience_factor = 0.15 start_equipment_factor = 0.7"
+				owner = KCC
+				count = 2
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	KBK = {
+		DEC_uprising_free_from_SOV = yes
+		DEC_uprising_spawn_militia = yes
+		674 = {
+			create_unit = {
+				division = "name = \"Balkar Brigade\" division_template = \"Caucasus Volunteers\" start_experience_factor = 0.15 start_equipment_factor = 0.7"
+				owner = KBK
+				count = 2
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		KCC = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+		KBK = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+}
+
+DEC_uprising_CIR = {
+	log = "DEC: Circassia uprising"
+	1127 = { add_core_of = CIR }
+	706 = { add_core_of = CIR }
+	if = {
+		limit = { NOT = { country_exists = CIR } }
+		if = {
+			limit = { SOV = { owns_state = 1127 } }
+			SOV = {
+				release = CIR
+			}
+		}
+		else_if = {
+			limit = { ADY = { owns_state = 1127 } }
+			ADY = { release = CIR }
+		}
+	}
+	if = {
+		limit = { country_exists = CIR }
+		every_state = {
+			limit = {
+				OR = {
+					state = 1127
+					AND = {
+						state = 706
+						is_owned_by = SOV
+					}
+				}
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+					is_owned_by = ADY
+				}
+			}
+			CIR = { transfer_state = PREV }
+		}
+		CIR = {
+			DEC_uprising_free_from_SOV = yes
+			DEC_uprising_spawn_militia = yes
+			1127 = {
+				create_unit = {
+					division = "name = \"Circassian Brigade\" division_template = \"Caucasus Volunteers\" start_experience_factor = 0.15 start_equipment_factor = 0.7"
+					owner = CIR
+					count = 3
+				}
+			}
+			declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = { ROOT = { has_war_with = SOV } }
+			CIR = {
+				add_to_war = {
+					targeted_alliance = ROOT
+					enemy = SOV
+					hostility_reason = asked_to_join
+				}
+			}
+		}
+	}
+}
+
+# Chechnya focus: Brothers in Moscow — Riyadus-Salikhin cell as CHE vassal
+DEC_uprising_RYS = {
+	log = "DEC: Riyadus-Salikhin cell uprising in Moscow — vassal of Chechnya"
+	652 = { add_core_of = RYS }
+	if = {
+		limit = { NOT = { country_exists = RYS } }
+		if = {
+			limit = { 652 = { is_owned_by = SOV } }
+			SOV = { release = RYS }
+		}
+		else_if = {
+			limit = {
+				652 = {
+					owner = { is_subject_of = SOV }
+				}
+			}
+			652 = {
+				owner = { release = RYS }
+			}
+		}
+		else = {
+			RYS = { transfer_state = 652 }
+		}
+	}
+	else = {
+		every_state = {
+			limit = {
+				state = 652
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			RYS = { transfer_state = PREV }
+		}
+	}
+	if = {
+		limit = { country_exists = RYS }
+		RYS = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = {
+					set_autonomy = {
+						target = PREV
+						autonomy_state = autonomy_free
+					}
+				}
+			}
+			if = {
+				limit = { is_in_faction = yes }
+				leave_faction = yes
+			}
+			DEC_uprising_transfer_rifles_from_root = yes
+			set_country_flag = DEC_rebel_nation
+			DEC_uprising_spawn_militia = yes
+			652 = {
+				create_unit = {
+					division = "name = \"Riyadus-Salikhin Cell\" division_template = \"Caucasus Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.7"
+					owner = RYS
+					count = 2
+				}
+			}
+		}
+		CHE = {
+			set_autonomy = {
+				target = RYS
+				autonomy_state = autonomy_terrorist_wilayah
+			}
+		}
+		if = {
+			limit = { RYS = { NOT = { has_war_with = SOV } } }
+			RYS = {
+				declare_war_on = {
+					target = SOV
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				ROOT = {
+					exists = yes
+					has_war_with = SOV
+				}
+			}
+			RYS = {
+				add_to_war = {
+					targeted_alliance = ROOT
+					enemy = SOV
+					hostility_reason = asked_to_join
+				}
+			}
+		}
+	}
+	set_global_flag = DEC_RYS_moscow_uprising
+}
+
+DEC_create_caucasian_union = {
+	log = "DEC: Creating Caucasian Union faction (North Caucasus only)"
+	DEC_mark_named_alliance_member = yes
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_caucasian_union
+	# Auto-join North Caucasus only — South Caucasus via DEC_CAU_invite_south
+	every_other_country = {
+		limit = {
+			DEC_is_north_caucasus_invitee = yes
+			exists = yes
+			NOT = { has_war_with = ROOT }
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+			}
+		}
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+		hidden_effect = {
+			country_event = { id = dec.12 hours = 2 }
+		}
+	}
+	set_cosmetic_tag = CAU
+}
+
+# Optional invitations to South Caucasus (accept/decline) — requires peace with RF
+DEC_invite_south_caucasus_to_union = {
+	log = "DEC: Inviting South Caucasus to Caucasian Union"
+	every_other_country = {
+		limit = {
+			DEC_is_south_caucasus_invitee = yes
+			exists = yes
+			NOT = { has_war_with = ROOT }
+			NOT = { is_in_faction_with = ROOT }
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+			}
+		}
+		country_event = { id = dec.24 hours = 6 }
+	}
+}

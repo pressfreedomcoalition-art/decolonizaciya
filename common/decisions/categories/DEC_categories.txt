@@ -5,12 +5,96 @@ DEC_decolonisation_category = {
 	visible = {
 		OR = {
 			tag = SOV
+			original_tag = SOV
+			is_major = yes
 			tag = VBG
 			tag = CIR
 			tag = CHU
 			tag = TAT
 			tag = ADY
-			is_major = yes
+			tag = BSH
+			tag = KUB
+			tag = SOO
+			tag = ABK
+			tag = KBK
+			tag = CHE
+			tag = DAG
+			tag = ING
+			tag = MOV
+			tag = BGR
+			tag = SMO
+			tag = VOR
+			tag = SEV
+			tag = VYK
+			tag = IGR
+			tag = LAP
+			tag = BJA
+			tag = MOK
+			tag = ERZ
+			tag = NOG
+			tag = BLK
+			tag = ZKL
+			tag = KBC
+			tag = OSA
+			tag = CAU
+			tag = BCF
+			tag = IDL
+			tag = APT
+			tag = RHO
+			has_global_flag = DEC_wave_active
+		}
+	}
+}
+
+DEC_formables_category = {
+	icon = GFX_decision_category_generic
+	picture = GFX_decision_cat_picture_generic_border_conflicts
+	priority = 85
+	visible = {
+		OR = {
+			tag = CIR
+			tag = KUB
+			tag = ADY
+			tag = ABK
+			tag = SOO
+			tag = CHE
+			tag = DAG
+			tag = ING
+			tag = KBK
+			tag = BLK
+			tag = VBG
+			tag = CHU
+			tag = TAT
+			tag = BSH
+			tag = MOK
+			tag = ERZ
+			tag = MOV
+			tag = UDM
+			tag = MEL
+			tag = VYK
+			tag = KBC
+			tag = OSA
+			tag = CAU
+			tag = BCF
+			tag = IDL
+			has_country_flag = DEC_wave_active
+			has_global_flag = DEC_wave_active
+		}
+	}
+}
+
+DEC_mega_spark_category = {
+	icon = GFX_decision_category_generic
+	picture = GFX_decision_cat_picture_generic_border_conflicts
+	priority = 88
+	visible = {
+		OR = {
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_CAL_world_caliphate
 		}
 	}
 }

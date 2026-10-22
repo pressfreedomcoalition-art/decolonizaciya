@@ -1,0 +1,508 @@
+﻿{
+    "HND":  {
+                "rootFocus":  "DEC_HND_hindu_awakening",
+                "regs":  {
+                             "DEC_HND_reg_india_core":  [
+                                                            "RAJ"
+                                                        ],
+                             "DEC_HND_reg_india_bengal":  [
+                                                              "BAN"
+                                                          ],
+                             "DEC_HND_reg_himalaya_kingdoms":  [
+                                                                   "BHU",
+                                                                   "NEP",
+                                                                   "SIK"
+                                                               ],
+                             "DEC_HND_reg_island_lanka":  [
+                                                              "SRI",
+                                                              "TML"
+                                                          ],
+                             "DEC_HND_reg_island_maldives":  [
+                                                                 "MLD"
+                                                             ],
+                             "DEC_HND_reg_northwest_punjab_kashmir":  [
+                                                                          "KAS",
+                                                                          "KHA"
+                                                                      ],
+                             "DEC_HND_reg_diaspora_caribbean":  [
+                                                                    "GUY",
+                                                                    "SUR",
+                                                                    "TRI"
+                                                                ],
+                             "DEC_HND_reg_diaspora_mauritius":  [
+                                                                    "MRT"
+                                                                ],
+                             "DEC_HND_reg_diaspora_pacific":  [
+                                                                  "FIJ"
+                                                              ]
+                         },
+                "effectPrefix":  "DEC_HND",
+                "access":  "DEC_can_access_hindu_awakening"
+            },
+    "CAL":  {
+                "rootFocus":  "DEC_CAL_world_caliphate",
+                "regs":  {
+                             "DEC_CAL_reg_afr_maghreb":  [
+                                                             "ALG",
+                                                             "CYR",
+                                                             "EGY",
+                                                             "FEZ",
+                                                             "KBY",
+                                                             "LBA",
+                                                             "MAU",
+                                                             "MOR",
+                                                             "SHA",
+                                                             "SUD",
+                                                             "TRP",
+                                                             "TUN"
+                                                         ],
+                             "DEC_CAL_reg_afr_black":  [
+                                                           "AIA",
+                                                           "BFA",
+                                                           "CHA",
+                                                           "COM",
+                                                           "DAR",
+                                                           "DJI",
+                                                           "GAM",
+                                                           "GUB",
+                                                           "GUI",
+                                                           "MAL",
+                                                           "NGR",
+                                                           "NIG",
+                                                           "SEN",
+                                                           "SHB",
+                                                           "SIE",
+                                                           "SML",
+                                                           "SOM",
+                                                           "TUA"
+                                                       ],
+                             "DEC_CAL_reg_asia_me":  [
+                                                         "AQY",
+                                                         "BHR",
+                                                         "HAM",
+                                                         "HEZ",
+                                                         "HOU",
+                                                         "IRQ",
+                                                         "ISI",
+                                                         "JOR",
+                                                         "KUR",
+                                                         "KUW",
+                                                         "LEB",
+                                                         "NUS",
+                                                         "OMA",
+                                                         "PAL",
+                                                         "PER",
+                                                         "QAT",
+                                                         "SAU",
+                                                         "SYR",
+                                                         "TUR",
+                                                         "UAE",
+                                                         "YEM"
+                                                     ],
+                             "DEC_CAL_reg_asia_central":  [
+                                                              "AFG",
+                                                              "BDA",
+                                                              "BLC",
+                                                              "HAZ",
+                                                              "KAS",
+                                                              "PAK",
+                                                              "TAJ",
+                                                              "TAL",
+                                                              "TRK",
+                                                              "TTP",
+                                                              "UZB"
+                                                          ],
+                             "DEC_CAL_reg_asia_north":  [
+                                                            "ETK",
+                                                            "KAZ",
+                                                            "KRP",
+                                                            "KYR"
+                                                        ],
+                             "DEC_CAL_reg_asia_far":  [
+                                                          "ACE",
+                                                          "BAN",
+                                                          "BNG",
+                                                          "BRU",
+                                                          "IND",
+                                                          "MAY",
+                                                          "MLD"
+                                                      ],
+                             "DEC_CAL_reg_eur_cau":  [
+                                                         "ADY",
+                                                         "AZE",
+                                                         "BLK",
+                                                         "CAU",
+                                                         "CHE",
+                                                         "CIR",
+                                                         "DAG",
+                                                         "ING",
+                                                         "KBK",
+                                                         "KCC"
+                                                     ],
+                             "DEC_CAL_reg_eur_volga":  [
+                                                           "BCF",
+                                                           "BSH",
+                                                           "IDL",
+                                                           "NOG",
+                                                           "TAT",
+                                                           "VBG"
+                                                       ],
+                             "DEC_CAL_reg_eur_balk":  [
+                                                          "ALB",
+                                                          "BOS",
+                                                          "KOS",
+                                                          "NCY"
+                                                      ]
+                         },
+                "effectPrefix":  "DEC_CAL",
+                "access":  "DEC_can_access_caliphate_branch"
+            },
+    "WHT":  {
+                "rootFocus":  "DEC_WHT_white_revival",
+                "sparkFx":  "DEC_WHT_spark_via_tag",
+                "regs":  {
+                             "DEC_WHT_reg_europe_west":  [
+                                                             "ENG",
+                                                             "FRA",
+                                                             "BEL",
+                                                             "HOL",
+                                                             "IRE",
+                                                             "LUX"
+                                                         ],
+                             "DEC_WHT_reg_europe_north":  [
+                                                              "DEN",
+                                                              "ICE",
+                                                              "NRY",
+                                                              "SWE"
+                                                          ],
+                             "DEC_WHT_reg_europe_central":  [
+                                                                "AUS",
+                                                                "CZE",
+                                                                "GER",
+                                                                "HUN",
+                                                                "LIC",
+                                                                "POL",
+                                                                "SLO",
+                                                                "SWI"
+                                                            ],
+                             "DEC_WHT_reg_europe_east":  [
+                                                             "ADO",
+                                                             "ALB",
+                                                             "BLR",
+                                                             "BOS",
+                                                             "BUL",
+                                                             "CRO",
+                                                             "CYP",
+                                                             "FYR",
+                                                             "GRE",
+                                                             "HLS",
+                                                             "ITA",
+                                                             "KOS",
+                                                             "LAT",
+                                                             "LIT",
+                                                             "MLT",
+                                                             "MLV",
+                                                             "MNT",
+                                                             "POR",
+                                                             "ROM",
+                                                             "SER",
+                                                             "SLV",
+                                                             "SMA",
+                                                             "SPR",
+                                                             "UKR"
+                                                         ],
+                             "DEC_WHT_reg_europe_russian":  [
+                                                                "BGR",
+                                                                "DON",
+                                                                "KUB",
+                                                                "RUS",
+                                                                "SEV",
+                                                                "SMO",
+                                                                "SOV",
+                                                                "VOR",
+                                                                "VYK"
+                                                            ],
+                             "DEC_WHT_reg_na_usa":  [
+                                                        "USA"
+                                                    ],
+                             "DEC_WHT_reg_na_canada":  [
+                                                           "CAN"
+                                                       ],
+                             "DEC_WHT_reg_colonies_saf":  [
+                                                              "APT"
+                                                          ],
+                             "DEC_WHT_reg_colonies_rho":  [
+                                                              "RHO"
+                                                          ],
+                             "DEC_WHT_reg_colonies_cone":  [
+                                                               "ARG",
+                                                               "BRA",
+                                                               "CHL",
+                                                               "URG"
+                                                           ],
+                             "DEC_WHT_reg_finno_fin":  [
+                                                           "FIN"
+                                                       ],
+                             "DEC_WHT_reg_finno_est":  [
+                                                           "EST"
+                                                       ],
+                             "DEC_WHT_reg_finno_north_finno":  [
+                                                                   "BJA",
+                                                                   "IGR",
+                                                                   "KAE",
+                                                                   "LAP"
+                                                               ],
+                             "DEC_WHT_reg_oceania_ast":  [
+                                                             "AST"
+                                                         ],
+                             "DEC_WHT_reg_oceania_nzl":  [
+                                                             "NZL"
+                                                         ]
+                         },
+                "effectPrefix":  "DEC_WHT",
+                "access":  "DEC_can_access_white_revival"
+            },
+    "ASI":  {
+                "rootFocus":  "DEC_ASI_asian_awakening",
+                "regs":  {
+                             "DEC_ASI_reg_china_core":  [
+                                                            "CHI",
+                                                            "TAI"
+                                                        ],
+                             "DEC_ASI_reg_china_coasts":  [
+                                                              "HKG",
+                                                              "MAC"
+                                                          ],
+                             "DEC_ASI_reg_china_highlands":  [
+                                                                 "MON",
+                                                                 "OMG",
+                                                                 "TIB"
+                                                             ],
+                             "DEC_ASI_reg_northeast_japan":  [
+                                                                 "JAP",
+                                                                 "RYU"
+                                                             ],
+                             "DEC_ASI_reg_northeast_korea":  [
+                                                                 "KOR",
+                                                                 "NKO"
+                                                             ],
+                             "DEC_ASI_reg_mainland_indochina":  [
+                                                                    "CBD",
+                                                                    "LAO",
+                                                                    "VIE"
+                                                                ],
+                             "DEC_ASI_reg_mainland_theravada":  [
+                                                                    "BRM",
+                                                                    "SIA"
+                                                                ],
+                             "DEC_ASI_reg_maritime_malay":  [
+                                                                "BRU",
+                                                                "IND",
+                                                                "MAY",
+                                                                "SIN"
+                                                            ],
+                             "DEC_ASI_reg_maritime_philippines":  [
+                                                                      "PHI"
+                                                                  ]
+                         },
+                "effectPrefix":  "DEC_ASI",
+                "access":  "DEC_can_access_asian_awakening"
+            },
+    "IND":  {
+                "rootFocus":  "DEC_IND_indigenous_awakening",
+                "regs":  {
+                             "DEC_IND_reg_north_plains":  [
+                                                              "GLC",
+                                                              "LKT"
+                                                          ],
+                             "DEC_IND_reg_north_pacific":  [
+                                                               "CAS",
+                                                               "GRN",
+                                                               "HWI"
+                                                           ],
+                             "DEC_IND_reg_north_settlers":  [
+                                                                "CAN",
+                                                                "USA"
+                                                            ],
+                             "DEC_IND_reg_meso_mexico":  [
+                                                             "MEX",
+                                                             "YUC"
+                                                         ],
+                             "DEC_IND_reg_meso_central":  [
+                                                              "BLZ",
+                                                              "COS",
+                                                              "ELS",
+                                                              "GUA",
+                                                              "HON",
+                                                              "NIC",
+                                                              "PAN"
+                                                          ],
+                             "DEC_IND_reg_andes_tauantinsuyu":  [
+                                                                    "BOL",
+                                                                    "ECU",
+                                                                    "PRU"
+                                                                ],
+                             "DEC_IND_reg_andes_northern":  [
+                                                                "COL"
+                                                            ],
+                             "DEC_IND_reg_south_amazon":  [
+                                                              "BRA",
+                                                              "GUY",
+                                                              "SUR",
+                                                              "VEN"
+                                                          ],
+                             "DEC_IND_reg_south_cone":  [
+                                                            "ARG",
+                                                            "CHL",
+                                                            "PAR",
+                                                            "PAT",
+                                                            "URG"
+                                                        ],
+                             "DEC_IND_reg_melanesia_black_pacific":  [
+                                                                         "FIJ",
+                                                                         "PAP",
+                                                                         "SOL",
+                                                                         "VAN"
+                                                                     ],
+                             "DEC_IND_reg_melanesia_timor":  [
+                                                                 "TIM"
+                                                             ],
+                             "DEC_IND_reg_polynesia_maori":  [
+                                                                 "KIR",
+                                                                 "NZL",
+                                                                 "SAM",
+                                                                 "TON",
+                                                                 "TUL"
+                                                             ],
+                             "DEC_IND_reg_polynesia_micronesia":  [
+                                                                      "MIC",
+                                                                      "NAU",
+                                                                      "PAU"
+                                                                  ],
+                             "DEC_IND_reg_polynesia_australia":  [
+                                                                     "AST"
+                                                                 ]
+                         },
+                "effectPrefix":  "DEC_IND",
+                "access":  "DEC_can_access_indigenous_awakening"
+            },
+    "BAW":  {
+                "rootFocus":  "DEC_BAW_black_awakening",
+                "regs":  {
+                             "DEC_BAW_reg_west_sahel":  [
+                                                            "BFA",
+                                                            "CHA",
+                                                            "GAM",
+                                                            "MAL",
+                                                            "NGR",
+                                                            "SEN"
+                                                        ],
+                             "DEC_BAW_reg_west_guinea":  [
+                                                             "BEN",
+                                                             "CDI",
+                                                             "GAH",
+                                                             "GUB",
+                                                             "GUI",
+                                                             "LIB",
+                                                             "SIE",
+                                                             "TOG",
+                                                             "VER"
+                                                         ],
+                             "DEC_BAW_reg_west_nigeria":  [
+                                                              "NIG"
+                                                          ],
+                             "DEC_BAW_reg_central_congo":  [
+                                                               "CAR",
+                                                               "CNG",
+                                                               "DRC",
+                                                               "SSU"
+                                                           ],
+                             "DEC_BAW_reg_central_equatorial":  [
+                                                                    "CAM",
+                                                                    "EGU",
+                                                                    "GAB",
+                                                                    "SAO"
+                                                                ],
+                             "DEC_BAW_reg_east_horn":  [
+                                                           "DJI",
+                                                           "ERI",
+                                                           "ETH",
+                                                           "SML",
+                                                           "SOM"
+                                                       ],
+                             "DEC_BAW_reg_east_lakes":  [
+                                                            "BUR",
+                                                            "KEN",
+                                                            "RWA",
+                                                            "TNZ",
+                                                            "UGA"
+                                                        ],
+                             "DEC_BAW_reg_east_sudan":  [
+                                                            "SUD"
+                                                        ],
+                             "DEC_BAW_reg_east_islands":  [
+                                                              "COM",
+                                                              "MAD",
+                                                              "MRT",
+                                                              "SEY"
+                                                          ],
+                             "DEC_BAW_reg_south_cape":  [
+                                                            "BOT",
+                                                            "LES",
+                                                            "NAM",
+                                                            "SAF",
+                                                            "SWA"
+                                                        ],
+                             "DEC_BAW_reg_south_miombo":  [
+                                                              "AGL",
+                                                              "MLW",
+                                                              "MOZ",
+                                                              "ZAM",
+                                                              "ZIM"
+                                                          ],
+                             "DEC_BAW_reg_america_usa":  [
+                                                             "USA"
+                                                         ],
+                             "DEC_BAW_reg_america_caribbean":  [
+                                                                   "BAH",
+                                                                   "BAR",
+                                                                   "CUB",
+                                                                   "DOM",
+                                                                   "HAI",
+                                                                   "JAM",
+                                                                   "TRI"
+                                                               ],
+                             "DEC_BAW_reg_america_central_am":  [
+                                                                    "BLZ",
+                                                                    "HON",
+                                                                    "NIC",
+                                                                    "PAN"
+                                                                ],
+                             "DEC_BAW_reg_america_south_am":  [
+                                                                  "BRA",
+                                                                  "COL",
+                                                                  "FGU",
+                                                                  "GUY",
+                                                                  "SUR",
+                                                                  "VEN"
+                                                              ],
+                             "DEC_BAW_reg_europe_eng":  [
+                                                            "ENG"
+                                                        ],
+                             "DEC_BAW_reg_europe_fra":  [
+                                                            "FRA"
+                                                        ],
+                             "DEC_BAW_reg_europe_bel":  [
+                                                            "BEL"
+                                                        ],
+                             "DEC_BAW_reg_europe_hol":  [
+                                                            "HOL"
+                                                        ],
+                             "DEC_BAW_reg_europe_por":  [
+                                                            "POR"
+                                                        ]
+                         },
+                "effectPrefix":  "DEC_BAW",
+                "access":  "DEC_can_access_black_awakening"
+            }
+}

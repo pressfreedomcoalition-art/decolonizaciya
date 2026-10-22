@@ -1,0 +1,194 @@
+############################################
+# Ural block
+############################################
+
+shared_focus = {
+	id = DEC_URA_komi_uprising
+	icon = generic_fascist_uprising
+	x = 78
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_ural_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = KOM
+			AND = { DEC_KOM_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_KOM } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_ural_ready = yes
+		OR = {
+			tag = KOM
+			has_war_with = SOV
+			SOV = { owns_state = 648 }
+			NOT = { country_exists = KOM }
+			DEC_KOM_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_URA_komi_uprising"
+		if = {
+			limit = { NOT = { DEC_KOM_already_independent = yes } }
+			DEC_uprising_KOM = yes
+		}
+		set_country_flag = DEC_URA_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_ural_block = yes
+	}
+	ai_will_do = { base = 14 }
+}
+
+shared_focus = {
+	id = DEC_URA_khanty_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_URA_komi_uprising
+	x = 4
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_ural_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = KHM
+			AND = { DEC_KHM_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_KHM } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_ural_ready = yes
+		OR = {
+			tag = KHM
+			has_war_with = SOV
+			SOV = { owns_state = 678 }
+			NOT = { country_exists = KHM }
+			DEC_KHM_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_URA_khanty_uprising"
+		if = {
+			limit = { NOT = { DEC_KHM_already_independent = yes } }
+			DEC_uprising_KHM = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_ural_block = yes
+	}
+	ai_will_do = { base = 14 }
+}
+
+shared_focus = {
+	id = DEC_URA_yamal_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_URA_komi_uprising
+	x = 8
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_ural_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = YAM
+			AND = { DEC_YAM_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_YAM } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_ural_ready = yes
+		OR = {
+			tag = YAM
+			has_war_with = SOV
+			SOV = { owns_state = 679 }
+			NOT = { country_exists = YAM }
+			DEC_YAM_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_URA_yamal_uprising"
+		if = {
+			limit = { NOT = { DEC_YAM_already_independent = yes } }
+			DEC_uprising_YAM = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_ural_block = yes
+	}
+	ai_will_do = { base = 14 }
+}
+
+shared_focus = {
+	id = DEC_URA_nenets_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_URA_komi_uprising
+	x = 12
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_ural_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = NEE
+			AND = { DEC_NEE_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_NEE } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_ural_ready = yes
+		OR = {
+			tag = NEE
+			has_war_with = SOV
+			SOV = { owns_state = 683 }
+			NOT = { country_exists = NEE }
+			DEC_NEE_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_URA_nenets_uprising"
+		if = {
+			limit = { NOT = { DEC_NEE_already_independent = yes } }
+			DEC_uprising_NEE = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_ural_block = yes
+	}
+	ai_will_do = { base = 14 }
+}
+
+shared_focus = {
+	id = DEC_URA_proclaim_ural
+	icon = industry_civilian
+	allow_branch = { DEC_can_access_ural_branch = yes }
+	relative_position_id = DEC_URA_komi_uprising
+	x = 6
+	y = 2
+	cost = 8
+	prerequisite = {
+		focus = DEC_URA_komi_uprising
+		focus = DEC_URA_khanty_uprising
+		focus = DEC_URA_yamal_uprising
+		focus = DEC_URA_nenets_uprising
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		DEC_is_ural_nation = yes
+		has_global_flag = DEC_URA_block_complete
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_URA_proclaim_ural"
+		676 = { add_core_of = URA }
+		675 = { add_core_of = URA }
+		658 = { add_core_of = URA }
+		DEC_create_ural_faction = yes
+		custom_effect_tooltip = DEC_URA_proclaim_ural_tt
+	}
+	ai_will_do = { base = 28 }
+}

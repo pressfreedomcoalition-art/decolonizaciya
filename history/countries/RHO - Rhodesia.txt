@@ -1,0 +1,88 @@
+capital = 290
+2000.1.1 = {
+	set_variable = { currency_strength = 0.55 }
+	set_country_flag = dynamic_flag
+	set_variable = { gdp_per_capita = 6.000 }
+
+	add_ideas = {
+		partially_nationalized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		standard_regulations
+		recession
+		corruption_level_04
+		farmers
+		bureau_02
+		defence_03
+		police_03
+		edu_02
+		health_02
+		social_01
+		export_economy
+		volunteer_army
+		no_women_in_military
+		officer_basic_training
+		non_state_actor
+		pluralist
+		no_currency_backing
+	}
+
+	inherit_technology = ZIM
+
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 60 }
+	add_to_array = { influence_array = ENG.id }
+	add_to_array = { influence_array_val = 20 }
+	add_to_array = { influence_array = SAF.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	set_popularities = {
+		democratic = 10.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 15.0
+		nationalist = 75.0
+	}
+	set_politics = {
+		ruling_party = nationalist
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+	start_politics_input = yes
+	set_variable = { party_pop_array^1 = 0.10 }
+	set_variable = { party_pop_array^14 = 0.15 }
+	set_variable = { party_pop_array^20 = 0.30 }
+	set_variable = { party_pop_array^21 = 0.30 }
+	set_variable = { party_pop_array^22 = 0.15 }
+	set_variable = { ruling_party = 21 }
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Rhodesian Front Council"
+		desc = "POLITICS_RHO_COUNCIL_DESC"
+		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+		ideology = Nat_Fascism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Rhodesian National Party"
+		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Rhodesian Security Council"
+		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+		ideology = Nat_Autocracy
+		traits = { }
+	}
+
+	set_variable = { overall_productivity = 700 }
+	set_variable = { cb_policy_rate = 3 }
+}

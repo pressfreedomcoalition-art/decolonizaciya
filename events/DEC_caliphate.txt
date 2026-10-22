@@ -1,0 +1,112 @@
+##############################
+# World Caliphate — bay'ah events
+##############################
+
+add_namespace = dec_cal
+
+# Allegiance demand from Caliph (Mecca)
+country_event = {
+	id = dec_cal.1
+	title = dec_cal.1.t
+	desc = dec_cal.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = dec_cal.1.a
+		log = "[GetDateText]: [This.GetName]: dec_cal.1.a accept bayah"
+		set_country_flag = DEC_CAL_bayah_accepted
+		if = {
+			limit = { event_target:DEC_caliph_overlord = { exists = yes } }
+			event_target:DEC_caliph_overlord = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_terrorist_wilayah
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_other_country = { has_country_flag = DEC_CAL_bayah_caller }
+			}
+			random_other_country = {
+				limit = { has_country_flag = DEC_CAL_bayah_caller }
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_terrorist_wilayah
+				}
+			}
+		}
+	}
+
+	option = {
+		name = dec_cal.1.b
+		log = "[GetDateText]: [This.GetName]: dec_cal.1.b refuse bayah"
+		set_country_flag = DEC_CAL_bayah_refused
+		ai_chance = { base = 25 }
+		if = {
+			limit = {
+				any_other_country = { has_country_flag = DEC_CAL_bayah_caller }
+			}
+			random_other_country = {
+				limit = { has_country_flag = DEC_CAL_bayah_caller }
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+				country_event = { id = dec_cal.2 hours = 1 }
+			}
+		}
+		# Radical Islam vassal uprising against the refusee
+		set_variable = { party_pop_array^11 = 0.50 }
+		add_popularity = { ideology = fascism popularity = 0.50 }
+		recalculate_party = yes
+		start_civil_war = {
+			ideology = fascism
+			size = 0.50
+		}
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = fascism
+				has_war_with = ROOT
+			}
+			jihadist_conversion_setup = yes
+			if = {
+				limit = {
+					any_other_country = { has_country_flag = DEC_CAL_bayah_caller is_in_faction = yes }
+				}
+				random_other_country = {
+					limit = { has_country_flag = DEC_CAL_bayah_caller }
+					add_to_faction = PREV
+				}
+			}
+			if = {
+				limit = {
+					any_other_country = { has_country_flag = DEC_CAL_bayah_caller }
+				}
+				random_other_country = {
+					limit = { has_country_flag = DEC_CAL_bayah_caller }
+					set_autonomy = {
+						target = PREV
+						autonomy_state = autonomy_terrorist_wilayah
+					}
+				}
+			}
+		}
+	}
+}
+
+# Caliph notified of refusal
+country_event = {
+	id = dec_cal.2
+	title = dec_cal.2.t
+	desc = dec_cal.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = dec_cal.2.a
+		log = "[GetDateText]: [This.GetName]: dec_cal.2.a"
+	}
+}

@@ -1,0 +1,5364 @@
+############################################
+# Black Awakening scripted effects
+############################################
+
+DEC_BAW_add_ns_amt = {
+	if = { limit = { NOT = { has_variable = party_pop_array^21 } } set_variable = { party_pop_array^21 = 0 } }
+	add_to_variable = { party_pop_array^21 = DEC_baw_ns_amt }
+	clamp_variable = { var = party_pop_array^21 min = 0 max = 1 }
+	add_popularity = { ideology = nationalist popularity = DEC_baw_ns_amt }
+	recalculate_party = yes
+}
+
+DEC_BAW_ns_conversion_setup = {
+	set_variable = { party_pop_array^21 = 0.55 }
+	add_popularity = { ideology = nationalist popularity = 0.55 }
+	set_variable = { ruling_party = 21 }
+	recalculate_party = yes
+	set_politics = { ruling_party = nationalist elections_allowed = no }
+	set_country_flag = DEC_rebel_nation
+	if = { limit = { DEC_BAW_is_europe = yes } DEC_BAW_europe_rebel_flavor = yes }
+}
+
+# Cosmetic + black NS leader for European diaspora uprisings (FRA/ENG/BEL/HOL/POR)
+DEC_BAW_europe_rebel_flavor = {
+	if = {
+		limit = { OR = { original_tag = FRA tag = FRA } }
+		set_cosmetic_tag = DEC_BP_FRANCE
+		set_party_name = { ideology = nationalist long_name = DEC_BAW_PANTHERS_FRA_party name = DEC_BAW_PANTHERS_FRA_party }
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Kémi Séba"
+			desc = DEC_BAW_panther_leader_fra_desc
+			picture = "gfx/leaders/DEC/kemi_seba.dds"
+			expire = "2060.1.1"
+			ideology = Nat_Populism
+			traits = { }
+		}
+	}
+	else_if = {
+		limit = { OR = { original_tag = ENG tag = ENG } }
+		set_cosmetic_tag = DEC_BP_BRITAIN
+		set_party_name = { ideology = nationalist long_name = DEC_BAW_PANTHERS_ENG_party name = DEC_BAW_PANTHERS_ENG_party }
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Marcus Johnson"
+			desc = DEC_BAW_panther_leader_eng_desc
+			picture = "gfx/leaders/generic_politicians/black_002.dds"
+			expire = "2060.1.1"
+			ideology = Nat_Populism
+			traits = { }
+		}
+	}
+	else_if = {
+		limit = { OR = { original_tag = BEL tag = BEL } }
+		set_cosmetic_tag = DEC_BP_BELGIUM
+		set_party_name = { ideology = nationalist long_name = DEC_BAW_PANTHERS_BEL_party name = DEC_BAW_PANTHERS_BEL_party }
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Jean-Baptiste Mbuyi"
+			desc = DEC_BAW_panther_leader_bel_desc
+			picture = "gfx/leaders/generic_politicians/black_003.dds"
+			expire = "2060.1.1"
+			ideology = Nat_Populism
+			traits = { }
+		}
+	}
+	else_if = {
+		limit = { OR = { original_tag = HOL tag = HOL } }
+		set_cosmetic_tag = DEC_BP_NETHERLANDS
+		set_party_name = { ideology = nationalist long_name = DEC_BAW_PANTHERS_HOL_party name = DEC_BAW_PANTHERS_HOL_party }
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Kwame Boateng"
+			desc = DEC_BAW_panther_leader_hol_desc
+			picture = "gfx/leaders/generic_politicians/black_004.dds"
+			expire = "2060.1.1"
+			ideology = Nat_Populism
+			traits = { }
+		}
+	}
+	else_if = {
+		limit = { OR = { original_tag = POR tag = POR } }
+		set_cosmetic_tag = DEC_BP_PORTUGAL
+		set_party_name = { ideology = nationalist long_name = DEC_BAW_PANTHERS_POR_party name = DEC_BAW_PANTHERS_POR_party }
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Carlos Mendes"
+			desc = DEC_BAW_panther_leader_por_desc
+			picture = "gfx/leaders/generic_politicians/black_005.dds"
+			expire = "2060.1.1"
+			ideology = Nat_Populism
+			traits = { }
+		}
+	}
+}
+
+DEC_BAW_boost_all = {
+	every_country = {
+		limit = { DEC_is_black_brotherhood_nation = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_west = {
+	every_country = { limit = { DEC_BAW_is_west = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_west_sahel = {
+	every_country = { limit = { DEC_BAW_is_west_sahel = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_west_guinea = {
+	every_country = { limit = { DEC_BAW_is_west_guinea = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_west_nigeria = {
+	every_country = { limit = { DEC_BAW_is_west_nigeria = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_central = {
+	every_country = { limit = { DEC_BAW_is_central = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_central_congo = {
+	every_country = { limit = { DEC_BAW_is_central_congo = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_central_equatorial = {
+	every_country = { limit = { DEC_BAW_is_central_equatorial = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_east = {
+	every_country = { limit = { DEC_BAW_is_east = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_east_horn = {
+	every_country = { limit = { DEC_BAW_is_east_horn = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_east_lakes = {
+	every_country = { limit = { DEC_BAW_is_east_lakes = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_east_sudan = {
+	every_country = { limit = { DEC_BAW_is_east_sudan = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_east_islands = {
+	every_country = { limit = { DEC_BAW_is_east_islands = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_south = {
+	every_country = { limit = { DEC_BAW_is_south = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_south_cape = {
+	every_country = { limit = { DEC_BAW_is_south_cape = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_south_miombo = {
+	every_country = { limit = { DEC_BAW_is_south_miombo = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_america = {
+	every_country = { limit = { DEC_BAW_is_america = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_america_usa = {
+	every_country = { limit = { DEC_BAW_is_america_usa = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_america_caribbean = {
+	every_country = { limit = { DEC_BAW_is_america_caribbean = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_america_south_am = {
+	every_country = { limit = { DEC_BAW_is_america_south_am = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_america_central_am = {
+	every_country = { limit = { DEC_BAW_is_america_central_am = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_europe = {
+	every_country = { limit = { DEC_BAW_is_europe = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_europe_fra = {
+	every_country = { limit = { DEC_BAW_is_europe_fra = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_europe_eng = {
+	every_country = { limit = { DEC_BAW_is_europe_eng = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_europe_bel = {
+	every_country = { limit = { DEC_BAW_is_europe_bel = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_europe_hol = {
+	every_country = { limit = { DEC_BAW_is_europe_hol = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_europe_por = {
+	every_country = { limit = { DEC_BAW_is_europe_por = yes exists = yes }
+		set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt }
+		DEC_BAW_add_ns_amt = yes
+	}
+}
+DEC_BAW_boost_country_SEN = {
+	if = { limit = { country_exists = SEN }
+		SEN = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SEN = {
+	log = "DEC_BAW: NS uprising SEN"
+	if = {
+		limit = { country_exists = SEN SEN = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SEN original_tag = SEN } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SEN SEN = { is_subject = no } }
+		SEN = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SEN has_government = nationalist has_war_with = SEN }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SEN }
+		SEN = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SEN } }
+		SEN = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SEN }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SEN }
+		}
+		if = {
+			limit = { country_exists = SEN }
+			SEN = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SEN } }
+			SEN = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_GAM = {
+	if = { limit = { country_exists = GAM }
+		GAM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_GAM = {
+	log = "DEC_BAW: NS uprising GAM"
+	if = {
+		limit = { country_exists = GAM GAM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = GAM original_tag = GAM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = GAM GAM = { is_subject = no } }
+		GAM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = GAM has_government = nationalist has_war_with = GAM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = GAM }
+		GAM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GAM } }
+		GAM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = GAM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = GAM }
+		}
+		if = {
+			limit = { country_exists = GAM }
+			GAM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GAM } }
+			GAM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_MAL = {
+	if = { limit = { country_exists = MAL }
+		MAL = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_MAL = {
+	log = "DEC_BAW: NS uprising MAL"
+	if = {
+		limit = { country_exists = MAL MAL = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = MAL original_tag = MAL } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = MAL MAL = { is_subject = no } }
+		MAL = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = MAL has_government = nationalist has_war_with = MAL }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = MAL }
+		MAL = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MAL } }
+		MAL = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = MAL }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = MAL }
+		}
+		if = {
+			limit = { country_exists = MAL }
+			MAL = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MAL } }
+			MAL = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BFA = {
+	if = { limit = { country_exists = BFA }
+		BFA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BFA = {
+	log = "DEC_BAW: NS uprising BFA"
+	if = {
+		limit = { country_exists = BFA BFA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BFA original_tag = BFA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BFA BFA = { is_subject = no } }
+		BFA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BFA has_government = nationalist has_war_with = BFA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BFA }
+		BFA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BFA } }
+		BFA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BFA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BFA }
+		}
+		if = {
+			limit = { country_exists = BFA }
+			BFA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BFA } }
+			BFA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_NGR = {
+	if = { limit = { country_exists = NGR }
+		NGR = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_NGR = {
+	log = "DEC_BAW: NS uprising NGR"
+	if = {
+		limit = { country_exists = NGR NGR = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = NGR original_tag = NGR } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = NGR NGR = { is_subject = no } }
+		NGR = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = NGR has_government = nationalist has_war_with = NGR }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = NGR }
+		NGR = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NGR } }
+		NGR = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = NGR }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = NGR }
+		}
+		if = {
+			limit = { country_exists = NGR }
+			NGR = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NGR } }
+			NGR = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_CHA = {
+	if = { limit = { country_exists = CHA }
+		CHA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_CHA = {
+	log = "DEC_BAW: NS uprising CHA"
+	if = {
+		limit = { country_exists = CHA CHA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = CHA original_tag = CHA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = CHA CHA = { is_subject = no } }
+		CHA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = CHA has_government = nationalist has_war_with = CHA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = CHA }
+		CHA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CHA } }
+		CHA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = CHA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = CHA }
+		}
+		if = {
+			limit = { country_exists = CHA }
+			CHA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CHA } }
+			CHA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_GUI = {
+	if = { limit = { country_exists = GUI }
+		GUI = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_GUI = {
+	log = "DEC_BAW: NS uprising GUI"
+	if = {
+		limit = { country_exists = GUI GUI = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = GUI original_tag = GUI } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = GUI GUI = { is_subject = no } }
+		GUI = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = GUI has_government = nationalist has_war_with = GUI }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = GUI }
+		GUI = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GUI } }
+		GUI = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = GUI }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = GUI }
+		}
+		if = {
+			limit = { country_exists = GUI }
+			GUI = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GUI } }
+			GUI = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_GUB = {
+	if = { limit = { country_exists = GUB }
+		GUB = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_GUB = {
+	log = "DEC_BAW: NS uprising GUB"
+	if = {
+		limit = { country_exists = GUB GUB = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = GUB original_tag = GUB } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = GUB GUB = { is_subject = no } }
+		GUB = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = GUB has_government = nationalist has_war_with = GUB }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = GUB }
+		GUB = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GUB } }
+		GUB = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = GUB }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = GUB }
+		}
+		if = {
+			limit = { country_exists = GUB }
+			GUB = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GUB } }
+			GUB = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SIE = {
+	if = { limit = { country_exists = SIE }
+		SIE = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SIE = {
+	log = "DEC_BAW: NS uprising SIE"
+	if = {
+		limit = { country_exists = SIE SIE = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SIE original_tag = SIE } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SIE SIE = { is_subject = no } }
+		SIE = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SIE has_government = nationalist has_war_with = SIE }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SIE }
+		SIE = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SIE } }
+		SIE = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SIE }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SIE }
+		}
+		if = {
+			limit = { country_exists = SIE }
+			SIE = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SIE } }
+			SIE = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_LIB = {
+	if = { limit = { country_exists = LIB }
+		LIB = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_LIB = {
+	log = "DEC_BAW: NS uprising LIB"
+	if = {
+		limit = { country_exists = LIB LIB = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = LIB original_tag = LIB } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = LIB LIB = { is_subject = no } }
+		LIB = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = LIB has_government = nationalist has_war_with = LIB }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = LIB }
+		LIB = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = LIB } }
+		LIB = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = LIB }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = LIB }
+		}
+		if = {
+			limit = { country_exists = LIB }
+			LIB = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = LIB } }
+			LIB = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_CDI = {
+	if = { limit = { country_exists = CDI }
+		CDI = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_CDI = {
+	log = "DEC_BAW: NS uprising CDI"
+	if = {
+		limit = { country_exists = CDI CDI = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = CDI original_tag = CDI } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = CDI CDI = { is_subject = no } }
+		CDI = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = CDI has_government = nationalist has_war_with = CDI }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = CDI }
+		CDI = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CDI } }
+		CDI = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = CDI }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = CDI }
+		}
+		if = {
+			limit = { country_exists = CDI }
+			CDI = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CDI } }
+			CDI = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_GAH = {
+	if = { limit = { country_exists = GAH }
+		GAH = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_GAH = {
+	log = "DEC_BAW: NS uprising GAH"
+	if = {
+		limit = { country_exists = GAH GAH = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = GAH original_tag = GAH } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = GAH GAH = { is_subject = no } }
+		GAH = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = GAH has_government = nationalist has_war_with = GAH }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = GAH }
+		GAH = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GAH } }
+		GAH = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = GAH }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = GAH }
+		}
+		if = {
+			limit = { country_exists = GAH }
+			GAH = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GAH } }
+			GAH = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_TOG = {
+	if = { limit = { country_exists = TOG }
+		TOG = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_TOG = {
+	log = "DEC_BAW: NS uprising TOG"
+	if = {
+		limit = { country_exists = TOG TOG = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = TOG original_tag = TOG } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = TOG TOG = { is_subject = no } }
+		TOG = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = TOG has_government = nationalist has_war_with = TOG }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = TOG }
+		TOG = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = TOG } }
+		TOG = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = TOG }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = TOG }
+		}
+		if = {
+			limit = { country_exists = TOG }
+			TOG = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = TOG } }
+			TOG = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BEN = {
+	if = { limit = { country_exists = BEN }
+		BEN = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BEN = {
+	log = "DEC_BAW: NS uprising BEN"
+	if = {
+		limit = { country_exists = BEN BEN = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BEN original_tag = BEN } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BEN BEN = { is_subject = no } }
+		BEN = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BEN has_government = nationalist has_war_with = BEN }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BEN }
+		BEN = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BEN } }
+		BEN = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BEN }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BEN }
+		}
+		if = {
+			limit = { country_exists = BEN }
+			BEN = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BEN } }
+			BEN = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_VER = {
+	if = { limit = { country_exists = VER }
+		VER = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_VER = {
+	log = "DEC_BAW: NS uprising VER"
+	if = {
+		limit = { country_exists = VER VER = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = VER original_tag = VER } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = VER VER = { is_subject = no } }
+		VER = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = VER has_government = nationalist has_war_with = VER }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = VER }
+		VER = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = VER } }
+		VER = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = VER }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = VER }
+		}
+		if = {
+			limit = { country_exists = VER }
+			VER = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = VER } }
+			VER = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_NIG = {
+	if = { limit = { country_exists = NIG }
+		NIG = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_NIG = {
+	log = "DEC_BAW: NS uprising NIG"
+	if = {
+		limit = { country_exists = NIG NIG = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = NIG original_tag = NIG } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = NIG NIG = { is_subject = no } }
+		NIG = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = NIG has_government = nationalist has_war_with = NIG }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = NIG }
+		NIG = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NIG } }
+		NIG = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = NIG }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = NIG }
+		}
+		if = {
+			limit = { country_exists = NIG }
+			NIG = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NIG } }
+			NIG = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_DRC = {
+	if = { limit = { country_exists = DRC }
+		DRC = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_DRC = {
+	log = "DEC_BAW: NS uprising DRC"
+	if = {
+		limit = { country_exists = DRC DRC = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = DRC original_tag = DRC } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = DRC DRC = { is_subject = no } }
+		DRC = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = DRC has_government = nationalist has_war_with = DRC }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = DRC }
+		DRC = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = DRC } }
+		DRC = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = DRC }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = DRC }
+		}
+		if = {
+			limit = { country_exists = DRC }
+			DRC = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = DRC } }
+			DRC = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_CNG = {
+	if = { limit = { country_exists = CNG }
+		CNG = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_CNG = {
+	log = "DEC_BAW: NS uprising CNG"
+	if = {
+		limit = { country_exists = CNG CNG = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = CNG original_tag = CNG } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = CNG CNG = { is_subject = no } }
+		CNG = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = CNG has_government = nationalist has_war_with = CNG }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = CNG }
+		CNG = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CNG } }
+		CNG = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = CNG }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = CNG }
+		}
+		if = {
+			limit = { country_exists = CNG }
+			CNG = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CNG } }
+			CNG = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_CAR = {
+	if = { limit = { country_exists = CAR }
+		CAR = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_CAR = {
+	log = "DEC_BAW: NS uprising CAR"
+	if = {
+		limit = { country_exists = CAR CAR = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = CAR original_tag = CAR } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = CAR CAR = { is_subject = no } }
+		CAR = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = CAR has_government = nationalist has_war_with = CAR }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = CAR }
+		CAR = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CAR } }
+		CAR = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = CAR }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = CAR }
+		}
+		if = {
+			limit = { country_exists = CAR }
+			CAR = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CAR } }
+			CAR = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SSU = {
+	if = { limit = { country_exists = SSU }
+		SSU = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SSU = {
+	log = "DEC_BAW: NS uprising SSU"
+	if = {
+		limit = { country_exists = SSU SSU = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SSU original_tag = SSU } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SSU SSU = { is_subject = no } }
+		SSU = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SSU has_government = nationalist has_war_with = SSU }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SSU }
+		SSU = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SSU } }
+		SSU = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SSU }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SSU }
+		}
+		if = {
+			limit = { country_exists = SSU }
+			SSU = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SSU } }
+			SSU = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_CAM = {
+	if = { limit = { country_exists = CAM }
+		CAM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_CAM = {
+	log = "DEC_BAW: NS uprising CAM"
+	if = {
+		limit = { country_exists = CAM CAM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = CAM original_tag = CAM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = CAM CAM = { is_subject = no } }
+		CAM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = CAM has_government = nationalist has_war_with = CAM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = CAM }
+		CAM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CAM } }
+		CAM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = CAM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = CAM }
+		}
+		if = {
+			limit = { country_exists = CAM }
+			CAM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CAM } }
+			CAM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_GAB = {
+	if = { limit = { country_exists = GAB }
+		GAB = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_GAB = {
+	log = "DEC_BAW: NS uprising GAB"
+	if = {
+		limit = { country_exists = GAB GAB = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = GAB original_tag = GAB } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = GAB GAB = { is_subject = no } }
+		GAB = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = GAB has_government = nationalist has_war_with = GAB }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = GAB }
+		GAB = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GAB } }
+		GAB = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = GAB }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = GAB }
+		}
+		if = {
+			limit = { country_exists = GAB }
+			GAB = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GAB } }
+			GAB = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_EGU = {
+	if = { limit = { country_exists = EGU }
+		EGU = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_EGU = {
+	log = "DEC_BAW: NS uprising EGU"
+	if = {
+		limit = { country_exists = EGU EGU = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = EGU original_tag = EGU } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = EGU EGU = { is_subject = no } }
+		EGU = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = EGU has_government = nationalist has_war_with = EGU }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = EGU }
+		EGU = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = EGU } }
+		EGU = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = EGU }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = EGU }
+		}
+		if = {
+			limit = { country_exists = EGU }
+			EGU = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = EGU } }
+			EGU = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SAO = {
+	if = { limit = { country_exists = SAO }
+		SAO = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SAO = {
+	log = "DEC_BAW: NS uprising SAO"
+	if = {
+		limit = { country_exists = SAO SAO = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SAO original_tag = SAO } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SAO SAO = { is_subject = no } }
+		SAO = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SAO has_government = nationalist has_war_with = SAO }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SAO }
+		SAO = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SAO } }
+		SAO = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SAO }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SAO }
+		}
+		if = {
+			limit = { country_exists = SAO }
+			SAO = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SAO } }
+			SAO = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_ETH = {
+	if = { limit = { country_exists = ETH }
+		ETH = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_ETH = {
+	log = "DEC_BAW: NS uprising ETH"
+	if = {
+		limit = { country_exists = ETH ETH = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = ETH original_tag = ETH } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = ETH ETH = { is_subject = no } }
+		ETH = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = ETH has_government = nationalist has_war_with = ETH }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = ETH }
+		ETH = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ETH } }
+		ETH = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = ETH }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = ETH }
+		}
+		if = {
+			limit = { country_exists = ETH }
+			ETH = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ETH } }
+			ETH = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_ERI = {
+	if = { limit = { country_exists = ERI }
+		ERI = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_ERI = {
+	log = "DEC_BAW: NS uprising ERI"
+	if = {
+		limit = { country_exists = ERI ERI = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = ERI original_tag = ERI } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = ERI ERI = { is_subject = no } }
+		ERI = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = ERI has_government = nationalist has_war_with = ERI }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = ERI }
+		ERI = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ERI } }
+		ERI = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = ERI }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = ERI }
+		}
+		if = {
+			limit = { country_exists = ERI }
+			ERI = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ERI } }
+			ERI = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_DJI = {
+	if = { limit = { country_exists = DJI }
+		DJI = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_DJI = {
+	log = "DEC_BAW: NS uprising DJI"
+	if = {
+		limit = { country_exists = DJI DJI = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = DJI original_tag = DJI } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = DJI DJI = { is_subject = no } }
+		DJI = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = DJI has_government = nationalist has_war_with = DJI }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = DJI }
+		DJI = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = DJI } }
+		DJI = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = DJI }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = DJI }
+		}
+		if = {
+			limit = { country_exists = DJI }
+			DJI = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = DJI } }
+			DJI = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SOM = {
+	if = { limit = { country_exists = SOM }
+		SOM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SOM = {
+	log = "DEC_BAW: NS uprising SOM"
+	if = {
+		limit = { country_exists = SOM SOM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SOM original_tag = SOM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SOM SOM = { is_subject = no } }
+		SOM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SOM has_government = nationalist has_war_with = SOM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SOM }
+		SOM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SOM } }
+		SOM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SOM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SOM }
+		}
+		if = {
+			limit = { country_exists = SOM }
+			SOM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SOM } }
+			SOM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SML = {
+	if = { limit = { country_exists = SML }
+		SML = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SML = {
+	log = "DEC_BAW: NS uprising SML"
+	if = {
+		limit = { country_exists = SML SML = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SML original_tag = SML } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SML SML = { is_subject = no } }
+		SML = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SML has_government = nationalist has_war_with = SML }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SML }
+		SML = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SML } }
+		SML = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SML }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SML }
+		}
+		if = {
+			limit = { country_exists = SML }
+			SML = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SML } }
+			SML = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_KEN = {
+	if = { limit = { country_exists = KEN }
+		KEN = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_KEN = {
+	log = "DEC_BAW: NS uprising KEN"
+	if = {
+		limit = { country_exists = KEN KEN = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = KEN original_tag = KEN } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = KEN KEN = { is_subject = no } }
+		KEN = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = KEN has_government = nationalist has_war_with = KEN }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = KEN }
+		KEN = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = KEN } }
+		KEN = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = KEN }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = KEN }
+		}
+		if = {
+			limit = { country_exists = KEN }
+			KEN = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = KEN } }
+			KEN = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_UGA = {
+	if = { limit = { country_exists = UGA }
+		UGA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_UGA = {
+	log = "DEC_BAW: NS uprising UGA"
+	if = {
+		limit = { country_exists = UGA UGA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = UGA original_tag = UGA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = UGA UGA = { is_subject = no } }
+		UGA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = UGA has_government = nationalist has_war_with = UGA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = UGA }
+		UGA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = UGA } }
+		UGA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = UGA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = UGA }
+		}
+		if = {
+			limit = { country_exists = UGA }
+			UGA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = UGA } }
+			UGA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_TNZ = {
+	if = { limit = { country_exists = TNZ }
+		TNZ = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_TNZ = {
+	log = "DEC_BAW: NS uprising TNZ"
+	if = {
+		limit = { country_exists = TNZ TNZ = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = TNZ original_tag = TNZ } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = TNZ TNZ = { is_subject = no } }
+		TNZ = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = TNZ has_government = nationalist has_war_with = TNZ }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = TNZ }
+		TNZ = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = TNZ } }
+		TNZ = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = TNZ }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = TNZ }
+		}
+		if = {
+			limit = { country_exists = TNZ }
+			TNZ = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = TNZ } }
+			TNZ = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_RWA = {
+	if = { limit = { country_exists = RWA }
+		RWA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_RWA = {
+	log = "DEC_BAW: NS uprising RWA"
+	if = {
+		limit = { country_exists = RWA RWA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = RWA original_tag = RWA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = RWA RWA = { is_subject = no } }
+		RWA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = RWA has_government = nationalist has_war_with = RWA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = RWA }
+		RWA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = RWA } }
+		RWA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = RWA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = RWA }
+		}
+		if = {
+			limit = { country_exists = RWA }
+			RWA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = RWA } }
+			RWA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BUR = {
+	if = { limit = { country_exists = BUR }
+		BUR = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BUR = {
+	log = "DEC_BAW: NS uprising BUR"
+	if = {
+		limit = { country_exists = BUR BUR = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BUR original_tag = BUR } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BUR BUR = { is_subject = no } }
+		BUR = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BUR has_government = nationalist has_war_with = BUR }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BUR }
+		BUR = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BUR } }
+		BUR = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BUR }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BUR }
+		}
+		if = {
+			limit = { country_exists = BUR }
+			BUR = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BUR } }
+			BUR = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SUD = {
+	if = { limit = { country_exists = SUD }
+		SUD = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SUD = {
+	log = "DEC_BAW: NS uprising SUD"
+	if = {
+		limit = { country_exists = SUD SUD = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SUD original_tag = SUD } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SUD SUD = { is_subject = no } }
+		SUD = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SUD has_government = nationalist has_war_with = SUD }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SUD }
+		SUD = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SUD } }
+		SUD = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SUD }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SUD }
+		}
+		if = {
+			limit = { country_exists = SUD }
+			SUD = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SUD } }
+			SUD = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_MAD = {
+	if = { limit = { country_exists = MAD }
+		MAD = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_MAD = {
+	log = "DEC_BAW: NS uprising MAD"
+	if = {
+		limit = { country_exists = MAD MAD = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = MAD original_tag = MAD } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = MAD MAD = { is_subject = no } }
+		MAD = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = MAD has_government = nationalist has_war_with = MAD }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = MAD }
+		MAD = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MAD } }
+		MAD = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = MAD }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = MAD }
+		}
+		if = {
+			limit = { country_exists = MAD }
+			MAD = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MAD } }
+			MAD = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_COM = {
+	if = { limit = { country_exists = COM }
+		COM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_COM = {
+	log = "DEC_BAW: NS uprising COM"
+	if = {
+		limit = { country_exists = COM COM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = COM original_tag = COM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = COM COM = { is_subject = no } }
+		COM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = COM has_government = nationalist has_war_with = COM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = COM }
+		COM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = COM } }
+		COM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = COM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = COM }
+		}
+		if = {
+			limit = { country_exists = COM }
+			COM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = COM } }
+			COM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SEY = {
+	if = { limit = { country_exists = SEY }
+		SEY = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SEY = {
+	log = "DEC_BAW: NS uprising SEY"
+	if = {
+		limit = { country_exists = SEY SEY = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SEY original_tag = SEY } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SEY SEY = { is_subject = no } }
+		SEY = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SEY has_government = nationalist has_war_with = SEY }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SEY }
+		SEY = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SEY } }
+		SEY = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SEY }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SEY }
+		}
+		if = {
+			limit = { country_exists = SEY }
+			SEY = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SEY } }
+			SEY = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_MRT = {
+	if = { limit = { country_exists = MRT }
+		MRT = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_MRT = {
+	log = "DEC_BAW: NS uprising MRT"
+	if = {
+		limit = { country_exists = MRT MRT = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = MRT original_tag = MRT } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = MRT MRT = { is_subject = no } }
+		MRT = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = MRT has_government = nationalist has_war_with = MRT }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = MRT }
+		MRT = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MRT } }
+		MRT = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = MRT }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = MRT }
+		}
+		if = {
+			limit = { country_exists = MRT }
+			MRT = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MRT } }
+			MRT = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SAF = {
+	if = { limit = { country_exists = SAF }
+		SAF = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SAF = {
+	log = "DEC_BAW: NS uprising SAF"
+	if = {
+		limit = { country_exists = SAF SAF = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SAF original_tag = SAF } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SAF SAF = { is_subject = no } }
+		SAF = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SAF has_government = nationalist has_war_with = SAF }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SAF }
+		SAF = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SAF } }
+		SAF = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SAF }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SAF }
+		}
+		if = {
+			limit = { country_exists = SAF }
+			SAF = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SAF } }
+			SAF = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_LES = {
+	if = { limit = { country_exists = LES }
+		LES = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_LES = {
+	log = "DEC_BAW: NS uprising LES"
+	if = {
+		limit = { country_exists = LES LES = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = LES original_tag = LES } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = LES LES = { is_subject = no } }
+		LES = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = LES has_government = nationalist has_war_with = LES }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = LES }
+		LES = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = LES } }
+		LES = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = LES }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = LES }
+		}
+		if = {
+			limit = { country_exists = LES }
+			LES = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = LES } }
+			LES = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SWA = {
+	if = { limit = { country_exists = SWA }
+		SWA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SWA = {
+	log = "DEC_BAW: NS uprising SWA"
+	if = {
+		limit = { country_exists = SWA SWA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SWA original_tag = SWA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SWA SWA = { is_subject = no } }
+		SWA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SWA has_government = nationalist has_war_with = SWA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SWA }
+		SWA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SWA } }
+		SWA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SWA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SWA }
+		}
+		if = {
+			limit = { country_exists = SWA }
+			SWA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SWA } }
+			SWA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_NAM = {
+	if = { limit = { country_exists = NAM }
+		NAM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_NAM = {
+	log = "DEC_BAW: NS uprising NAM"
+	if = {
+		limit = { country_exists = NAM NAM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = NAM original_tag = NAM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = NAM NAM = { is_subject = no } }
+		NAM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = NAM has_government = nationalist has_war_with = NAM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = NAM }
+		NAM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NAM } }
+		NAM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = NAM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = NAM }
+		}
+		if = {
+			limit = { country_exists = NAM }
+			NAM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NAM } }
+			NAM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BOT = {
+	if = { limit = { country_exists = BOT }
+		BOT = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BOT = {
+	log = "DEC_BAW: NS uprising BOT"
+	if = {
+		limit = { country_exists = BOT BOT = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BOT original_tag = BOT } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BOT BOT = { is_subject = no } }
+		BOT = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BOT has_government = nationalist has_war_with = BOT }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BOT }
+		BOT = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BOT } }
+		BOT = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BOT }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BOT }
+		}
+		if = {
+			limit = { country_exists = BOT }
+			BOT = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BOT } }
+			BOT = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_ZIM = {
+	if = { limit = { country_exists = ZIM }
+		ZIM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_ZIM = {
+	log = "DEC_BAW: NS uprising ZIM"
+	if = {
+		limit = { country_exists = ZIM ZIM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = ZIM original_tag = ZIM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = ZIM ZIM = { is_subject = no } }
+		ZIM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = ZIM has_government = nationalist has_war_with = ZIM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = ZIM }
+		ZIM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ZIM } }
+		ZIM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = ZIM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = ZIM }
+		}
+		if = {
+			limit = { country_exists = ZIM }
+			ZIM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ZIM } }
+			ZIM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_ZAM = {
+	if = { limit = { country_exists = ZAM }
+		ZAM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_ZAM = {
+	log = "DEC_BAW: NS uprising ZAM"
+	if = {
+		limit = { country_exists = ZAM ZAM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = ZAM original_tag = ZAM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = ZAM ZAM = { is_subject = no } }
+		ZAM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = ZAM has_government = nationalist has_war_with = ZAM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = ZAM }
+		ZAM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ZAM } }
+		ZAM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = ZAM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = ZAM }
+		}
+		if = {
+			limit = { country_exists = ZAM }
+			ZAM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ZAM } }
+			ZAM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_MLW = {
+	if = { limit = { country_exists = MLW }
+		MLW = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_MLW = {
+	log = "DEC_BAW: NS uprising MLW"
+	if = {
+		limit = { country_exists = MLW MLW = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = MLW original_tag = MLW } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = MLW MLW = { is_subject = no } }
+		MLW = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = MLW has_government = nationalist has_war_with = MLW }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = MLW }
+		MLW = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MLW } }
+		MLW = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = MLW }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = MLW }
+		}
+		if = {
+			limit = { country_exists = MLW }
+			MLW = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MLW } }
+			MLW = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_MOZ = {
+	if = { limit = { country_exists = MOZ }
+		MOZ = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_MOZ = {
+	log = "DEC_BAW: NS uprising MOZ"
+	if = {
+		limit = { country_exists = MOZ MOZ = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = MOZ original_tag = MOZ } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = MOZ MOZ = { is_subject = no } }
+		MOZ = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = MOZ has_government = nationalist has_war_with = MOZ }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = MOZ }
+		MOZ = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MOZ } }
+		MOZ = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = MOZ }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = MOZ }
+		}
+		if = {
+			limit = { country_exists = MOZ }
+			MOZ = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = MOZ } }
+			MOZ = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_AGL = {
+	if = { limit = { country_exists = AGL }
+		AGL = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_AGL = {
+	log = "DEC_BAW: NS uprising AGL"
+	if = {
+		limit = { country_exists = AGL AGL = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = AGL original_tag = AGL } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = AGL AGL = { is_subject = no } }
+		AGL = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = AGL has_government = nationalist has_war_with = AGL }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = AGL }
+		AGL = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = AGL } }
+		AGL = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = AGL }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = AGL }
+		}
+		if = {
+			limit = { country_exists = AGL }
+			AGL = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = AGL } }
+			AGL = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_USA = {
+	if = { limit = { country_exists = USA }
+		USA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_USA = {
+	log = "DEC_BAW: NS uprising USA"
+	if = {
+		limit = { country_exists = USA USA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = USA original_tag = USA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = USA USA = { is_subject = no } }
+		USA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = USA has_government = nationalist has_war_with = USA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = USA }
+		USA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = USA } }
+		USA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = USA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = USA }
+		}
+		if = {
+			limit = { country_exists = USA }
+			USA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = USA } }
+			USA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_HAI = {
+	if = { limit = { country_exists = HAI }
+		HAI = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_HAI = {
+	log = "DEC_BAW: NS uprising HAI"
+	if = {
+		limit = { country_exists = HAI HAI = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = HAI original_tag = HAI } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = HAI HAI = { is_subject = no } }
+		HAI = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = HAI has_government = nationalist has_war_with = HAI }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = HAI }
+		HAI = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = HAI } }
+		HAI = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = HAI }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = HAI }
+		}
+		if = {
+			limit = { country_exists = HAI }
+			HAI = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = HAI } }
+			HAI = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_JAM = {
+	if = { limit = { country_exists = JAM }
+		JAM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_JAM = {
+	log = "DEC_BAW: NS uprising JAM"
+	if = {
+		limit = { country_exists = JAM JAM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = JAM original_tag = JAM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = JAM JAM = { is_subject = no } }
+		JAM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = JAM has_government = nationalist has_war_with = JAM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = JAM }
+		JAM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = JAM } }
+		JAM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = JAM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = JAM }
+		}
+		if = {
+			limit = { country_exists = JAM }
+			JAM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = JAM } }
+			JAM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_TRI = {
+	if = { limit = { country_exists = TRI }
+		TRI = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_TRI = {
+	log = "DEC_BAW: NS uprising TRI"
+	if = {
+		limit = { country_exists = TRI TRI = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = TRI original_tag = TRI } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = TRI TRI = { is_subject = no } }
+		TRI = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = TRI has_government = nationalist has_war_with = TRI }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = TRI }
+		TRI = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = TRI } }
+		TRI = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = TRI }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = TRI }
+		}
+		if = {
+			limit = { country_exists = TRI }
+			TRI = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = TRI } }
+			TRI = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BAH = {
+	if = { limit = { country_exists = BAH }
+		BAH = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BAH = {
+	log = "DEC_BAW: NS uprising BAH"
+	if = {
+		limit = { country_exists = BAH BAH = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BAH original_tag = BAH } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BAH BAH = { is_subject = no } }
+		BAH = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BAH has_government = nationalist has_war_with = BAH }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BAH }
+		BAH = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BAH } }
+		BAH = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BAH }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BAH }
+		}
+		if = {
+			limit = { country_exists = BAH }
+			BAH = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BAH } }
+			BAH = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BAR = {
+	if = { limit = { country_exists = BAR }
+		BAR = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BAR = {
+	log = "DEC_BAW: NS uprising BAR"
+	if = {
+		limit = { country_exists = BAR BAR = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BAR original_tag = BAR } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BAR BAR = { is_subject = no } }
+		BAR = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BAR has_government = nationalist has_war_with = BAR }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BAR }
+		BAR = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BAR } }
+		BAR = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BAR }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BAR }
+		}
+		if = {
+			limit = { country_exists = BAR }
+			BAR = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BAR } }
+			BAR = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_DOM = {
+	if = { limit = { country_exists = DOM }
+		DOM = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_DOM = {
+	log = "DEC_BAW: NS uprising DOM"
+	if = {
+		limit = { country_exists = DOM DOM = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = DOM original_tag = DOM } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = DOM DOM = { is_subject = no } }
+		DOM = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = DOM has_government = nationalist has_war_with = DOM }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = DOM }
+		DOM = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = DOM } }
+		DOM = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = DOM }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = DOM }
+		}
+		if = {
+			limit = { country_exists = DOM }
+			DOM = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = DOM } }
+			DOM = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_CUB = {
+	if = { limit = { country_exists = CUB }
+		CUB = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_CUB = {
+	log = "DEC_BAW: NS uprising CUB"
+	if = {
+		limit = { country_exists = CUB CUB = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = CUB original_tag = CUB } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = CUB CUB = { is_subject = no } }
+		CUB = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = CUB has_government = nationalist has_war_with = CUB }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = CUB }
+		CUB = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CUB } }
+		CUB = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = CUB }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = CUB }
+		}
+		if = {
+			limit = { country_exists = CUB }
+			CUB = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = CUB } }
+			CUB = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BRA = {
+	if = { limit = { country_exists = BRA }
+		BRA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BRA = {
+	log = "DEC_BAW: NS uprising BRA"
+	if = {
+		limit = { country_exists = BRA BRA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BRA original_tag = BRA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BRA BRA = { is_subject = no } }
+		BRA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BRA has_government = nationalist has_war_with = BRA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BRA }
+		BRA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BRA } }
+		BRA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BRA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BRA }
+		}
+		if = {
+			limit = { country_exists = BRA }
+			BRA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BRA } }
+			BRA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_COL = {
+	if = { limit = { country_exists = COL }
+		COL = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_COL = {
+	log = "DEC_BAW: NS uprising COL"
+	if = {
+		limit = { country_exists = COL COL = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = COL original_tag = COL } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = COL COL = { is_subject = no } }
+		COL = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = COL has_government = nationalist has_war_with = COL }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = COL }
+		COL = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = COL } }
+		COL = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = COL }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = COL }
+		}
+		if = {
+			limit = { country_exists = COL }
+			COL = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = COL } }
+			COL = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_VEN = {
+	if = { limit = { country_exists = VEN }
+		VEN = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_VEN = {
+	log = "DEC_BAW: NS uprising VEN"
+	if = {
+		limit = { country_exists = VEN VEN = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = VEN original_tag = VEN } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = VEN VEN = { is_subject = no } }
+		VEN = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = VEN has_government = nationalist has_war_with = VEN }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = VEN }
+		VEN = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = VEN } }
+		VEN = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = VEN }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = VEN }
+		}
+		if = {
+			limit = { country_exists = VEN }
+			VEN = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = VEN } }
+			VEN = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_GUY = {
+	if = { limit = { country_exists = GUY }
+		GUY = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_GUY = {
+	log = "DEC_BAW: NS uprising GUY"
+	if = {
+		limit = { country_exists = GUY GUY = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = GUY original_tag = GUY } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = GUY GUY = { is_subject = no } }
+		GUY = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = GUY has_government = nationalist has_war_with = GUY }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = GUY }
+		GUY = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GUY } }
+		GUY = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = GUY }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = GUY }
+		}
+		if = {
+			limit = { country_exists = GUY }
+			GUY = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = GUY } }
+			GUY = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_SUR = {
+	if = { limit = { country_exists = SUR }
+		SUR = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_SUR = {
+	log = "DEC_BAW: NS uprising SUR"
+	if = {
+		limit = { country_exists = SUR SUR = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = SUR original_tag = SUR } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = SUR SUR = { is_subject = no } }
+		SUR = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = SUR has_government = nationalist has_war_with = SUR }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = SUR }
+		SUR = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SUR } }
+		SUR = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = SUR }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = SUR }
+		}
+		if = {
+			limit = { country_exists = SUR }
+			SUR = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = SUR } }
+			SUR = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_FGU = {
+	if = { limit = { country_exists = FGU }
+		FGU = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_FGU = {
+	log = "DEC_BAW: NS uprising FGU"
+	if = {
+		limit = { country_exists = FGU FGU = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = FGU original_tag = FGU } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = FGU FGU = { is_subject = no } }
+		FGU = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = FGU has_government = nationalist has_war_with = FGU }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = FGU }
+		FGU = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = FGU } }
+		FGU = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = FGU }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = FGU }
+		}
+		if = {
+			limit = { country_exists = FGU }
+			FGU = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = FGU } }
+			FGU = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_PAN = {
+	if = { limit = { country_exists = PAN }
+		PAN = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_PAN = {
+	log = "DEC_BAW: NS uprising PAN"
+	if = {
+		limit = { country_exists = PAN PAN = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = PAN original_tag = PAN } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = PAN PAN = { is_subject = no } }
+		PAN = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = PAN has_government = nationalist has_war_with = PAN }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = PAN }
+		PAN = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PAN } }
+		PAN = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = PAN }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = PAN }
+		}
+		if = {
+			limit = { country_exists = PAN }
+			PAN = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PAN } }
+			PAN = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BLZ = {
+	if = { limit = { country_exists = BLZ }
+		BLZ = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BLZ = {
+	log = "DEC_BAW: NS uprising BLZ"
+	if = {
+		limit = { country_exists = BLZ BLZ = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BLZ original_tag = BLZ } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BLZ BLZ = { is_subject = no } }
+		BLZ = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BLZ has_government = nationalist has_war_with = BLZ }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BLZ }
+		BLZ = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BLZ } }
+		BLZ = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BLZ }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BLZ }
+		}
+		if = {
+			limit = { country_exists = BLZ }
+			BLZ = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BLZ } }
+			BLZ = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_NIC = {
+	if = { limit = { country_exists = NIC }
+		NIC = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_NIC = {
+	log = "DEC_BAW: NS uprising NIC"
+	if = {
+		limit = { country_exists = NIC NIC = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = NIC original_tag = NIC } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = NIC NIC = { is_subject = no } }
+		NIC = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = NIC has_government = nationalist has_war_with = NIC }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = NIC }
+		NIC = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NIC } }
+		NIC = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = NIC }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = NIC }
+		}
+		if = {
+			limit = { country_exists = NIC }
+			NIC = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = NIC } }
+			NIC = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_HON = {
+	if = { limit = { country_exists = HON }
+		HON = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_HON = {
+	log = "DEC_BAW: NS uprising HON"
+	if = {
+		limit = { country_exists = HON HON = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = HON original_tag = HON } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = HON HON = { is_subject = no } }
+		HON = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = HON has_government = nationalist has_war_with = HON }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = HON }
+		HON = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = HON } }
+		HON = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = HON }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = HON }
+		}
+		if = {
+			limit = { country_exists = HON }
+			HON = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = HON } }
+			HON = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_FRA = {
+	if = { limit = { country_exists = FRA }
+		FRA = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_FRA = {
+	log = "DEC_BAW: NS uprising FRA"
+	if = {
+		limit = { country_exists = FRA FRA = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = FRA original_tag = FRA } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = FRA FRA = { is_subject = no } }
+		FRA = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = FRA has_government = nationalist has_war_with = FRA }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = FRA }
+		FRA = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = FRA } }
+		FRA = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = FRA }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = FRA }
+		}
+		if = {
+			limit = { country_exists = FRA }
+			FRA = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = FRA } }
+			FRA = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_ENG = {
+	if = { limit = { country_exists = ENG }
+		ENG = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_ENG = {
+	log = "DEC_BAW: NS uprising ENG"
+	if = {
+		limit = { country_exists = ENG ENG = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = ENG original_tag = ENG } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = ENG ENG = { is_subject = no } }
+		ENG = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = ENG has_government = nationalist has_war_with = ENG }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = ENG }
+		ENG = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ENG } }
+		ENG = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = ENG }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = ENG }
+		}
+		if = {
+			limit = { country_exists = ENG }
+			ENG = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = ENG } }
+			ENG = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_BEL = {
+	if = { limit = { country_exists = BEL }
+		BEL = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_BEL = {
+	log = "DEC_BAW: NS uprising BEL"
+	if = {
+		limit = { country_exists = BEL BEL = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = BEL original_tag = BEL } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = BEL BEL = { is_subject = no } }
+		BEL = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = BEL has_government = nationalist has_war_with = BEL }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = BEL }
+		BEL = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BEL } }
+		BEL = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = BEL }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = BEL }
+		}
+		if = {
+			limit = { country_exists = BEL }
+			BEL = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = BEL } }
+			BEL = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_HOL = {
+	if = { limit = { country_exists = HOL }
+		HOL = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_HOL = {
+	log = "DEC_BAW: NS uprising HOL"
+	if = {
+		limit = { country_exists = HOL HOL = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = HOL original_tag = HOL } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = HOL HOL = { is_subject = no } }
+		HOL = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = HOL has_government = nationalist has_war_with = HOL }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = HOL }
+		HOL = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = HOL } }
+		HOL = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = HOL }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = HOL }
+		}
+		if = {
+			limit = { country_exists = HOL }
+			HOL = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = HOL } }
+			HOL = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+DEC_BAW_boost_country_POR = {
+	if = { limit = { country_exists = POR }
+		POR = { set_temp_variable = { DEC_baw_ns_amt = ROOT.DEC_baw_ns_amt } DEC_BAW_add_ns_amt = yes }
+	}
+}
+DEC_BAW_uprising_POR = {
+	log = "DEC_BAW: NS uprising POR"
+	if = {
+		limit = { country_exists = POR POR = { DEC_has_ns = yes } }
+		custom_effect_tooltip = DEC_BAW_uprising_already_tt
+	}
+	else_if = {
+		limit = { OR = { tag = POR original_tag = POR } }
+		DEC_BAW_ns_conversion_setup = yes
+		custom_effect_tooltip = DEC_BAW_self_convert_tt
+	}
+	else_if = {
+		limit = { country_exists = POR POR = { is_subject = no } }
+		POR = {
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			set_variable = { party_pop_array^21 = 0.45 }
+			add_popularity = { ideology = nationalist popularity = 0.45 }
+			recalculate_party = yes
+			start_civil_war = { ideology = nationalist size = 0.45 }
+		}
+		random_country = {
+			limit = { original_tag = POR has_government = nationalist has_war_with = POR }
+			DEC_BAW_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = PREV } set_country_flag = DEC_joined_named_faction }
+		}
+	}
+	else_if = {
+		limit = { country_exists = POR }
+		POR = {
+			if = {
+				limit = { is_subject = yes }
+				OVERLORD = { save_event_target_as = DEC_baw_former_overlord }
+				OVERLORD = { set_autonomy = { target = PREV autonomy_state = autonomy_free } }
+			}
+			DEC_BAW_ns_conversion_setup = yes
+		}
+		if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = POR } }
+		POR = {
+			if = {
+				limit = { has_event_target = DEC_baw_former_overlord }
+				declare_war_on = { target = event_target:DEC_baw_former_overlord type = annex_everything }
+			}
+		}
+	}
+	else = {
+		random_state = {
+			limit = { is_core_of = POR }
+			OWNER = { save_event_target_as = DEC_baw_occ }
+			OWNER = { release = POR }
+		}
+		if = {
+			limit = { country_exists = POR }
+			POR = { DEC_BAW_ns_conversion_setup = yes }
+			if = { limit = { ROOT = { is_in_faction = yes } } ROOT = { add_to_faction = POR } }
+			POR = {
+				if = {
+					limit = { has_event_target = DEC_baw_occ }
+					declare_war_on = { target = event_target:DEC_baw_occ type = annex_everything }
+				}
+			}
+		}
+	}
+}
+
+DEC_create_black_brotherhood = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_black_brotherhood
+	set_global_flag = DEC_BAW_brotherhood_formed
+}
+
+DEC_invite_black_brotherhood_members = {
+	every_other_country = {
+		limit = { DEC_is_black_brotherhood_invitee = yes NOT = { is_in_faction_with = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+}
+
+DEC_BAW_create_panthers_america = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_black_panthers_america
+	set_cosmetic_tag = DEC_BP_AMERICA
+	set_global_flag = DEC_BAW_panthers_america
+	every_other_country = {
+		limit = { DEC_BAW_is_america = yes DEC_is_black_brotherhood_invitee = yes NOT = { tag = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+}
+
+DEC_BAW_create_panthers_europe = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_black_panthers_europe
+	set_cosmetic_tag = DEC_BP_EUROPE
+	set_global_flag = DEC_BAW_panthers_europe
+	every_other_country = {
+		limit = { DEC_BAW_is_europe = yes DEC_is_black_brotherhood_invitee = yes NOT = { tag = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+}
+
+DEC_BAW_oath_start = {
+	set_country_flag = DEC_BAW_oath_caller
+	save_global_event_target_as = DEC_baw_overlord
+	every_other_country = {
+		limit = { is_in_faction_with = ROOT is_subject = no NOT = { tag = ROOT } }
+		country_event = { id = dec_baw.1 hours = 8 }
+	}
+}
+
+DEC_BAW_unite_brotherhood = {
+	every_other_country = {
+		limit = { OR = { is_subject_of = ROOT has_country_flag = DEC_BAW_oath_accepted } }
+		every_owned_state = { add_core_of = ROOT }
+		ROOT = { annex_country = { target = PREV transfer_troops = yes } }
+	}
+	set_cosmetic_tag = CBN
+	set_global_flag = DEC_BAW_united
+	custom_effect_tooltip = DEC_BAW_unite_brotherhood_tt
+}
+DEC_BAW_wargoals_west = {
+	every_country = {
+		limit = {
+			exists = yes DEC_BAW_is_west = yes
+			NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } NOT = { is_subject_of = ROOT }
+		}
+		ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+	}
+	set_country_flag = DEC_BAW_west_block_done
+}
+DEC_BAW_wargoals_central = {
+	every_country = {
+		limit = {
+			exists = yes DEC_BAW_is_central = yes
+			NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } NOT = { is_subject_of = ROOT }
+		}
+		ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+	}
+	set_country_flag = DEC_BAW_central_block_done
+}
+DEC_BAW_wargoals_east = {
+	every_country = {
+		limit = {
+			exists = yes DEC_BAW_is_east = yes
+			NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } NOT = { is_subject_of = ROOT }
+		}
+		ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+	}
+	set_country_flag = DEC_BAW_east_block_done
+}
+DEC_BAW_wargoals_south = {
+	every_country = {
+		limit = {
+			exists = yes DEC_BAW_is_south = yes
+			NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } NOT = { is_subject_of = ROOT }
+		}
+		ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+	}
+	set_country_flag = DEC_BAW_south_block_done
+}
+DEC_BAW_wargoals_america = {
+	every_country = {
+		limit = {
+			exists = yes DEC_BAW_is_america = yes
+			NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } NOT = { is_subject_of = ROOT }
+		}
+		ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+	}
+	set_country_flag = DEC_BAW_america_block_done
+}
+DEC_BAW_wargoals_europe = {
+	every_country = {
+		limit = {
+			exists = yes DEC_BAW_is_europe = yes
+			NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT } NOT = { is_subject_of = ROOT }
+		}
+		ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+	}
+	set_country_flag = DEC_BAW_europe_block_done
+}
+DEC_BAW_wargoals_world = {
+	every_country = {
+		limit = {
+			exists = yes NOT = { tag = ROOT } NOT = { is_in_faction_with = ROOT }
+			NOT = { is_subject_of = ROOT } NOT = { DEC_is_black_brotherhood_nation = yes }
+		}
+		ROOT = { create_wargoal = { type = annex_everything target = PREV } }
+	}
+	set_global_flag = DEC_BAW_world_crusade
+}

@@ -1,0 +1,21 @@
+state = {
+	id = 1281
+	name = "STATE_1281"
+	history = {
+		owner = UKR
+		add_core_of = UKR
+		buildings = {
+			infrastructure = 1
+			internet_station = 1
+		}
+		set_variable = { productivity_state_var = 50 }
+		set_variable = { state_renewable_capacity_factor_modifier_var = 0.8 }
+		set_state_flag = DEC_blockchain_enclave
+	}
+	provinces = {
+		462
+	}
+	manpower = 12000
+	buildings_max_level_factor = 1.000
+	state_category = state_01
+}

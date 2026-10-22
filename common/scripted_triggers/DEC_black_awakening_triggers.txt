@@ -1,0 +1,682 @@
+############################################
+# Black Awakening / Чёрное пробуждение
+############################################
+
+DEC_has_black_right_ideology = {
+	OR = {
+		western_autocrats_are_in_power = yes
+		western_conservatism_are_in_power = yes
+		neutrality_neutral_conservatism_are_in_power = yes
+		emerging_reactionaries_are_in_power = yes
+		nationalist_right_wing_populists_are_in_power = yes
+		nationalist_fascist_are_in_power = yes
+		nationalist_military_junta_are_in_power = yes
+		nationalist_monarchists_are_in_power = yes
+	}
+}
+
+DEC_is_black_brotherhood_nation = {
+	OR = {
+		original_tag = SEN
+		tag = SEN
+		original_tag = GAM
+		tag = GAM
+		original_tag = MAL
+		tag = MAL
+		original_tag = BFA
+		tag = BFA
+		original_tag = NGR
+		tag = NGR
+		original_tag = CHA
+		tag = CHA
+		original_tag = GUI
+		tag = GUI
+		original_tag = GUB
+		tag = GUB
+		original_tag = SIE
+		tag = SIE
+		original_tag = LIB
+		tag = LIB
+		original_tag = CDI
+		tag = CDI
+		original_tag = GAH
+		tag = GAH
+		original_tag = TOG
+		tag = TOG
+		original_tag = BEN
+		tag = BEN
+		original_tag = VER
+		tag = VER
+		original_tag = NIG
+		tag = NIG
+		original_tag = DRC
+		tag = DRC
+		original_tag = CNG
+		tag = CNG
+		original_tag = CAR
+		tag = CAR
+		original_tag = SSU
+		tag = SSU
+		original_tag = CAM
+		tag = CAM
+		original_tag = GAB
+		tag = GAB
+		original_tag = EGU
+		tag = EGU
+		original_tag = SAO
+		tag = SAO
+		original_tag = ETH
+		tag = ETH
+		original_tag = ERI
+		tag = ERI
+		original_tag = DJI
+		tag = DJI
+		original_tag = SOM
+		tag = SOM
+		original_tag = SML
+		tag = SML
+		original_tag = KEN
+		tag = KEN
+		original_tag = UGA
+		tag = UGA
+		original_tag = TNZ
+		tag = TNZ
+		original_tag = RWA
+		tag = RWA
+		original_tag = BUR
+		tag = BUR
+		original_tag = SUD
+		tag = SUD
+		original_tag = MAD
+		tag = MAD
+		original_tag = COM
+		tag = COM
+		original_tag = SEY
+		tag = SEY
+		original_tag = MRT
+		tag = MRT
+		original_tag = SAF
+		tag = SAF
+		original_tag = LES
+		tag = LES
+		original_tag = SWA
+		tag = SWA
+		original_tag = NAM
+		tag = NAM
+		original_tag = BOT
+		tag = BOT
+		original_tag = ZIM
+		tag = ZIM
+		original_tag = ZAM
+		tag = ZAM
+		original_tag = MLW
+		tag = MLW
+		original_tag = MOZ
+		tag = MOZ
+		original_tag = AGL
+		tag = AGL
+		original_tag = USA
+		tag = USA
+		original_tag = HAI
+		tag = HAI
+		original_tag = JAM
+		tag = JAM
+		original_tag = TRI
+		tag = TRI
+		original_tag = BAH
+		tag = BAH
+		original_tag = BAR
+		tag = BAR
+		original_tag = DOM
+		tag = DOM
+		original_tag = CUB
+		tag = CUB
+		original_tag = BRA
+		tag = BRA
+		original_tag = COL
+		tag = COL
+		original_tag = VEN
+		tag = VEN
+		original_tag = GUY
+		tag = GUY
+		original_tag = SUR
+		tag = SUR
+		original_tag = FGU
+		tag = FGU
+		original_tag = PAN
+		tag = PAN
+		original_tag = BLZ
+		tag = BLZ
+		original_tag = NIC
+		tag = NIC
+		original_tag = HON
+		tag = HON
+		original_tag = FRA
+		tag = FRA
+		original_tag = ENG
+		tag = ENG
+		original_tag = BEL
+		tag = BEL
+		original_tag = HOL
+		tag = HOL
+		original_tag = POR
+		tag = POR
+		has_cosmetic_tag = CBN
+		has_cosmetic_tag = DEC_BP_AMERICA
+		has_cosmetic_tag = DEC_BP_EUROPE
+	}
+}
+
+DEC_BAW_is_west = {
+		OR = {
+			original_tag = SEN
+			tag = SEN
+			original_tag = GAM
+			tag = GAM
+			original_tag = MAL
+			tag = MAL
+			original_tag = BFA
+			tag = BFA
+			original_tag = NGR
+			tag = NGR
+			original_tag = CHA
+			tag = CHA
+			original_tag = GUI
+			tag = GUI
+			original_tag = GUB
+			tag = GUB
+			original_tag = SIE
+			tag = SIE
+			original_tag = LIB
+			tag = LIB
+			original_tag = CDI
+			tag = CDI
+			original_tag = GAH
+			tag = GAH
+			original_tag = TOG
+			tag = TOG
+			original_tag = BEN
+			tag = BEN
+			original_tag = VER
+			tag = VER
+			original_tag = NIG
+			tag = NIG
+		}
+}
+
+DEC_BAW_is_west_sahel = {
+		OR = {
+			original_tag = SEN
+			tag = SEN
+			original_tag = GAM
+			tag = GAM
+			original_tag = MAL
+			tag = MAL
+			original_tag = BFA
+			tag = BFA
+			original_tag = NGR
+			tag = NGR
+			original_tag = CHA
+			tag = CHA
+		}
+}
+
+DEC_BAW_is_west_guinea = {
+		OR = {
+			original_tag = GUI
+			tag = GUI
+			original_tag = GUB
+			tag = GUB
+			original_tag = SIE
+			tag = SIE
+			original_tag = LIB
+			tag = LIB
+			original_tag = CDI
+			tag = CDI
+			original_tag = GAH
+			tag = GAH
+			original_tag = TOG
+			tag = TOG
+			original_tag = BEN
+			tag = BEN
+			original_tag = VER
+			tag = VER
+		}
+}
+
+DEC_BAW_is_west_nigeria = {
+		OR = {
+			original_tag = NIG
+			tag = NIG
+		}
+}
+
+DEC_BAW_west_block_complete = {
+	OR = {
+		has_country_flag = DEC_BAW_west_block_done
+		AND = {
+			has_completed_focus = DEC_BAW_reg_west_sahel
+			has_completed_focus = DEC_BAW_reg_west_guinea
+			has_completed_focus = DEC_BAW_reg_west_nigeria
+		}
+	}
+}
+
+DEC_BAW_is_central = {
+		OR = {
+			original_tag = DRC
+			tag = DRC
+			original_tag = CNG
+			tag = CNG
+			original_tag = CAR
+			tag = CAR
+			original_tag = SSU
+			tag = SSU
+			original_tag = CAM
+			tag = CAM
+			original_tag = GAB
+			tag = GAB
+			original_tag = EGU
+			tag = EGU
+			original_tag = SAO
+			tag = SAO
+		}
+}
+
+DEC_BAW_is_central_congo = {
+		OR = {
+			original_tag = DRC
+			tag = DRC
+			original_tag = CNG
+			tag = CNG
+			original_tag = CAR
+			tag = CAR
+			original_tag = SSU
+			tag = SSU
+		}
+}
+
+DEC_BAW_is_central_equatorial = {
+		OR = {
+			original_tag = CAM
+			tag = CAM
+			original_tag = GAB
+			tag = GAB
+			original_tag = EGU
+			tag = EGU
+			original_tag = SAO
+			tag = SAO
+		}
+}
+
+DEC_BAW_central_block_complete = {
+	OR = {
+		has_country_flag = DEC_BAW_central_block_done
+		AND = {
+			has_completed_focus = DEC_BAW_reg_central_congo
+			has_completed_focus = DEC_BAW_reg_central_equatorial
+		}
+	}
+}
+
+DEC_BAW_is_east = {
+		OR = {
+			original_tag = ETH
+			tag = ETH
+			original_tag = ERI
+			tag = ERI
+			original_tag = DJI
+			tag = DJI
+			original_tag = SOM
+			tag = SOM
+			original_tag = SML
+			tag = SML
+			original_tag = KEN
+			tag = KEN
+			original_tag = UGA
+			tag = UGA
+			original_tag = TNZ
+			tag = TNZ
+			original_tag = RWA
+			tag = RWA
+			original_tag = BUR
+			tag = BUR
+			original_tag = SUD
+			tag = SUD
+			original_tag = MAD
+			tag = MAD
+			original_tag = COM
+			tag = COM
+			original_tag = SEY
+			tag = SEY
+			original_tag = MRT
+			tag = MRT
+		}
+}
+
+DEC_BAW_is_east_horn = {
+		OR = {
+			original_tag = ETH
+			tag = ETH
+			original_tag = ERI
+			tag = ERI
+			original_tag = DJI
+			tag = DJI
+			original_tag = SOM
+			tag = SOM
+			original_tag = SML
+			tag = SML
+		}
+}
+
+DEC_BAW_is_east_lakes = {
+		OR = {
+			original_tag = KEN
+			tag = KEN
+			original_tag = UGA
+			tag = UGA
+			original_tag = TNZ
+			tag = TNZ
+			original_tag = RWA
+			tag = RWA
+			original_tag = BUR
+			tag = BUR
+		}
+}
+
+DEC_BAW_is_east_sudan = {
+		OR = {
+			original_tag = SUD
+			tag = SUD
+		}
+}
+
+DEC_BAW_is_east_islands = {
+		OR = {
+			original_tag = MAD
+			tag = MAD
+			original_tag = COM
+			tag = COM
+			original_tag = SEY
+			tag = SEY
+			original_tag = MRT
+			tag = MRT
+		}
+}
+
+DEC_BAW_east_block_complete = {
+	OR = {
+		has_country_flag = DEC_BAW_east_block_done
+		AND = {
+			has_completed_focus = DEC_BAW_reg_east_horn
+			has_completed_focus = DEC_BAW_reg_east_lakes
+			has_completed_focus = DEC_BAW_reg_east_sudan
+			has_completed_focus = DEC_BAW_reg_east_islands
+		}
+	}
+}
+
+DEC_BAW_is_south = {
+		OR = {
+			original_tag = SAF
+			tag = SAF
+			original_tag = LES
+			tag = LES
+			original_tag = SWA
+			tag = SWA
+			original_tag = NAM
+			tag = NAM
+			original_tag = BOT
+			tag = BOT
+			original_tag = ZIM
+			tag = ZIM
+			original_tag = ZAM
+			tag = ZAM
+			original_tag = MLW
+			tag = MLW
+			original_tag = MOZ
+			tag = MOZ
+			original_tag = AGL
+			tag = AGL
+		}
+}
+
+DEC_BAW_is_south_cape = {
+		OR = {
+			original_tag = SAF
+			tag = SAF
+			original_tag = LES
+			tag = LES
+			original_tag = SWA
+			tag = SWA
+			original_tag = NAM
+			tag = NAM
+			original_tag = BOT
+			tag = BOT
+		}
+}
+
+DEC_BAW_is_south_miombo = {
+		OR = {
+			original_tag = ZIM
+			tag = ZIM
+			original_tag = ZAM
+			tag = ZAM
+			original_tag = MLW
+			tag = MLW
+			original_tag = MOZ
+			tag = MOZ
+			original_tag = AGL
+			tag = AGL
+		}
+}
+
+DEC_BAW_south_block_complete = {
+	OR = {
+		has_country_flag = DEC_BAW_south_block_done
+		AND = {
+			has_completed_focus = DEC_BAW_reg_south_cape
+			has_completed_focus = DEC_BAW_reg_south_miombo
+		}
+	}
+}
+
+DEC_BAW_is_america = {
+		OR = {
+			original_tag = USA
+			tag = USA
+			original_tag = HAI
+			tag = HAI
+			original_tag = JAM
+			tag = JAM
+			original_tag = TRI
+			tag = TRI
+			original_tag = BAH
+			tag = BAH
+			original_tag = BAR
+			tag = BAR
+			original_tag = DOM
+			tag = DOM
+			original_tag = CUB
+			tag = CUB
+			original_tag = BRA
+			tag = BRA
+			original_tag = COL
+			tag = COL
+			original_tag = VEN
+			tag = VEN
+			original_tag = GUY
+			tag = GUY
+			original_tag = SUR
+			tag = SUR
+			original_tag = FGU
+			tag = FGU
+			original_tag = PAN
+			tag = PAN
+			original_tag = BLZ
+			tag = BLZ
+			original_tag = NIC
+			tag = NIC
+			original_tag = HON
+			tag = HON
+		}
+}
+
+DEC_BAW_is_america_usa = {
+		OR = {
+			original_tag = USA
+			tag = USA
+		}
+}
+
+DEC_BAW_is_america_caribbean = {
+		OR = {
+			original_tag = HAI
+			tag = HAI
+			original_tag = JAM
+			tag = JAM
+			original_tag = TRI
+			tag = TRI
+			original_tag = BAH
+			tag = BAH
+			original_tag = BAR
+			tag = BAR
+			original_tag = DOM
+			tag = DOM
+			original_tag = CUB
+			tag = CUB
+		}
+}
+
+DEC_BAW_is_america_south_am = {
+		OR = {
+			original_tag = BRA
+			tag = BRA
+			original_tag = COL
+			tag = COL
+			original_tag = VEN
+			tag = VEN
+			original_tag = GUY
+			tag = GUY
+			original_tag = SUR
+			tag = SUR
+			original_tag = FGU
+			tag = FGU
+		}
+}
+
+DEC_BAW_is_america_central_am = {
+		OR = {
+			original_tag = PAN
+			tag = PAN
+			original_tag = BLZ
+			tag = BLZ
+			original_tag = NIC
+			tag = NIC
+			original_tag = HON
+			tag = HON
+		}
+}
+
+DEC_BAW_america_block_complete = {
+	OR = {
+		has_country_flag = DEC_BAW_america_block_done
+		AND = {
+			has_completed_focus = DEC_BAW_reg_america_usa
+			has_completed_focus = DEC_BAW_reg_america_caribbean
+			has_completed_focus = DEC_BAW_reg_america_central_am
+			has_completed_focus = DEC_BAW_reg_america_south_am
+		}
+	}
+}
+
+DEC_BAW_is_europe = {
+		OR = {
+			original_tag = FRA
+			tag = FRA
+			original_tag = ENG
+			tag = ENG
+			original_tag = BEL
+			tag = BEL
+			original_tag = HOL
+			tag = HOL
+			original_tag = POR
+			tag = POR
+		}
+}
+
+DEC_BAW_is_europe_fra = {
+		OR = {
+			original_tag = FRA
+			tag = FRA
+		}
+}
+
+DEC_BAW_is_europe_eng = {
+		OR = {
+			original_tag = ENG
+			tag = ENG
+		}
+}
+
+DEC_BAW_is_europe_bel = {
+		OR = {
+			original_tag = BEL
+			tag = BEL
+		}
+}
+
+DEC_BAW_is_europe_hol = {
+		OR = {
+			original_tag = HOL
+			tag = HOL
+		}
+}
+
+DEC_BAW_is_europe_por = {
+		OR = {
+			original_tag = POR
+			tag = POR
+		}
+}
+
+DEC_BAW_europe_block_complete = {
+	OR = {
+		has_country_flag = DEC_BAW_europe_block_done
+		AND = {
+			has_completed_focus = DEC_BAW_reg_europe_eng
+			has_completed_focus = DEC_BAW_reg_europe_fra
+			has_completed_focus = DEC_BAW_reg_europe_bel
+			has_completed_focus = DEC_BAW_reg_europe_hol
+			has_completed_focus = DEC_BAW_reg_europe_por
+		}
+	}
+}
+
+DEC_can_access_black_awakening = {
+	DEC_is_black_brotherhood_nation = yes
+	DEC_has_black_right_ideology = yes
+	NOT = {
+		OR = {
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_CAL_world_caliphate
+		}
+	}
+}
+
+DEC_is_black_brotherhood_invitee = {
+	DEC_is_black_brotherhood_nation = yes
+	OR = {
+		DEC_has_ns = yes
+		DEC_has_black_right_ideology = yes
+	}
+	exists = yes
+	NOT = { has_war_with = ROOT }
+	OR = {
+		is_subject = no
+		is_subject_of = ROOT
+	}
+}

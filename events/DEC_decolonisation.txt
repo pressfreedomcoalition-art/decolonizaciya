@@ -153,3 +153,212 @@ country_event = {
 		}
 	}
 }
+
+# News: Kazakia formed
+news_event = {
+	id = dec.10
+	title = dec.10.t
+	desc = dec.10.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = dec.10.a
+		log = "[GetDateText]: [This.GetName]: dec.10.a executed"
+	}
+}
+
+# News: Volga uprising path
+news_event = {
+	id = dec.11
+	title = dec.11.t
+	desc = dec.11.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = dec.11.a
+		log = "[GetDateText]: [This.GetName]: dec.11.a executed"
+	}
+}
+
+# Invite to Caucasian Union
+country_event = {
+	id = dec.12
+	title = dec.12.t
+	desc = dec.12.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = dec.12.a
+		log = "[GetDateText]: [This.GetName]: dec.12.a executed"
+		add_political_power = 25
+	}
+}
+
+# Invite to Kazakia
+country_event = {
+	id = dec.13
+	title = dec.13.t
+	desc = dec.13.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = dec.13.a
+		log = "[GetDateText]: [This.GetName]: dec.13.a executed"
+		add_political_power = 25
+	}
+}
+
+# News: Rebel Coalition formed
+news_event = {
+	id = dec.14
+	title = dec.14.t
+	desc = dec.14.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = dec.14.a
+		log = "[GetDateText]: [This.GetName]: dec.14.a executed"
+	}
+}
+
+# News: NATO federation path collapses into full breakup
+news_event = {
+	id = dec.19
+	title = dec.19.t
+	desc = dec.19.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = dec.19.a
+		log = "[GetDateText]: [This.GetName]: dec.19.a executed"
+	}
+}
+
+# Democratic Free Russia: RDK uprising
+country_event = {
+	id = dec.20
+	title = dec.20.t
+	desc = dec.20.d
+	picture = GFX_report_event_generic_riot
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = dec.20.a
+		log = "[GetDateText]: [This.GetName]: dec.20.a executed"
+		DEC_rdk_spawn_civil_war = yes
+		ai_chance = { base = 100 }
+	}
+}
+
+# Invited into Finland's alliance
+country_event = {
+	id = dec.21
+	title = dec.21.t
+	desc = dec.21.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = dec.21.a
+		log = "[GetDateText]: [This.GetName]: dec.21.a executed"
+		add_political_power = 25
+	}
+}
+
+# Invited into Turkey's alliance
+country_event = {
+	id = dec.22
+	title = dec.22.t
+	desc = dec.22.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = dec.22.a
+		log = "[GetDateText]: [This.GetName]: dec.22.a executed"
+		add_political_power = 25
+	}
+}
+
+# News: RDK wins → Russian National State
+news_event = {
+	id = dec.23
+	title = dec.23.t
+	desc = dec.23.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = dec.23.a
+		log = "[GetDateText]: [This.GetName]: dec.23.a executed"
+	}
+}
+
+# South Caucasus: optional invitation to Caucasian Union
+country_event = {
+	id = dec.24
+	title = dec.24.t
+	desc = dec.24.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+
+	option = {
+		name = dec.24.a
+		log = "[GetDateText]: [This.GetName]: dec.24.a accept Caucasian Union"
+		ai_chance = {
+			base = 55
+			modifier = {
+				factor = 1.5
+				has_war_with = SOV
+			}
+			modifier = {
+				factor = 0.4
+				is_in_faction = yes
+			}
+		}
+		if = {
+			limit = { is_in_faction = yes }
+			leave_faction = yes
+		}
+		if = {
+			limit = {
+				FROM = {
+					exists = yes
+					is_faction_leader = yes
+				}
+			}
+			set_country_flag = DEC_joined_named_faction
+			FROM = { add_to_faction = ROOT }
+		}
+	}
+
+	option = {
+		name = dec.24.b
+		log = "[GetDateText]: [This.GetName]: dec.24.b decline Caucasian Union"
+		ai_chance = { base = 45 }
+		add_political_power = 10
+	}
+}
+
+# NATO: Association of Arbitration Courts memorandum
+country_event = {
+	id = dec.30
+	title = dec.30.t
+	desc = dec.30.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = dec.30.a
+		log = "[GetDateText]: [This.GetName]: dec.30.a accept ATC"
+		DEC_atc_accept_memorandum = yes
+		ai_chance = { base = 70 }
+	}
+	option = {
+		name = dec.30.b
+		log = "[GetDateText]: [This.GetName]: dec.30.b refuse ATC"
+		ai_chance = { base = 30 }
+	}
+}

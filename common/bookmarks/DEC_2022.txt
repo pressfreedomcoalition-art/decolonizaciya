@@ -1,0 +1,60 @@
+bookmarks = {
+	bookmark = {
+		name = "DEC_BOOKMARK_2022"
+		desc = "DEC_BOOKMARK_2022_DESC"
+		date = 2022.2.22.12
+		picture = "GFX_select_date_dec_2022"
+		default_country = "SOV"
+		default = no
+		filters = { new_content continent }
+
+		"SOV" = {
+			history = "SOV_DEC_2022_DESC"
+			ideology = communism
+			ideas = { }
+			focuses = {
+				SOV_the_onf
+				SOV_annexation_of_crimea
+				SOV_recognize_novorossiya
+			}
+		}
+		"UKR" = {
+			history = "UKR_DEC_2022_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				UKR_poroshenko_anti_rus_doctrine
+				UKR_poroshenko_nato
+				UKR_poroshenko_army_reform
+			}
+		}
+		"USA" = {
+			history = "USA_DEC_2022_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				USA_focus_2008_democrats
+				USA_focus_2012_democrats
+				USA_focus_2016_republican_victory
+			}
+		}
+		"CHI" = {
+			history = "CHI_DEC_2022_DESC"
+			ideology = communism
+			ideas = { }
+			focuses = {
+				CHI_the_chinese_dream
+				CHI_xi_jinping_thought_enshrined
+				CHI_hu_jintao_reign
+			}
+		}
+
+		"---" = {
+			history = "OTHER_DEC_2022_DESC"
+		}
+
+		effect = {
+			randomize_weather = 22422
+		}
+	}
+}

@@ -1,0 +1,688 @@
+{
+  "total": 111,
+  "with_file": 111,
+  "ai_generated": [
+    "Ruslan Gabbasov",
+    "Rafis Kashapov",
+    "Mishshi Oreshnikov",
+    "Pavel Mezerin",
+    "Vladislav Nobel-Oleynik",
+    "Yevgeny Bursanidis",
+    "Vitaliy Romashkin",
+    "Aida Abdrakhmanova",
+    "Yana Tannagasheva",
+    "Maxim Kuzakhmetov",
+    "Dmitry Berezhkov",
+    "Dmitry Dorovskikh",
+    "Nafis Kashapov",
+    "Ilya Kostyukov"
+  ],
+  "leaders": [
+    {
+      "name": "Aida Abdrakhmanova",
+      "file": "aida_abdrakhmanova.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Akhmed Zakayev",
+      "file": "akhmed_zakayev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Alan Gagloyev",
+      "file": "alan_gagloyev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Aleksandr Adamov",
+      "file": "aleksandr_adamov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Aleksandr Barkashov",
+      "file": "aleksandr_barkashov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Aleksandr Kharybin",
+      "file": "aleksandr_kharybin.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Aleksei Kazakov",
+      "file": "aleksei_kazakov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Aleksei Kudryashov",
+      "file": "aleksei_kudryashov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Aleksei Manannikov",
+      "file": "aleksei_manannikov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Anatoly Bibilov",
+      "file": "anatoly_bibilov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Andrei Danilov",
+      "file": "andrei_danilov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Andrei Klychkov",
+      "file": "andrei_klychkov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Andrei Kuznetsov",
+      "file": "andrei_kuznetsov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Andrei Lugovoy",
+      "file": "andrei_lugovoy.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Andriy Illienko",
+      "file": "andriy_illienko.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ansar Garkho",
+      "file": "ansar_garkho.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Anton Bakov",
+      "file": "anton_bakov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Anvar Kurmanakaev",
+      "file": "anvar_kurmanakaev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Artur Ankkalainen",
+      "file": "artur_ankkalainen.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Asker Sokht",
+      "file": "asker_sokht.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Aslanbek Naimanov",
+      "file": "aslanbek_naimanov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Beslan Kmuzov",
+      "file": "beslan_kmuzov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Boris Ebzeyev",
+      "file": "boris_ebzeyev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "David Sanakoyev",
+      "file": "david_sanakoyev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Deni Teps",
+      "file": "deni_teps.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Denis Ugryumov",
+      "file": "denis_ugryumov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Dmitry Berezhkov",
+      "file": "dmitry_berezhkov.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Dmitry Dorovskikh",
+      "file": "dmitry_dorovskikh.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Dmitry Gudkov",
+      "file": "dmitry_gudkov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Dmitry Kuznetsov",
+      "file": "dmitry_kuznetsov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Dmitry Semenov",
+      "file": "dmitry_semenov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Donisi Chovganon",
+      "file": "donisi_chovganon.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Dzhabrail Mirzoyev",
+      "file": "dzhabrail_mirzoyev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Eduard Kokoity",
+      "file": "eduard_kokoity.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Farit Zakiev",
+      "file": "farit_zakiev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Fauzia Bayramova",
+      "file": "fauzia_bayramova.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Grigory Musalyov",
+      "file": "grigory_musalyov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ibragim Guchigov",
+      "file": "ibragim_guchigov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ibrahim Yaganov",
+      "file": "ibrahim_yaganov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Igor Kazakov",
+      "file": "igor_kazakov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ilnar Garifullin",
+      "file": "ilnar_garifullin.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ilya Ignatov",
+      "file": "ilya_ignatov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ilya Kostyukov",
+      "file": "ilya_kostyukov.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Ilyas Akhmadov",
+      "file": "ilyas_akhmadov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Inal Pliev",
+      "file": "inal_pliev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Irina Shafrannik",
+      "file": "irina_shafrannik.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Islam Atabiyev",
+      "file": "islam_atabiyev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ismail Kerimov",
+      "file": "ismail_kerimov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ivan Grigoryev",
+      "file": "ivan_grigoryev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ivan Kulenko",
+      "file": "ivan_kulenko.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ivan Zhdanov",
+      "file": "ivan_zhdanov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Kase Kik",
+      "file": "kase_kik.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Konstantin Klimashevsky",
+      "file": "konstantin_klimashevsky.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Kshumantsyan Pirguzh",
+      "file": "kshumantsyan_pirguzh.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Linus Linsen",
+      "file": "linus_linsen.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Magomed Yarlykapov",
+      "file": "magomed_yarlykapov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Mariz Kemal",
+      "file": "mariz_kemal.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Maxim Kuzakhmetov",
+      "file": "maxim_kuzakhmetov.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Mikhail Kalyamin",
+      "file": "mikhail_kalyamin.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Mishshi Oreshnikov",
+      "file": "mishshi_oreshnikov.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Murat Auezov",
+      "file": "murat_auezov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Murat Berzegov",
+      "file": "murat_berzegov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Murat Zalikhanov",
+      "file": "murat_zalikhanov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Muslim Tsebiev",
+      "file": "muslim_tsebiev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Nafis Kashapov",
+      "file": "nafis_kashapov.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Nikita Goldin",
+      "file": "nikita_goldin.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Nikolai Fyodorov",
+      "file": "nikolai_fyodorov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Nina Aleshina",
+      "file": "nina_aleshina.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Nuyat Vidyay",
+      "file": "nuyat_vidyay.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Olaf Lappalainen",
+      "file": "olaf_lappalainen.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Oleg Zurabov",
+      "file": "oleg_zurabov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Oleksiy Goncharenko",
+      "file": "oleksiy_goncharenko.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Olga Alimova",
+      "file": "olga_alimova.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Pavel Grishin",
+      "file": "pavel_grishin.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Pavel Ivlev",
+      "file": "pavel_ivlev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Pavel Konkov",
+      "file": "pavel_konkov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Pavel Mezerin",
+      "file": "pavel_mezerin.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Pavel Sulyandziga",
+      "file": "pavel_sulyandziga.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Pavlo Vyshebaba",
+      "file": "pavlo_vyshebaba.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Rafis Kashapov",
+      "file": "rafis_kashapov.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Rizvan Kubakaev",
+      "file": "rizvan_kubakaev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Rodion Evdokimov",
+      "file": "rodion_evdokimov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Roman Khudyakov",
+      "file": "roman_khudyakov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Roman Yuneman",
+      "file": "roman_yuneman.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ruslan Gabbasov",
+      "file": "ruslan_gabbasov.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Ruslan Keshev",
+      "file": "ruslan_keshev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Ruslan Kuchity",
+      "file": "ruslan_kuchity.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Sergei Furgal",
+      "file": "sergei_furgal.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Sergei Ivanov",
+      "file": "sergei_ivanov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Sergei Kapchuk",
+      "file": "sergei_kapchuk.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Sergei Revenko",
+      "file": "sergei_revenko.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Sergei Rudakov",
+      "file": "sergei_rudakov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Syres Bolyaen",
+      "file": "syres_bolyaen.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Taulan Salpagarov",
+      "file": "taulan_salpagarov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Tjan Zaotschnaja",
+      "file": "tjan_zaotschnaja.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Valentin Shurchanov",
+      "file": "valentin_shurchanov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Valery Shevlyakov",
+      "file": "valery_shevlyakov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Vitaliy Romashkin",
+      "file": "vitaliy_romashkin.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Vladimir Kemaikin",
+      "file": "vladimir_kemaikin.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Vladimir Miroshnichenko",
+      "file": "vladimir_miroshnichenko.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Vladimir Netesov",
+      "file": "vladimir_netesov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Vladislav Nobel-Oleynik",
+      "file": "vladislav_nobel_oleynik.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Vladislav Zhivitsa",
+      "file": "vladislav_zhivitsa.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Vyacheslav Dzhabiev",
+      "file": "vyacheslav_dzhabiev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Yana Tannagasheva",
+      "file": "yana_tannagasheva.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Yelena Kaminskaya",
+      "file": "yelena_kaminskaya.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Yevgeny Bursanidis",
+      "file": "yevgeny_bursanidis.dds",
+      "exists": true,
+      "source": "ai_generated"
+    },
+    {
+      "name": "Yevgeny Dremov",
+      "file": "yevgeny_dremov.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Yevgeny Mozgovskoy",
+      "file": "yevgeny_mozgovskoy.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Yevgeny Roizman",
+      "file": "yevgeny_roizman.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    },
+    {
+      "name": "Yuriy Shcherbachev",
+      "file": "yuriy_shcherbachev.dds",
+      "exists": true,
+      "source": "internet_or_stylized"
+    }
+  ]
+}

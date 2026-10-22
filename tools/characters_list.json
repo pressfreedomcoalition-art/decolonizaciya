@@ -1,0 +1,849 @@
+{
+  "BGR": {
+    "country": "Belgorod Peoples Republic",
+    "leaders": [
+      {
+        "name": "Ilya Kostyukov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/ilya_kostyukov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Yevgeny Mozgovskoy",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/yevgeny_mozgovskoy.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Aleksandr Kharybin",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/aleksandr_kharybin.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Yevgeny Dremov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/yevgeny_dremov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Konstantin Klimashevsky",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/konstantin_klimashevsky.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Valery Shevlyakov",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/valery_shevlyakov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "BJA": {
+    "country": "Bjarmia",
+    "leaders": [
+      {
+        "name": "Yuriy Shcherbachev",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/yuriy_shcherbachev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Nikita Goldin",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/nikita_goldin.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Pavel Sulyandziga",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/pavel_sulyandziga.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Vladislav Nobel-Oleynik",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/vladislav_nobel_oleynik.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Dmitry Kuznetsov",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/dmitry_kuznetsov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Tjan Zaotschnaja",
+        "ideology": "Neutral_green",
+        "picture": "gfx/leaders/DEC/tjan_zaotschnaja.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "BCF": {
+    "country": "Bulgar Confederation",
+    "leaders": [
+      {
+        "name": "Mishshi Oreshnikov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/mishshi_oreshnikov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Rodion Evdokimov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/rodion_evdokimov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Nikolai Fyodorov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/nikolai_fyodorov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Dmitry Semenov",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/dmitry_semenov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Aleksei Kudryashov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/aleksei_kudryashov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Valentin Shurchanov",
+        "ideology": "Communist-State",
+        "picture": "gfx/leaders/DEC/valentin_shurchanov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "BLK": {
+    "country": "Alans Balkaria",
+    "leaders": [
+      {
+        "name": "Taulan Salpagarov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/taulan_salpagarov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Oleg Zurabov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/oleg_zurabov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ibragim Guchigov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/ibragim_guchigov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Islam Atabiyev",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/islam_atabiyev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Murat Zalikhanov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/murat_zalikhanov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Boris Ebzeyev",
+        "ideology": "Neutral_conservatism",
+        "picture": "gfx/leaders/DEC/boris_ebzeyev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "CAU": {
+    "country": "Caucasian Union",
+    "leaders": [
+      {
+        "name": "Akhmed Zakayev",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/akhmed_zakayev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Deni Teps",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/deni_teps.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ansar Garkho",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/ansar_garkho.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Dzhabrail Mirzoyev",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/dzhabrail_mirzoyev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Muslim Tsebiev",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/muslim_tsebiev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ilyas Akhmadov",
+        "ideology": "Neutral_conservatism",
+        "picture": "gfx/leaders/DEC/ilyas_akhmadov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "CIR": {
+    "country": "Circassia",
+    "leaders": [
+      {
+        "name": "Ibrahim Yaganov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/ibrahim_yaganov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Kase Kik",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/kase_kik.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Beslan Kmuzov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/beslan_kmuzov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ruslan Keshev",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/ruslan_keshev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Murat Berzegov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/murat_berzegov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Asker Sokht",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/asker_sokht.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "ERZ": {
+    "country": "Erzya Mastor",
+    "leaders": [
+      {
+        "name": "Syres Bolyaen",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/syres_bolyaen.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Vitaliy Romashkin",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/vitaliy_romashkin.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Nuyat Vidyay",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/nuyat_vidyay.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Kshumantsyan Pirguzh",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/kshumantsyan_pirguzh.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Mariz Kemal",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/mariz_kemal.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Grigory Musalyov",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/grigory_musalyov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "IDL": {
+    "country": "Idel Ural",
+    "leaders": [
+      {
+        "name": "Rafis Kashapov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/rafis_kashapov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Aida Abdrakhmanova",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/aida_abdrakhmanova.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Syres Bolyaen",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/syres_bolyaen.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ruslan Gabbasov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/ruslan_gabbasov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Fauzia Bayramova",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/fauzia_bayramova.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ilya Ignatov",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/ilya_ignatov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "IGR": {
+    "country": "Ingria",
+    "leaders": [
+      {
+        "name": "Pavel Mezerin",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/pavel_mezerin.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Olaf Lappalainen",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/olaf_lappalainen.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Maxim Kuzakhmetov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/maxim_kuzakhmetov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Artur Ankkalainen",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/artur_ankkalainen.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Pavel Ivlev",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/pavel_ivlev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Denis Ugryumov",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/denis_ugryumov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "KBC": {
+    "country": "Kuban Circassia",
+    "leaders": [
+      {
+        "name": "Yevgeny Bursanidis",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/yevgeny_bursanidis.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Vladimir Miroshnichenko",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/vladimir_miroshnichenko.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Dmitry Dorovskikh",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/dmitry_dorovskikh.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Beslan Kmuzov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/beslan_kmuzov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Mikhail Kalyamin",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/mikhail_kalyamin.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Andriy Illienko",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/andriy_illienko.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "LAP": {
+    "country": "Lapland",
+    "leaders": [
+      {
+        "name": "Andrei Danilov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/andrei_danilov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Linus Linsen",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/linus_linsen.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Vladislav Nobel-Oleynik",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/vladislav_nobel_oleynik.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Artur Ankkalainen",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/artur_ankkalainen.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Yelena Kaminskaya",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/yelena_kaminskaya.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Irina Shafrannik",
+        "ideology": "Neutral_green",
+        "picture": "gfx/leaders/DEC/irina_shafrannik.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "MOK": {
+    "country": "Moksha Mastor",
+    "leaders": [
+      {
+        "name": "Donisi Chovganon",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/donisi_chovganon.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Vitaliy Romashkin",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/vitaliy_romashkin.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Aleksandr Adamov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/aleksandr_adamov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Vladimir Kemaikin",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/vladimir_kemaikin.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Nina Aleshina",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/nina_aleshina.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Pavel Grishin",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/pavel_grishin.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "NOG": {
+    "country": "Nogai El",
+    "leaders": [
+      {
+        "name": "Anvar Kurmanakaev",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/anvar_kurmanakaev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Rizvan Kubakaev",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/rizvan_kubakaev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Murat Auezov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/murat_auezov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ismail Kerimov",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/ismail_kerimov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Aslanbek Naimanov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/aslanbek_naimanov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Magomed Yarlykapov",
+        "ideology": "Neutral_conservatism",
+        "picture": "gfx/leaders/DEC/magomed_yarlykapov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "OSA": {
+    "country": "Ossetia Alania",
+    "leaders": [
+      {
+        "name": "Alan Gagloyev",
+        "ideology": "conservatism",
+        "picture": "gfx/leaders/DEC/alan_gagloyev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "David Sanakoyev",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/david_sanakoyev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ruslan Kuchity",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/ruslan_kuchity.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Vyacheslav Dzhabiev",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/vyacheslav_dzhabiev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Inal Pliev",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/inal_pliev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Anatoly Bibilov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/anatoly_bibilov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Eduard Kokoity",
+        "ideology": "Communist-State",
+        "picture": "gfx/leaders/DEC/eduard_kokoity.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "SEV": {
+    "country": "Severia",
+    "leaders": [
+      {
+        "name": "Ilya Kostyukov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/ilya_kostyukov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Vladislav Zhivitsa",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/vladislav_zhivitsa.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Sergei Ivanov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/sergei_ivanov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Roman Yuneman",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/roman_yuneman.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Ivan Zhdanov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/ivan_zhdanov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Olga Alimova",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/olga_alimova.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "SMO": {
+    "country": "Smolensk Republic",
+    "leaders": [
+      {
+        "name": "Vladislav Zhivitsa",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/vladislav_zhivitsa.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Sergei Revenko",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/sergei_revenko.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Andrei Lugovoy",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/andrei_lugovoy.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Aleksei Kazakov",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/aleksei_kazakov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Dmitry Gudkov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/dmitry_gudkov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Andrei Kuznetsov",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/andrei_kuznetsov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "VBG": {
+    "country": "Volga Bulgaria",
+    "leaders": [
+      {
+        "name": "Farit Zakiev",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/farit_zakiev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Mishshi Oreshnikov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/mishshi_oreshnikov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Rafis Kashapov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/rafis_kashapov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Ilnar Garifullin",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/ilnar_garifullin.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Nafis Kashapov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/nafis_kashapov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Ivan Grigoryev",
+        "ideology": "Communist-State",
+        "picture": "gfx/leaders/DEC/ivan_grigoryev.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "VOR": {
+    "country": "Voronezh Republic",
+    "leaders": [
+      {
+        "name": "Sergei Rudakov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/sergei_rudakov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Roman Khudyakov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/roman_khudyakov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Andrei Klychkov",
+        "ideology": "Communist-State",
+        "picture": "gfx/leaders/DEC/andrei_klychkov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Igor Kazakov",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/igor_kazakov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Pavel Konkov",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/pavel_konkov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Vladimir Netesov",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/vladimir_netesov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "VYK": {
+    "country": "Verkhneyayitskoe Host",
+    "leaders": [
+      {
+        "name": "Ivan Kulenko",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/ivan_kulenko.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Aleksei Manannikov",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/aleksei_manannikov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Yevgeny Roizman",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/yevgeny_roizman.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Aleksandr Barkashov",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/aleksandr_barkashov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Anton Bakov",
+        "ideology": "Monarchist",
+        "picture": "gfx/leaders/DEC/anton_bakov.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Sergei Kapchuk",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/sergei_kapchuk.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "ZKL": {
+    "country": "Zeleny Klin",
+    "leaders": [
+      {
+        "name": "Pavlo Vyshebaba",
+        "ideology": "Nat_Populism",
+        "picture": "gfx/leaders/DEC/pavlo_vyshebaba.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Sergei Furgal",
+        "ideology": "liberalism",
+        "picture": "gfx/leaders/DEC/sergei_furgal.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Dmitry Berezhkov",
+        "ideology": "Neutral_Libertarian",
+        "picture": "gfx/leaders/DEC/dmitry_berezhkov.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Yana Tannagasheva",
+        "ideology": "Western_Autocracy",
+        "picture": "gfx/leaders/DEC/yana_tannagasheva.dds",
+        "portrait": "AI (нет публичного фото)"
+      },
+      {
+        "name": "Pavel Sulyandziga",
+        "ideology": "Neutral_green",
+        "picture": "gfx/leaders/DEC/pavel_sulyandziga.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Oleksiy Goncharenko",
+        "ideology": "socialism",
+        "picture": "gfx/leaders/DEC/oleksiy_goncharenko.dds",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Artur Ankkalainen",
+        "ideology": "Nat_Fascism",
+        "picture": "gfx/leaders/DEC/artur_ankkalainen.dds",
+        "portrait": "интернет / wiki / стилизация"
+      }
+    ]
+  },
+  "CHE": {
+    "country": "Chechnya (MD + DEC on_startup)",
+    "leaders": [
+      {
+        "name": "Deni Teps",
+        "ideology": "liberalism",
+        "portrait": "интернет / wiki / стилизация"
+      },
+      {
+        "name": "Akhmed Zakayev",
+        "ideology": "Nat_Populism",
+        "portrait": "интернет / wiki"
+      }
+    ]
+  }
+}

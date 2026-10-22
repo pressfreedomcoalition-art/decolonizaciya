@@ -1,0 +1,41 @@
+# Focus tree wrapper for Cossack tags (Don / Yaik / Zeleny Klin)
+focus_tree = {
+	id = dec_cossackia_access_focus
+	country = {
+		factor = 0
+		modifier = { add = 20 tag = DON }
+		modifier = { add = 20 tag = VYK }
+		modifier = { add = 20 tag = KUB }
+		modifier = { add = 18 tag = ZKL }
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1200 }
+	shared_focus = DEC_CSK_kuban_uprising
+# Decolonizaciya shared blocks
+	shared_focus = DEC_CAU_chechnya_uprising
+	shared_focus = DEC_CAL_world_caliphate
+	shared_focus = DEC_COA_machine_uprising
+	shared_focus = DEC_RST_state_restoration
+	shared_focus = DEC_VOL_tatar_uprising
+	shared_focus = DEC_VOL_erzya_uprising
+	shared_focus = DEC_NOR_bjarmia_uprising
+	shared_focus = DEC_TUR_call_of_turan
+	shared_focus = DEC_MON_kalmyk_uprising
+	shared_focus = DEC_URA_komi_uprising
+	shared_focus = DEC_SIB_central_uprising
+	shared_focus = DEC_FE_chukotka_uprising
+
+	focus = {
+		id = DEC_CSK_local_host
+		icon = GFX_focus_generic_self_management
+		x = 2
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_CSK_local_host"
+			add_political_power = 50
+			add_stability = 0.03
+		}
+	}
+}

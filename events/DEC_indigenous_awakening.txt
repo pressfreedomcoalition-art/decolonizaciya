@@ -1,0 +1,86 @@
+##############################
+# Abya Yala Council — oath events
+##############################
+
+add_namespace = dec_ind
+
+country_event = {
+	id = dec_ind.1
+	title = dec_ind.1.t
+	desc = dec_ind.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = dec_ind.1.a
+		log = "[GetDateText]: [This.GetName]: dec_ind.1.a accept oath"
+		set_country_flag = DEC_IND_oath_accepted
+		if = {
+			limit = { event_target:DEC_ind_overlord = { exists = yes } }
+			event_target:DEC_ind_overlord = { puppet = ROOT }
+		}
+		else_if = {
+			limit = { any_other_country = { has_country_flag = DEC_IND_oath_caller } }
+			random_other_country = {
+				limit = { has_country_flag = DEC_IND_oath_caller }
+				puppet = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = dec_ind.1.b
+		log = "[GetDateText]: [This.GetName]: dec_ind.1.b refuse oath"
+		set_country_flag = DEC_IND_oath_refused
+		ai_chance = { base = 25 }
+		# Must leave before CW / war — otherwise loyalist + rebel stay allied
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		if = {
+			limit = { any_other_country = { has_country_flag = DEC_IND_oath_caller } }
+			random_other_country = {
+				limit = { has_country_flag = DEC_IND_oath_caller }
+				declare_war_on = { target = ROOT type = annex_everything }
+				country_event = { id = dec_ind.2 hours = 1 }
+			}
+		}
+		set_variable = { party_pop_array^21 = 0.50 }
+		add_popularity = { ideology = nationalist popularity = 0.50 }
+		recalculate_party = yes
+		start_civil_war = { ideology = nationalist size = 0.50 }
+		random_country = {
+			limit = {
+				original_tag = ROOT
+				has_government = nationalist
+				has_war_with = ROOT
+			}
+			DEC_IND_ns_conversion_setup = yes
+			if = { limit = { is_in_faction = yes } leave_faction = yes }
+			if = {
+				limit = { any_other_country = { has_country_flag = DEC_IND_oath_caller is_in_faction = yes } }
+				random_other_country = {
+					limit = { has_country_flag = DEC_IND_oath_caller }
+					add_to_faction = PREV
+				}
+			}
+			if = {
+				limit = { any_other_country = { has_country_flag = DEC_IND_oath_caller } }
+				random_other_country = {
+					limit = { has_country_flag = DEC_IND_oath_caller }
+					puppet = PREV
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dec_ind.2
+	title = dec_ind.2.t
+	desc = dec_ind.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		name = dec_ind.2.a
+		log = "[GetDateText]: [This.GetName]: dec_ind.2.a"
+	}
+}

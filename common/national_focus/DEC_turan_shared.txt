@@ -1,0 +1,223 @@
+############################################
+# Turan shared block (external + internal Turks)
+############################################
+
+shared_focus = {
+	id = DEC_TUR_call_of_turan
+	icon = national_unity
+	x = 54
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_turan_branch = yes
+		OR = {
+			DEC_is_turkic_nation = yes
+			has_country_flag = DEC_TUR_branch_unlocked
+			has_war_with = SOV
+			DEC_has_anti_rf_focus_done = yes
+			has_global_flag = DEC_MON_block_complete
+		}
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		OR = {
+			DEC_is_turkic_nation = yes
+			has_war_with = SOV
+			DEC_has_anti_rf_focus_done = yes
+			has_country_flag = DEC_TUR_branch_unlocked
+			has_global_flag = DEC_MON_block_complete
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_TUR_call_of_turan"
+		set_country_flag = DEC_TUR_branch_unlocked
+		set_global_flag = DEC_TUR_siberia_unlocked
+		add_political_power = 75
+		add_war_support = 0.05
+		custom_effect_tooltip = DEC_TUR_call_of_turan_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_TUR_yakutia_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_TUR_call_of_turan
+	x = -6
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_TUR_call_of_turan }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = YAK
+			AND = { DEC_YAK_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_YAK } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_turan_ready = yes
+		OR = {
+			tag = YAK
+			has_war_with = SOV
+			SOV = { owns_state = 688 }
+			NOT = { country_exists = YAK }
+			DEC_YAK_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_TUR_yakutia_uprising"
+		if = {
+			limit = { NOT = { DEC_YAK_already_independent = yes } }
+			DEC_uprising_YAK = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_turan_block = yes
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_TUR_khakassia_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_TUR_call_of_turan
+	x = -2
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_TUR_call_of_turan }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = KHS
+			AND = { DEC_KHS_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_KHS } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_turan_ready = yes
+		OR = {
+			tag = KHS
+			has_war_with = SOV
+			SOV = { owns_state = 1065 }
+			NOT = { country_exists = KHS }
+			DEC_KHS_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_TUR_khakassia_uprising"
+		if = {
+			limit = { NOT = { DEC_KHS_already_independent = yes } }
+			DEC_uprising_KHS = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_turan_block = yes
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_TUR_altai_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_TUR_call_of_turan
+	x = 2
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_TUR_call_of_turan }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = ALT
+			AND = { DEC_ALT_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_ALT } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_turan_ready = yes
+		OR = {
+			tag = ALT
+			has_war_with = SOV
+			SOV = { owns_state = 684 }
+			NOT = { country_exists = ALT }
+			DEC_ALT_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_TUR_altai_uprising"
+		if = {
+			limit = { NOT = { DEC_ALT_already_independent = yes } }
+			DEC_uprising_ALT = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_turan_block = yes
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_TUR_tuva_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_TUR_call_of_turan
+	x = 6
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_TUR_call_of_turan }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = TUV
+			AND = { DEC_TUV_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_TUV } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_turan_ready = yes
+		OR = {
+			tag = TUV
+			has_war_with = SOV
+			SOV = { owns_state = 1011 }
+			NOT = { country_exists = TUV }
+			DEC_TUV_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_TUR_tuva_uprising"
+		if = {
+			limit = { NOT = { DEC_TUV_already_independent = yes } }
+			DEC_uprising_TUV = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_turan_block = yes
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_TUR_create_turan
+	icon = industry_military
+	relative_position_id = DEC_TUR_call_of_turan
+	x = 0
+	y = 2
+	cost = 8
+	prerequisite = {
+		focus = DEC_TUR_yakutia_uprising
+		focus = DEC_TUR_khakassia_uprising
+		focus = DEC_TUR_altai_uprising
+		focus = DEC_TUR_tuva_uprising
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		OR = {
+			DEC_is_turkic_nation = yes
+			DEC_is_mongol_nation = yes
+		}
+		has_global_flag = DEC_TUR_block_complete
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_TUR_create_turan"
+		DEC_create_turan = yes
+		set_global_flag = DEC_TUR_turan_formed
+		custom_effect_tooltip = DEC_TUR_create_turan_tt
+	}
+	ai_will_do = { base = 30 }
+}

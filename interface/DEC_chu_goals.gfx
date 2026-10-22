@@ -1,0 +1,354 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_root"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_root.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_g_dem"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_g_dem.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_g_sov"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_g_sov.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_g_com"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_g_com.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_g_third"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_g_third.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_g_neu"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_g_neu.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_g_nat"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_g_nat.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_c_street"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_c_street.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_c_reform"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_c_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_c_neu"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_c_neu.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_c_nat"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_c_nat.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_lib"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_lib.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_cons"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_cons.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_soc"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_soc.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_wa"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_wa.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_est"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_est.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_kprf"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_kprf.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_oresh"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_oresh.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_olen"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_olen.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_luk"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_luk.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_khuz"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_khuz.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_evd"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_evd.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_yukh"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_yukh.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_lib"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_lib.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_cons"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_cons.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_soc"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_soc.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_wa"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_wa.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_est"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_est.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_kprf"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_kprf.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_oresh"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_oresh.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_olen"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_olen.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_luk"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_luk.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_khuz"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_khuz.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_evd"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_evd.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_yukh"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_yukh.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_vbg_restore"
+		texturefile = "gfx/interface/goals/DEC_CHU_vbg_restore.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_vbg_ally"
+		texturefile = "gfx/interface/goals/DEC_CHU_vbg_ally.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_vbg_war"
+		texturefile = "gfx/interface/goals/DEC_CHU_vbg_war.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_lib_bc"
+		texturefile = "gfx/interface/goals/DEC_CHU_lib_bc.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_lib_pmcs"
+		texturefile = "gfx/interface/goals/DEC_CHU_lib_pmcs.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_lib_coin"
+		texturefile = "gfx/interface/goals/DEC_CHU_lib_coin.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_lib_priv"
+		texturefile = "gfx/interface/goals/DEC_CHU_lib_priv.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_war_in"
+		texturefile = "gfx/interface/goals/DEC_CHU_war_in.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_war_diaspora"
+		texturefile = "gfx/interface/goals/DEC_CHU_war_diaspora.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_war_dn"
+		texturefile = "gfx/interface/goals/DEC_CHU_war_dn.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_state_root"
+		texturefile = "gfx/interface/goals/DEC_CHU_state_root.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_ind_root"
+		texturefile = "gfx/interface/goals/DEC_CHU_ind_root.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_ind_tractor"
+		texturefile = "gfx/interface/goals/DEC_CHU_ind_tractor.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_ind_chem"
+		texturefile = "gfx/interface/goals/DEC_CHU_ind_chem.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_ind_volga"
+		texturefile = "gfx/interface/goals/DEC_CHU_ind_volga.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_ind_heavy"
+		texturefile = "gfx/interface/goals/DEC_CHU_ind_heavy.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_army_root"
+		texturefile = "gfx/interface/goals/DEC_CHU_army_root.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_army_draft"
+		texturefile = "gfx/interface/goals/DEC_CHU_army_draft.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_army_officers"
+		texturefile = "gfx/interface/goals/DEC_CHU_army_officers.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_army_milind"
+		texturefile = "gfx/interface/goals/DEC_CHU_army_milind.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_army_doctrine"
+		texturefile = "gfx/interface/goals/DEC_CHU_army_doctrine.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_cul_root"
+		texturefile = "gfx/interface/goals/DEC_CHU_cul_root.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_cul_tene"
+		texturefile = "gfx/interface/goals/DEC_CHU_cul_tene.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_cul_keremet"
+		texturefile = "gfx/interface/goals/DEC_CHU_cul_keremet.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_cul_calendar"
+		texturefile = "gfx/interface/goals/DEC_CHU_cul_calendar.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_cul_secular"
+		texturefile = "gfx/interface/goals/DEC_CHU_cul_secular.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_cul_islam"
+		texturefile = "gfx/interface/goals/DEC_CHU_cul_islam.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_hub"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_hub.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_west"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_west.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_west_corr"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_west_corr.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_west_euro"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_west_euro.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_left"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_left.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_left_work"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_left_work.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_left_plan"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_left_plan.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_nat"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_nat.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_nat_lang"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_nat_lang.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_nat_mem"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_nat_mem.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_argadu"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_argadu.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_argadu_ummah"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_argadu_ummah.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_argadu_law"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_argadu_law.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_est"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_est.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pty_est_cont"
+		texturefile = "gfx/interface/goals/DEC_CHU_pty_est_cont.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_dip_root"
+		texturefile = "gfx/interface/goals/DEC_CHU_dip_root.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_dip_nato"
+		texturefile = "gfx/interface/goals/DEC_CHU_dip_nato.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_dip_bulgar"
+		texturefile = "gfx/interface/goals/DEC_CHU_dip_bulgar.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_dip_volga"
+		texturefile = "gfx/interface/goals/DEC_CHU_dip_volga.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_dip_euro"
+		texturefile = "gfx/interface/goals/DEC_CHU_dip_euro.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_dip_cau"
+		texturefile = "gfx/interface/goals/DEC_CHU_dip_cau.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_g_ummah"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_g_ummah.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_p_argadu"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_p_argadu.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_pol_pwr_argadu"
+		texturefile = "gfx/interface/goals/DEC_CHU_pol_pwr_argadu.dds"
+	}
+	spriteType = {
+		name = "GFX_DEC_CHU_vbg_proclaim"
+		texturefile = "gfx/interface/goals/DEC_CHU_vbg_proclaim.dds"
+	}
+}

@@ -1,13 +1,436 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			# Prototype cores for liberatable tags (does not change ownership at start)
-			1135 = { add_core_of = VBG } # Chuvashia → Volga Bulgaria claim
-			661 = { add_claim_by = VBG }  # Tatarstan — historical Mid-Volga claim (soft)
-			1127 = { add_core_of = CIR } # Adygea
-			1125 = { add_core_of = CIR } # Karachay-Cherkessia
-			674 = { add_core_of = CIR }  # Kabardino-Balkaria
-			log = "DEC: Decolonizaciya cores applied (VBG/CIR)"
+			############################
+			# Liberatable / new tags
+			############################
+			# Riyadus-Salikhin Moscow cell (CHE vassal uprising)
+			652 = { add_core_of = RYS } # Moscow
+
+			# Belgorod / Smolensk / Voronezh / Severia
+			1172 = { add_core_of = BGR }
+			654 = { add_core_of = SMO }
+			656 = { add_core_of = VOR }
+			653 = { add_core_of = SEV } # Kursk
+			1174 = { add_core_of = SEV } # Bryansk
+			1173 = { add_core_of = SEV } # Oryol
+
+			# Orenburg / Yaik Cossacks
+			1118 = { add_core_of = VYK }
+
+			# Don Cossacks
+			667 = { add_core_of = DON }
+
+			# Siberia cores for uprisings
+			682 = { add_core_of = CSB } # Krasnoyarsk
+			681 = { add_core_of = CSB } # Tomsk
+			1067 = { add_core_of = CSB } # Omsk
+			685 = { add_core_of = ESB } # Irkutsk
+			1069 = { add_core_of = ESB } # Amur
+			680 = { add_core_of = SIB } # Novosibirsk
+
+			# Ural formable belt
+			676 = { add_core_of = URA }
+			675 = { add_core_of = URA }
+			658 = { add_core_of = URA }
+
+			# North / Baltic rim
+			644 = { add_core_of = IGR } # Leningrad / Ingria
+			643 = { add_core_of = LAP } # Murmansk / Lapland
+			647 = { add_core_of = BJA } # Arkhangelsk / Bjarmia
+			1128 = { add_core_of = KAE }
+			642 = { add_core_of = BLT } # Kaliningrad / Baltic Republic
+
+			# Mordovia: shared Erzya / Moksha (split state 1251 disabled)
+			1132 = { add_core_of = ERZ }
+			1132 = { add_core_of = MOK }
+
+			# Nogai El / Astrakhan
+			666 = { add_core_of = NOG }
+
+			# Kalmykia / Buryatia
+			1107 = { add_core_of = KLM }
+			686 = { add_core_of = BRY }
+
+			# Chukotka
+			689 = { add_core_of = CKK }
+
+			# Alans Balkaria (Balkars) — share Kabardino-Balkaria with KBK
+			674 = { add_core_of = BLK }
+
+			# Volga Bulgaria
+			1135 = { add_core_of = VBG }
+			661 = { add_claim_by = VBG }
+
+			# Circassia: Adygea, Karachay-Cherkessia, Abkhazia
+			1127 = { add_core_of = CIR }
+			1125 = { add_core_of = CIR }
+			706 = { add_core_of = CIR }
+
+			# Ensure Kuban can claim Krasnodar for Kuban–Circassia path
+			668 = { add_core_of = KUB }
+			1140 = { add_core_of = KUB }
+
+			# Zeleny Klin — Pacific coast Vladivostok → Chukotka
+			692 = { add_core_of = ZKL } # Primorye
+			687 = { add_core_of = ZKL } # Khabarovsk
+			1136 = { add_core_of = ZKL } # Magadan
+			1137 = { add_core_of = ZKL } # Kamchatka
+			689 = { add_core_of = ZKL } # Chukotka
+			691 = { add_core_of = ZKL } # Sakhalin
+			1069 = { add_claim_by = ZKL } # Amur (inland claim)
+			1068 = { add_claim_by = ZKL } # Jewish AO
+
+			# Apartheid (South Africa states) / Rhodesia (Zimbabwe states)
+			273 = { add_core_of = APT } # Limpopo
+			274 = { add_core_of = APT } # Mpumalanga
+			275 = { add_core_of = APT } # Gauteng
+			276 = { add_core_of = APT } # Northwest
+			277 = { add_core_of = APT } # Free State
+			278 = { add_core_of = APT } # Northern Cape
+			279 = { add_core_of = APT } # Kwazulu-Natal
+			280 = { add_core_of = APT } # Eastern Cape
+			281 = { add_core_of = APT } # Western Cape
+			289 = { add_core_of = RHO } # Matabeleland
+			290 = { add_core_of = RHO } # Mashonaland
+			291 = { add_core_of = RHO } # Masvingo-Manica
+
+			############################
+			# Formable claim cores (inactive tags until formed/released)
+			############################
+			# Kuban–Circassia
+			668 = { add_core_of = KBC }
+			1140 = { add_core_of = KBC }
+			1127 = { add_core_of = KBC }
+			1125 = { add_core_of = KBC }
+			706 = { add_core_of = KBC }
+
+			# Ossetia–Alania
+			673 = { add_core_of = OSA }
+			705 = { add_core_of = OSA }
+
+			# Caucasian Union (broad)
+			671 = { add_core_of = CAU } # Dagestan
+			672 = { add_core_of = CAU } # Chechnya
+			1126 = { add_core_of = CAU } # Ingushetia
+			673 = { add_core_of = CAU }
+			705 = { add_core_of = CAU }
+			706 = { add_core_of = CAU }
+			1127 = { add_core_of = CAU }
+			1125 = { add_core_of = CAU }
+			674 = { add_core_of = CAU }
+			670 = { add_core_of = CAU } # Stavropol
+
+			# Bulgar Confederation
+			1135 = { add_core_of = BCF }
+			661 = { add_core_of = BCF }
+			664 = { add_core_of = BCF }
+			1132 = { add_core_of = BCF }
+
+			# Idel-Ural
+			661 = { add_core_of = IDL }
+			664 = { add_core_of = IDL }
+			1135 = { add_core_of = IDL }
+			1133 = { add_core_of = IDL } # Udmurtia
+			1134 = { add_core_of = IDL } # Mari El
+			1132 = { add_core_of = IDL }
+			1118 = { add_core_of = IDL } # Orenburg
+
+			log = "DEC: cores applied (new nations + formables)"
+
+			SOV = { DEC_init_separatism_vars = yes }
+
+			# Extra opposition / decolonizer party leaders on MD tags
+			DEC_add_all_decolon_extra_leaders = yes
+
+			# Late bookmarks: 2022 includes 2013 layer
+			if = {
+				limit = { has_start_date > 2022.2.21 }
+				DEC_setup_2022 = yes
+			}
+			else_if = {
+				limit = { has_start_date > 2013.9.30 }
+				DEC_setup_2013 = yes
+			}
+		}
+	}
+
+	# NATO Free Russia satellites → full collapse + RDK
+	on_daily = {
+		effect = {
+			# Arm anti-puppet shield as soon as RUSFOR admin exists
+			if = {
+				limit = {
+					country_exists = RUS
+					RUS = { has_cosmetic_tag = RUS_RFOR }
+					NOT = { has_global_flag = DEC_block_rus_federation_subjects }
+				}
+				set_global_flag = DEC_block_rus_federation_subjects
+				log = "DEC: armed anti-subject shield for Free Russia"
+			}
+			if = {
+				limit = { DEC_nato_collapse_ready = yes }
+				DEC_nato_full_collapse = yes
+			}
+			# Keep Free Russia without national subjects even if MD re-puppets mid-tick
+			if = {
+				limit = {
+					has_global_flag = DEC_block_rus_federation_subjects
+					country_exists = RUS
+					RUS = { num_subjects > 0 }
+				}
+				RUS = {
+					every_subject_country = {
+						DEC_end_subject_of_overlord = yes
+						log = "DEC: stripped leftover RUS subject [THIS.GetTag]"
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					DEC_can_access_cau_uprising_branch = yes
+					NOT = { has_country_flag = DEC_CAU_branch_unlocked }
+					OR = {
+						DEC_has_anti_rf_focus_done = yes
+						has_war_with = SOV
+					}
+				}
+				set_country_flag = DEC_CAU_branch_unlocked
+				log = "DEC: [THIS.GetTag] unlocked Caucasian uprising branch"
+			}
+			every_country = {
+				limit = {
+					DEC_can_access_cossackia_branch = yes
+					NOT = { has_country_flag = DEC_CSK_branch_unlocked }
+					OR = {
+						DEC_is_cossack_nation = yes
+						DEC_has_anti_rf_focus_done = yes
+						has_war_with = SOV
+					}
+				}
+				set_country_flag = DEC_CSK_branch_unlocked
+				log = "DEC: [THIS.GetTag] unlocked Cossackia uprising branch"
+			}
+			every_country = {
+				limit = {
+					OR = {
+						DEC_is_mongol_nation = yes
+						DEC_is_mongol_branch_external = yes
+					}
+					NOT = { has_country_flag = DEC_MON_branch_unlocked }
+					OR = {
+						has_war_with = SOV
+						DEC_has_anti_rf_focus_done = yes
+						DEC_any_decolon_block_complete = yes
+					}
+				}
+				set_country_flag = DEC_MON_branch_unlocked
+				log = "DEC: [THIS.GetTag] unlocked Mongol uprising branch"
+			}
+			every_country = {
+				limit = {
+					has_global_flag = DEC_MON_block_complete
+					OR = {
+						DEC_is_mongol_nation = yes
+						DEC_is_mongol_branch_external = yes
+						has_country_flag = DEC_MON_branch_unlocked
+					}
+				}
+				if = {
+					limit = { NOT = { has_country_flag = DEC_TUR_branch_unlocked } }
+					set_country_flag = DEC_TUR_branch_unlocked
+				}
+				if = {
+					limit = { NOT = { has_country_flag = DEC_SIB_branch_unlocked } }
+					set_country_flag = DEC_SIB_branch_unlocked
+				}
+			}
+			every_country = {
+				limit = {
+					has_global_flag = DEC_NOR_block_complete
+					OR = {
+						DEC_is_north_nation = yes
+						has_country_flag = DEC_NOR_branch_unlocked
+					}
+					NOT = { has_country_flag = DEC_VOL_finno_unlocked }
+				}
+				set_country_flag = DEC_VOL_finno_unlocked
+				log = "DEC: [THIS.GetTag] unlocked Volga Finno-Ugric via North block"
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_global_flag = DEC_VOL_finno_opened_turkic
+						has_completed_focus = DEC_VOL_erzya_uprising
+					}
+					NOT = { has_country_flag = DEC_VOL_turkic_unlocked }
+				}
+				set_country_flag = DEC_VOL_turkic_unlocked
+				log = "DEC: [THIS.GetTag] unlocked Volga Turkic via Finno-Ugric"
+			}
+			every_country = {
+				limit = {
+					has_global_flag = DEC_TUR_block_complete
+					OR = {
+						DEC_is_turkic_nation = yes
+						has_country_flag = DEC_TUR_branch_unlocked
+					}
+				}
+				if = {
+					limit = { NOT = { has_country_flag = DEC_URA_branch_unlocked } }
+					set_country_flag = DEC_URA_branch_unlocked
+				}
+				if = {
+					limit = { NOT = { has_country_flag = DEC_SIB_branch_unlocked } }
+					set_country_flag = DEC_SIB_branch_unlocked
+				}
+				if = {
+					limit = { NOT = { has_country_flag = DEC_MON_branch_unlocked } }
+					set_country_flag = DEC_MON_branch_unlocked
+				}
+				if = {
+					limit = { NOT = { has_country_flag = DEC_CAU_branch_unlocked } }
+					set_country_flag = DEC_CAU_branch_unlocked
+				}
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					SOV = { has_country_flag = DEC_league_separatism_active }
+				}
+				SOV = { DEC_tick_league_separatism = yes }
+			}
+			every_country = {
+				limit = { has_country_flag = DEC_blockchain_nation }
+				DEC_check_blockchain_return = yes
+			}
+			every_country = {
+				limit = { has_country_flag = DEC_CHU_priv_pmcs }
+				DEC_CHU_tick_private_armies = yes
+			}
+			every_country = {
+				limit = { has_country_flag = DEC_CHU_priv_industry }
+				DEC_CHU_tick_privatization = yes
+			}
+			every_country = {
+				limit = { has_country_flag = DEC_CHU_bulcoin_tick }
+				DEC_CHU_tick_bulcoin = yes
+			}
+			every_country = {
+				limit = { has_country_flag = DEC_CHU_freedom_tick }
+				DEC_CHU_tick_freedom = yes
+			}
+			every_country = {
+				limit = {
+					has_country_flag = DEC_CHU_dn_active
+					has_war = yes
+					OR = {
+						original_tag = CHU
+						original_tag = BCF
+					}
+				}
+				DEC_CHU_dn_fire_order = yes
+			}
+		}
+	}
+
+	on_state_control_changed = {
+		effect = {
+			# FROM = previous owner, ROOT = new controller, FROM.FROM = state?
+			if = {
+				limit = {
+					FROM = { has_country_flag = DEC_blockchain_nation }
+				}
+				FROM = { DEC_check_blockchain_return = yes }
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = DEC_blockchain_nation }
+				}
+				ROOT = { DEC_check_blockchain_return = yes }
+			}
+		}
+	}
+
+	# ROOT = winner, FROM = loser
+	on_civil_war_end = {
+		effect = {
+			if = {
+				limit = { has_country_flag = DEC_RDK_revolution }
+				DEC_rdk_on_victory = yes
+			}
+		}
+	}
+
+	# ROOT = capitulating country, FROM = winner.
+	# Transfer DEC faction leadership before war-end checks so allies keep fighting.
+	on_capitulation_immediate = {
+		effect = {
+			if = {
+				limit = {
+					is_faction_leader = yes
+					DEC_is_in_dec_faction = yes
+				}
+				DEC_transfer_faction_leadership_on_fall = yes
+			}
+		}
+	}
+
+	# ROOT = nation being puppeted, FROM = overlord
+	# Block MD Free Russia from turning national republics into subjects
+	on_puppet = {
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = DEC_block_rus_federation_subjects
+					FROM = {
+						OR = {
+							tag = RUS
+							original_tag = RUS
+							has_cosmetic_tag = RUS_RFOR
+						}
+					}
+				}
+				log = "DEC: blocked puppet [ROOT.GetTag] under [FROM.GetTag]"
+				ROOT = { DEC_end_subject_of_overlord = yes }
+			}
+		}
+	}
+
+	# ROOT = attacker, FROM = defender
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { DEC_is_libertarian_gov = yes }
+					FROM = { DEC_is_lib_or_anarchist_gov = yes }
+				}
+				log = "DEC: libertarian war ban [ROOT.GetTag] vs [FROM.GetTag]"
+				ROOT = { white_peace = FROM }
+			}
+		}
+	}
+
+	on_release_as_puppet = {
+		effect = {
+			if = {
+				limit = {
+					has_global_flag = DEC_block_rus_federation_subjects
+					FROM = {
+						OR = {
+							tag = RUS
+							original_tag = RUS
+							has_cosmetic_tag = RUS_RFOR
+						}
+					}
+				}
+				log = "DEC: blocked release-as-puppet [ROOT.GetTag] under [FROM.GetTag]"
+				ROOT = { DEC_end_subject_of_overlord = yes }
+			}
 		}
 	}
 }

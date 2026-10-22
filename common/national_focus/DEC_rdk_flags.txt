@@ -1,0 +1,134 @@
+############################################
+# RDK victory — choose national flag
+############################################
+
+focus_tree = {
+	id = DEC_rdk_flag_tree
+	country = {
+		factor = 0
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	focus = {
+		id = DEC_RDK_national_state
+		icon = national_unity
+		x = 8
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_RDK_national_state"
+			add_political_power = 50
+			add_stability = 0.05
+			custom_effect_tooltip = DEC_RDK_national_state_tt
+		}
+	}
+
+	focus = {
+		id = DEC_RDK_flag_choice
+		icon = national_unity
+		x = 0
+		y = 1
+		relative_position_id = DEC_RDK_national_state
+		cost = 2
+		prerequisite = { focus = DEC_RDK_national_state }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_RDK_flag_choice"
+			custom_effect_tooltip = DEC_RDK_flag_choice_tt
+		}
+	}
+
+	focus = {
+		id = DEC_RDK_flag_imperial
+		icon = imperial_russia
+		x = -6
+		y = 1
+		relative_position_id = DEC_RDK_flag_choice
+		cost = 5
+		prerequisite = { focus = DEC_RDK_flag_choice }
+		mutually_exclusive = {
+			focus = DEC_RDK_flag_rdk
+			focus = DEC_RDK_flag_tricolor
+			focus = DEC_RDK_flag_wbw
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_RDK_flag_imperial"
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = DEC_RNS_imperial
+			add_war_support = 0.05
+			custom_effect_tooltip = DEC_RDK_flag_imperial_tt
+		}
+	}
+
+	focus = {
+		id = DEC_RDK_flag_rdk
+		icon = ukr_rdk
+		x = -2
+		y = 1
+		relative_position_id = DEC_RDK_flag_choice
+		cost = 5
+		prerequisite = { focus = DEC_RDK_flag_choice }
+		mutually_exclusive = {
+			focus = DEC_RDK_flag_imperial
+			focus = DEC_RDK_flag_tricolor
+			focus = DEC_RDK_flag_wbw
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_RDK_flag_rdk"
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = DEC_RNS_rdk
+			add_war_support = 0.05
+			custom_effect_tooltip = DEC_RDK_flag_rdk_tt
+		}
+	}
+
+	focus = {
+		id = DEC_RDK_flag_tricolor
+		icon = national_unity
+		x = 2
+		y = 1
+		relative_position_id = DEC_RDK_flag_choice
+		cost = 5
+		prerequisite = { focus = DEC_RDK_flag_choice }
+		mutually_exclusive = {
+			focus = DEC_RDK_flag_imperial
+			focus = DEC_RDK_flag_rdk
+			focus = DEC_RDK_flag_wbw
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_RDK_flag_tricolor"
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = DEC_RNS_tricolor
+			add_stability = 0.05
+			custom_effect_tooltip = DEC_RDK_flag_tricolor_tt
+		}
+	}
+
+	focus = {
+		id = DEC_RDK_flag_wbw
+		icon = national_unity
+		x = 6
+		y = 1
+		relative_position_id = DEC_RDK_flag_choice
+		cost = 5
+		prerequisite = { focus = DEC_RDK_flag_choice }
+		mutually_exclusive = {
+			focus = DEC_RDK_flag_imperial
+			focus = DEC_RDK_flag_rdk
+			focus = DEC_RDK_flag_tricolor
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_RDK_flag_wbw"
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = DEC_RNS_wbw
+			add_stability = 0.05
+			custom_effect_tooltip = DEC_RDK_flag_wbw_tt
+		}
+	}
+}

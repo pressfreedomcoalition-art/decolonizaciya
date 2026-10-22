@@ -1,0 +1,30 @@
+spriteTypes = {
+
+	# MD bookmark picture (blitzkrieg.txt) — was undefined, fell back to Chechen 1936 art
+
+	spriteType = {
+
+		name = "GFX_select_date_2000"
+
+		texturefile = "gfx/interface/select_date_dec_2000.dds"
+
+	}
+
+	spriteType = {
+
+		name = "GFX_select_date_dec_2013"
+
+		texturefile = "gfx/interface/select_date_dec_2013.dds"
+
+	}
+
+	spriteType = {
+
+		name = "GFX_select_date_dec_2022"
+
+		texturefile = "gfx/interface/select_date_dec_2022.dds"
+
+	}
+
+}
+

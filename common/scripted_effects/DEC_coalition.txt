@@ -1,0 +1,177 @@
+############################################
+# Decolonizaciya — Rebel Coalition (auto)
+# Forms when 2+ rebel nations exist; members leave when founding a named alliance.
+############################################
+
+DEC_mark_named_alliance_member = {
+	set_country_flag = DEC_joined_named_faction
+	if = {
+		limit = { has_faction_template = faction_template_dec_coalition }
+		leave_faction = yes
+	}
+}
+
+DEC_create_coalition = {
+	# THIS = faction leader (a rebel)
+	log = "DEC: Creating Rebel Coalition"
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_coalition
+	set_global_flag = DEC_coalition_formed
+	every_other_country = {
+		limit = {
+			has_country_flag = DEC_rebel_nation
+			NOT = { has_country_flag = DEC_joined_named_faction }
+			exists = yes
+			is_subject = no
+			is_in_faction = no
+			NOT = { has_war_with = PREV }
+		}
+		PREV = { add_to_faction = PREV }
+	}
+	hidden_effect = {
+		news_event = { id = dec.14 hours = 4 }
+	}
+}
+
+DEC_invite_to_existing_coalition = {
+	# THIS = coalition leader
+	every_other_country = {
+		limit = {
+			has_country_flag = DEC_rebel_nation
+			NOT = { has_country_flag = DEC_joined_named_faction }
+			exists = yes
+			is_subject = no
+			is_in_faction = no
+			NOT = { has_war_with = PREV }
+		}
+		PREV = { add_to_faction = PREV }
+	}
+}
+
+# When a DEC faction leader capitulates: hand leadership to the strongest
+# surviving member and mark them major so the war does not end for the alliance.
+# THIS = falling faction leader (do not use PREV — on_capitulation PREV is the winner).
+DEC_transfer_faction_leadership_on_fall = {
+	save_event_target_as = DEC_fallen_faction_leader
+	if = {
+		limit = {
+			is_faction_leader = yes
+			DEC_is_in_dec_faction = yes
+			any_country = {
+				is_in_faction_with = event_target:DEC_fallen_faction_leader
+				NOT = { tag = event_target:DEC_fallen_faction_leader }
+				exists = yes
+				has_capitulated = no
+				is_subject = no
+			}
+		}
+		set_variable = { global.DEC_faction_succ_score = -1 }
+		clear_global_event_target = DEC_faction_successor
+		every_country = {
+			limit = {
+				is_in_faction_with = event_target:DEC_fallen_faction_leader
+				NOT = { tag = event_target:DEC_fallen_faction_leader }
+				exists = yes
+				has_capitulated = no
+				is_subject = no
+			}
+			set_temp_variable = { DEC_fs = num_of_factories }
+			if = {
+				limit = { check_variable = { DEC_fs > global.DEC_faction_succ_score } }
+				set_variable = { global.DEC_faction_succ_score = DEC_fs }
+				save_global_event_target_as = DEC_faction_successor
+			}
+		}
+		if = {
+			limit = { has_global_event_target = DEC_faction_successor }
+			event_target:DEC_faction_successor = {
+				set_faction_leader = yes
+				set_major = yes
+				log = "DEC: faction leadership transferred to [THIS.GetTag] after previous leader fell"
+			}
+		}
+	}
+}
+
+DEC_update_coalition = {
+	# Recount eligible rebels (not in a named alliance)
+	set_variable = { global.DEC_rebel_count = 0 }
+	every_country = {
+		limit = {
+			has_country_flag = DEC_rebel_nation
+			exists = yes
+			is_subject = no
+			NOT = { has_country_flag = DEC_joined_named_faction }
+		}
+		add_to_variable = { global.DEC_rebel_count = 1 }
+	}
+	# Too few — dismantle coalition if it exists
+	if = {
+		limit = {
+			check_variable = { global.DEC_rebel_count < 2 }
+			has_global_flag = DEC_coalition_formed
+		}
+		random_country = {
+			limit = {
+				is_faction_leader = yes
+				has_faction_template = faction_template_dec_coalition
+			}
+			dismantle_faction = yes
+		}
+		clr_global_flag = DEC_coalition_formed
+		log = "DEC: Coalition disbanded (fewer than 2 rebels)"
+	}
+	# Form new coalition
+	else_if = {
+		limit = {
+			check_variable = { global.DEC_rebel_count > 1 }
+			NOT = {
+				any_country = {
+					is_faction_leader = yes
+					has_faction_template = faction_template_dec_coalition
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = DEC_rebel_nation
+				NOT = { has_country_flag = DEC_joined_named_faction }
+				is_subject = no
+				exists = yes
+			}
+			DEC_create_coalition = yes
+		}
+		else = {
+			random_country = {
+				limit = {
+					has_country_flag = DEC_rebel_nation
+					NOT = { has_country_flag = DEC_joined_named_faction }
+					is_subject = no
+					exists = yes
+				}
+				DEC_create_coalition = yes
+			}
+		}
+	}
+	# Expand existing coalition
+	else_if = {
+		limit = {
+			check_variable = { global.DEC_rebel_count > 1 }
+			any_country = {
+				is_faction_leader = yes
+				has_faction_template = faction_template_dec_coalition
+			}
+		}
+		random_country = {
+			limit = {
+				is_faction_leader = yes
+				has_faction_template = faction_template_dec_coalition
+			}
+			DEC_invite_to_existing_coalition = yes
+		}
+	}
+}

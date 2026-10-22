@@ -1,0 +1,452 @@
+############################################
+# Shared: World Caliphate — full branch
+############################################
+
+shared_focus = {
+	id = DEC_CAL_world_caliphate
+	icon = cybercaliphate
+	x = 310
+	y = 30
+	cost = 5
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	available = { DEC_can_access_caliphate_branch = yes }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_world_caliphate"
+		set_variable = { DEC_cal_rad_amt = 0.10 }
+		DEC_CAL_boost_ummah = yes
+		add_political_power = 50
+		custom_effect_tooltip = DEC_CAL_boost_plus1_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_CAL_declare_caliphate
+	icon = ummah
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -11
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_CAL_world_caliphate }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_subject = no
+		is_in_faction = no
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_declare_caliphate"
+		DEC_create_world_caliphate = yes
+		custom_effect_tooltip = DEC_CAL_declare_caliphate_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_CAL_call_jihad
+	icon = islamic_military_03
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -11
+	y = 2
+	cost = 8
+	prerequisite = { focus = DEC_CAL_declare_caliphate }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_faction_leader = yes
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_call_jihad"
+		DEC_invite_caliphate_members = yes
+		custom_effect_tooltip = DEC_CAL_call_jihad_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_CAL_call_bayah
+	icon = islam
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -11
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_CAL_call_jihad }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_faction_leader = yes
+		DEC_owns_mecca = yes
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_call_bayah"
+		DEC_CAL_bayah_start = yes
+		custom_effect_tooltip = DEC_CAL_call_bayah_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_CAL_unite_caliphate
+	icon = cybercaliphate
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -11
+	y = 4
+	cost = 12
+	prerequisite = { focus = DEC_CAL_call_bayah }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_faction_leader = yes
+		DEC_owns_mecca = yes
+		any_subject_country = { always = yes }
+	}
+	search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_unite_caliphate"
+		DEC_CAL_unite_caliphate = yes
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_CAL_africa
+	icon = africa
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -7
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CAL_world_caliphate }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_africa"
+		set_variable = { DEC_cal_rad_amt = 0.15 }
+		DEC_CAL_boost_africa = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_CAL_asia
+	icon = asia
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -1
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CAL_world_caliphate }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_asia"
+		set_variable = { DEC_cal_rad_amt = 0.15 }
+		DEC_CAL_boost_asia = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_CAL_europe
+	icon = europe
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = 7
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CAL_world_caliphate }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_europe"
+		set_variable = { DEC_cal_rad_amt = 0.15 }
+		DEC_CAL_boost_europe = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_afr_maghreb
+	icon = islam_laws
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -9
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_africa }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_afr_maghreb"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_afr_maghreb = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_afr_black
+	icon = africa_guy_shield
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -5
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_africa }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_afr_black"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_afr_black = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_asia_far
+	icon = islamic_organization
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -3
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_asia }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_asia_far"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_asia_far = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_asia_central
+	icon = islamist_gov
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -1
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_asia }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_asia_central"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_asia_central = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_asia_north
+	icon = chechnya_nationalism
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = 1
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_asia }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_asia_north"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_asia_north = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_asia_me
+	icon = islamic_sword_03
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = 3
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_asia }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_asia_me"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_asia_me = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_eur_volga
+	icon = islam
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = 5
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_europe }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_eur_volga"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_eur_volga = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_eur_cau
+	icon = islamic_resistance
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = 9
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_europe }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_eur_cau"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_eur_cau = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_reg_eur_balk
+	icon = islamic_militia_01
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = 11
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_CAL_europe }
+	available = { DEC_can_access_caliphate_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_reg_eur_balk"
+		set_variable = { DEC_cal_rad_amt = 0.20 }
+		DEC_CAL_boost_eur_balk = yes
+		custom_effect_tooltip = DEC_CAL_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_CAL_jihad_africa
+	icon = islamic_sword_03
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -7
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_CAL_reg_afr_maghreb }
+	prerequisite = { focus = DEC_CAL_reg_afr_black }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_subject = no
+	}
+	search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_jihad_africa"
+		DEC_CAL_wargoals_africa = yes
+		set_country_flag = DEC_CAL_africa_block_done
+		custom_effect_tooltip = DEC_CAL_jihad_africa_tt
+	}
+	ai_will_do = { base = 20 }
+}
+
+shared_focus = {
+	id = DEC_CAL_jihad_asia
+	icon = islamic_militarism
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -1
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_CAL_reg_asia_me }
+	prerequisite = { focus = DEC_CAL_reg_asia_central }
+	prerequisite = { focus = DEC_CAL_reg_asia_north }
+	prerequisite = { focus = DEC_CAL_reg_asia_far }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_subject = no
+	}
+	search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_jihad_asia"
+		DEC_CAL_wargoals_asia = yes
+		set_country_flag = DEC_CAL_asia_block_done
+		custom_effect_tooltip = DEC_CAL_jihad_asia_tt
+	}
+	ai_will_do = { base = 20 }
+}
+
+shared_focus = {
+	id = DEC_CAL_jihad_europe
+	icon = islamic_militia_03
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = 7
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_CAL_reg_eur_cau }
+	prerequisite = { focus = DEC_CAL_reg_eur_volga }
+	prerequisite = { focus = DEC_CAL_reg_eur_balk }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_subject = no
+	}
+	search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_jihad_europe"
+		DEC_CAL_wargoals_europe = yes
+		set_country_flag = DEC_CAL_europe_block_done
+		custom_effect_tooltip = DEC_CAL_jihad_europe_tt
+	}
+	ai_will_do = { base = 20 }
+}
+
+shared_focus = {
+	id = DEC_CAL_world_jihad
+	icon = cybercaliphate
+	allow_branch = { DEC_can_access_caliphate_branch = yes }
+	relative_position_id = DEC_CAL_world_caliphate
+	x = -1
+	y = 4
+	cost = 15
+	prerequisite = { focus = DEC_CAL_jihad_africa }
+	prerequisite = { focus = DEC_CAL_jihad_asia }
+	prerequisite = { focus = DEC_CAL_jihad_europe }
+	available = {
+		DEC_can_access_caliphate_branch = yes
+		is_subject = no
+	}
+	search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_world_jihad"
+		DEC_CAL_world_jihad = yes
+		custom_effect_tooltip = DEC_CAL_world_jihad_tt
+	}
+	ai_will_do = { base = 15 }
+}

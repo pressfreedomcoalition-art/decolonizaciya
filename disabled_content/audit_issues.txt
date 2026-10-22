@@ -1,0 +1,2 @@
+﻿ALWAYS_ALLOWED|DEC_decolonisation.txt|count=3
+ALWAYS_ALLOWED|DEC_formables.txt|count=6

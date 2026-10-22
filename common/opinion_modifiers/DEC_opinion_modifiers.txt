@@ -1,3 +1,14 @@
-DEC_decolonised_solidarity = {
-	value = 35
+opinion_modifiers = {
+	DEC_decolonised_solidarity = {
+		value = 35
+	}
+	DEC_cal_ummah_solidarity = {
+		value = 40
+	}
+	DEC_wht_brotherhood_solidarity = {
+		value = 40
+	}
+	DEC_chu_west_align = {
+		value = 30
+	}
 }

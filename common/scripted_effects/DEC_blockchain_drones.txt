@@ -1,0 +1,2756 @@
+############################################
+# Per-nation blockchain launch + drone armies
+############################################
+
+DEC_launch_blockchain_CHE = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = CHE }
+				CHE = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = CHE
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = CHE } }
+				UKR = { release = CHE }
+			}
+			else = {
+				CHE = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			CHE = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_CHE
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_CHE
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_CHE = {
+	set_country_flag = DEC_uprising_refocus_CHE
+	uncomplete_national_focus = {
+		focus = DEC_CAU_chechnya_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = CHE } }
+		DEC_launch_blockchain_CHE = yes
+	}
+	CHE = { DEC_spawn_drone_template = yes }
+	672 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = CHE
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			672 = { NOT = { is_owned_by = CHE } }
+		}
+		672 = {
+			owner = {
+				CHE = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = CHE }
+		CHE = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_DAG = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = DAG }
+				DAG = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = DAG
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = DAG } }
+				UKR = { release = DAG }
+			}
+			else = {
+				DAG = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			DAG = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_DAG
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_DAG
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_DAG = {
+	set_country_flag = DEC_uprising_refocus_DAG
+	uncomplete_national_focus = {
+		focus = DEC_CAU_dagestan_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = DAG } }
+		DEC_launch_blockchain_DAG = yes
+	}
+	DAG = { DEC_spawn_drone_template = yes }
+	671 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = DAG
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			671 = { NOT = { is_owned_by = DAG } }
+		}
+		671 = {
+			owner = {
+				DAG = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = DAG }
+		DAG = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_ING = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = ING }
+				ING = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = ING
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = ING } }
+				UKR = { release = ING }
+			}
+			else = {
+				ING = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			ING = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_ING
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_ING
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_ING = {
+	set_country_flag = DEC_uprising_refocus_ING
+	uncomplete_national_focus = {
+		focus = DEC_CAU_ingush_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = ING } }
+		DEC_launch_blockchain_ING = yes
+	}
+	ING = { DEC_spawn_drone_template = yes }
+	1126 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = ING
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1126 = { NOT = { is_owned_by = ING } }
+		}
+		1126 = {
+			owner = {
+				ING = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = ING }
+		ING = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_CIR = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = CIR }
+				CIR = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = CIR
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = CIR } }
+				UKR = { release = CIR }
+			}
+			else = {
+				CIR = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			CIR = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_CIR
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_CIR
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_CIR = {
+	set_country_flag = DEC_uprising_refocus_CIR
+	uncomplete_national_focus = {
+		focus = DEC_CAU_circassia_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = CIR } }
+		DEC_launch_blockchain_CIR = yes
+	}
+	CIR = { DEC_spawn_drone_template = yes }
+	1127 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = CIR
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1127 = { NOT = { is_owned_by = CIR } }
+		}
+		1127 = {
+			owner = {
+				CIR = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = CIR }
+		CIR = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_NOG = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = NOG }
+				NOG = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = NOG
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = NOG } }
+				UKR = { release = NOG }
+			}
+			else = {
+				NOG = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			NOG = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_NOG
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_NOG
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_NOG = {
+	set_country_flag = DEC_uprising_refocus_NOG
+	uncomplete_national_focus = {
+		focus = DEC_CAU_nogai_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = NOG } }
+		DEC_launch_blockchain_NOG = yes
+	}
+	NOG = { DEC_spawn_drone_template = yes }
+	666 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = NOG
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			666 = { NOT = { is_owned_by = NOG } }
+		}
+		666 = {
+			owner = {
+				NOG = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = NOG }
+		NOG = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_TAT = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = TAT }
+				TAT = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = TAT
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = TAT } }
+				UKR = { release = TAT }
+			}
+			else = {
+				TAT = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			TAT = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_TAT
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_TAT
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_TAT = {
+	set_country_flag = DEC_uprising_refocus_TAT
+	uncomplete_national_focus = {
+		focus = DEC_VOL_tatar_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = TAT } }
+		DEC_launch_blockchain_TAT = yes
+	}
+	TAT = { DEC_spawn_drone_template = yes }
+	661 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = TAT
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			661 = { NOT = { is_owned_by = TAT } }
+		}
+		661 = {
+			owner = {
+				TAT = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = TAT }
+		TAT = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_BSH = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = BSH }
+				BSH = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = BSH
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = BSH } }
+				UKR = { release = BSH }
+			}
+			else = {
+				BSH = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			BSH = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_BSH
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_BSH
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_BSH = {
+	set_country_flag = DEC_uprising_refocus_BSH
+	uncomplete_national_focus = {
+		focus = DEC_VOL_bashkir_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = BSH } }
+		DEC_launch_blockchain_BSH = yes
+	}
+	BSH = { DEC_spawn_drone_template = yes }
+	664 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = BSH
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			664 = { NOT = { is_owned_by = BSH } }
+		}
+		664 = {
+			owner = {
+				BSH = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = BSH }
+		BSH = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_CHU = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = CHU }
+				CHU = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = CHU
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = CHU } }
+				UKR = { release = CHU }
+			}
+			else = {
+				CHU = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			CHU = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_CHU
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_CHU
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_CHU = {
+	set_country_flag = DEC_uprising_refocus_CHU
+	uncomplete_national_focus = {
+		focus = DEC_VOL_chuvash_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = CHU } }
+		DEC_launch_blockchain_CHU = yes
+	}
+	CHU = { DEC_spawn_drone_template = yes }
+	1135 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = CHU
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1135 = { NOT = { is_owned_by = CHU } }
+		}
+		1135 = {
+			owner = {
+				CHU = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = CHU }
+		CHU = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_MEL = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = MEL }
+				MEL = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = MEL
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = MEL } }
+				UKR = { release = MEL }
+			}
+			else = {
+				MEL = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			MEL = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_MEL
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_MEL
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_MEL = {
+	set_country_flag = DEC_uprising_refocus_MEL
+	uncomplete_national_focus = {
+		focus = DEC_VOL_mari_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = MEL } }
+		DEC_launch_blockchain_MEL = yes
+	}
+	MEL = { DEC_spawn_drone_template = yes }
+	1134 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = MEL
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1134 = { NOT = { is_owned_by = MEL } }
+		}
+		1134 = {
+			owner = {
+				MEL = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = MEL }
+		MEL = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_UDM = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = UDM }
+				UDM = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = UDM
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = UDM } }
+				UKR = { release = UDM }
+			}
+			else = {
+				UDM = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			UDM = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_UDM
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_UDM
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_UDM = {
+	set_country_flag = DEC_uprising_refocus_UDM
+	uncomplete_national_focus = {
+		focus = DEC_VOL_udmurt_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = UDM } }
+		DEC_launch_blockchain_UDM = yes
+	}
+	UDM = { DEC_spawn_drone_template = yes }
+	1133 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = UDM
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1133 = { NOT = { is_owned_by = UDM } }
+		}
+		1133 = {
+			owner = {
+				UDM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = UDM }
+		UDM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_ERZ = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = ERZ }
+				ERZ = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = ERZ
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = ERZ } }
+				UKR = { release = ERZ }
+			}
+			else = {
+				ERZ = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			ERZ = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_ERZ
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_ERZ
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_ERZ = {
+	set_country_flag = DEC_uprising_refocus_ERZ
+	uncomplete_national_focus = {
+		focus = DEC_VOL_erzya_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = ERZ } }
+		DEC_launch_blockchain_ERZ = yes
+	}
+	ERZ = { DEC_spawn_drone_template = yes }
+	1132 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = ERZ
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1132 = { NOT = { is_owned_by = ERZ } }
+		}
+		1132 = {
+			owner = {
+				ERZ = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = ERZ }
+		ERZ = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_MOK = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = MOK }
+				MOK = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = MOK
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = MOK } }
+				UKR = { release = MOK }
+			}
+			else = {
+				MOK = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			MOK = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_MOK
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_MOK
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_MOK = {
+	set_country_flag = DEC_uprising_refocus_MOK
+	uncomplete_national_focus = {
+		focus = DEC_VOL_moksha_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = MOK } }
+		DEC_launch_blockchain_MOK = yes
+	}
+	MOK = { DEC_spawn_drone_template = yes }
+	1132 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = MOK
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1132 = { NOT = { is_owned_by = MOK } }
+		}
+		1132 = {
+			owner = {
+				MOK = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = MOK }
+		MOK = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_BJA = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = BJA }
+				BJA = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = BJA
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = BJA } }
+				UKR = { release = BJA }
+			}
+			else = {
+				BJA = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			BJA = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_BJA
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_BJA
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_BJA = {
+	set_country_flag = DEC_uprising_refocus_BJA
+	uncomplete_national_focus = {
+		focus = DEC_NOR_bjarmia_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = BJA } }
+		DEC_launch_blockchain_BJA = yes
+	}
+	BJA = { DEC_spawn_drone_template = yes }
+	647 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = BJA
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			647 = { NOT = { is_owned_by = BJA } }
+		}
+		647 = {
+			owner = {
+				BJA = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = BJA }
+		BJA = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_IGR = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = IGR }
+				IGR = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = IGR
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = IGR } }
+				UKR = { release = IGR }
+			}
+			else = {
+				IGR = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			IGR = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_IGR
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_IGR
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_IGR = {
+	set_country_flag = DEC_uprising_refocus_IGR
+	uncomplete_national_focus = {
+		focus = DEC_NOR_ingria_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = IGR } }
+		DEC_launch_blockchain_IGR = yes
+	}
+	IGR = { DEC_spawn_drone_template = yes }
+	644 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = IGR
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			644 = { NOT = { is_owned_by = IGR } }
+		}
+		644 = {
+			owner = {
+				IGR = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = IGR }
+		IGR = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_KAE = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = KAE }
+				KAE = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = KAE
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = KAE } }
+				UKR = { release = KAE }
+			}
+			else = {
+				KAE = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			KAE = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_KAE
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_KAE
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_KAE = {
+	set_country_flag = DEC_uprising_refocus_KAE
+	uncomplete_national_focus = {
+		focus = DEC_NOR_karelia_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = KAE } }
+		DEC_launch_blockchain_KAE = yes
+	}
+	KAE = { DEC_spawn_drone_template = yes }
+	1128 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = KAE
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1128 = { NOT = { is_owned_by = KAE } }
+		}
+		1128 = {
+			owner = {
+				KAE = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = KAE }
+		KAE = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_LAP = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = LAP }
+				LAP = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = LAP
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = LAP } }
+				UKR = { release = LAP }
+			}
+			else = {
+				LAP = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			LAP = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_LAP
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_LAP
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_LAP = {
+	set_country_flag = DEC_uprising_refocus_LAP
+	uncomplete_national_focus = {
+		focus = DEC_NOR_lapland_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = LAP } }
+		DEC_launch_blockchain_LAP = yes
+	}
+	LAP = { DEC_spawn_drone_template = yes }
+	643 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = LAP
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			643 = { NOT = { is_owned_by = LAP } }
+		}
+		643 = {
+			owner = {
+				LAP = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = LAP }
+		LAP = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_KOM = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = KOM }
+				KOM = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = KOM
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = KOM } }
+				UKR = { release = KOM }
+			}
+			else = {
+				KOM = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			KOM = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_KOM
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_KOM
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_KOM = {
+	set_country_flag = DEC_uprising_refocus_KOM
+	uncomplete_national_focus = {
+		focus = DEC_URA_komi_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = KOM } }
+		DEC_launch_blockchain_KOM = yes
+	}
+	KOM = { DEC_spawn_drone_template = yes }
+	648 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = KOM
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			648 = { NOT = { is_owned_by = KOM } }
+		}
+		648 = {
+			owner = {
+				KOM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = KOM }
+		KOM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_KHM = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = KHM }
+				KHM = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = KHM
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = KHM } }
+				UKR = { release = KHM }
+			}
+			else = {
+				KHM = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			KHM = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_KHM
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_KHM
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_KHM = {
+	set_country_flag = DEC_uprising_refocus_KHM
+	uncomplete_national_focus = {
+		focus = DEC_URA_khanty_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = KHM } }
+		DEC_launch_blockchain_KHM = yes
+	}
+	KHM = { DEC_spawn_drone_template = yes }
+	678 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = KHM
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			678 = { NOT = { is_owned_by = KHM } }
+		}
+		678 = {
+			owner = {
+				KHM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = KHM }
+		KHM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_YAM = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = YAM }
+				YAM = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = YAM
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = YAM } }
+				UKR = { release = YAM }
+			}
+			else = {
+				YAM = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			YAM = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_YAM
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_YAM
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_YAM = {
+	set_country_flag = DEC_uprising_refocus_YAM
+	uncomplete_national_focus = {
+		focus = DEC_URA_yamal_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = YAM } }
+		DEC_launch_blockchain_YAM = yes
+	}
+	YAM = { DEC_spawn_drone_template = yes }
+	679 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = YAM
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			679 = { NOT = { is_owned_by = YAM } }
+		}
+		679 = {
+			owner = {
+				YAM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = YAM }
+		YAM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_NEE = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = NEE }
+				NEE = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = NEE
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = NEE } }
+				UKR = { release = NEE }
+			}
+			else = {
+				NEE = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			NEE = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_NEE
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_NEE
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_NEE = {
+	set_country_flag = DEC_uprising_refocus_NEE
+	uncomplete_national_focus = {
+		focus = DEC_URA_nenets_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = NEE } }
+		DEC_launch_blockchain_NEE = yes
+	}
+	NEE = { DEC_spawn_drone_template = yes }
+	683 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = NEE
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			683 = { NOT = { is_owned_by = NEE } }
+		}
+		683 = {
+			owner = {
+				NEE = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = NEE }
+		NEE = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_CSB = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = CSB }
+				CSB = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = CSB
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = CSB } }
+				UKR = { release = CSB }
+			}
+			else = {
+				CSB = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			CSB = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_CSB
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_CSB
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_CSB = {
+	set_country_flag = DEC_uprising_refocus_CSB
+	uncomplete_national_focus = {
+		focus = DEC_SIB_central_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = CSB } }
+		DEC_launch_blockchain_CSB = yes
+	}
+	CSB = { DEC_spawn_drone_template = yes }
+	682 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = CSB
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			682 = { NOT = { is_owned_by = CSB } }
+		}
+		682 = {
+			owner = {
+				CSB = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = CSB }
+		CSB = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_ESB = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = ESB }
+				ESB = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = ESB
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = ESB } }
+				UKR = { release = ESB }
+			}
+			else = {
+				ESB = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			ESB = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_ESB
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_ESB
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_ESB = {
+	set_country_flag = DEC_uprising_refocus_ESB
+	uncomplete_national_focus = {
+		focus = DEC_SIB_eastern_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = ESB } }
+		DEC_launch_blockchain_ESB = yes
+	}
+	ESB = { DEC_spawn_drone_template = yes }
+	685 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = ESB
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			685 = { NOT = { is_owned_by = ESB } }
+		}
+		685 = {
+			owner = {
+				ESB = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = ESB }
+		ESB = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_CKK = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = CKK }
+				CKK = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = CKK
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = CKK } }
+				UKR = { release = CKK }
+			}
+			else = {
+				CKK = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			CKK = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_CKK
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_CKK
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_CKK = {
+	set_country_flag = DEC_uprising_refocus_CKK
+	uncomplete_national_focus = {
+		focus = DEC_FE_chukotka_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = CKK } }
+		DEC_launch_blockchain_CKK = yes
+	}
+	CKK = { DEC_spawn_drone_template = yes }
+	689 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = CKK
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			689 = { NOT = { is_owned_by = CKK } }
+		}
+		689 = {
+			owner = {
+				CKK = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = CKK }
+		CKK = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_YAK = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = YAK }
+				YAK = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = YAK
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = YAK } }
+				UKR = { release = YAK }
+			}
+			else = {
+				YAK = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			YAK = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_YAK
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_YAK
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_YAK = {
+	set_country_flag = DEC_uprising_refocus_YAK
+	uncomplete_national_focus = {
+		focus = DEC_TUR_yakutia_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = YAK } }
+		DEC_launch_blockchain_YAK = yes
+	}
+	YAK = { DEC_spawn_drone_template = yes }
+	688 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = YAK
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			688 = { NOT = { is_owned_by = YAK } }
+		}
+		688 = {
+			owner = {
+				YAK = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = YAK }
+		YAK = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_KHS = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = KHS }
+				KHS = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = KHS
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = KHS } }
+				UKR = { release = KHS }
+			}
+			else = {
+				KHS = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			KHS = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_KHS
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_KHS
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_KHS = {
+	set_country_flag = DEC_uprising_refocus_KHS
+	uncomplete_national_focus = {
+		focus = DEC_TUR_khakassia_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = KHS } }
+		DEC_launch_blockchain_KHS = yes
+	}
+	KHS = { DEC_spawn_drone_template = yes }
+	1065 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = KHS
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1065 = { NOT = { is_owned_by = KHS } }
+		}
+		1065 = {
+			owner = {
+				KHS = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = KHS }
+		KHS = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_ALT = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = ALT }
+				ALT = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = ALT
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = ALT } }
+				UKR = { release = ALT }
+			}
+			else = {
+				ALT = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			ALT = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_ALT
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_ALT
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_ALT = {
+	set_country_flag = DEC_uprising_refocus_ALT
+	uncomplete_national_focus = {
+		focus = DEC_TUR_altai_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = ALT } }
+		DEC_launch_blockchain_ALT = yes
+	}
+	ALT = { DEC_spawn_drone_template = yes }
+	684 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = ALT
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			684 = { NOT = { is_owned_by = ALT } }
+		}
+		684 = {
+			owner = {
+				ALT = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = ALT }
+		ALT = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_TUV = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = TUV }
+				TUV = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = TUV
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = TUV } }
+				UKR = { release = TUV }
+			}
+			else = {
+				TUV = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			TUV = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_TUV
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_TUV
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_TUV = {
+	set_country_flag = DEC_uprising_refocus_TUV
+	uncomplete_national_focus = {
+		focus = DEC_TUR_tuva_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = TUV } }
+		DEC_launch_blockchain_TUV = yes
+	}
+	TUV = { DEC_spawn_drone_template = yes }
+	1011 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = TUV
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1011 = { NOT = { is_owned_by = TUV } }
+		}
+		1011 = {
+			owner = {
+				TUV = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = TUV }
+		TUV = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_KLM = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = KLM }
+				KLM = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = KLM
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = KLM } }
+				UKR = { release = KLM }
+			}
+			else = {
+				KLM = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			KLM = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_KLM
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_KLM
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_KLM = {
+	set_country_flag = DEC_uprising_refocus_KLM
+	uncomplete_national_focus = {
+		focus = DEC_MON_kalmyk_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = KLM } }
+		DEC_launch_blockchain_KLM = yes
+	}
+	KLM = { DEC_spawn_drone_template = yes }
+	1107 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = KLM
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1107 = { NOT = { is_owned_by = KLM } }
+		}
+		1107 = {
+			owner = {
+				KLM = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = KLM }
+		KLM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_BRY = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = BRY }
+				BRY = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = BRY
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = BRY } }
+				UKR = { release = BRY }
+			}
+			else = {
+				BRY = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			BRY = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_BRY
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_BRY
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_BRY = {
+	set_country_flag = DEC_uprising_refocus_BRY
+	uncomplete_national_focus = {
+		focus = DEC_MON_buryatia_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = BRY } }
+		DEC_launch_blockchain_BRY = yes
+	}
+	BRY = { DEC_spawn_drone_template = yes }
+	686 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = BRY
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			686 = { NOT = { is_owned_by = BRY } }
+		}
+		686 = {
+			owner = {
+				BRY = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = BRY }
+		BRY = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_KUB = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = KUB }
+				KUB = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = KUB
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = KUB } }
+				UKR = { release = KUB }
+			}
+			else = {
+				KUB = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			KUB = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_KUB
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_KUB
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_KUB = {
+	set_country_flag = DEC_uprising_refocus_KUB
+	uncomplete_national_focus = {
+		focus = DEC_CSK_kuban_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = KUB } }
+		DEC_launch_blockchain_KUB = yes
+	}
+	KUB = { DEC_spawn_drone_template = yes }
+	668 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = KUB
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			668 = { NOT = { is_owned_by = KUB } }
+		}
+		668 = {
+			owner = {
+				KUB = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = KUB }
+		KUB = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_DON = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = DON }
+				DON = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = DON
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = DON } }
+				UKR = { release = DON }
+			}
+			else = {
+				DON = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			DON = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_DON
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_DON
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_DON = {
+	set_country_flag = DEC_uprising_refocus_DON
+	uncomplete_national_focus = {
+		focus = DEC_CSK_don_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = DON } }
+		DEC_launch_blockchain_DON = yes
+	}
+	DON = { DEC_spawn_drone_template = yes }
+	667 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = DON
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			667 = { NOT = { is_owned_by = DON } }
+		}
+		667 = {
+			owner = {
+				DON = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = DON }
+		DON = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+
+DEC_launch_blockchain_VYK = {
+	if = {
+		limit = {
+			OR = {
+				NOT = { country_exists = VYK }
+				VYK = { check_variable = { num_owned_states < 1 } }
+			}
+		}
+		DEC_find_free_blockchain_enclave = yes
+		if = {
+			limit = { check_variable = { global.DEC_bc_enclave_state > 0 } }
+			var:global.DEC_bc_enclave_state = {
+				add_core_of = VYK
+				set_state_flag = DEC_blockchain_occupied
+			}
+			if = {
+				limit = { NOT = { country_exists = VYK } }
+				UKR = { release = VYK }
+			}
+			else = {
+				VYK = { transfer_state = var:global.DEC_bc_enclave_state }
+			}
+			VYK = {
+				set_country_flag = DEC_blockchain_nation
+				set_country_flag = DEC_rebel_nation
+				set_variable = { DEC_blockchain_state = global.DEC_bc_enclave_state }
+				DEC_update_coalition = yes
+				DEC_atc_on_new_rebel = yes
+			}
+			set_global_flag = DEC_blockchain_launched_VYK
+			custom_effect_tooltip = DEC_blockchain_launch_tt
+		}
+		else = {
+			custom_effect_tooltip = DEC_blockchain_no_enclave_tt
+		}
+	}
+	else = {
+		set_global_flag = DEC_blockchain_launched_VYK
+		custom_effect_tooltip = DEC_blockchain_already_landed_tt
+	}
+}
+
+DEC_drone_army_VYK = {
+	set_country_flag = DEC_uprising_refocus_VYK
+	uncomplete_national_focus = {
+		focus = DEC_CSK_yaik_uprising
+		uncomplete_children = no
+	}
+	mark_focus_tree_layout_dirty = yes
+	if = {
+		limit = { NOT = { country_exists = VYK } }
+		DEC_launch_blockchain_VYK = yes
+	}
+	VYK = { DEC_spawn_drone_template = yes }
+	1118 = {
+		create_unit = {
+			division = "name = \"Drone Swarm\" division_template = \"Drone Swarm\" start_experience_factor = 0.15 start_equipment_factor = 0.9"
+			owner = VYK
+			count = 7
+		}
+	}
+	if = {
+		limit = {
+			1118 = { NOT = { is_owned_by = VYK } }
+		}
+		1118 = {
+			owner = {
+				VYK = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } country_exists = VYK }
+		VYK = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	custom_effect_tooltip = DEC_drone_army_tt
+	custom_effect_tooltip = DEC_uprising_refocus_tt
+}
+

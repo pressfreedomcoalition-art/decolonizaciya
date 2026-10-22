@@ -1,0 +1,280 @@
+############################################
+# State Restoration — industry + army helpers
+############################################
+
+DEC_rst_ensure_templates = {
+	if = {
+		limit = { NOT = { has_country_flag = DEC_rst_templates_ready } }
+		division_template = {
+			name = "National Volunteers"
+			is_locked = no
+			regiments = {
+				Militia_Bat = { x = 0 y = 0 }
+				Militia_Bat = { x = 0 y = 1 }
+				Militia_Bat = { x = 1 y = 0 }
+				Militia_Bat = { x = 1 y = 1 }
+			}
+			priority = 1
+		}
+		division_template = {
+			name = "National Reserve"
+			is_locked = no
+			regiments = {
+				L_Inf_Bat = { x = 0 y = 0 }
+				L_Inf_Bat = { x = 0 y = 1 }
+				L_Inf_Bat = { x = 1 y = 0 }
+				L_Inf_Bat = { x = 1 y = 1 }
+				L_Inf_Bat = { x = 2 y = 0 }
+			}
+			priority = 2
+		}
+		set_country_flag = DEC_rst_templates_ready
+	}
+}
+
+DEC_rst_spawn_volunteers_5 = {
+	custom_effect_tooltip = DEC_rst_spawn_volunteers_5_tt
+	hidden_effect = {
+		DEC_rst_ensure_templates = yes
+		random_owned_controlled_state = {
+			limit = { ROOT = { has_full_control_of_state = PREV } }
+			create_unit = {
+				division = "name = \"Volunteer Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.15 start_equipment_factor = 0.65"
+				owner = ROOT
+				count = 5
+			}
+		}
+	}
+}
+
+DEC_rst_spawn_reserves_8 = {
+	custom_effect_tooltip = DEC_rst_spawn_reserves_8_tt
+	hidden_effect = {
+		DEC_rst_ensure_templates = yes
+		random_owned_controlled_state = {
+			limit = { ROOT = { has_full_control_of_state = PREV } }
+			create_unit = {
+				division = "name = \"Reserve Division\" division_template = \"National Reserve\" start_experience_factor = 0.1 start_equipment_factor = 0.55"
+				owner = ROOT
+				count = 8
+			}
+		}
+	}
+}
+
+DEC_rst_spawn_mobilization_12 = {
+	custom_effect_tooltip = DEC_rst_spawn_mobilization_12_tt
+	hidden_effect = {
+		DEC_rst_ensure_templates = yes
+		random_owned_controlled_state = {
+			limit = { ROOT = { has_full_control_of_state = PREV } }
+			create_unit = {
+				division = "name = \"Mobilization Division\" division_template = \"National Reserve\" start_experience_factor = 0.05 start_equipment_factor = 0.45"
+				owner = ROOT
+				count = 12
+			}
+		}
+	}
+}
+
+DEC_rst_add_civ_4 = {
+	custom_effect_tooltip = DEC_rst_add_civ_4_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			add_offsite_building = { type = industrial_complex level = 4 }
+		}
+	}
+}
+
+DEC_rst_add_civ_6 = {
+	custom_effect_tooltip = DEC_rst_add_civ_6_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = industrial_complex
+					level = 6
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			add_offsite_building = { type = industrial_complex level = 6 }
+		}
+	}
+}
+
+DEC_rst_add_civ_8 = {
+	custom_effect_tooltip = DEC_rst_add_civ_8_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = industrial_complex size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 8
+				add_building_construction = {
+					type = industrial_complex
+					level = 8
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			add_offsite_building = { type = industrial_complex level = 8 }
+		}
+	}
+}
+
+DEC_rst_add_mil_2 = {
+	custom_effect_tooltip = DEC_rst_add_mil_2_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			add_offsite_building = { type = arms_factory level = 2 }
+		}
+	}
+}
+
+DEC_rst_add_mil_6 = {
+	custom_effect_tooltip = DEC_rst_add_mil_6_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 6
+				add_building_construction = {
+					type = arms_factory
+					level = 6
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			add_offsite_building = { type = arms_factory level = 6 }
+		}
+	}
+}
+
+DEC_rst_add_mil_8 = {
+	custom_effect_tooltip = DEC_rst_add_mil_8_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_controlled_by = ROOT
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 8
+				add_building_construction = {
+					type = arms_factory
+					level = 8
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			add_offsite_building = { type = arms_factory level = 8 }
+		}
+	}
+}
+
+DEC_rst_add_infra_2 = {
+	custom_effect_tooltip = DEC_rst_add_infra_2_tt
+	hidden_effect = {
+		random_owned_controlled_state = {
+			limit = { is_controlled_by = ROOT }
+			add_building_construction = {
+				type = infrastructure
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+
+DEC_rst_add_infra_3 = {
+	custom_effect_tooltip = DEC_rst_add_infra_3_tt
+	hidden_effect = {
+		random_owned_controlled_state = {
+			limit = { is_controlled_by = ROOT }
+			add_building_construction = {
+				type = infrastructure
+				level = 3
+				instant_build = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+Steam Workshop — LIVE
+
+Название: WW3: Russian Invasion (Альфа тест)
+Версия: 0.9.0
+publishedfileid: 3822586345
+Ссылка: https://steamcommunity.com/sharedfiles/filedetails/?id=3822586345
+
+Обновление (после правок):
+
+  powershell -NoProfile -File C:\git\decolonizaciya\tools\pack_workshop.ps1
+  C:\git\decolonizaciya\tools\steamcmd\steamcmd.exe +login alexanderthedark88 +workshop_build_item C:\git\decolonizaciya\steam\workshop.vdf +quit
+
+Или: powershell -NoProfile -File C:\git\decolonizaciya\tools\upload_workshop.ps1
+

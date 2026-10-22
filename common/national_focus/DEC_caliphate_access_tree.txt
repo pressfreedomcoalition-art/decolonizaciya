@@ -1,0 +1,52 @@
+# Access tree for ummah liberatables without a heavy national tree
+focus_tree = {
+	id = dec_caliphate_access_focus
+	country = {
+		factor = 0
+		modifier = { add = 22 tag = KHF }
+		modifier = { add = 20 tag = ISI }
+		modifier = { add = 20 tag = TAL }
+		modifier = { add = 20 tag = AQY }
+		modifier = { add = 20 tag = TTP }
+		modifier = { add = 18 tag = HEJ }
+		modifier = { add = 18 tag = NEJ }
+		modifier = { add = 18 tag = ACE }
+		modifier = { add = 18 tag = BNG }
+		modifier = { add = 18 tag = BLC }
+		modifier = { add = 18 tag = KAS }
+		modifier = { add = 18 tag = PAL }
+		modifier = { add = 18 tag = ROJ }
+		modifier = { add = 18 tag = HOU }
+		modifier = { add = 18 tag = CYR }
+		modifier = { add = 18 tag = FEZ }
+		modifier = { add = 18 tag = TRP }
+		modifier = { add = 18 tag = KBY }
+		modifier = { add = 18 tag = NOG }
+		modifier = { add = 18 tag = ADY }
+		modifier = { add = 18 tag = ING }
+		modifier = { add = 18 tag = DAG }
+		modifier = { add = 18 tag = KBK }
+		modifier = { add = 18 tag = CIR }
+		modifier = { add = 18 tag = GOR }
+		modifier = { add = 18 tag = CAU }
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1400 }
+	shared_focus = DEC_CAL_world_caliphate
+	shared_focus = DEC_RST_state_restoration
+	shared_focus = DEC_COA_machine_uprising
+
+	focus = {
+		id = DEC_CAL_local_shura
+		icon = islam
+		x = 2
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_CAL_local_shura"
+			add_political_power = 50
+			add_stability = 0.03
+		}
+	}
+}

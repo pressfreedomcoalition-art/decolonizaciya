@@ -1,0 +1,267 @@
+# Extra opposition / decolonizer leaders for MD uprising tags
+DEC_add_che_extra_leaders = {
+	create_country_leader = {
+		name = "Deni Teps"
+		desc = "POLITICS_DENI_TEPS_DESC"
+		picture = "gfx/leaders/DEC/deni_teps.dds"
+		ideology = liberalism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Akhmed Zakayev"
+		desc = "POLITICS_ZAKAYEV_DESC"
+		picture = "gfx/leaders/DEC/akhmed_zakayev.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	# TFR Greater Ichkeria / United Republics path (Rashid Temrezov)
+	create_country_leader = {
+		name = "Rashid Temrezov"
+		desc = "POLITICS_TEMREZOV_DESC"
+		picture = "gfx/leaders/DEC/rashid_temrezov.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+	# TFR Kadyrovite Loyalists path (Apti Alaudinov)
+	create_country_leader = {
+		name = "Apti Alaudinov"
+		desc = "POLITICS_ALAUDINOV_DESC"
+		picture = "gfx/leaders/DEC/apti_alaudinov.dds"
+		ideology = Nat_Autocracy
+		traits = { }
+	}
+}
+
+DEC_add_tat_extra_leaders = {
+	create_country_leader = {
+		name = "Fauzia Bayramova"
+		desc = "POLITICS_BAYRAMOVA_DESC"
+		picture = "gfx/leaders/DEC/fauzia_bayramova.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Farit Zakiev"
+		desc = "POLITICS_ZAKIEV_DESC"
+		picture = "gfx/leaders/DEC/farit_zakiev.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Rafis Kashapov"
+		desc = "POLITICS_KASHAPOV_DESC"
+		picture = "gfx/leaders/DEC/rafis_kashapov.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Marat Mulyukov"
+		desc = "POLITICS_MULYUKOV_DESC"
+		picture = "gfx/leaders/DEC/marat_mulyukov.dds"
+		ideology = socialism
+		traits = { }
+	}
+}
+
+DEC_add_bsh_extra_leaders = {
+	create_country_leader = {
+		name = "Fail Alsynov"
+		desc = "POLITICS_ALSYNOV_DESC"
+		picture = "gfx/leaders/DEC/fail_alsynov.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Ruslan Gabbasov"
+		desc = "POLITICS_GABBASOV_DESC"
+		picture = "gfx/leaders/DEC/ruslan_gabbasov.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Aigul Gimranova"
+		desc = "POLITICS_GIMRANOVA_DESC"
+		picture = "gfx/leaders/DEC/aigul_gimranova.dds"
+		ideology = liberalism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Ilnar Galin"
+		desc = "POLITICS_GALIN_DESC"
+		picture = "gfx/leaders/DEC/ilnar_galin.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+	# TFR Bashkortostan left path
+	create_country_leader = {
+		name = "Yunir Kutluguzhin"
+		desc = "POLITICS_KUTLUGUZHIN_DESC"
+		picture = "gfx/leaders/DEC/yunir_kutluguzhin.dds"
+		ideology = communist_state
+		traits = { }
+	}
+}
+
+DEC_add_mel_extra_leaders = {
+	create_country_leader = {
+		name = "Vitaly Tanakov"
+		desc = "POLITICS_TANAKOV_DESC"
+		picture = "gfx/leaders/DEC/vitaly_tanakov.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Anatoly Radygin"
+		desc = "POLITICS_RADYGIN_DESC"
+		picture = "gfx/leaders/DEC/anatoly_radygin.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Vitaly Golovin"
+		desc = "POLITICS_GOLOVIN_MEL_DESC"
+		picture = "gfx/leaders/DEC/vitaly_golovin.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+	# TFR Mari El (Mari Ushem) path
+	create_country_leader = {
+		name = "Igor Kudryavtsev"
+		desc = "POLITICS_KUDRYAVTSEV_MEL_DESC"
+		picture = "gfx/leaders/DEC/igor_kudryavtsev.dds"
+		ideology = liberalism
+		traits = { }
+	}
+}
+
+DEC_add_udm_extra_leaders = {
+	create_country_leader = {
+		name = "Albert Razin"
+		desc = "POLITICS_RAZIN_DESC"
+		picture = "gfx/leaders/DEC/albert_razin.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Sergei Antonov"
+		desc = "POLITICS_ANTONOV_UDM_DESC"
+		picture = "gfx/leaders/DEC/sergei_antonov.dds"
+		ideology = liberalism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Nikolai Suvorov"
+		desc = "POLITICS_SUVOROV_UDM_DESC"
+		picture = "gfx/leaders/DEC/nikolai_suvorov.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+	# TFR Udmurt Republic / Udmurt Kenesh
+	create_country_leader = {
+		name = "Vladimir Baymetov"
+		desc = "POLITICS_BAYMETOV_DESC"
+		picture = "gfx/leaders/DEC/vladimir_baymetov.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+}
+
+DEC_add_kae_extra_leaders = {
+	create_country_leader = {
+		name = "Alexander Grigoryev"
+		desc = "POLITICS_GRIGORYEV_KAE_DESC"
+		picture = "gfx/leaders/DEC/alexander_grigoryev.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Vasiliy Popov"
+		desc = "POLITICS_POPOV_KAE_DESC"
+		picture = "gfx/leaders/DEC/vasiliy_popov.dds"
+		ideology = liberalism
+		traits = { }
+	}
+}
+
+DEC_add_kom_extra_leaders = {
+	create_country_leader = {
+		name = "Oleg Mikhailov"
+		desc = "POLITICS_MIKHAILOV_KOM_DESC"
+		picture = "gfx/leaders/DEC/oleg_mikhailov.dds"
+		ideology = socialism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Valery Markov"
+		desc = "POLITICS_MARKOV_KOM_DESC"
+		picture = "gfx/leaders/DEC/valery_markov.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	# TFR Komi Republic
+	create_country_leader = {
+		name = "Victor Vorobyov"
+		desc = "POLITICS_VOROBYOV_KOM_DESC"
+		picture = "gfx/leaders/DEC/victor_vorobyov.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+}
+
+DEC_add_zkl_extra_leaders = {
+	# TFR Far Eastern Republic / Dalburo
+	create_country_leader = {
+		name = "Sergey Levchenko"
+		desc = "POLITICS_LEVCHENKO_DESC"
+		picture = "gfx/leaders/DEC/sergey_levchenko.dds"
+		ideology = communist_state
+		traits = { }
+	}
+}
+
+DEC_add_vor_extra_leaders = {
+	# TFR Patriotic Union
+	create_country_leader = {
+		name = "Nikolai Starikov"
+		desc = "POLITICS_STARIKOV_DESC"
+		picture = "gfx/leaders/DEC/nikolai_starikov.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+}
+
+DEC_add_smo_extra_leaders = {
+	# TFR New Socialist-Revolutionaries
+	create_country_leader = {
+		name = "Maksim Katz"
+		desc = "POLITICS_KATZ_DESC"
+		picture = "gfx/leaders/DEC/maksim_katz.dds"
+		ideology = liberalism
+		traits = { }
+	}
+}
+
+DEC_add_bgr_extra_leaders = {
+	# TFR Saratov Soviet (Volga left) — nearest DEC Volga tag
+	create_country_leader = {
+		name = "Nikolay Bondarenko"
+		desc = "POLITICS_BONDARENKO_DESC"
+		picture = "gfx/leaders/DEC/nikolay_bondarenko.dds"
+		ideology = communist_state
+		traits = { }
+	}
+}
+
+DEC_add_all_decolon_extra_leaders = {
+	CHE = { DEC_add_che_extra_leaders = yes }
+	TAT = { DEC_add_tat_extra_leaders = yes }
+	BSH = { DEC_add_bsh_extra_leaders = yes }
+	MEL = { DEC_add_mel_extra_leaders = yes }
+	UDM = { DEC_add_udm_extra_leaders = yes }
+	KAE = { DEC_add_kae_extra_leaders = yes }
+	KOM = { DEC_add_kom_extra_leaders = yes }
+	ZKL = { DEC_add_zkl_extra_leaders = yes }
+	VOR = { DEC_add_vor_extra_leaders = yes }
+	SMO = { DEC_add_smo_extra_leaders = yes }
+	BGR = { DEC_add_bgr_extra_leaders = yes }
+}

@@ -12,7 +12,7 @@ focus_tree = {
 
 	focus = {
 		id = VBG_restore_bulgar_state
-		icon = GFX_focus_generic_treaty
+		icon = major_alliance
 		x = 5
 		y = 0
 		cost = 5
@@ -26,7 +26,7 @@ focus_tree = {
 
 	focus = {
 		id = VBG_decolonise_midvolga
-		icon = GFX_focus_generic_self_management
+		icon = industry_civilian
 		prerequisite = { focus = VBG_restore_bulgar_state }
 		x = 5
 		y = 1
@@ -44,7 +44,7 @@ focus_tree = {
 
 	focus = {
 		id = VBG_idel_ural_outreach
-		icon = GFX_goal_generic_improve_relations
+		icon = alliance
 		prerequisite = { focus = VBG_decolonise_midvolga }
 		x = 5
 		y = 2

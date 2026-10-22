@@ -1,0 +1,216 @@
+############################################
+# Regional separatism on RF (SOV variables)
+# League: +100/36 ≈ 2.778%/month → 100% in 3 years
+############################################
+
+DEC_init_separatism_vars = {
+	set_variable = { DEC_sep_north = 0 }
+	set_variable = { DEC_sep_volga_finno = 0 }
+	set_variable = { DEC_sep_volga_turkic = 0 }
+	set_variable = { DEC_sep_cossack = 0 }
+	set_variable = { DEC_sep_ural = 0 }
+	set_variable = { DEC_sep_siberia = 0 }
+	set_variable = { DEC_sep_fareast = 0 }
+	set_variable = { DEC_sep_turan = 0 }
+	set_variable = { DEC_sep_mongol = 0 }
+	set_variable = { DEC_sep_caucasus = 0 }
+}
+
+DEC_clamp_all_separatism = {
+	clamp_variable = { var = DEC_sep_north min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_volga_finno min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_volga_turkic min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_cossack min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_ural min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_siberia min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_fareast min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_turan min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_mongol min = 0 max = 100 }
+	clamp_variable = { var = DEC_sep_caucasus min = 0 max = 100 }
+}
+
+# THIS = SOV
+DEC_tick_league_separatism = {
+	add_to_variable = { DEC_sep_north = 2.778 }
+	add_to_variable = { DEC_sep_volga_finno = 2.778 }
+	add_to_variable = { DEC_sep_volga_turkic = 2.778 }
+	add_to_variable = { DEC_sep_cossack = 2.778 }
+	add_to_variable = { DEC_sep_ural = 2.778 }
+	add_to_variable = { DEC_sep_siberia = 2.778 }
+	add_to_variable = { DEC_sep_fareast = 2.778 }
+	add_to_variable = { DEC_sep_turan = 2.778 }
+	add_to_variable = { DEC_sep_mongol = 2.778 }
+	add_to_variable = { DEC_sep_caucasus = 2.778 }
+	DEC_clamp_all_separatism = yes
+}
+
+# NOMAD: Turks + Mongols
+DEC_boost_nomad_separatism = {
+	SOV = {
+		add_to_variable = { DEC_sep_volga_turkic = 15 }
+		add_to_variable = { DEC_sep_turan = 15 }
+		add_to_variable = { DEC_sep_mongol = 15 }
+		add_to_variable = { DEC_sep_caucasus = 10 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_nomad_sep_boost_tt
+}
+
+# Sibbat: Siberia + Far East
+DEC_boost_sibbat_separatism = {
+	SOV = {
+		add_to_variable = { DEC_sep_siberia = 15 }
+		add_to_variable = { DEC_sep_fareast = 15 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_sibbat_sep_boost_tt
+}
+
+DEC_apply_league_pressure = {
+	SOV = {
+		add_ideas = DEC_league_separatism_pressure
+		set_country_flag = DEC_league_separatism_active
+	}
+	custom_effect_tooltip = DEC_league_separatism_tt
+}
+
+# ROOT = focus completer → THIS = rebel nation
+DEC_uprising_transfer_rifles_from_root = {
+	if = {
+		limit = {
+			ROOT = { has_equipment = { infantry_weapons_type > 9999 } }
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_type
+				amount = -10000
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_weapons_type
+			amount = 10000
+			producer = ROOT
+		}
+		custom_effect_tooltip = DEC_uprising_rifles_tt
+	}
+}
+
+# UKR invasion → RDK uprising in Belgorod / Voronezh / Bryansk
+DEC_ukr_rdk_invasion = {
+	log = "DEC: UKR RDK invasion uprising"
+	if = {
+		limit = {
+			1172 = {
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+		}
+		1172 = { add_core_of = BGR }
+		if = {
+			limit = { NOT = { country_exists = BGR } }
+			SOV = { release = BGR }
+		}
+		else = {
+			BGR = { transfer_state = 1172 }
+		}
+		BGR = {
+			set_cosmetic_tag = DEC_RNS
+			set_country_flag = DEC_RDK_revolution
+			DEC_uprising_free_from_SOV = yes
+			clr_country_flag = SOV_subject_republic
+			DEC_uprising_spawn_national_militia = yes
+			1172 = {
+				create_unit = {
+					division = "name = \"RDK Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.25 start_equipment_factor = 0.8"
+					owner = BGR
+					count = 4
+				}
+			}
+			declare_war_on = { target = SOV type = annex_everything }
+		}
+	}
+	else_if = {
+		limit = {
+			656 = {
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+		}
+		656 = { add_core_of = VOR }
+		if = {
+			limit = { NOT = { country_exists = VOR } }
+			SOV = { release = VOR }
+		}
+		else = {
+			VOR = { transfer_state = 656 }
+		}
+		VOR = {
+			set_cosmetic_tag = DEC_RNS
+			set_country_flag = DEC_RDK_revolution
+			DEC_uprising_free_from_SOV = yes
+			clr_country_flag = SOV_subject_republic
+			DEC_uprising_spawn_national_militia = yes
+			656 = {
+				create_unit = {
+					division = "name = \"RDK Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.25 start_equipment_factor = 0.8"
+					owner = VOR
+					count = 4
+				}
+			}
+			declare_war_on = { target = SOV type = annex_everything }
+		}
+	}
+	else_if = {
+		limit = {
+			1174 = {
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+		}
+		1174 = { add_core_of = SEV }
+		if = {
+			limit = { NOT = { country_exists = SEV } }
+			SOV = { release = SEV }
+		}
+		else = {
+			SEV = { transfer_state = 1174 }
+		}
+		SEV = {
+			set_cosmetic_tag = DEC_RNS
+			set_country_flag = DEC_RDK_revolution
+			DEC_uprising_free_from_SOV = yes
+			clr_country_flag = SOV_subject_republic
+			DEC_uprising_spawn_national_militia = yes
+			1174 = {
+				create_unit = {
+					division = "name = \"RDK Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.25 start_equipment_factor = 0.8"
+					owner = SEV
+					count = 4
+				}
+			}
+			declare_war_on = { target = SOV type = annex_everything }
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		if = {
+			limit = { country_exists = BGR BGR = { has_country_flag = DEC_RDK_revolution has_war_with = SOV } }
+			BGR = { add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join } }
+		}
+		else_if = {
+			limit = { country_exists = VOR VOR = { has_country_flag = DEC_RDK_revolution has_war_with = SOV } }
+			VOR = { add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join } }
+		}
+		else_if = {
+			limit = { country_exists = SEV SEV = { has_country_flag = DEC_RDK_revolution has_war_with = SOV } }
+			SEV = { add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join } }
+		}
+	}
+	set_global_flag = DEC_ukr_rdk_invasion_done
+}

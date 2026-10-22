@@ -1,0 +1,11 @@
+"workshopitem"
+{
+	"appid"		"394360"
+	"publishedfileid"		"3822586345"
+	"contentfolder"		"C:\\git\\decolonizaciya\\dist\\workshop"
+	"previewfile"		"C:\\git\\decolonizaciya\\thumbnail.png"
+	"visibility"		"0"
+	"title"		"WW3: Russian Invasion (Альфа тест)"
+	"description"		"ALPHA TEST build of a Millennium Dawn submod for Hearts of Iron IV. Unstable — expect bugs and balance issues. Requires Millennium Dawn: A Modern Day Mod (enable MD first). Decolonisation of RF subjects, 2013/2022 bookmarks, Chuvashia politics, Volga Bulgaria, mega-tracks. Report bugs on the Workshop page."
+	"changenote"		"0.9.0 alpha — bookmarks 2013/2022, DEC nations/flags/leaders, CHU Tene Tur & state tree, Baltic Republic, coalition/exile branch, alliance leadership on capitulation, focus spines 2022, safety audit clean"
+}

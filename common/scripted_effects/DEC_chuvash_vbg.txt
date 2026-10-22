@@ -1,0 +1,369 @@
+############################################
+# Volga Bulgaria project + libertarian economy ticks
+############################################
+
+DEC_CHU_after_take_power = {
+	set_country_flag = DEC_CHU_any_power
+	mark_focus_tree_layout_dirty = yes
+}
+
+DEC_CHU_set_camp_west = {
+	set_country_flag = DEC_CHU_camp_west
+	mark_focus_tree_layout_dirty = yes
+}
+DEC_CHU_set_camp_est = {
+	set_country_flag = DEC_CHU_camp_est
+	mark_focus_tree_layout_dirty = yes
+}
+DEC_CHU_set_camp_left = {
+	set_country_flag = DEC_CHU_camp_left
+	mark_focus_tree_layout_dirty = yes
+}
+DEC_CHU_set_camp_lib = {
+	set_country_flag = DEC_CHU_camp_lib
+	mark_focus_tree_layout_dirty = yes
+}
+DEC_CHU_set_camp_nat = {
+	set_country_flag = DEC_CHU_camp_nat
+	mark_focus_tree_layout_dirty = yes
+}
+DEC_CHU_set_camp_argadu = {
+	set_country_flag = DEC_CHU_camp_argadu
+	mark_focus_tree_layout_dirty = yes
+}
+
+# Invite one country into ROOT's Bulgar Confederation if eligible.
+DEC_CHU_invite_one = {
+	if = {
+		limit = {
+			event_target:DEC_chu_inv = {
+				exists = yes
+				is_subject = no
+				num_of_controlled_states > 0
+				NOT = { tag = ROOT }
+				NOT = { has_war_with = ROOT }
+			}
+		}
+		event_target:DEC_chu_inv = {
+			if = {
+				limit = { is_in_faction = yes is_faction_leader = no }
+				leave_faction = yes
+			}
+			if = {
+				limit = { is_in_faction = no }
+				ROOT = { add_to_faction = PREV }
+			}
+		}
+	}
+}
+
+DEC_CHU_invite_volga_heirs = {
+	if = { limit = { country_exists = TAT } TAT = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = BSH } BSH = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = MEL } MEL = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = UDM } UDM = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = MOK } MOK = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = ERZ } ERZ = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = KOM } KOM = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = VBG } VBG = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = IDL } IDL = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+}
+
+DEC_CHU_invite_euro_heirs = {
+	if = { limit = { country_exists = BUL } BUL = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = HUN } HUN = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = MAC } MAC = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = UKR } UKR = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+}
+
+DEC_CHU_invite_cau_heirs = {
+	if = { limit = { country_exists = BLK } BLK = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = OSA } OSA = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = NOG } NOG = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+	if = { limit = { country_exists = CIR } CIR = { save_event_target_as = DEC_chu_inv } DEC_CHU_invite_one = yes }
+}
+
+DEC_CHU_unlock_vbg = {
+	set_country_flag = DEC_CHU_vbg_unlocked
+	mark_focus_tree_layout_dirty = yes
+}
+
+# CHU/BCF → Volga Bulgaria (cosmetic VBG). Keeps original_tag.
+DEC_CHU_become_volga_bulgaria = {
+	if = {
+		limit = { NOT = { has_country_flag = DEC_formed_VBG } }
+		set_cosmetic_tag = VBG
+		set_country_flag = DEC_formed_VBG
+		clr_country_flag = dynamic_flag
+		1135 = { add_core_of = ROOT add_core_of = VBG }
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = CHU
+					is_core_of = VBG
+					is_core_of = BCF
+				}
+			}
+			add_core_of = ROOT
+			add_core_of = VBG
+		}
+		add_political_power = 75
+		add_stability = 0.05
+		add_war_support = 0.03
+		custom_effect_tooltip = DEC_CHU_become_vbg_tt
+	}
+}
+
+DEC_CHU_unlock_lib = {
+	set_country_flag = DEC_CHU_lib_unlocked
+	add_ideas = DEC_CHU_lib_pact
+	mark_focus_tree_layout_dirty = yes
+}
+
+DEC_CHU_ensure_bulgar_faction = {
+	if = {
+		limit = { is_in_faction = yes is_faction_leader = no }
+		leave_faction = yes
+	}
+	if = {
+		limit = { is_in_faction = no }
+		set_rule = { can_create_factions = yes }
+		create_faction_from_template = faction_template_dec_bulgar
+	}
+}
+
+DEC_CHU_vbg_claim_saved = {
+	event_target:DEC_chu_vbg_st = {
+		add_claim_by = ROOT
+		add_core_of = VBG
+		add_core_of = BCF
+	}
+}
+
+DEC_CHU_vbg_ally_saved = {
+	DEC_CHU_vbg_claim_saved = yes
+	DEC_CHU_ensure_bulgar_faction = yes
+	if = {
+		limit = {
+			event_target:DEC_chu_vbg_tgt = {
+				exists = yes
+				is_subject = no
+				num_of_controlled_states > 0
+			}
+		}
+		event_target:DEC_chu_vbg_tgt = {
+			if = {
+				limit = { is_in_faction = yes NOT = { is_in_faction_with = ROOT } }
+				leave_faction = yes
+			}
+		}
+		add_to_faction = event_target:DEC_chu_vbg_tgt
+		custom_effect_tooltip = DEC_CHU_vbg_ally_tt
+	}
+	else = {
+		custom_effect_tooltip = DEC_CHU_vbg_ally_fail_war_tt
+		set_country_flag = DEC_CHU_vbg_from_ally
+		DEC_CHU_vbg_war_saved = yes
+		clr_country_flag = DEC_CHU_vbg_from_ally
+	}
+}
+
+DEC_CHU_vbg_war_saved = {
+	DEC_CHU_vbg_claim_saved = yes
+	if = {
+		limit = {
+			DEC_is_libertarian_gov = yes
+			OR = {
+				event_target:DEC_chu_vbg_tgt = { exists = yes DEC_is_lib_or_anarchist_gov = yes num_of_controlled_states > 0 }
+				event_target:DEC_chu_vbg_st = { owner = { DEC_is_lib_or_anarchist_gov = yes } }
+			}
+		}
+		custom_effect_tooltip = DEC_CHU_lib_war_ban_tt
+		if = {
+			limit = {
+				event_target:DEC_chu_vbg_tgt = {
+					exists = yes
+					is_subject = no
+					num_of_controlled_states > 0
+				}
+			}
+			DEC_CHU_ensure_bulgar_faction = yes
+			event_target:DEC_chu_vbg_tgt = {
+				if = {
+					limit = { is_in_faction = yes NOT = { is_in_faction_with = ROOT } }
+					leave_faction = yes
+				}
+			}
+			add_to_faction = event_target:DEC_chu_vbg_tgt
+		}
+	}
+	else_if = {
+		limit = {
+			event_target:DEC_chu_vbg_tgt = {
+				exists = yes
+				num_of_controlled_states > 0
+				NOT = { tag = ROOT }
+			}
+			NOT = { has_war_with = event_target:DEC_chu_vbg_tgt }
+		}
+		create_wargoal = { type = annex_everything target = event_target:DEC_chu_vbg_tgt }
+		declare_war_on = { target = event_target:DEC_chu_vbg_tgt type = annex_everything }
+		custom_effect_tooltip = DEC_CHU_vbg_war_tt
+	}
+	else_if = {
+		limit = { event_target:DEC_chu_vbg_st = { NOT = { is_owned_by = ROOT } } }
+		event_target:DEC_chu_vbg_st = {
+			owner = {
+				if = {
+					limit = { NOT = { tag = ROOT } NOT = { has_war_with = ROOT } }
+					ROOT = {
+						create_wargoal = { type = annex_everything target = PREV }
+						declare_war_on = { target = PREV type = annex_everything }
+					}
+				}
+			}
+		}
+		custom_effect_tooltip = DEC_CHU_vbg_war_owner_tt
+	}
+	else = {
+		custom_effect_tooltip = DEC_CHU_vbg_already_ours_tt
+	}
+}
+
+DEC_CHU_tick_private_armies = {
+	DEC_spawn_drone_template = yes
+	every_owned_state = {
+		limit = { is_controlled_by = ROOT }
+		create_unit = {
+			division = "name = \"Private Drone Host\" division_template = \"Drone Swarm\" start_experience_factor = 0.1 start_equipment_factor = 0.85"
+			owner = ROOT
+			count = 1
+		}
+	}
+}
+
+DEC_CHU_tick_privatization = {
+	every_owned_state = {
+		limit = { is_controlled_by = ROOT }
+		add_extra_state_shared_building_slots = 1
+		if = {
+			limit = { ROOT = { has_war = yes } }
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+		else = {
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+	}
+	add_to_variable = { DEC_chu_priv_months = 1 }
+	if = {
+		limit = { check_variable = { DEC_chu_priv_months > 5 } }
+		set_variable = { DEC_chu_priv_months = 0 }
+		every_owned_state = {
+			limit = { is_controlled_by = ROOT }
+			add_extra_state_shared_building_slots = 1
+			random_list = {
+				20 = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+				15 = { add_building_construction = { type = air_base level = 1 instant_build = yes } }
+				15 = { add_building_construction = { type = anti_air_building level = 1 instant_build = yes } }
+				15 = { add_building_construction = { type = radar_station level = 1 instant_build = yes } }
+				15 = { add_building_construction = { type = offices level = 1 instant_build = yes } }
+				10 = { add_building_construction = { type = synthetic_refinery level = 1 instant_build = yes } }
+				10 = { add_building_construction = { type = bunker level = 1 instant_build = yes } }
+			}
+		}
+	}
+}
+
+DEC_CHU_tick_bulcoin = {
+	set_temp_variable = { treasury_change = 2 }
+	modify_treasury_effect = yes
+}
+
+DEC_CHU_tick_freedom = {
+	add_to_variable = { DEC_chu_freedom = 1 }
+	add_political_power = 5
+}
+
+DEC_CHU_dn_collect_enemies = {
+	random_enemy_country = {
+		save_event_target_as = DEC_chu_dn_e1
+	}
+	random_enemy_country = {
+		limit = { NOT = { tag = event_target:DEC_chu_dn_e1 } }
+		save_event_target_as = DEC_chu_dn_e2
+	}
+	random_enemy_country = {
+		limit = {
+			NOT = { tag = event_target:DEC_chu_dn_e1 }
+			NOT = { tag = event_target:DEC_chu_dn_e2 }
+		}
+		save_event_target_as = DEC_chu_dn_e3
+	}
+	random_enemy_country = {
+		limit = {
+			NOT = { tag = event_target:DEC_chu_dn_e1 }
+			NOT = { tag = event_target:DEC_chu_dn_e2 }
+			NOT = { tag = event_target:DEC_chu_dn_e3 }
+		}
+		save_event_target_as = DEC_chu_dn_e4
+	}
+	random_enemy_country = {
+		limit = {
+			NOT = { tag = event_target:DEC_chu_dn_e1 }
+			NOT = { tag = event_target:DEC_chu_dn_e2 }
+			NOT = { tag = event_target:DEC_chu_dn_e3 }
+			NOT = { tag = event_target:DEC_chu_dn_e4 }
+		}
+		save_event_target_as = DEC_chu_dn_e5
+	}
+	random_enemy_country = {
+		limit = {
+			NOT = { tag = event_target:DEC_chu_dn_e1 }
+			NOT = { tag = event_target:DEC_chu_dn_e2 }
+			NOT = { tag = event_target:DEC_chu_dn_e3 }
+			NOT = { tag = event_target:DEC_chu_dn_e4 }
+			NOT = { tag = event_target:DEC_chu_dn_e5 }
+		}
+		save_event_target_as = DEC_chu_dn_e6
+	}
+}
+
+DEC_CHU_dn_kill_random = {
+	if = {
+		limit = {
+			any_character = { always = yes }
+		}
+		random_character = {
+			if = {
+				limit = { is_country_leader = yes }
+				ROOT = { kill_country_leader = yes }
+			}
+			else = {
+				retire = yes
+			}
+		}
+	}
+	else = {
+		kill_country_leader = yes
+	}
+	add_stability = -0.10
+	add_war_support = -0.08
+	custom_effect_tooltip = DEC_CHU_dn_kill_random_tt
+}
+
+DEC_CHU_dn_fire_order = {
+	if = {
+		limit = {
+			has_war = yes
+			NOT = { has_country_flag = DEC_CHU_dn_pending }
+		}
+		set_country_flag = DEC_CHU_dn_pending
+		DEC_CHU_dn_collect_enemies = yes
+		country_event = { id = dec_chu_dn.1 }
+	}
+}
+
+DEC_CHU_dn_send_to_target = {
+	clr_country_flag = DEC_CHU_dn_pending
+	custom_effect_tooltip = DEC_CHU_dn_order_sent_tt
+}

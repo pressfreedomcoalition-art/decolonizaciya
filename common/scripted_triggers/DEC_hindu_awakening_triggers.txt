@@ -1,0 +1,261 @@
+############################################
+# Hindu Awakening / Индусское пробуждение
+############################################
+
+DEC_has_hindu_right_ideology = {
+	OR = {
+		western_autocrats_are_in_power = yes
+		western_conservatism_are_in_power = yes
+		neutrality_neutral_conservatism_are_in_power = yes
+		emerging_reactionaries_are_in_power = yes
+		nationalist_right_wing_populists_are_in_power = yes
+		nationalist_fascist_are_in_power = yes
+		nationalist_military_junta_are_in_power = yes
+		nationalist_monarchists_are_in_power = yes
+	}
+}
+
+DEC_is_hindu_nation = {
+	OR = {
+		original_tag = RAJ
+		tag = RAJ
+		original_tag = BAN
+		tag = BAN
+		original_tag = NEP
+		tag = NEP
+		original_tag = BHU
+		tag = BHU
+		original_tag = SIK
+		tag = SIK
+		original_tag = SRI
+		tag = SRI
+		original_tag = TML
+		tag = TML
+		original_tag = MLD
+		tag = MLD
+		original_tag = KHA
+		tag = KHA
+		original_tag = KAS
+		tag = KAS
+		original_tag = TRI
+		tag = TRI
+		original_tag = GUY
+		tag = GUY
+		original_tag = SUR
+		tag = SUR
+		original_tag = FIJ
+		tag = FIJ
+		original_tag = MRT
+		tag = MRT
+		has_cosmetic_tag = BHA
+		has_cosmetic_tag = DEC_SAN
+		has_cosmetic_tag = DEC_INDIA_DIASPORA
+	}
+}
+
+DEC_HND_is_india = {
+		OR = {
+			original_tag = RAJ
+			tag = RAJ
+			original_tag = BAN
+			tag = BAN
+		}
+}
+
+DEC_HND_is_india_core = {
+		OR = {
+			original_tag = RAJ
+			tag = RAJ
+		}
+}
+
+DEC_HND_is_india_bengal = {
+		OR = {
+			original_tag = BAN
+			tag = BAN
+		}
+}
+
+DEC_HND_india_block_complete = {
+	OR = {
+		has_country_flag = DEC_HND_india_block_done
+		AND = {
+			has_completed_focus = DEC_HND_reg_india_core
+			has_completed_focus = DEC_HND_reg_india_bengal
+		}
+	}
+}
+
+DEC_HND_is_himalaya = {
+		OR = {
+			original_tag = NEP
+			tag = NEP
+			original_tag = BHU
+			tag = BHU
+			original_tag = SIK
+			tag = SIK
+		}
+}
+
+DEC_HND_is_himalaya_kingdoms = {
+		OR = {
+			original_tag = NEP
+			tag = NEP
+			original_tag = BHU
+			tag = BHU
+			original_tag = SIK
+			tag = SIK
+		}
+}
+
+DEC_HND_himalaya_block_complete = {
+	OR = {
+		has_country_flag = DEC_HND_himalaya_block_done
+		AND = {
+			has_completed_focus = DEC_HND_reg_himalaya_kingdoms
+		}
+	}
+}
+
+DEC_HND_is_island = {
+		OR = {
+			original_tag = SRI
+			tag = SRI
+			original_tag = TML
+			tag = TML
+			original_tag = MLD
+			tag = MLD
+		}
+}
+
+DEC_HND_is_island_lanka = {
+		OR = {
+			original_tag = SRI
+			tag = SRI
+			original_tag = TML
+			tag = TML
+		}
+}
+
+DEC_HND_is_island_maldives = {
+		OR = {
+			original_tag = MLD
+			tag = MLD
+		}
+}
+
+DEC_HND_island_block_complete = {
+	OR = {
+		has_country_flag = DEC_HND_island_block_done
+		AND = {
+			has_completed_focus = DEC_HND_reg_island_lanka
+			has_completed_focus = DEC_HND_reg_island_maldives
+		}
+	}
+}
+
+DEC_HND_is_northwest = {
+		OR = {
+			original_tag = KHA
+			tag = KHA
+			original_tag = KAS
+			tag = KAS
+		}
+}
+
+DEC_HND_is_northwest_punjab_kashmir = {
+		OR = {
+			original_tag = KHA
+			tag = KHA
+			original_tag = KAS
+			tag = KAS
+		}
+}
+
+DEC_HND_northwest_block_complete = {
+	OR = {
+		has_country_flag = DEC_HND_northwest_block_done
+		AND = {
+			has_completed_focus = DEC_HND_reg_northwest_punjab_kashmir
+		}
+	}
+}
+
+DEC_HND_is_diaspora = {
+		OR = {
+			original_tag = TRI
+			tag = TRI
+			original_tag = GUY
+			tag = GUY
+			original_tag = SUR
+			tag = SUR
+			original_tag = FIJ
+			tag = FIJ
+			original_tag = MRT
+			tag = MRT
+		}
+}
+
+DEC_HND_is_diaspora_caribbean = {
+		OR = {
+			original_tag = TRI
+			tag = TRI
+			original_tag = GUY
+			tag = GUY
+			original_tag = SUR
+			tag = SUR
+		}
+}
+
+DEC_HND_is_diaspora_pacific = {
+		OR = {
+			original_tag = FIJ
+			tag = FIJ
+		}
+}
+
+DEC_HND_is_diaspora_mauritius = {
+		OR = {
+			original_tag = MRT
+			tag = MRT
+		}
+}
+
+DEC_HND_diaspora_block_complete = {
+	OR = {
+		has_country_flag = DEC_HND_diaspora_block_done
+		AND = {
+			has_completed_focus = DEC_HND_reg_diaspora_caribbean
+			has_completed_focus = DEC_HND_reg_diaspora_mauritius
+			has_completed_focus = DEC_HND_reg_diaspora_pacific
+		}
+	}
+}
+
+DEC_can_access_hindu_awakening = {
+	DEC_is_hindu_nation = yes
+	DEC_has_hindu_right_ideology = yes
+	NOT = {
+		OR = {
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_CAL_world_caliphate
+		}
+	}
+}
+
+DEC_is_hindu_invitee = {
+	DEC_is_hindu_nation = yes
+	OR = {
+		DEC_has_ns = yes
+		DEC_has_hindu_right_ideology = yes
+	}
+	exists = yes
+	NOT = { has_war_with = ROOT }
+	OR = {
+		is_subject = no
+		is_subject_of = ROOT
+	}
+}

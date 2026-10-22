@@ -1,0 +1,43 @@
+capital = 177
+2000.1.1 = {
+	set_variable = { currency_strength = 0.80 }
+	set_country_flag = dynamic_flag
+	set_variable = { gdp_per_capita = 10.000 }
+
+	add_ideas = {
+		partially_nationalized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		standard_regulations
+		corruption_level_05
+		the_ulema
+		bureau_03
+		defence_05
+		police_04
+		edu_02
+		health_02
+		social_01
+		export_economy
+		draft_army
+		no_women_in_military
+		officer_baptism_by_fire
+		sunni
+	}
+
+	set_popularities = {
+		democratic = 0.0
+		communism = 0.0
+		fascism = 100.0
+		neutrality = 0.0
+		nationalist = 0.0
+	}
+	set_politics = {
+		ruling_party = fascism
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_variable = { party_pop_array^11 = 1.0 }
+	set_variable = { ruling_party = 11 }
+}

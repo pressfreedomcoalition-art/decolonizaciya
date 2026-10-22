@@ -1,0 +1,173 @@
+capital = 1135
+2000.1.1 = {
+	set_variable = { currency_strength = 0.65 }
+	set_country_flag = dynamic_flag
+	set_variable = { gdp_per_capita = 8.000 }
+
+	add_ideas = {
+		partially_nationalized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		standard_regulations
+		recession
+		corruption_level_04
+		farmers
+		bureau_02
+		defence_02
+		police_02
+		edu_02
+		health_02
+		social_02
+		export_economy
+		volunteer_army
+		no_women_in_military
+		officer_basic_training
+		non_state_actor
+		pluralist
+		no_currency_backing
+	}
+
+	inherit_technology = SOV
+
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 70 }
+	add_to_array = { influence_array = SOV.id }
+	add_to_array = { influence_array_val = 25 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	set_popularities = {
+		democratic = 34.0
+		communism = 10.0
+		fascism = 2.0
+		neutrality = 34.0
+		nationalist = 20.0
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+	# 0 Western_Autocracy / 1 conservatism / 2 liberalism / 3 socialism
+	# 4 Communist-State / 11 Caliphate (ARGADU) / 16 Neutral_Libertarian
+	# 17 Neutral_conservatism / 19 Neutral_Communism / 20 Nat_Populism
+	# 21 Nat_Fascism / 22 Nat_Autocracy
+	set_variable = { party_pop_array^0 = 0.08 }
+	set_variable = { party_pop_array^1 = 0.08 }
+	set_variable = { party_pop_array^2 = 0.11 }
+	set_variable = { party_pop_array^3 = 0.08 }
+	set_variable = { party_pop_array^4 = 0.08 }
+	set_variable = { party_pop_array^11 = 0.02 }
+	set_variable = { party_pop_array^16 = 0.17 }
+	set_variable = { party_pop_array^17 = 0.06 }
+	set_variable = { party_pop_array^19 = 0.06 }
+	set_variable = { party_pop_array^20 = 0.10 }
+	set_variable = { party_pop_array^21 = 0.08 }
+	set_variable = { party_pop_array^22 = 0.08 }
+	set_variable = { ruling_party = 16 }
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Mishshi Oreshnikov"
+		desc = "POLITICS_ORESHNIKOV_DESC"
+		picture = "gfx/leaders/DEC/mishshi_oreshnikov.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Dmitry Semenov"
+		desc = "POLITICS_SEMENOV_DESC"
+		picture = "gfx/leaders/DEC/dmitry_semenov.dds"
+		ideology = liberalism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Semyon Kochkin"
+		desc = "POLITICS_KOCHKIN_DESC"
+		picture = "gfx/leaders/DEC/semyon_kochkin.dds"
+		ideology = conservatism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Oleg Elkin"
+		desc = "POLITICS_ELKIN_DESC"
+		picture = "gfx/leaders/DEC/oleg_elkin.dds"
+		ideology = socialism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Valentin Shurchanov"
+		desc = "POLITICS_SHURCHANOV_DESC"
+		picture = "gfx/leaders/DEC/valentin_shurchanov.dds"
+		ideology = communist_state
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Denis Olenov"
+		desc = "POLITICS_OLENOV_DESC"
+		picture = "gfx/leaders/DEC/denis_olenov.dds"
+		ideology = Neutral_Communism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Vadim Nikiforov"
+		desc = "POLITICS_NIKIFOROV_DESC"
+		picture = "gfx/leaders/DEC/vadim_nikiforov.dds"
+		ideology = Western_Autocracy
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Rodion Evdokimov"
+		desc = "POLITICS_EVDOKIMOV_DESC"
+		picture = "gfx/leaders/DEC/rodion_evdokimov.dds"
+		ideology = Nat_Fascism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Atner Khuzangay"
+		desc = "POLITICS_KHUZANGAY_DESC"
+		picture = "gfx/leaders/DEC/atner_khuzangay.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Mishshi Yukhma"
+		desc = "POLITICS_YUKHMA_DESC"
+		picture = "gfx/leaders/DEC/mishshi_yukhma.dds"
+		ideology = Nat_Autocracy
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Nikolai Lukianov"
+		desc = "POLITICS_LUKIANOV_DESC"
+		picture = "gfx/leaders/DEC/nikolai_lukianov.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Sergey Andreev"
+		desc = "POLITICS_ANDREEV_DESC"
+		picture = "gfx/leaders/DEC/sergey_andreev.dds"
+		ideology = Caliphate
+		traits = { }
+	}
+
+	set_variable = { overall_productivity = 900 }
+	set_variable = { cb_policy_rate = 3 }
+}

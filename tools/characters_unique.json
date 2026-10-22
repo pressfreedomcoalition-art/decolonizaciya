@@ -1,0 +1,683 @@
+TAGS 21
+UNIQUE 111
+[
+  {
+    "name": "Aida Abdrakhmanova",
+    "slots": [
+      "IDL/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Akhmed Zakayev",
+    "slots": [
+      "CAU/Nat_Populism",
+      "CHE/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Alan Gagloyev",
+    "slots": [
+      "OSA/conservatism"
+    ]
+  },
+  {
+    "name": "Aleksandr Adamov",
+    "slots": [
+      "MOK/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Aleksandr Barkashov",
+    "slots": [
+      "VYK/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Aleksandr Kharybin",
+    "slots": [
+      "BGR/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Aleksei Kazakov",
+    "slots": [
+      "SMO/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Aleksei Kudryashov",
+    "slots": [
+      "BCF/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Aleksei Manannikov",
+    "slots": [
+      "VYK/liberalism"
+    ]
+  },
+  {
+    "name": "Anatoly Bibilov",
+    "slots": [
+      "OSA/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Andrei Danilov",
+    "slots": [
+      "LAP/liberalism"
+    ]
+  },
+  {
+    "name": "Andrei Klychkov",
+    "slots": [
+      "VOR/Communist-State"
+    ]
+  },
+  {
+    "name": "Andrei Kuznetsov",
+    "slots": [
+      "SMO/socialism"
+    ]
+  },
+  {
+    "name": "Andrei Lugovoy",
+    "slots": [
+      "SMO/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Andriy Illienko",
+    "slots": [
+      "KBC/socialism"
+    ]
+  },
+  {
+    "name": "Ansar Garkho",
+    "slots": [
+      "CAU/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Anton Bakov",
+    "slots": [
+      "VYK/Monarchist"
+    ]
+  },
+  {
+    "name": "Anvar Kurmanakaev",
+    "slots": [
+      "NOG/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Artur Ankkalainen",
+    "slots": [
+      "IGR/Nat_Fascism",
+      "LAP/Nat_Fascism",
+      "ZKL/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Asker Sokht",
+    "slots": [
+      "CIR/socialism"
+    ]
+  },
+  {
+    "name": "Aslanbek Naimanov",
+    "slots": [
+      "NOG/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Beslan Kmuzov",
+    "slots": [
+      "CIR/Neutral_Libertarian",
+      "KBC/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Boris Ebzeyev",
+    "slots": [
+      "BLK/Neutral_conservatism"
+    ]
+  },
+  {
+    "name": "David Sanakoyev",
+    "slots": [
+      "OSA/liberalism"
+    ]
+  },
+  {
+    "name": "Deni Teps",
+    "slots": [
+      "CAU/liberalism",
+      "CHE/liberalism"
+    ]
+  },
+  {
+    "name": "Denis Ugryumov",
+    "slots": [
+      "IGR/socialism"
+    ]
+  },
+  {
+    "name": "Dmitry Berezhkov",
+    "slots": [
+      "ZKL/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Dmitry Dorovskikh",
+    "slots": [
+      "KBC/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Dmitry Gudkov",
+    "slots": [
+      "SMO/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Dmitry Kuznetsov",
+    "slots": [
+      "BJA/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Dmitry Semenov",
+    "slots": [
+      "BCF/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Donisi Chovganon",
+    "slots": [
+      "MOK/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Dzhabrail Mirzoyev",
+    "slots": [
+      "CAU/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Eduard Kokoity",
+    "slots": [
+      "OSA/Communist-State"
+    ]
+  },
+  {
+    "name": "Farit Zakiev",
+    "slots": [
+      "VBG/liberalism"
+    ]
+  },
+  {
+    "name": "Fauzia Bayramova",
+    "slots": [
+      "IDL/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Grigory Musalyov",
+    "slots": [
+      "ERZ/socialism"
+    ]
+  },
+  {
+    "name": "Ibragim Guchigov",
+    "slots": [
+      "BLK/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Ibrahim Yaganov",
+    "slots": [
+      "CIR/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Igor Kazakov",
+    "slots": [
+      "VOR/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Ilnar Garifullin",
+    "slots": [
+      "VBG/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Ilya Ignatov",
+    "slots": [
+      "IDL/socialism"
+    ]
+  },
+  {
+    "name": "Ilya Kostyukov",
+    "slots": [
+      "BGR/liberalism",
+      "SEV/liberalism"
+    ]
+  },
+  {
+    "name": "Ilyas Akhmadov",
+    "slots": [
+      "CAU/Neutral_conservatism"
+    ]
+  },
+  {
+    "name": "Inal Pliev",
+    "slots": [
+      "OSA/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Irina Shafrannik",
+    "slots": [
+      "LAP/Neutral_green"
+    ]
+  },
+  {
+    "name": "Islam Atabiyev",
+    "slots": [
+      "BLK/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Ismail Kerimov",
+    "slots": [
+      "NOG/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Ivan Grigoryev",
+    "slots": [
+      "VBG/Communist-State"
+    ]
+  },
+  {
+    "name": "Ivan Kulenko",
+    "slots": [
+      "VYK/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Ivan Zhdanov",
+    "slots": [
+      "SEV/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Kase Kik",
+    "slots": [
+      "CIR/liberalism"
+    ]
+  },
+  {
+    "name": "Konstantin Klimashevsky",
+    "slots": [
+      "BGR/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Kshumantsyan Pirguzh",
+    "slots": [
+      "ERZ/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Linus Linsen",
+    "slots": [
+      "LAP/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Magomed Yarlykapov",
+    "slots": [
+      "NOG/Neutral_conservatism"
+    ]
+  },
+  {
+    "name": "Mariz Kemal",
+    "slots": [
+      "ERZ/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Maxim Kuzakhmetov",
+    "slots": [
+      "IGR/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Mikhail Kalyamin",
+    "slots": [
+      "KBC/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Mishshi Oreshnikov",
+    "slots": [
+      "BCF/Neutral_Libertarian",
+      "VBG/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Murat Auezov",
+    "slots": [
+      "NOG/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Murat Berzegov",
+    "slots": [
+      "CIR/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Murat Zalikhanov",
+    "slots": [
+      "BLK/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Muslim Tsebiev",
+    "slots": [
+      "CAU/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Nafis Kashapov",
+    "slots": [
+      "VBG/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Nikita Goldin",
+    "slots": [
+      "BJA/liberalism"
+    ]
+  },
+  {
+    "name": "Nikolai Fyodorov",
+    "slots": [
+      "BCF/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Nina Aleshina",
+    "slots": [
+      "MOK/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Nuyat Vidyay",
+    "slots": [
+      "ERZ/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Olaf Lappalainen",
+    "slots": [
+      "IGR/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Oleg Zurabov",
+    "slots": [
+      "BLK/liberalism"
+    ]
+  },
+  {
+    "name": "Oleksiy Goncharenko",
+    "slots": [
+      "ZKL/socialism"
+    ]
+  },
+  {
+    "name": "Olga Alimova",
+    "slots": [
+      "SEV/socialism"
+    ]
+  },
+  {
+    "name": "Pavel Grishin",
+    "slots": [
+      "MOK/socialism"
+    ]
+  },
+  {
+    "name": "Pavel Ivlev",
+    "slots": [
+      "IGR/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Pavel Konkov",
+    "slots": [
+      "VOR/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Pavel Mezerin",
+    "slots": [
+      "IGR/liberalism"
+    ]
+  },
+  {
+    "name": "Pavel Sulyandziga",
+    "slots": [
+      "BJA/Neutral_Libertarian",
+      "ZKL/Neutral_green"
+    ]
+  },
+  {
+    "name": "Pavlo Vyshebaba",
+    "slots": [
+      "ZKL/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Rafis Kashapov",
+    "slots": [
+      "IDL/liberalism",
+      "VBG/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Rizvan Kubakaev",
+    "slots": [
+      "NOG/liberalism"
+    ]
+  },
+  {
+    "name": "Rodion Evdokimov",
+    "slots": [
+      "BCF/liberalism"
+    ]
+  },
+  {
+    "name": "Roman Khudyakov",
+    "slots": [
+      "VOR/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Roman Yuneman",
+    "slots": [
+      "SEV/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Ruslan Gabbasov",
+    "slots": [
+      "IDL/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Ruslan Keshev",
+    "slots": [
+      "CIR/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Ruslan Kuchity",
+    "slots": [
+      "OSA/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Sergei Furgal",
+    "slots": [
+      "ZKL/liberalism"
+    ]
+  },
+  {
+    "name": "Sergei Ivanov",
+    "slots": [
+      "SEV/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Sergei Kapchuk",
+    "slots": [
+      "VYK/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Sergei Revenko",
+    "slots": [
+      "SMO/liberalism"
+    ]
+  },
+  {
+    "name": "Sergei Rudakov",
+    "slots": [
+      "VOR/liberalism"
+    ]
+  },
+  {
+    "name": "Syres Bolyaen",
+    "slots": [
+      "ERZ/Nat_Populism",
+      "IDL/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Taulan Salpagarov",
+    "slots": [
+      "BLK/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Tjan Zaotschnaja",
+    "slots": [
+      "BJA/Neutral_green"
+    ]
+  },
+  {
+    "name": "Valentin Shurchanov",
+    "slots": [
+      "BCF/Communist-State"
+    ]
+  },
+  {
+    "name": "Valery Shevlyakov",
+    "slots": [
+      "BGR/socialism"
+    ]
+  },
+  {
+    "name": "Vitaliy Romashkin",
+    "slots": [
+      "ERZ/liberalism",
+      "MOK/liberalism"
+    ]
+  },
+  {
+    "name": "Vladimir Kemaikin",
+    "slots": [
+      "MOK/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Vladimir Miroshnichenko",
+    "slots": [
+      "KBC/liberalism"
+    ]
+  },
+  {
+    "name": "Vladimir Netesov",
+    "slots": [
+      "VOR/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Vladislav Nobel-Oleynik",
+    "slots": [
+      "BJA/Western_Autocracy",
+      "LAP/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Vladislav Zhivitsa",
+    "slots": [
+      "SEV/Nat_Populism",
+      "SMO/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Vyacheslav Dzhabiev",
+    "slots": [
+      "OSA/Nat_Fascism"
+    ]
+  },
+  {
+    "name": "Yana Tannagasheva",
+    "slots": [
+      "ZKL/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Yelena Kaminskaya",
+    "slots": [
+      "LAP/Western_Autocracy"
+    ]
+  },
+  {
+    "name": "Yevgeny Bursanidis",
+    "slots": [
+      "KBC/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Yevgeny Dremov",
+    "slots": [
+      "BGR/Nat_Populism"
+    ]
+  },
+  {
+    "name": "Yevgeny Mozgovskoy",
+    "slots": [
+      "BGR/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Yevgeny Roizman",
+    "slots": [
+      "VYK/Neutral_Libertarian"
+    ]
+  },
+  {
+    "name": "Yuriy Shcherbachev",
+    "slots": [
+      "BJA/Nat_Populism"
+    ]
+  }
+]

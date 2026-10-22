@@ -1,0 +1,175 @@
+############################################
+# Coalition continuation: ATC, exile path, claims
+############################################
+
+# Exile / no real capital (decolonizers in GIE or blockchain-only)
+DEC_is_exile_without_capital = {
+	OR = {
+		is_government_in_exile = yes
+		has_country_flag = DEC_government_in_exile
+		check_variable = { num_owned_states < 1 }
+		AND = {
+			has_country_flag = DEC_blockchain_nation
+			NOT = {
+				any_owned_state = {
+					NOT = { has_state_flag = DEC_blockchain_enclave }
+				}
+			}
+		}
+	}
+}
+
+# Shared exile independence branch (stays open after homeland landing for aid focuses)
+DEC_can_access_exile_branch = {
+	NOT = {
+		OR = {
+			original_tag = UKR
+			tag = UKR
+		}
+	}
+	OR = {
+		has_country_flag = DEC_exile_path_open
+		AND = {
+			OR = {
+				has_country_flag = DEC_rebel_nation
+				DEC_is_uprising_nation_tag = yes
+			}
+			DEC_is_exile_without_capital = yes
+		}
+	}
+}
+
+DEC_is_muscovy_state = {
+	OR = {
+		state = 652  # Moscow
+		state = 1189 # Moscow Oblast
+		state = 649  # Tver
+		state = 650  # Kostroma
+		state = 651  # Yaroslavl
+		state = 655  # Ryazan
+		state = 1181 # Kaluga
+		state = 1186 # Ivanovo
+		state = 1187 # Vladimir
+		state = 1188 # Tula
+	}
+}
+
+DEC_can_access_coalition_shared = {
+	OR = {
+		AND = {
+			OR = { original_tag = UKR tag = UKR }
+			has_country_flag = DEC_UKR_coalition_access
+		}
+		AND = {
+			has_country_flag = DEC_rebel_nation
+			NOT = { has_country_flag = DEC_joined_named_faction }
+			exists = yes
+			is_subject = no
+		}
+		has_faction_template = faction_template_dec_coalition
+	}
+}
+
+DEC_has_atc_active = {
+	has_global_flag = DEC_atc_created
+}
+
+# Any Decolonizaciya faction template (for leadership transfer on leader fall)
+DEC_is_in_dec_faction = {
+	OR = {
+		has_faction_template = faction_template_dec_coalition
+		has_faction_template = faction_template_dec_idel_ural
+		has_faction_template = faction_template_dec_bulgar
+		has_faction_template = faction_template_dec_fennoscandia
+		has_faction_template = faction_template_dec_turan
+		has_faction_template = faction_template_dec_ural
+		has_faction_template = faction_template_dec_siberia
+		has_faction_template = faction_template_dec_fareast
+		has_faction_template = faction_template_dec_world_caliphate
+		has_faction_template = faction_template_dec_white_brotherhood
+		has_faction_template = faction_template_dec_black_brotherhood
+		has_faction_template = faction_template_dec_black_panthers_america
+		has_faction_template = faction_template_dec_black_panthers_europe
+		has_faction_template = faction_template_dec_abya_yala
+		has_faction_template = faction_template_dec_turtle_island
+		has_faction_template = faction_template_dec_melanesian_league
+		has_faction_template = faction_template_dec_asian_sphere
+		has_faction_template = faction_template_dec_greater_east_asia
+		has_faction_template = faction_template_dec_asean_revival
+		has_faction_template = faction_template_dec_hindu_rashtra
+		has_faction_template = faction_template_dec_sangh_parivar
+		has_faction_template = faction_template_dec_indic_diaspora
+		has_faction_template = faction_template_dec_caucasian_union
+		has_faction_template = faction_template_dec_kazakia
+	}
+}
+
+DEC_is_uprising_nation_tag = {
+	OR = {
+		original_tag = CHE
+		tag = CHE
+		original_tag = DAG
+		tag = DAG
+		original_tag = ING
+		tag = ING
+		original_tag = CIR
+		tag = CIR
+		original_tag = NOG
+		tag = NOG
+		original_tag = TAT
+		tag = TAT
+		original_tag = BSH
+		tag = BSH
+		original_tag = CHU
+		tag = CHU
+		original_tag = MEL
+		tag = MEL
+		original_tag = UDM
+		tag = UDM
+		original_tag = ERZ
+		tag = ERZ
+		original_tag = MOK
+		tag = MOK
+		original_tag = BJA
+		tag = BJA
+		original_tag = IGR
+		tag = IGR
+		original_tag = KAE
+		tag = KAE
+		original_tag = LAP
+		tag = LAP
+		original_tag = KOM
+		tag = KOM
+		original_tag = KHM
+		tag = KHM
+		original_tag = YAM
+		tag = YAM
+		original_tag = NEE
+		tag = NEE
+		original_tag = CSB
+		tag = CSB
+		original_tag = ESB
+		tag = ESB
+		original_tag = CKK
+		tag = CKK
+		original_tag = YAK
+		tag = YAK
+		original_tag = KHS
+		tag = KHS
+		original_tag = ALT
+		tag = ALT
+		original_tag = TUV
+		tag = TUV
+		original_tag = KLM
+		tag = KLM
+		original_tag = BRY
+		tag = BRY
+		original_tag = KUB
+		tag = KUB
+		original_tag = DON
+		tag = DON
+		original_tag = VYK
+		tag = VYK
+	}
+}
+

@@ -1,0 +1,473 @@
+############################################
+# Indigenous Awakening / Коренное пробуждение
+# Americas + Oceania (incl. Melanesian Black Pacific)
+############################################
+
+DEC_has_indigenous_right_ideology = {
+	OR = {
+		western_autocrats_are_in_power = yes
+		western_conservatism_are_in_power = yes
+		neutrality_neutral_conservatism_are_in_power = yes
+		emerging_reactionaries_are_in_power = yes
+		nationalist_right_wing_populists_are_in_power = yes
+		nationalist_fascist_are_in_power = yes
+		nationalist_military_junta_are_in_power = yes
+		nationalist_monarchists_are_in_power = yes
+	}
+}
+
+DEC_is_indigenous_nation = {
+	OR = {
+		original_tag = LKT
+		tag = LKT
+		original_tag = GLC
+		tag = GLC
+		original_tag = CAS
+		tag = CAS
+		original_tag = HWI
+		tag = HWI
+		original_tag = GRN
+		tag = GRN
+		original_tag = USA
+		tag = USA
+		original_tag = CAN
+		tag = CAN
+		original_tag = MEX
+		tag = MEX
+		original_tag = YUC
+		tag = YUC
+		original_tag = GUA
+		tag = GUA
+		original_tag = HON
+		tag = HON
+		original_tag = ELS
+		tag = ELS
+		original_tag = NIC
+		tag = NIC
+		original_tag = COS
+		tag = COS
+		original_tag = PAN
+		tag = PAN
+		original_tag = BLZ
+		tag = BLZ
+		original_tag = BOL
+		tag = BOL
+		original_tag = PRU
+		tag = PRU
+		original_tag = ECU
+		tag = ECU
+		original_tag = COL
+		tag = COL
+		original_tag = BRA
+		tag = BRA
+		original_tag = VEN
+		tag = VEN
+		original_tag = GUY
+		tag = GUY
+		original_tag = SUR
+		tag = SUR
+		original_tag = ARG
+		tag = ARG
+		original_tag = CHL
+		tag = CHL
+		original_tag = PAT
+		tag = PAT
+		original_tag = PAR
+		tag = PAR
+		original_tag = URG
+		tag = URG
+		original_tag = PAP
+		tag = PAP
+		original_tag = SOL
+		tag = SOL
+		original_tag = VAN
+		tag = VAN
+		original_tag = FIJ
+		tag = FIJ
+		original_tag = TIM
+		tag = TIM
+		original_tag = NZL
+		tag = NZL
+		original_tag = SAM
+		tag = SAM
+		original_tag = TON
+		tag = TON
+		original_tag = TUL
+		tag = TUL
+		original_tag = KIR
+		tag = KIR
+		original_tag = MIC
+		tag = MIC
+		original_tag = PAU
+		tag = PAU
+		original_tag = NAU
+		tag = NAU
+		original_tag = AST
+		tag = AST
+		has_cosmetic_tag = ABY
+		has_cosmetic_tag = DEC_TIL
+		has_cosmetic_tag = DEC_MEL
+	}
+}
+
+DEC_IND_is_north = {
+		OR = {
+			original_tag = LKT
+			tag = LKT
+			original_tag = GLC
+			tag = GLC
+			original_tag = CAS
+			tag = CAS
+			original_tag = HWI
+			tag = HWI
+			original_tag = GRN
+			tag = GRN
+			original_tag = USA
+			tag = USA
+			original_tag = CAN
+			tag = CAN
+		}
+}
+
+DEC_IND_is_north_plains = {
+		OR = {
+			original_tag = LKT
+			tag = LKT
+			original_tag = GLC
+			tag = GLC
+		}
+}
+
+DEC_IND_is_north_pacific = {
+		OR = {
+			original_tag = CAS
+			tag = CAS
+			original_tag = HWI
+			tag = HWI
+			original_tag = GRN
+			tag = GRN
+		}
+}
+
+DEC_IND_is_north_settlers = {
+		OR = {
+			original_tag = USA
+			tag = USA
+			original_tag = CAN
+			tag = CAN
+		}
+}
+
+DEC_IND_north_block_complete = {
+	OR = {
+		has_country_flag = DEC_IND_north_block_done
+		AND = {
+			has_completed_focus = DEC_IND_reg_north_plains
+			has_completed_focus = DEC_IND_reg_north_pacific
+			has_completed_focus = DEC_IND_reg_north_settlers
+		}
+	}
+}
+
+DEC_IND_is_meso = {
+		OR = {
+			original_tag = MEX
+			tag = MEX
+			original_tag = YUC
+			tag = YUC
+			original_tag = GUA
+			tag = GUA
+			original_tag = HON
+			tag = HON
+			original_tag = ELS
+			tag = ELS
+			original_tag = NIC
+			tag = NIC
+			original_tag = COS
+			tag = COS
+			original_tag = PAN
+			tag = PAN
+			original_tag = BLZ
+			tag = BLZ
+		}
+}
+
+DEC_IND_is_meso_mexico = {
+		OR = {
+			original_tag = MEX
+			tag = MEX
+			original_tag = YUC
+			tag = YUC
+		}
+}
+
+DEC_IND_is_meso_central = {
+		OR = {
+			original_tag = GUA
+			tag = GUA
+			original_tag = HON
+			tag = HON
+			original_tag = ELS
+			tag = ELS
+			original_tag = NIC
+			tag = NIC
+			original_tag = COS
+			tag = COS
+			original_tag = PAN
+			tag = PAN
+			original_tag = BLZ
+			tag = BLZ
+		}
+}
+
+DEC_IND_meso_block_complete = {
+	OR = {
+		has_country_flag = DEC_IND_meso_block_done
+		AND = {
+			has_completed_focus = DEC_IND_reg_meso_mexico
+			has_completed_focus = DEC_IND_reg_meso_central
+		}
+	}
+}
+
+DEC_IND_is_andes = {
+		OR = {
+			original_tag = BOL
+			tag = BOL
+			original_tag = PRU
+			tag = PRU
+			original_tag = ECU
+			tag = ECU
+			original_tag = COL
+			tag = COL
+		}
+}
+
+DEC_IND_is_andes_tauantinsuyu = {
+		OR = {
+			original_tag = BOL
+			tag = BOL
+			original_tag = PRU
+			tag = PRU
+			original_tag = ECU
+			tag = ECU
+		}
+}
+
+DEC_IND_is_andes_northern = {
+		OR = {
+			original_tag = COL
+			tag = COL
+		}
+}
+
+DEC_IND_andes_block_complete = {
+	OR = {
+		has_country_flag = DEC_IND_andes_block_done
+		AND = {
+			has_completed_focus = DEC_IND_reg_andes_tauantinsuyu
+			has_completed_focus = DEC_IND_reg_andes_northern
+		}
+	}
+}
+
+DEC_IND_is_south = {
+		OR = {
+			original_tag = BRA
+			tag = BRA
+			original_tag = VEN
+			tag = VEN
+			original_tag = GUY
+			tag = GUY
+			original_tag = SUR
+			tag = SUR
+			original_tag = ARG
+			tag = ARG
+			original_tag = CHL
+			tag = CHL
+			original_tag = PAT
+			tag = PAT
+			original_tag = PAR
+			tag = PAR
+			original_tag = URG
+			tag = URG
+		}
+}
+
+DEC_IND_is_south_amazon = {
+		OR = {
+			original_tag = BRA
+			tag = BRA
+			original_tag = VEN
+			tag = VEN
+			original_tag = GUY
+			tag = GUY
+			original_tag = SUR
+			tag = SUR
+		}
+}
+
+DEC_IND_is_south_cone = {
+		OR = {
+			original_tag = ARG
+			tag = ARG
+			original_tag = CHL
+			tag = CHL
+			original_tag = PAT
+			tag = PAT
+			original_tag = PAR
+			tag = PAR
+			original_tag = URG
+			tag = URG
+		}
+}
+
+DEC_IND_south_block_complete = {
+	OR = {
+		has_country_flag = DEC_IND_south_block_done
+		AND = {
+			has_completed_focus = DEC_IND_reg_south_amazon
+			has_completed_focus = DEC_IND_reg_south_cone
+		}
+	}
+}
+
+DEC_IND_is_melanesia = {
+		OR = {
+			original_tag = PAP
+			tag = PAP
+			original_tag = SOL
+			tag = SOL
+			original_tag = VAN
+			tag = VAN
+			original_tag = FIJ
+			tag = FIJ
+			original_tag = TIM
+			tag = TIM
+		}
+}
+
+DEC_IND_is_melanesia_black_pacific = {
+		OR = {
+			original_tag = PAP
+			tag = PAP
+			original_tag = SOL
+			tag = SOL
+			original_tag = VAN
+			tag = VAN
+			original_tag = FIJ
+			tag = FIJ
+		}
+}
+
+DEC_IND_is_melanesia_timor = {
+		OR = {
+			original_tag = TIM
+			tag = TIM
+		}
+}
+
+DEC_IND_melanesia_block_complete = {
+	OR = {
+		has_country_flag = DEC_IND_melanesia_block_done
+		AND = {
+			has_completed_focus = DEC_IND_reg_melanesia_black_pacific
+			has_completed_focus = DEC_IND_reg_melanesia_timor
+		}
+	}
+}
+
+DEC_IND_is_polynesia = {
+		OR = {
+			original_tag = NZL
+			tag = NZL
+			original_tag = SAM
+			tag = SAM
+			original_tag = TON
+			tag = TON
+			original_tag = TUL
+			tag = TUL
+			original_tag = KIR
+			tag = KIR
+			original_tag = MIC
+			tag = MIC
+			original_tag = PAU
+			tag = PAU
+			original_tag = NAU
+			tag = NAU
+			original_tag = AST
+			tag = AST
+		}
+}
+
+DEC_IND_is_polynesia_maori = {
+		OR = {
+			original_tag = NZL
+			tag = NZL
+			original_tag = SAM
+			tag = SAM
+			original_tag = TON
+			tag = TON
+			original_tag = TUL
+			tag = TUL
+			original_tag = KIR
+			tag = KIR
+		}
+}
+
+DEC_IND_is_polynesia_micronesia = {
+		OR = {
+			original_tag = MIC
+			tag = MIC
+			original_tag = PAU
+			tag = PAU
+			original_tag = NAU
+			tag = NAU
+		}
+}
+
+DEC_IND_is_polynesia_australia = {
+		OR = {
+			original_tag = AST
+			tag = AST
+		}
+}
+
+DEC_IND_polynesia_block_complete = {
+	OR = {
+		has_country_flag = DEC_IND_polynesia_block_done
+		AND = {
+			has_completed_focus = DEC_IND_reg_polynesia_maori
+			has_completed_focus = DEC_IND_reg_polynesia_micronesia
+			has_completed_focus = DEC_IND_reg_polynesia_australia
+		}
+	}
+}
+
+DEC_can_access_indigenous_awakening = {
+	DEC_is_indigenous_nation = yes
+	DEC_has_indigenous_right_ideology = yes
+	NOT = {
+		OR = {
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_CAL_world_caliphate
+		}
+	}
+}
+
+DEC_is_indigenous_invitee = {
+	DEC_is_indigenous_nation = yes
+	OR = {
+		DEC_has_ns = yes
+		DEC_has_indigenous_right_ideology = yes
+	}
+	exists = yes
+	NOT = { has_war_with = ROOT }
+	OR = {
+		is_subject = no
+		is_subject_of = ROOT
+	}
+}

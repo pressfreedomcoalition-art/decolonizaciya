@@ -1,0 +1,1322 @@
+############################################
+# Decolonizaciya — standard uprising effects
+############################################
+
+DEC_uprising_spawn_national_militia = {
+	division_template = {
+		name = "National Volunteers"
+		is_locked = yes
+		regiments = {
+			Militia_Bat = { x = 0 y = 0 }
+			Militia_Bat = { x = 0 y = 1 }
+			Militia_Bat = { x = 1 y = 0 }
+			Militia_Bat = { x = 1 y = 1 }
+		}
+		priority = 2
+	}
+}
+
+DEC_uprising_TAT = {
+	log = "DEC: TAT uprising vs SOV"
+	661 = { add_core_of = TAT }
+	if = {
+		limit = { NOT = { country_exists = TAT } }
+		SOV = { release = TAT }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = TAT
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			TAT = { transfer_state = PREV }
+		}
+	}
+	TAT = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		661 = {
+			create_unit = {
+				division = "name = \"Tatar Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = TAT
+				prioritize_location = 6338
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		TAT = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_TAT_independent_uprising
+}
+
+DEC_uprising_BSH = {
+	log = "DEC: BSH uprising vs SOV"
+	664 = { add_core_of = BSH }
+	if = {
+		limit = { NOT = { country_exists = BSH } }
+		SOV = { release = BSH }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = BSH
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			BSH = { transfer_state = PREV }
+		}
+	}
+	BSH = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		664 = {
+			create_unit = {
+				division = "name = \"Bashkir Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = BSH
+				prioritize_location = 1278
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		BSH = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_BSH_independent_uprising
+}
+
+DEC_uprising_CHU = {
+	log = "DEC: CHU uprising vs SOV"
+	1135 = { add_core_of = CHU }
+	if = {
+		limit = { NOT = { country_exists = CHU } }
+		SOV = { release = CHU }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = CHU
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			CHU = { transfer_state = PREV }
+		}
+	}
+	CHU = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1135 = {
+			create_unit = {
+				division = "name = \"Chuvash Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = CHU
+				prioritize_location = 9259
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		CHU = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_CHU_independent_uprising
+}
+
+DEC_uprising_MEL = {
+	log = "DEC: MEL uprising vs SOV"
+	1134 = { add_core_of = MEL }
+	if = {
+		limit = { NOT = { country_exists = MEL } }
+		SOV = { release = MEL }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = MEL
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			MEL = { transfer_state = PREV }
+		}
+	}
+	MEL = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1134 = {
+			create_unit = {
+				division = "name = \"Mari Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = MEL
+				prioritize_location = 9305
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		MEL = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_MEL_independent_uprising
+}
+
+DEC_uprising_UDM = {
+	log = "DEC: UDM uprising vs SOV"
+	1133 = { add_core_of = UDM }
+	if = {
+		limit = { NOT = { country_exists = UDM } }
+		SOV = { release = UDM }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = UDM
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			UDM = { transfer_state = PREV }
+		}
+	}
+	UDM = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1133 = {
+			create_unit = {
+				division = "name = \"Udmurt Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = UDM
+				prioritize_location = 6278
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		UDM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_UDM_independent_uprising
+}
+
+DEC_uprising_ERZ = {
+	log = "DEC: ERZ uprising vs SOV"
+	1132 = { add_core_of = ERZ }
+	if = {
+		limit = { NOT = { country_exists = ERZ } }
+		SOV = { release = ERZ }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = ERZ
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			ERZ = { transfer_state = PREV }
+		}
+	}
+	ERZ = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1132 = {
+			create_unit = {
+				division = "name = \"Erzya Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = ERZ
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		ERZ = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_ERZ_independent_uprising
+}
+
+DEC_uprising_MOK = {
+	log = "DEC: MOK uprising vs SOV"
+	1132 = { add_core_of = MOK }
+	if = {
+		limit = { NOT = { country_exists = MOK } }
+		SOV = { release = MOK }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = MOK
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			MOK = { transfer_state = PREV }
+		}
+	}
+	MOK = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1132 = {
+			create_unit = {
+				division = "name = \"Moksha Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = MOK
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		MOK = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_MOK_independent_uprising
+}
+
+DEC_uprising_NOG = {
+	log = "DEC: NOG uprising vs SOV"
+	666 = { add_core_of = NOG }
+	if = {
+		limit = { NOT = { country_exists = NOG } }
+		SOV = { release = NOG }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = NOG
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			NOG = { transfer_state = PREV }
+		}
+	}
+	NOG = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		666 = {
+			create_unit = {
+				division = "name = \"Nogai Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = NOG
+				prioritize_location = 9753
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		NOG = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_NOG_independent_uprising
+}
+
+DEC_uprising_BJA = {
+	log = "DEC: BJA uprising vs SOV"
+	647 = { add_core_of = BJA }
+	if = {
+		limit = { NOT = { country_exists = BJA } }
+		SOV = { release = BJA }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = BJA
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			BJA = { transfer_state = PREV }
+		}
+	}
+	BJA = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		647 = {
+			create_unit = {
+				division = "name = \"Bjarmia Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = BJA
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		BJA = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_BJA_independent_uprising
+}
+
+DEC_uprising_IGR = {
+	log = "DEC: IGR uprising vs SOV"
+	644 = { add_core_of = IGR }
+	if = {
+		limit = { NOT = { country_exists = IGR } }
+		SOV = { release = IGR }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = IGR
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			IGR = { transfer_state = PREV }
+		}
+	}
+	IGR = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		644 = {
+			create_unit = {
+				division = "name = \"Ingria Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = IGR
+				prioritize_location = 3151
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		IGR = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_IGR_independent_uprising
+}
+
+DEC_uprising_KAE = {
+	log = "DEC: KAE uprising vs SOV"
+	1128 = { add_core_of = KAE }
+	if = {
+		limit = { NOT = { country_exists = KAE } }
+		SOV = { release = KAE }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = KAE
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KAE = { transfer_state = PREV }
+		}
+	}
+	KAE = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1128 = {
+			create_unit = {
+				division = "name = \"Karelian Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = KAE
+				prioritize_location = 11159
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		KAE = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_KAE_independent_uprising
+}
+
+DEC_uprising_LAP = {
+	log = "DEC: LAP uprising vs SOV"
+	643 = { add_core_of = LAP }
+	if = {
+		limit = { NOT = { country_exists = LAP } }
+		SOV = { release = LAP }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = LAP
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			LAP = { transfer_state = PREV }
+		}
+	}
+	LAP = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		643 = {
+			create_unit = {
+				division = "name = \"Lapland Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = LAP
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		LAP = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_LAP_independent_uprising
+}
+
+DEC_uprising_KLM = {
+	log = "DEC: KLM uprising vs SOV"
+	1107 = { add_core_of = KLM }
+	if = {
+		limit = { NOT = { country_exists = KLM } }
+		SOV = { release = KLM }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = KLM
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KLM = { transfer_state = PREV }
+		}
+	}
+	KLM = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1107 = {
+			create_unit = {
+				division = "name = \"Kalmyk Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = KLM
+				prioritize_location = 11724
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		KLM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_KLM_independent_uprising
+}
+
+DEC_uprising_BRY = {
+	log = "DEC: BRY uprising vs SOV"
+	686 = { add_core_of = BRY }
+	if = {
+		limit = { NOT = { country_exists = BRY } }
+		SOV = { release = BRY }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = BRY
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			BRY = { transfer_state = PREV }
+		}
+	}
+	BRY = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		686 = {
+			create_unit = {
+				division = "name = \"Buryat Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = BRY
+				prioritize_location = 10524
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		BRY = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_BRY_independent_uprising
+}
+
+DEC_uprising_KOM = {
+	log = "DEC: KOM uprising vs SOV"
+	648 = { add_core_of = KOM }
+	if = {
+		limit = { NOT = { country_exists = KOM } }
+		SOV = { release = KOM }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = KOM
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KOM = { transfer_state = PREV }
+		}
+	}
+	KOM = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		648 = {
+			create_unit = {
+				division = "name = \"Komi Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = KOM
+				prioritize_location = 99
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		KOM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_KOM_independent_uprising
+}
+
+DEC_uprising_KHM = {
+	log = "DEC: KHM uprising vs SOV"
+	678 = { add_core_of = KHM }
+	if = {
+		limit = { NOT = { country_exists = KHM } }
+		SOV = { release = KHM }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = KHM
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KHM = { transfer_state = PREV }
+		}
+	}
+	KHM = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		678 = {
+			create_unit = {
+				division = "name = \"Khanty Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = KHM
+				prioritize_location = 4817
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		KHM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_KHM_independent_uprising
+}
+
+DEC_uprising_YAM = {
+	log = "DEC: YAM uprising vs SOV"
+	679 = { add_core_of = YAM }
+	if = {
+		limit = { NOT = { country_exists = YAM } }
+		SOV = { release = YAM }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = YAM
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			YAM = { transfer_state = PREV }
+		}
+	}
+	YAM = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		679 = {
+			create_unit = {
+				division = "name = \"Nenets Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = YAM
+				prioritize_location = 1684
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		YAM = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_YAM_independent_uprising
+}
+
+DEC_uprising_NEE = {
+	log = "DEC: NEE uprising vs SOV"
+	683 = { add_core_of = NEE }
+	if = {
+		limit = { NOT = { country_exists = NEE } }
+		SOV = { release = NEE }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = NEE
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			NEE = { transfer_state = PREV }
+		}
+	}
+	NEE = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		683 = {
+			create_unit = {
+				division = "name = \"Nenets Host\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = NEE
+				prioritize_location = 105
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		NEE = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_NEE_independent_uprising
+}
+
+DEC_uprising_YAK = {
+	log = "DEC: YAK uprising vs SOV"
+	688 = { add_core_of = YAK }
+	if = {
+		limit = { NOT = { country_exists = YAK } }
+		SOV = { release = YAK }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = YAK
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			YAK = { transfer_state = PREV }
+		}
+	}
+	YAK = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		688 = {
+			create_unit = {
+				division = "name = \"Sakha Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = YAK
+				prioritize_location = 10641
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		YAK = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_YAK_independent_uprising
+}
+
+DEC_uprising_KHS = {
+	log = "DEC: KHS uprising vs SOV"
+	1065 = { add_core_of = KHS }
+	if = {
+		limit = { NOT = { country_exists = KHS } }
+		SOV = { release = KHS }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = KHS
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KHS = { transfer_state = PREV }
+		}
+	}
+	KHS = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1065 = {
+			create_unit = {
+				division = "name = \"Khakas Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = KHS
+				prioritize_location = 10712
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		KHS = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_KHS_independent_uprising
+}
+
+DEC_uprising_ALT = {
+	log = "DEC: ALT uprising vs SOV"
+	684 = { add_core_of = ALT }
+	if = {
+		limit = { NOT = { country_exists = ALT } }
+		SOV = { release = ALT }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = ALT
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			ALT = { transfer_state = PREV }
+		}
+	}
+	ALT = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		684 = {
+			create_unit = {
+				division = "name = \"Altai Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = ALT
+				prioritize_location = 14496
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		ALT = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_ALT_independent_uprising
+}
+
+DEC_uprising_TUV = {
+	log = "DEC: TUV uprising vs SOV"
+	1011 = { add_core_of = TUV }
+	if = {
+		limit = { NOT = { country_exists = TUV } }
+		SOV = { release = TUV }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = TUV
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			TUV = { transfer_state = PREV }
+		}
+	}
+	TUV = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		1011 = {
+			create_unit = {
+				division = "name = \"Tuvan Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = TUV
+				prioritize_location = 1676
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		TUV = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_TUV_independent_uprising
+}
+
+DEC_uprising_CKK = {
+	log = "DEC: CKK uprising vs SOV"
+	689 = { add_core_of = CKK }
+	if = {
+		limit = { NOT = { country_exists = CKK } }
+		SOV = { release = CKK }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = CKK
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			CKK = { transfer_state = PREV }
+		}
+	}
+	CKK = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		689 = {
+			create_unit = {
+				division = "name = \"Chukotka Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = CKK
+				prioritize_location = 13063
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		CKK = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_CKK_independent_uprising
+}
+
+DEC_uprising_CSB = {
+	log = "DEC: CSB uprising vs SOV"
+	682 = { add_core_of = CSB }
+	681 = { add_core_of = CSB }
+	1067 = { add_core_of = CSB }
+	if = {
+		limit = { NOT = { country_exists = CSB } }
+		SOV = { release = CSB }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = CSB
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			CSB = { transfer_state = PREV }
+		}
+	}
+	CSB = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		682 = {
+			create_unit = {
+				division = "name = \"Siberian Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = CSB
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		CSB = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_CSB_independent_uprising
+}
+
+DEC_uprising_ESB = {
+	log = "DEC: ESB uprising vs SOV"
+	685 = { add_core_of = ESB }
+	1069 = { add_core_of = ESB }
+	if = {
+		limit = { NOT = { country_exists = ESB } }
+		SOV = { release = ESB }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = ESB
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			ESB = { transfer_state = PREV }
+		}
+	}
+	ESB = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		685 = {
+			create_unit = {
+				division = "name = \"East Siberian Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = ESB
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		ESB = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_ESB_independent_uprising
+}
+
+DEC_uprising_SIB = {
+	log = "DEC: SIB uprising vs SOV"
+	680 = { add_core_of = SIB }
+	if = {
+		limit = { NOT = { country_exists = SIB } }
+		SOV = { release = SIB }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = SIB
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			SIB = { transfer_state = PREV }
+		}
+	}
+	SIB = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		680 = {
+			create_unit = {
+				division = "name = \"Siberian Republic Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = SIB
+				prioritize_location = 4734
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		SIB = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_SIB_independent_uprising
+}
+
+DEC_create_idel_ural_faction = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_idel_ural
+	every_other_country = {
+		limit = { DEC_is_idel_ural_invitee = yes exists = yes NOT = { has_war_with = ROOT } OR = { is_subject = no is_subject_of = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+	set_cosmetic_tag = IDL
+}
+
+DEC_create_bulgar_faction = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_bulgar
+	every_other_country = {
+		limit = { DEC_is_bulgar_invitee = yes exists = yes NOT = { has_war_with = ROOT } OR = { is_subject = no is_subject_of = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+	set_cosmetic_tag = BCF
+}
+
+DEC_create_fennoscandia = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_fennoscandia
+	every_other_country = {
+		limit = { DEC_is_fennoscandia_invitee = yes exists = yes NOT = { has_war_with = ROOT } OR = { is_subject = no is_subject_of = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+}
+
+DEC_create_turan = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_turan
+	every_other_country = {
+		limit = { DEC_is_turan_invitee = yes exists = yes NOT = { has_war_with = ROOT } OR = { is_subject = no is_subject_of = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+}
+
+DEC_create_ural_faction = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_ural
+	every_other_country = {
+		limit = { DEC_is_ural_invitee = yes exists = yes NOT = { has_war_with = ROOT } OR = { is_subject = no is_subject_of = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+	set_cosmetic_tag = URA
+}
+
+DEC_create_siberia_faction = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_siberia
+	every_other_country = {
+		limit = { DEC_is_siberia_invitee = yes exists = yes NOT = { has_war_with = ROOT } OR = { is_subject = no is_subject_of = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+	set_cosmetic_tag = SIB
+}
+
+DEC_create_fareast_faction = {
+	DEC_mark_named_alliance_member = yes
+	if = { limit = { is_in_faction = yes } leave_faction = yes }
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_fareast
+	every_other_country = {
+		limit = { DEC_is_fareast_invitee = yes exists = yes NOT = { has_war_with = ROOT } OR = { is_subject = no is_subject_of = ROOT } }
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+	}
+}
+
+############################################
+# Block completion (= last uprisings, not alliances)
+############################################
+
+DEC_unlock_from_turan_block = {
+	set_global_flag = DEC_TUR_block_complete
+	set_country_flag = DEC_URA_branch_unlocked
+	set_country_flag = DEC_SIB_branch_unlocked
+	set_country_flag = DEC_MON_branch_unlocked
+	set_country_flag = DEC_CAU_branch_unlocked
+	custom_effect_tooltip = DEC_TUR_unlocks_ural_sib_mon_cau_tt
+}
+
+DEC_try_finish_turan_block = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = DEC_TUR_block_complete }
+			OR = {
+				has_global_flag = DEC_YAK_independent_uprising
+				has_completed_focus = DEC_TUR_yakutia_uprising
+				DEC_YAK_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_KHS_independent_uprising
+				has_completed_focus = DEC_TUR_khakassia_uprising
+				DEC_KHS_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_ALT_independent_uprising
+				has_completed_focus = DEC_TUR_altai_uprising
+				DEC_ALT_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_TUV_independent_uprising
+				has_completed_focus = DEC_TUR_tuva_uprising
+				DEC_TUV_already_independent = yes
+			}
+		}
+		DEC_unlock_from_turan_block = yes
+		log = "DEC: Turan block complete (last uprisings)"
+	}
+}
+
+DEC_try_finish_ural_block = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = DEC_URA_block_complete }
+			OR = {
+				has_global_flag = DEC_KOM_independent_uprising
+				has_completed_focus = DEC_URA_komi_uprising
+				DEC_KOM_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_KHM_independent_uprising
+				has_completed_focus = DEC_URA_khanty_uprising
+				DEC_KHM_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_YAM_independent_uprising
+				has_completed_focus = DEC_URA_yamal_uprising
+				DEC_YAM_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_NEE_independent_uprising
+				has_completed_focus = DEC_URA_nenets_uprising
+				DEC_NEE_already_independent = yes
+			}
+		}
+		set_global_flag = DEC_URA_block_complete
+		set_country_flag = DEC_SIB_branch_unlocked
+		custom_effect_tooltip = DEC_URA_block_complete_tt
+		log = "DEC: Ural block complete (last uprisings)"
+	}
+}
+
+DEC_try_finish_siberia_block = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = DEC_SIB_block_complete }
+			OR = {
+				has_global_flag = DEC_CSB_independent_uprising
+				has_completed_focus = DEC_SIB_central_uprising
+				DEC_CSB_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_ESB_independent_uprising
+				has_completed_focus = DEC_SIB_eastern_uprising
+				DEC_ESB_already_independent = yes
+			}
+		}
+		set_global_flag = DEC_SIB_block_complete
+		set_country_flag = DEC_FE_branch_unlocked
+		custom_effect_tooltip = DEC_SIB_block_complete_tt
+		log = "DEC: Siberia block complete (last uprisings)"
+	}
+}
+DEC_try_finish_cossackia_block = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = DEC_CSK_block_complete }
+			OR = {
+				has_global_flag = DEC_KUB_independent_uprising
+				has_completed_focus = DEC_CSK_kuban_uprising
+				DEC_KUB_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_DON_independent_uprising
+				has_completed_focus = DEC_CSK_don_uprising
+				DEC_DON_already_independent = yes
+			}
+			OR = {
+				has_global_flag = DEC_VYK_independent_uprising
+				has_completed_focus = DEC_CSK_yaik_uprising
+				DEC_VYK_already_independent = yes
+			}
+		}
+		set_global_flag = DEC_CSK_block_complete
+		log = "DEC: Cossackia block complete (last uprisings)"
+	}
+}

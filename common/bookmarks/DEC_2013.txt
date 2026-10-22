@@ -1,0 +1,60 @@
+bookmarks = {
+	bookmark = {
+		name = "DEC_BOOKMARK_2013"
+		desc = "DEC_BOOKMARK_2013_DESC"
+		date = 2013.10.1.12
+		picture = "GFX_select_date_dec_2013"
+		default_country = "SOV"
+		default = no
+		filters = { new_content continent }
+
+		"SOV" = {
+			history = "SOV_DEC_2013_DESC"
+			ideology = communism
+			ideas = { }
+			focuses = {
+				SOV_may_decrees
+				SOV_gay_propaganda_laws
+				SOV_the_onf
+			}
+		}
+		"UKR" = {
+			history = "UKR_DEC_2013_DESC"
+			ideology = neutrality
+			ideas = { }
+			focuses = {
+				UKR_party_regions_inauguration
+				UKR_dual_language
+				UKR_cancel_decommunization
+			}
+		}
+		"USA" = {
+			history = "USA_DEC_2013_DESC"
+			ideology = democratic
+			ideas = { }
+			focuses = {
+				USA_focus_2000_republicans
+				USA_focus_2008_democrats
+				USA_focus_2012_democrats
+			}
+		}
+		"CHI" = {
+			history = "CHI_DEC_2013_DESC"
+			ideology = communism
+			ideas = { }
+			focuses = {
+				CHI_hu_jintao_reign
+				CHI_the_chinese_dream
+				CHI_the_three_represents
+			}
+		}
+
+		"---" = {
+			history = "OTHER_DEC_2013_DESC"
+		}
+
+		effect = {
+			randomize_weather = 22345
+		}
+	}
+}

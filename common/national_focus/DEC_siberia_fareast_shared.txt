@@ -1,0 +1,178 @@
+############################################
+# Siberia + Far East blocks
+############################################
+
+shared_focus = {
+	id = DEC_SIB_central_uprising
+	icon = generic_fascist_uprising
+	x = 100
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_siberia_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = CSB
+			AND = { DEC_CSB_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_CSB } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_siberia_ready = yes
+		OR = {
+			tag = CSB
+			has_war_with = SOV
+			SOV = { owns_state = 682 }
+			NOT = { country_exists = CSB }
+			DEC_CSB_already_independent = yes
+			has_global_flag = DEC_MON_block_complete
+			has_country_flag = DEC_SIB_branch_unlocked
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_SIB_central_uprising"
+		if = {
+			limit = { NOT = { DEC_CSB_already_independent = yes } }
+			DEC_uprising_CSB = yes
+		}
+		set_country_flag = DEC_SIB_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_siberia_block = yes
+	}
+	ai_will_do = { base = 14 }
+}
+
+shared_focus = {
+	id = DEC_SIB_eastern_uprising
+	icon = generic_fascist_uprising
+	relative_position_id = DEC_SIB_central_uprising
+	x = 4
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_siberia_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = ESB
+			AND = { DEC_ESB_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_ESB } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_siberia_ready = yes
+		OR = {
+			tag = ESB
+			has_war_with = SOV
+			SOV = { owns_state = 685 }
+			NOT = { country_exists = ESB }
+			DEC_ESB_already_independent = yes
+			has_global_flag = DEC_MON_block_complete
+			has_country_flag = DEC_SIB_branch_unlocked
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_SIB_eastern_uprising"
+		if = {
+			limit = { NOT = { DEC_ESB_already_independent = yes } }
+			DEC_uprising_ESB = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_siberia_block = yes
+	}
+	ai_will_do = { base = 14 }
+}
+
+shared_focus = {
+	id = DEC_SIB_proclaim_siberia
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_siberia_branch = yes }
+	relative_position_id = DEC_SIB_central_uprising
+	x = 2
+	y = 2
+	cost = 8
+	prerequisite = {
+		focus = DEC_SIB_central_uprising
+		focus = DEC_SIB_eastern_uprising
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		DEC_is_siberia_nation = yes
+		has_global_flag = DEC_SIB_block_complete
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_SIB_proclaim_siberia"
+		680 = { add_core_of = SIB }
+		DEC_create_siberia_faction = yes
+		custom_effect_tooltip = DEC_SIB_proclaim_siberia_tt
+	}
+	ai_will_do = { base = 26 }
+}
+
+shared_focus = {
+	id = DEC_FE_chukotka_uprising
+	icon = generic_fascist_uprising
+	x = 112
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_fareast_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = CKK
+			AND = { DEC_CKK_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_CKK } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_fareast_ready = yes
+		OR = {
+			tag = CKK
+			has_war_with = SOV
+			SOV = { owns_state = 689 }
+			NOT = { country_exists = CKK }
+			DEC_CKK_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_FE_chukotka_uprising"
+		if = {
+			limit = { NOT = { DEC_CKK_already_independent = yes } }
+			DEC_uprising_CKK = yes
+		}
+		set_country_flag = DEC_FE_branch_unlocked
+		set_global_flag = DEC_FE_block_complete
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		custom_effect_tooltip = DEC_FE_block_complete_tt
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_FE_pacific_pact
+	icon = industry_civilian
+	allow_branch = { DEC_can_access_siberia_branch = yes }
+	relative_position_id = DEC_FE_chukotka_uprising
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_FE_chukotka_uprising }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		DEC_is_fareast_nation = yes
+		has_global_flag = DEC_FE_block_complete
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_FE_pacific_pact"
+		DEC_create_fareast_faction = yes
+		custom_effect_tooltip = DEC_FE_pacific_pact_tt
+	}
+	ai_will_do = { base = 22 }
+}

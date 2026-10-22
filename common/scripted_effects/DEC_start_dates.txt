@@ -1,0 +1,1949 @@
+############################################
+# Decolonizaciya — late start date setups
+# Lightweight: leaders, map, diplomacy/wars, focus spines
+############################################
+
+# Called from on_startup when bookmark date >= 2013.10.1
+# Order: map/diplo → leaders → focus spine → leaders again (spine may fire leader rewards)
+DEC_setup_2013 = {
+	log = "DEC: setup 2013 applied"
+	set_global_flag = DEC_hist_2013
+	DEC_event_gates_post_2013 = yes
+	DEC_map_2013 = yes
+	DEC_diplomacy_2013 = yes
+	DEC_leaders_2013 = yes
+	DEC_focus_spine_2013 = yes
+	DEC_leaders_2013 = yes
+}
+
+# Called when bookmark date >= 2022.2.22 (includes 2013 layer)
+DEC_setup_2022 = {
+	DEC_setup_2013 = yes
+	log = "DEC: setup 2022 applied"
+	set_global_flag = DEC_hist_2022
+	DEC_event_gates_post_2022 = yes
+	DEC_map_2022 = yes
+	DEC_diplomacy_2022 = yes
+	DEC_leaders_2022 = yes
+	DEC_focus_spine_2022 = yes
+	DEC_leaders_2022 = yes
+}
+
+############################################
+# Event / mid-game chain gates
+############################################
+
+DEC_event_gates_post_2013 = {
+	# Prevent Arab Spring from re-igniting on late starts
+	set_global_flag = global_arab_spring_started
+	every_country = {
+		limit = { has_country_flag = arabic_nation_flag }
+		set_country_flag = AS_arab_spring_completed
+	}
+}
+
+DEC_event_gates_post_2022 = {
+	# Placeholder for further 2014–2022 chain skips
+	set_global_flag = DEC_skip_pre2022_crises
+}
+
+############################################
+# Map deltas
+############################################
+
+DEC_map_2013 = {
+	# Ensure South Sudan exists on its cores (MD 2000 often already owns; re-assert)
+	if = {
+		limit = { NOT = { country_exists = SSU } }
+		SUD = {
+			release = SSU
+		}
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = SSU
+				is_owned_by = SUD
+			}
+			SSU = { transfer_state = PREV }
+		}
+	}
+}
+
+DEC_map_2022 = {
+	# Crimea to Russia
+	669 = { add_core_of = SOV }
+	if = {
+		limit = { NOT = { 669 = { is_owned_by = SOV } } }
+		SOV = { transfer_state = 669 }
+	}
+	# Donetsk / Luhansk cities → DPR / LPR cores
+	693 = { add_core_of = DPR }
+	1075 = { add_core_of = LPR }
+	# Release DPR/LPR from Ukraine if not already independent
+	if = {
+		limit = {
+			NOT = { country_exists = DPR }
+			UKR = { owns_state = 693 }
+		}
+		UKR = { release = DPR }
+	}
+	else_if = {
+		limit = {
+			country_exists = DPR
+			UKR = { owns_state = 693 }
+		}
+		DPR = { transfer_state = 693 }
+	}
+	if = {
+		limit = {
+			NOT = { country_exists = LPR }
+			UKR = { owns_state = 1075 }
+		}
+		UKR = { release = LPR }
+	}
+	else_if = {
+		limit = {
+			country_exists = LPR
+			UKR = { owns_state = 1075 }
+		}
+		LPR = { transfer_state = 1075 }
+	}
+}
+
+############################################
+# Diplomacy / alliances / wars (late starts)
+# MD history is 2000-only; array nato_members already expands
+# on has_start_date > 2000.1.1, but faction + NATO_member idea do not.
+############################################
+
+# Quiet NATO admit for ROOT (no news events). Faction first — NATO_member cancels if not in faction.
+DEC_nato_admit_quiet = {
+	if = {
+		limit = { exists = yes }
+		USA = {
+			if = {
+				limit = {
+					is_faction_leader = yes
+					NOT = { is_in_faction_with = PREV }
+				}
+				add_to_faction = PREV
+			}
+		}
+		if = {
+			limit = { NOT = { has_idea = NATO_member } }
+			add_ideas = NATO_member
+			add_to_tech_sharing_group = NATO_Tech_Share
+		}
+		if = {
+			limit = { NOT = { is_in_array = { global.nato_members = THIS } } }
+			add_to_array = { global.nato_members = THIS }
+		}
+	}
+}
+
+DEC_diplomacy_2013 = {
+	log = "DEC: diplomacy 2013 applied"
+
+	# --- NATO: sync idea + faction for MD late-start array members ---
+	if = { limit = { country_exists = EST } EST = { DEC_nato_admit_quiet = yes } }
+	if = { limit = { country_exists = LAT } LAT = { DEC_nato_admit_quiet = yes } }
+	if = { limit = { country_exists = LIT } LIT = { DEC_nato_admit_quiet = yes } }
+	if = { limit = { country_exists = SLO } SLO = { DEC_nato_admit_quiet = yes } } # Slovakia
+	if = { limit = { country_exists = SLV } SLV = { DEC_nato_admit_quiet = yes } } # Slovenia
+	if = { limit = { country_exists = ROM } ROM = { DEC_nato_admit_quiet = yes } }
+	if = { limit = { country_exists = BUL } BUL = { DEC_nato_admit_quiet = yes } }
+	if = { limit = { country_exists = ALB } ALB = { DEC_nato_admit_quiet = yes } }
+	if = { limit = { country_exists = CRO } CRO = { DEC_nato_admit_quiet = yes } }
+
+	# --- End Second Chechen War leftover; Kadyrov as RF satellite ---
+	if = {
+		limit = {
+			country_exists = CHE
+			SOV = { has_war_with = CHE }
+		}
+		SOV = { white_peace = CHE }
+	}
+	if = {
+		limit = {
+			country_exists = CHE
+			NOT = { CHE = { is_subject_of = SOV } }
+		}
+		SOV = { puppet = CHE }
+	}
+
+	# --- End MD-2000 wars that were over by Oct 2013 ---
+	if = {
+		limit = {
+			country_exists = SRI
+			country_exists = TML
+			SRI = { has_war_with = TML }
+		}
+		SRI = { white_peace = TML }
+	}
+	if = {
+		limit = {
+			country_exists = IND
+			country_exists = ACE
+			IND = { has_war_with = ACE }
+		}
+		IND = { white_peace = ACE }
+	}
+	if = {
+		limit = {
+			country_exists = ERI
+			country_exists = ETH
+			ERI = { has_war_with = ETH }
+		}
+		ERI = { white_peace = ETH }
+	}
+	if = {
+		limit = {
+			country_exists = NEP
+			country_exists = NPM
+			NEP = { has_war_with = NPM }
+		}
+		NEP = { white_peace = NPM }
+	}
+	if = {
+		limit = {
+			country_exists = LUR
+			country_exists = LIB
+			LUR = { has_war_with = LIB }
+		}
+		LUR = { white_peace = LIB }
+	}
+	if = {
+		limit = {
+			country_exists = AFR
+			country_exists = SIE
+			AFR = { has_war_with = SIE }
+		}
+		AFR = { white_peace = SIE }
+	}
+	if = {
+		limit = {
+			country_exists = UNI
+			country_exists = AGL
+			UNI = { has_war_with = AGL }
+		}
+		UNI = { white_peace = AGL }
+	}
+	if = {
+		limit = {
+			country_exists = SUD
+			country_exists = SSU
+			SUD = { has_war_with = SSU }
+		}
+		SUD = { white_peace = SSU }
+	}
+
+	# --- Post-2008 Caucasus recognition (RF) ---
+	if = {
+		limit = { country_exists = ABK }
+		SOV = {
+			add_opinion_modifier = { target = ABK modifier = historic_friends }
+			reverse_add_opinion_modifier = { target = ABK modifier = historic_friends }
+			diplomatic_relation = {
+				country = ABK
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = ABK
+				relation = guarantee
+				active = yes
+			}
+		}
+	}
+	if = {
+		limit = { country_exists = SOO }
+		SOV = {
+			add_opinion_modifier = { target = SOO modifier = historic_friends }
+			reverse_add_opinion_modifier = { target = SOO modifier = historic_friends }
+			diplomatic_relation = {
+				country = SOO
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = SOO
+				relation = guarantee
+				active = yes
+			}
+		}
+	}
+	# Drop leftover MD-2000 SOV access into Georgia after 2008 war
+	if = {
+		limit = {
+			country_exists = GEO
+			SOV = { has_military_access_to = GEO }
+		}
+		SOV = {
+			diplomatic_relation = {
+				country = GEO
+				relation = military_access
+				active = no
+			}
+		}
+	}
+}
+
+DEC_diplomacy_2022 = {
+	log = "DEC: diplomacy 2022 applied"
+
+	# --- NATO 2017 / 2020 expansions (not in MD late array) ---
+	if = { limit = { country_exists = MNT } MNT = { DEC_nato_admit_quiet = yes } }
+	if = { limit = { country_exists = FYR } FYR = { DEC_nato_admit_quiet = yes } }
+
+	# --- Donbas: frozen-hot war since 2014; RF recognised DPR/LPR 21.02 ---
+	if = {
+		limit = {
+			country_exists = DPR
+			country_exists = UKR
+			NOT = { UKR = { has_war_with = DPR } }
+		}
+		UKR = {
+			declare_war_on = {
+				target = DPR
+				type = annex_everything
+			}
+		}
+	}
+	if = {
+		limit = {
+			country_exists = LPR
+			country_exists = UKR
+			NOT = { UKR = { has_war_with = LPR } }
+		}
+		UKR = {
+			declare_war_on = {
+				target = LPR
+				type = annex_everything
+			}
+		}
+	}
+	if = {
+		limit = { country_exists = DPR }
+		SOV = {
+			add_opinion_modifier = { target = DPR modifier = DEC_decolonised_solidarity }
+			add_opinion_modifier = { target = DPR modifier = historic_friends }
+			diplomatic_relation = {
+				country = DPR
+				relation = non_aggression_pact
+				active = yes
+			}
+			diplomatic_relation = {
+				country = DPR
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = DPR
+				relation = guarantee
+				active = yes
+			}
+		}
+		DPR = {
+			diplomatic_relation = {
+				country = SOV
+				relation = military_access
+				active = yes
+			}
+		}
+	}
+	if = {
+		limit = { country_exists = LPR }
+		SOV = {
+			add_opinion_modifier = { target = LPR modifier = DEC_decolonised_solidarity }
+			add_opinion_modifier = { target = LPR modifier = historic_friends }
+			diplomatic_relation = {
+				country = LPR
+				relation = non_aggression_pact
+				active = yes
+			}
+			diplomatic_relation = {
+				country = LPR
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = LPR
+				relation = guarantee
+				active = yes
+			}
+		}
+		LPR = {
+			diplomatic_relation = {
+				country = SOV
+				relation = military_access
+				active = yes
+			}
+		}
+	}
+	# Mutual Donbas coordination
+	if = {
+		limit = {
+			country_exists = DPR
+			country_exists = LPR
+		}
+		DPR = {
+			diplomatic_relation = {
+				country = LPR
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = LPR
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		LPR = {
+			diplomatic_relation = {
+				country = DPR
+				relation = military_access
+				active = yes
+			}
+		}
+	}
+
+	# --- Afghanistan: Taliban victory (Aug 2021); AFG tag keeps government ---
+	if = {
+		limit = {
+			country_exists = TAL
+			country_exists = AFG
+			TAL = { has_war_with = AFG }
+		}
+		TAL = { white_peace = AFG }
+	}
+	if = {
+		limit = { country_exists = TAL }
+		AFG = {
+			annex_country = {
+				target = TAL
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+############################################
+# Leaders — 2013.10.1
+############################################
+
+DEC_leaders_2013 = {
+	SOV = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Vladimir Putin"
+			picture = "Vladimir_Putin.dds"
+			expire = "2030.1.1"
+			ideology = Conservative
+			traits = { emerging_Conservative }
+		}
+	}
+	UKR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Viktor Yanukovych"
+			picture = "gfx/leaders/UKR/Viktor_Yanukovych_new.dds"
+			expire = "2030.1.1"
+			ideology = Neutral_conservatism
+			traits = { }
+		}
+	}
+	USA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Barack Obama"
+			picture = "gfx/leaders/USA/Barack_Obama.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	CHI = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Xi Jinping"
+			picture = "gfx/leaders/CHI/Xi_Jinping.dds"
+			expire = "2035.1.1"
+			ideology = communist_state
+			traits = { }
+		}
+	}
+	ENG = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "David Cameron"
+			picture = "gfx/leaders/ENG/David_Cameron.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	FRA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "François Hollande"
+			picture = "gfx/leaders/FRA/Francois_Hollande.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	GER = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Angela Merkel"
+			picture = "gfx/leaders/GER/Angela_Merkel.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	TUR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Recep Tayyip Erdoğan"
+			picture = "gfx/leaders/TUR/Recep_Tayyip_Erdogan.dds"
+			expire = "2035.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	POL = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Bronisław Komorowski"
+			picture = "gfx/leaders/POL/POL_Bronislaw_Komorowski.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	BLR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Alexander Lukashenko"
+			picture = "gfx/leaders/BLR/alexander_lukashenko.dds"
+			expire = "2035.1.1"
+			ideology = Conservative
+			traits = { }
+		}
+	}
+	JAP = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Shinzo Abe"
+			picture = "gfx/leaders/JAP/Shinzo_Abe.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	RAJ = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Manmohan Singh"
+			picture = "gfx/leaders/RAJ/manmohan_singh.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	BRA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Dilma Rousseff"
+			picture = "gfx/leaders/BRA/luiz_inacio_lula_da_silva.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	SAU = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Abdullah bin Abdulaziz Al Saud"
+			picture = "gfx/leaders/SAU/Abdullah_bin_Abdulaziz_Al-Saud.dds"
+			expire = "2030.1.1"
+			ideology = Kingdom
+			traits = { }
+		}
+	}
+	PER = {
+		# Supreme Leader unchanged; keep Khamenei as country leader if that is MD model
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Sayyid Ali Hosseini Khamenei"
+			picture = "gfx/leaders/PER/sayyid_ali_hosseini_khamenei.dds"
+			expire = "2035.1.1"
+			ideology = Vilayat_e_Faqih
+			traits = { }
+		}
+	}
+	ISR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Benjamin Netanyahu"
+			picture = "gfx/leaders/ISR/Benjamin_Netanyahu.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	KOR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Park Geun-hye"
+			picture = "gfx/leaders/KOR/Park_Geun-hye.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	NKO = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Kim Jong-un"
+			picture = "gfx/leaders/NKO/Kim_Jong-un.dds"
+			expire = "2035.1.1"
+			ideology = communist_state
+			traits = { }
+		}
+	}
+	ITA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Enrico Letta"
+			picture = "gfx/leaders/ITA/enrico_letta.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	SPR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Mariano Rajoy"
+			picture = "gfx/leaders/SPR/mariano_rajoy.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	CAN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Stephen Harper"
+			picture = "gfx/leaders/CAN/Stephen_Harper.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	AST = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Tony Abbott"
+			picture = "gfx/leaders/AST/tony_abbott_1.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	EGY = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Abdel Fattah el-Sisi"
+			picture = "gfx/leaders/EGY/EGY_Abdel_Fattah_el-Sisi.dds"
+			expire = "2035.1.1"
+			ideology = Neutral_Autocracy
+			traits = { }
+		}
+	}
+	SYR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Bashar al-Assad"
+			picture = "gfx/leaders/SYR/Bashar_Al-Assad.dds"
+			expire = "2035.1.1"
+			ideology = Neutral_Autocracy
+			traits = { }
+		}
+	}
+	KAZ = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nursultan Nazarbayev"
+			picture = "gfx/leaders/KAZ/nursultan_nazabayev.dds"
+			expire = "2030.1.1"
+			ideology = Conservative
+			traits = { }
+		}
+	}
+	GEO = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Bidzina Ivanishvili"
+			picture = "gfx/leaders/GEO/Bidzina_Ivanishvili.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	ARM = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Serzh Sargsyan"
+			picture = "gfx/leaders/ARM/serzh_sargsyan.dds"
+			expire = "2030.1.1"
+			ideology = Conservative
+			traits = { }
+		}
+	}
+	AZE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Ilham Aliyev"
+			picture = "gfx/leaders/AZE/AZE_Ilham_Aliyev.dds"
+			expire = "2035.1.1"
+			ideology = Conservative
+			traits = { }
+		}
+	}
+	PAK = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nawaz Sharif"
+			picture = "gfx/leaders/PAK/Nawaz_Sharif.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	SAF = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Jacob Zuma"
+			picture = "gfx/leaders/SAF/Jacob_Zuma.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	MEX = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Enrique Peña Nieto"
+			picture = "gfx/leaders/MEX/Enrique_Pena_Nieto.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	ARG = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Cristina Fernández de Kirchner"
+			picture = "gfx/leaders/ARG/ARG_Cristina_Fernandez_de_Kirchner.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	VIE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nguyen Phu Trong"
+			picture = "gfx/leaders/VIE/Nguyen_Phu_Trong.dds"
+			expire = "2035.1.1"
+			ideology = communist_state
+			traits = { }
+		}
+	}
+	if = {
+		limit = { country_exists = SSU }
+		SSU = {
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Salva Kiir Mayardit"
+				picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+				expire = "2035.1.1"
+				ideology = Neutral_Autocracy
+				traits = { }
+			}
+		}
+	}
+	# Post-Soviet / regional extras
+	UZB = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Islam Karimov"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = Neutral_Autocracy
+			traits = { }
+		}
+	}
+	MLV = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nicolae Timofti"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	ROM = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Traian Băsescu"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	HUN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Viktor Orbán"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	CZE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Miloš Zeman"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	SWE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Fredrik Reinfeldt"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	FIN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Sauli Niinistö"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	HOL = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Mark Rutte"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	BEL = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Elio Di Rupo"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	POR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Pedro Passos Coelho"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	GRE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Antonis Samaras"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	DEN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Helle Thorning-Schmidt"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	NRY = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Erna Solberg"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	AUS = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Werner Faymann"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	CHE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Ramzan Kadyrov"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = Neutral_Autocracy
+			traits = { }
+		}
+	}
+	TAI = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Ma Ying-jeou"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	PHI = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Benigno Aquino III"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	SIA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Yingluck Shinawatra"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	MAY = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Najib Razak"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	SIN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Lee Hsien Loong"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	IND = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Susilo Bambang Yudhoyono"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	COL = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Juan Manuel Santos"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	CHL = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Sebastián Piñera"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	NIG = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Goodluck Jonathan"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	ETH = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Hailemariam Desalegn"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	KEN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Uhuru Kenyatta"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	IRQ = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nouri al-Maliki"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	AFG = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Hamid Karzai"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	# RF subject prototypes keep MD leaders unless tagged playable later
+}
+
+############################################
+# Leaders — 2022.2.22 (overrides 2013)
+############################################
+
+DEC_leaders_2022 = {
+	SOV = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Vladimir Putin"
+			picture = "Vladimir_Putin.dds"
+			expire = "2035.1.1"
+			ideology = Conservative
+			traits = { emerging_Conservative }
+		}
+	}
+	UKR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Volodymyr Zelenskyy"
+			picture = "gfx/leaders/UKR/Volodymyr_Zelensky_1.dds"
+			expire = "2035.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	USA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Joe Biden"
+			picture = "gfx/leaders/USA/Joe_Biden.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	CHI = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Xi Jinping"
+			picture = "gfx/leaders/CHI/Xi_Jinping.dds"
+			expire = "2035.1.1"
+			ideology = communist_state
+			traits = { }
+		}
+	}
+	ENG = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Boris Johnson"
+			picture = "gfx/leaders/ENG/Boris_Johnson.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	FRA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Emmanuel Macron"
+			picture = "gfx/leaders/FRA/Emmanuel_Macron.dds"
+			expire = "2035.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	GER = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Olaf Scholz"
+			picture = "gfx/leaders/GER/GER_interim.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	TUR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Recep Tayyip Erdoğan"
+			picture = "gfx/leaders/TUR/Recep_Tayyip_Erdogan.dds"
+			expire = "2035.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	POL = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Andrzej Duda"
+			picture = "gfx/leaders/POL/Andrzej_Duda.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	BLR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Alexander Lukashenko"
+			picture = "gfx/leaders/BLR/alexander_lukashenko.dds"
+			expire = "2035.1.1"
+			ideology = Conservative
+			traits = { }
+		}
+	}
+	JAP = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Fumio Kishida"
+			picture = "gfx/leaders/JAP/fumio_kishida.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	RAJ = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Narendra Modi"
+			picture = "gfx/leaders/RAJ/narendra_modi.dds"
+			expire = "2035.1.1"
+			ideology = Neutral_conservatism
+			traits = { }
+		}
+	}
+	BRA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Jair Bolsonaro"
+			picture = "gfx/leaders/BRA/jair_bolsonaro.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	SAU = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Salman bin Abdulaziz Al Saud"
+			picture = "gfx/leaders/SAU/Salman_bin_Abdulaziz_Al-Saud.dds"
+			expire = "2035.1.1"
+			ideology = Kingdom
+			traits = { }
+		}
+	}
+	ISR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Naftali Bennett"
+			picture = "gfx/leaders/ISR/naftali_bennett.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	KOR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Moon Jae-in"
+			picture = "gfx/leaders/KOR/Moon_Jae-in.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	NKO = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Kim Jong-un"
+			picture = "gfx/leaders/NKO/Kim_Jong-un.dds"
+			expire = "2035.1.1"
+			ideology = communist_state
+			traits = { }
+		}
+	}
+	ITA = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Mario Draghi"
+			picture = "gfx/leaders/ITA/mario_draghi.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	SPR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Pedro Sánchez"
+			picture = "gfx/leaders/SPR/pedro_sanchez.dds"
+			expire = "2035.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	CAN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Justin Trudeau"
+			picture = "gfx/leaders/CAN/Justin_Trudeau.dds"
+			expire = "2035.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	AST = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Scott Morrison"
+			picture = "gfx/leaders/AST/malcolm_turnbull_1.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	EGY = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Abdel Fattah el-Sisi"
+			picture = "gfx/leaders/EGY/EGY_Abdel_Fattah_el-Sisi.dds"
+			expire = "2035.1.1"
+			ideology = Neutral_Autocracy
+			traits = { }
+		}
+	}
+	SYR = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Bashar al-Assad"
+			picture = "gfx/leaders/SYR/Bashar_Al-Assad.dds"
+			expire = "2035.1.1"
+			ideology = Neutral_Autocracy
+			traits = { }
+		}
+	}
+	KAZ = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Kassym-Jomart Tokayev"
+			picture = "gfx/leaders/KAZ/kasym_jomart_tokayev.dds"
+			expire = "2035.1.1"
+			ideology = Conservative
+			traits = { }
+		}
+	}
+	GEO = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Irakli Garibashvili"
+			picture = "gfx/leaders/GEO/irakli_garibashvili.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	ARM = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nikol Pashinyan"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	AZE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Ilham Aliyev"
+			picture = "gfx/leaders/AZE/AZE_Ilham_Aliyev.dds"
+			expire = "2035.1.1"
+			ideology = Conservative
+			traits = { }
+		}
+	}
+	PAK = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Imran Khan"
+			picture = "gfx/leaders/PAK/PAK_Imran_Khan.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	SAF = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Cyril Ramaphosa"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	MEX = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Andrés Manuel López Obrador"
+			picture = "gfx/leaders/MEX/Andres_Manuel_Lopez_Obrador.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	ARG = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Alberto Fernández"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	VIE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Nguyen Phu Trong"
+			picture = "gfx/leaders/VIE/Nguyen_Phu_Trong.dds"
+			expire = "2035.1.1"
+			ideology = communist_state
+			traits = { }
+		}
+	}
+	HUN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Viktor Orbán"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	HOL = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Mark Rutte"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	FIN = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Sauli Niinistö"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	SWE = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Magdalena Andersson"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = socialism
+			traits = { }
+		}
+	}
+	PHI = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Rodrigo Duterte"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = conservatism
+			traits = { }
+		}
+	}
+	IND = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Joko Widodo"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	TAI = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Tsai Ing-wen"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2030.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+	}
+	AFG = {
+		kill_country_leader = yes
+		create_country_leader = {
+			name = "Hibatullah Akhundzada"
+			picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			expire = "2035.1.1"
+			ideology = Neutral_Autocracy
+			traits = { }
+		}
+	}
+	if = {
+		limit = { country_exists = DPR }
+		DPR = {
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Denis Pushilin"
+				picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+				expire = "2035.1.1"
+				ideology = Conservative
+				traits = { }
+			}
+		}
+	}
+	if = {
+		limit = { country_exists = LPR }
+		LPR = {
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Leonid Pasechnik"
+				picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+				expire = "2035.1.1"
+				ideology = Conservative
+				traits = { }
+			}
+		}
+	}
+}
+
+############################################
+# Focus spines — historical AI ∩ real history
+# complete_national_focus = with completion_reward
+# unlock_national_focus   = mark done, no reward
+#   (leader swap / war / annex already in DEC_map|diplomacy|leaders)
+# Matrix: tools/focus_spine_matrix_2022.md
+#
+# Model: spine_2022 = full path to 2022.2.22
+#        spine_2013 = that path truncated to 2013.10.1
+# setup_2022 runs setup_2013 first, then only the post-2013 delta below.
+############################################
+
+DEC_focus_spine_2013 = {
+	# === 2022 path cut at Oct 2013 (no Maidan/Crimea/Brexit/Macron/PiS/…) ===
+	##### MAJORS #####
+	SOV = {
+		unlock_national_focus = SOV_reign_of_yeltsin
+		unlock_national_focus = SOV_putin
+		unlock_national_focus = SOV_groznyy_offensive
+		complete_national_focus = SOV_the_grand_bargain
+		complete_national_focus = SOV_stabilisation_fund
+		complete_national_focus = SOV_npp
+		complete_national_focus = SOV_kasyanov_govern
+		complete_national_focus = SOV_putinism
+		unlock_national_focus = SOV_second_slujba
+		unlock_national_focus = SOV_svr
+		unlock_national_focus = SOV_pogranci_fsb
+		complete_national_focus = SOV_empower_siloviki
+		complete_national_focus = SOV_state_corporatism
+		complete_national_focus = SOV_continue_etatist_rise
+		complete_national_focus = SOV_enforce_oligarchs_control
+		unlock_national_focus = SOV_rokirovka
+		complete_national_focus = SOV_medvedev_modernization_program
+		unlock_national_focus = SOV_go_russia
+		complete_national_focus = SOV_putinism_propaganda
+		complete_national_focus = SOV_extend_term_limits
+		complete_national_focus = SOV_may_decrees
+		complete_national_focus = SOV_gay_propaganda_laws
+		complete_national_focus = SOV_aggressive_foreign_policy
+		complete_national_focus = SOV_rein_in_the_government
+		complete_national_focus = SOV_the_onf
+	}
+	UKR = {
+		complete_national_focus = UKR_kuchma_second_terms
+		complete_national_focus = UKR_appoint_yanukovich
+		complete_national_focus = UKR_negotiate_orange_maidan
+		complete_national_focus = UKR_yanuk_cabinet
+		unlock_national_focus = UKR_lyvochkin
+		unlock_national_focus = UKR_ukraine_elections
+		unlock_national_focus = UKR_our_ukraine_start
+		complete_national_focus = UKR_our_ukraine_nato_eu
+		unlock_national_focus = UKR_party_regions_start
+		complete_national_focus = UKR_party_regions_inauguration
+		complete_national_focus = UKR_party_regions_optimise_prior_loyals
+		complete_national_focus = UKR_dual_language
+		complete_national_focus = UKR_cancel_decommunization
+	}
+	USA = {
+		complete_national_focus = USA_focus_ending_clintonomics
+		complete_national_focus = USA_focus_43rd_administration
+		complete_national_focus = USA_focus_2000_republicans
+		complete_national_focus = USA_focus_2004_republicans
+		complete_national_focus = USA_focus_2008_democrats
+		complete_national_focus = USA_focus_2012_democrats
+	}
+	CHI = {
+		unlock_national_focus = CHI_the_three_represents
+		unlock_national_focus = CHI_hu_jintao_reign
+		unlock_national_focus = CHI_the_chinese_dream
+	}
+
+	##### EU / NATO #####
+	ENG = {
+		unlock_national_focus = ENG_time_for_common_sense
+		complete_national_focus = ENG_strategic_defence_review
+		complete_national_focus = ENG_knowing_who_we_are
+		complete_national_focus = ENG_get_britain_moving_again
+		complete_national_focus = ENG_cleanup_westminster
+		complete_national_focus = ENG_big_society_not_big_government
+	}
+	FRA = {
+		complete_national_focus = FRA_state_of_french_politics
+		complete_national_focus = FRA_PS
+		complete_national_focus = FRA_friend_eu
+		complete_national_focus = FRA_eternal_challenge
+	}
+	GER = {
+		complete_national_focus = GER_german_politics
+		complete_national_focus = GER_deutschland_industrie
+		complete_national_focus = GER_the_divide
+		# Schröder past (2000s) already done by 2013; Merkel CDU in power
+		complete_national_focus = GER_agenda_2010
+		complete_national_focus = GER_hartz_reform
+		complete_national_focus = GER_shroders_legacy
+		complete_national_focus = GER_CDU_rises
+		complete_national_focus = GER_bmvi
+		complete_national_focus = GER_european_ties
+		complete_national_focus = GER_reaffirm_american_friendship
+	}
+	ITA = {
+		complete_national_focus = ITA_divided_nation
+		complete_national_focus = ITA_strenghten_ties_with_west
+		complete_national_focus = ITA_the_nato
+		complete_national_focus = ITA_centre_left
+		unlock_national_focus = ITA_enrico_letta
+	}
+	POL = {
+		complete_national_focus = POL_platforma_obivatelska
+		complete_national_focus = POL_promote_eu_values
+	}
+	EST = {
+		complete_national_focus = EST_estonias_future
+		complete_national_focus = EST_looking_to_the_west
+		complete_national_focus = EST_re
+		complete_national_focus = EST_e_democracy
+	}
+	DEN = {
+		complete_national_focus = DEN_the_politics_of_denmark
+		complete_national_focus = DEN_western_Democracy
+		complete_national_focus = DEN_keep_welfare
+		complete_national_focus = DEN_reaffirm_nato
+	}
+	NRY = {
+		complete_national_focus = NRY_the_norwegian_economy
+	}
+	SWE = {
+		complete_national_focus = SWE_internal_politics
+		complete_national_focus = SWE_moderaterna
+		complete_national_focus = SWE_Western_focus
+	}
+	FIN = {
+		complete_national_focus = FIN_government_expansion
+		complete_national_focus = FIN_sweden
+		complete_national_focus = FIN_european_involvement
+		complete_national_focus = FIN_defensive_focus
+	}
+
+	##### POST-SOVIET / CAUCASUS / CA #####
+	BLR = {
+		complete_national_focus = BLR_presidential_election_of_2001
+		complete_national_focus = BLR_Lykashenko
+		complete_national_focus = BLR_union_programm
+	}
+	GEO = {
+		complete_national_focus = GEO_rose_revolution
+		complete_national_focus = GEO_epoch_of_saakash
+		complete_national_focus = GEO_fail_war_geo2008
+		complete_national_focus = GEO_epoch_of_peace
+	}
+	ARM = {
+		complete_national_focus = ARM_echoes_of_1999
+		complete_national_focus = ARM_Sargsyan
+	}
+	AZE = {
+		complete_national_focus = AZE_aze_the_state
+		complete_national_focus = AZE_aze_the_man
+	}
+	CHE = {
+		complete_national_focus = CHE_ahmat_start
+		complete_national_focus = CHE_kadyrov_case
+	}
+	KAZ = {
+		complete_national_focus = CES_our_state_kaz
+		complete_national_focus = CES_entering_CSTO
+		complete_national_focus = CES_our_beloved_autocrat_kaz
+	}
+	UZB = {
+		complete_national_focus = CES_our_state_kaz
+		complete_national_focus = CES_entering_CSTO
+		complete_national_focus = CES_our_beloved_autocrat_kaz
+	}
+	KYR = {
+		complete_national_focus = CES_our_state_kaz
+		complete_national_focus = CES_entering_CSTO
+		complete_national_focus = CES_our_beloved_autocrat_kaz
+	}
+	TAJ = {
+		unlock_national_focus = TAJ_rahmons_rotting_fruit
+		unlock_national_focus = TAJ_his_excellency
+	}
+	ABK = {
+		complete_national_focus = ABK_Russian_Way
+	}
+	SOO = {
+		complete_national_focus = SOO_the_Russian_bankroll
+	}
+	if = {
+		limit = { country_exists = TAT }
+		TAT = { unlock_national_focus = TAT_react_start }
+	}
+	if = {
+		limit = { country_exists = BSH }
+		BSH = { unlock_national_focus = BSH_bashkiria_reactioners }
+	}
+	if = {
+		limit = { country_exists = URA }
+		URA = { unlock_national_focus = URA_start_new_millenium }
+	}
+
+	##### MENA #####
+	PER = {
+		complete_national_focus = PER_way_of_the_imam
+		complete_national_focus = PER_principles_of_vilayet_faqih
+	}
+	IRQ = {
+		complete_national_focus = IRQ_dealing_with_the_occupation
+		complete_national_focus = IRQ_al_dawa
+	}
+	SYR = {
+		complete_national_focus = SYR_death_of_hafez_al_assad
+		complete_national_focus = SYR_bashar_al_assad
+	}
+	EGY = {
+		complete_national_focus = EGY_egyptian_politics
+		complete_national_focus = EGY_morsi
+		complete_national_focus = EGY_junta_coup
+	}
+	SAU = {
+		complete_national_focus = SAU_the_house_of_al_saud
+	}
+	AFG = {
+		complete_national_focus = AFG_civil_war
+		complete_national_focus = AFG_pro_western
+	}
+	LBA = {
+		complete_national_focus = LBA_end_of_gaddafi
+		complete_national_focus = LBA_free_libya
+	}
+	HEZ = {
+		complete_national_focus = HEZ_maintain_status_quo
+	}
+	TUR = {
+		complete_national_focus = TUR_through_troubles
+		complete_national_focus = TUR_islamist_victory
+	}
+	QAT = {
+		complete_national_focus = GCC_socio_economic_affairs
+		complete_national_focus = GCC_absolute_monarchy
+	}
+	UAE = {
+		complete_national_focus = GCC_socio_economic_affairs
+		complete_national_focus = GCC_absolute_monarchy
+	}
+	BHR = {
+		complete_national_focus = GCC_socio_economic_affairs
+		complete_national_focus = GCC_absolute_monarchy
+	}
+	KUW = {
+		complete_national_focus = GCC_socio_economic_affairs
+		complete_national_focus = GCC_absolute_monarchy
+	}
+	OMA = {
+		complete_national_focus = GCC_socio_economic_affairs
+		complete_national_focus = GCC_absolute_monarchy
+	}
+
+	##### REST #####
+	SPR = {
+		complete_national_focus = SPR_the_political_sphere
+		complete_national_focus = SPR_conservative_leanings
+		complete_national_focus = SPR_party_of_the_people
+	}
+	SWI = {
+		complete_national_focus = SWI_suisse_politique
+	}
+	GRE = {
+		complete_national_focus = GRE_new_democracy
+		complete_national_focus = GRE_enact_austerity_measures
+	}
+	ROM = {
+		complete_national_focus = ROM_political_scene
+		complete_national_focus = ROM_social_democratic_party
+	}
+	BUL = {
+		complete_national_focus = BUL_generic_political_effort
+		complete_national_focus = BUL_liberals_focus
+	}
+	SER = {
+		complete_national_focus = SER_democratic_ascendant
+		complete_national_focus = SER_progressivna_stranka
+	}
+	BOS = {
+		complete_national_focus = BOS_house_of_representatives
+	}
+	MNT = {
+		complete_national_focus = MNT_eyes_on_west
+	}
+	KOS = {
+		complete_national_focus = KOS_break_away
+	}
+	CZE = {
+		complete_national_focus = CZE_leadership_of_petr_necas
+	}
+	HOL = {
+		complete_national_focus = HOL_paars
+		complete_national_focus = HOL_vvd
+		unlock_national_focus = HOL_mark_rutte
+	}
+	CAN = {
+		complete_national_focus = CAN_Focus_On_Political_Spectrum
+		complete_national_focus = CAN_Strengthen_Position_In_Nato
+	}
+	AST = {
+		complete_national_focus = AST_the_howard_government
+		complete_national_focus = AST_the_abbott_government
+	}
+	BRA = {
+		complete_national_focus = BRA_lula
+		complete_national_focus = BRA_the_workers_party_political_path
+	}
+	JAP = {
+		complete_national_focus = JAP_choice
+		complete_national_focus = JAP_right
+	}
+	IND = {
+		complete_national_focus = IND_indonesias_future
+		complete_national_focus = IND_democrat_party
+	}
+	NIG = {
+		complete_national_focus = NIG_federal_government_of_nigeria
+		complete_national_focus = NIG_the_pdp
+	}
+	ALG = {
+		complete_national_focus = ALG_FLN_path
+		complete_national_focus = ALG_the_cult_of_bouteflika
+	}
+}
+
+DEC_focus_spine_2022 = {
+	# === Only what 2013 spine does NOT have (events after 2013.10.1) ===
+	# Full 2022 path = DEC_focus_spine_2013 + this delta
+
+	##### MAJORS #####
+	SOV = {
+		unlock_national_focus = SOV_counter_euromaidan
+		unlock_national_focus = SOV_annexation_of_crimea
+		unlock_national_focus = SOV_the_novorossiyan_uprising
+		unlock_national_focus = SOV_recognize_novorossiya
+		complete_national_focus = SOV_information_war
+		complete_national_focus = SOV_supportlnrdnr_rus
+		complete_national_focus = SOV_blr_union_programm
+		complete_national_focus = SOV_condemn_ukrainian_russophobes
+		complete_national_focus = SOV_exercises_belarus_start
+	}
+	UKR = {
+		unlock_national_focus = UKR_poroshenko_start
+		complete_national_focus = UKR_poroshenko_decentr
+		complete_national_focus = UKR_poroshenko_deccomunism
+		complete_national_focus = UKR_poroshenko_anti_corruption
+		complete_national_focus = UKR_poroshenko_nabu
+		complete_national_focus = UKR_poroshenko_no_russian_military
+		complete_national_focus = UKR_poroshenko_anti_rus_doctrine
+		complete_national_focus = UKR_poroshenko_army_reform
+		complete_national_focus = UKR_poroshenko_nato
+	}
+	USA = {
+		complete_national_focus = USA_focus_2016_republican_victory
+	}
+	CHI = {
+		unlock_national_focus = CHI_xi_jinping_thought_enshrined
+	}
+
+	##### EU / NATO #####
+	ENG = {
+		complete_national_focus = ENG_fighting_the_power_of_brussels
+		complete_national_focus = ENG_a_more_flexible_europe
+	}
+	FRA = {
+		complete_national_focus = FRA_UDF_LREM
+		complete_national_focus = FRA_Neither_right_nor_left
+		complete_national_focus = FRA_Get_indecisives
+		complete_national_focus = FRA_meet_friends
+	}
+	# GER: Schröder/Hartz already in 2013 spine; Scholz = leaders only
+	ITA = {
+		complete_national_focus = ITA_political_instability
+		complete_national_focus = ITA_technocratic_governments
+		unlock_national_focus = ITA_matteo_renzi
+	}
+	POL = {
+		complete_national_focus = POL_pravda_i_spravedlivost
+		complete_national_focus = POL_eurozone_opposition
+		complete_national_focus = POL_judicial_reform
+		complete_national_focus = POL_condemnation_of_russian_policy
+	}
+	SWE = {
+		complete_national_focus = SWE_socialdemokraterna
+	}
+	# FIN/SWE NATO accession SKIP — after Feb 2022
+
+	##### POST-SOVIET #####
+	GEO = {
+		complete_national_focus = GEO_gergiandream2013
+	}
+	ARM = {
+		complete_national_focus = ARM_triump_revolution_barhat
+	}
+
+	##### MENA #####
+	PER = {
+		complete_national_focus = PER_jcpoa
+	}
+	EGY = {
+		complete_national_focus = EGY_al_sisi_rise
+	}
+	SAU = {
+		complete_national_focus = SAU_a_new_kingdom
+		complete_national_focus = SAU_vision_2030_announced
+	}
+	AFG = {
+		unlock_national_focus = AFG_declare_the_emirate
+	}
+	TUR = {
+		complete_national_focus = TUR_erdonomics
+	}
+	QAT = { complete_national_focus = GCC_diversify_the_economy }
+	UAE = { complete_national_focus = GCC_diversify_the_economy }
+	BHR = { complete_national_focus = GCC_diversify_the_economy }
+	KUW = { complete_national_focus = GCC_diversify_the_economy }
+	OMA = { complete_national_focus = GCC_diversify_the_economy }
+
+	##### REST #####
+	SPR = {
+		complete_national_focus = SPR_socialism_rising
+	}
+	ROM = {
+		complete_national_focus = ROM_national_liberal_party
+	}
+	CZE = {
+		complete_national_focus = CZE_2021_elections_result
+		complete_national_focus = CZE_leadership_of_petr_fiala
+	}
+	HOL = {
+		complete_national_focus = HOL_consensus_politics
+	}
+	AST = {
+		complete_national_focus = AST_the_turnbull_government
+	}
+	BRA = {
+		unlock_national_focus = BRA_rise_of_bolsonaro
+		complete_national_focus = BRA_bolsonarismo
+	}
+	IND = {
+		complete_national_focus = IND_party_of_struggle
+	}
+	NIG = {
+		complete_national_focus = NIG_the_anpp
+	}
+	ALG = {
+		complete_national_focus = ALG_listen_to_hirak
+		unlock_national_focus = ALG_new_president
+	}
+}

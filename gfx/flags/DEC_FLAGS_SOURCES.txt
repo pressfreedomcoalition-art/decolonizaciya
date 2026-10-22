@@ -1,0 +1,33 @@
+DEC country flags — sources (Wikimedia Commons)
+Generated: 2026-10-22T15:36:04.925Z
+OK: 20 / 29
+
+CIR	OK	Circassian_flag.svg	Circassian national flag (stars & arrows)
+IDL	OK	Flag_of_Idel-Ural_State.svg	Idel-Ural State 1918
+ZKL	FAIL	Flag_of_Green_Ukraine.svg	Download 429: https://upload.wikimedia.org/wikipedia/commons/9/96/Flag_of_Green_Ukraine.svg
+IGR	FAIL	Flag_of_Ingrian_people.svg	Download 429: https://upload.wikimedia.org/wikipedia/commons/6/6b/Flag_of_Ingrian_people.svg
+LAP	OK	Sami_flag.svg	Sámi flag (Lapland)
+MOK	FAIL	Flag_of_the_Moksha_people.svg	Download 429: https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag_of_the_Moksha_people.svg
+ERZ	FAIL	Erzya_Flag.svg	Download 429: https://upload.wikimedia.org/wikipedia/commons/2/28/Erzya_Flag.svg
+NOG	OK	Nogai_flag.svg	Nogai people
+KBC	OK	Flag_of_Kuban_People's_Republic.svg	Kuban People's Republic 1918–20
+CAU	OK	Flag_of_the_Mountain_Republic.svg	Mountain Republic (N. Caucasus)
+OSA	OK	Flag_of_North_Ossetia.svg	North Ossetia–Alania
+BLK	OK	Flag_of_Kabardino-Balkaria.svg	Kabardino-Balkaria (Alans/Balkars)
+BGR	OK	Flag_of_Belgorod_Oblast.svg	Belgorod Oblast
+SMO	OK	Flag_of_Smolensk_Oblast.svg	Smolensk Oblast
+VOR	OK	Flag_of_Voronezh_Oblast.svg	Voronezh Oblast
+SEV	OK	Flag_of_Chernihiv_Oblast.svg	Chernihiv Oblast (Severia heartland)
+BJA	FAIL	Flag_of_Arkhangelsk_Oblast.svg	Download 429: https://upload.wikimedia.org/wikipedia/commons/1/16/Flag_of_Arkhangelsk_Oblast.svg
+VYK	FAIL	Ural_Cossacks_flag.png	Download 429: https://upload.wikimedia.org/wikipedia/commons/f/f6/Ural_Cossacks_flag.png
+VBG	FAIL	Flag_of_Volga_Bulgaria.png	Download 429: https://upload.wikimedia.org/wikipedia/commons/3/3a/Flag_of_Volga_Bulgaria.png
+BCF	OK	Flag_of_Chuvashia.svg	Chuvashia (Volga Bulgar cultural heir)
+RHO	OK	Flag_of_Rhodesia_(1968–1979).svg	Rhodesia 1968–1979
+APT	OK	Flag_of_South_Africa_(1928–1994,_dark_colors).svg	South Africa 1928–1994
+BHA	OK	Flag_of_India.svg	India / Bharat
+ABY	OK	Banner_of_the_Qulla_Suyu_(1979).svg	Wiphala / Qulla Suyu (Abya Yala)
+CBN	OK	Flag_of_the_UNIA.svg	UNIA / Pan-African (Marcus Garvey)
+ASN	OK	Naval_Ensign_of_Japan.svg	IJN rising sun (Asian Sphere proxy)
+KHF	FAIL	Black_Standard.svg	Download 429: https://upload.wikimedia.org/wikipedia/commons/3/36/Black_Standard.svg
+RYS	FAIL	Flag_of_Chechen_Republic_of_Ichkeria.svg	Download 429: https://upload.wikimedia.org/wikipedia/commons/d/d6/Flag_of_Chechen_Republic_of_Ichkeria.svg
+WBR	OK	Naval_Jack_of_Russia.svg	Russian naval jack (White movement era)

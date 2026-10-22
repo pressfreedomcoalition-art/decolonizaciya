@@ -1,0 +1,119 @@
+##############################
+# Chuvash DeathNote.Rip drone hits
+##############################
+
+add_namespace = dec_chu_dn
+
+# CHU/BCF: pick a war opponent
+country_event = {
+	id = dec_chu_dn.1
+	title = dec_chu_dn.1.t
+	desc = dec_chu_dn.1.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			DEC_CHU_dn_collect_enemies = yes
+		}
+	}
+
+	option = {
+		name = dec_chu_dn.1.e1
+		trigger = {
+			has_event_target = DEC_chu_dn_e1
+			has_war_with = event_target:DEC_chu_dn_e1
+		}
+		ai_chance = { base = 20 }
+		DEC_CHU_dn_send_to_target = yes
+		event_target:DEC_chu_dn_e1 = {
+			country_event = { id = dec_chu_dn.2 hours = 6 }
+		}
+	}
+
+	option = {
+		name = dec_chu_dn.1.e2
+		trigger = {
+			has_event_target = DEC_chu_dn_e2
+			has_war_with = event_target:DEC_chu_dn_e2
+		}
+		ai_chance = { base = 10 }
+		DEC_CHU_dn_send_to_target = yes
+		event_target:DEC_chu_dn_e2 = {
+			country_event = { id = dec_chu_dn.2 hours = 6 }
+		}
+	}
+
+	option = {
+		name = dec_chu_dn.1.e3
+		trigger = {
+			has_event_target = DEC_chu_dn_e3
+			has_war_with = event_target:DEC_chu_dn_e3
+		}
+		ai_chance = { base = 8 }
+		DEC_CHU_dn_send_to_target = yes
+		event_target:DEC_chu_dn_e3 = {
+			country_event = { id = dec_chu_dn.2 hours = 6 }
+		}
+	}
+
+	option = {
+		name = dec_chu_dn.1.e4
+		trigger = {
+			has_event_target = DEC_chu_dn_e4
+			has_war_with = event_target:DEC_chu_dn_e4
+		}
+		ai_chance = { base = 6 }
+		DEC_CHU_dn_send_to_target = yes
+		event_target:DEC_chu_dn_e4 = {
+			country_event = { id = dec_chu_dn.2 hours = 6 }
+		}
+	}
+
+	option = {
+		name = dec_chu_dn.1.e5
+		trigger = {
+			has_event_target = DEC_chu_dn_e5
+			has_war_with = event_target:DEC_chu_dn_e5
+		}
+		ai_chance = { base = 4 }
+		DEC_CHU_dn_send_to_target = yes
+		event_target:DEC_chu_dn_e5 = {
+			country_event = { id = dec_chu_dn.2 hours = 6 }
+		}
+	}
+
+	option = {
+		name = dec_chu_dn.1.e6
+		trigger = {
+			has_event_target = DEC_chu_dn_e6
+			has_war_with = event_target:DEC_chu_dn_e6
+		}
+		ai_chance = { base = 3 }
+		DEC_CHU_dn_send_to_target = yes
+		event_target:DEC_chu_dn_e6 = {
+			country_event = { id = dec_chu_dn.2 hours = 6 }
+		}
+	}
+
+	option = {
+		name = dec_chu_dn.1.skip
+		ai_chance = { base = 40 }
+		clr_country_flag = DEC_CHU_dn_pending
+	}
+}
+
+# Victim: random character / ruler dies
+country_event = {
+	id = dec_chu_dn.2
+	title = dec_chu_dn.2.t
+	desc = dec_chu_dn.2.d
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+
+	option = {
+		name = dec_chu_dn.2.a
+		log = "[GetDateText]: [This.GetName]: DeathNote.Rip hit from [From.GetName]"
+		DEC_CHU_dn_kill_random = yes
+	}
+}

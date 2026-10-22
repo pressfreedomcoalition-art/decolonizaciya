@@ -1,0 +1,405 @@
+############################################
+# Coalition continuation scripted effects
+############################################
+
+DEC_sep_add_cau = {
+	SOV = {
+		add_to_variable = { DEC_sep_caucasus = 10 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_COA_attack_sep_tt
+}
+DEC_sep_add_volga = {
+	SOV = {
+		add_to_variable = { DEC_sep_volga_finno = 10 }
+		add_to_variable = { DEC_sep_volga_turkic = 10 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_COA_attack_sep_tt
+}
+DEC_sep_add_north = {
+	SOV = {
+		add_to_variable = { DEC_sep_north = 10 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_COA_attack_sep_tt
+}
+DEC_sep_add_ural = {
+	SOV = {
+		add_to_variable = { DEC_sep_ural = 10 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_COA_attack_sep_tt
+}
+DEC_sep_add_siberia = {
+	SOV = {
+		add_to_variable = { DEC_sep_siberia = 10 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_COA_attack_sep_tt
+}
+DEC_sep_add_fareast = {
+	SOV = {
+		add_to_variable = { DEC_sep_fareast = 10 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_COA_attack_sep_tt
+}
+
+DEC_sep_add_all_national_five = {
+	SOV = {
+		add_to_variable = { DEC_sep_caucasus = 5 }
+		add_to_variable = { DEC_sep_volga_finno = 5 }
+		add_to_variable = { DEC_sep_volga_turkic = 5 }
+		add_to_variable = { DEC_sep_north = 5 }
+		add_to_variable = { DEC_sep_ural = 5 }
+		add_to_variable = { DEC_sep_siberia = 5 }
+		add_to_variable = { DEC_sep_fareast = 5 }
+		add_to_variable = { DEC_sep_turan = 5 }
+		add_to_variable = { DEC_sep_mongol = 5 }
+		add_to_variable = { DEC_sep_cossack = 5 }
+		DEC_clamp_all_separatism = yes
+	}
+	custom_effect_tooltip = DEC_COA_genocide_sep_tt
+}
+
+DEC_create_atc = {
+	set_global_flag = DEC_atc_created
+	# NAP among all rebel nations
+	every_country = {
+		limit = {
+			has_country_flag = DEC_rebel_nation
+			exists = yes
+			is_subject = no
+		}
+		every_other_country = {
+			limit = {
+				has_country_flag = DEC_rebel_nation
+				exists = yes
+				is_subject = no
+				NOT = { has_non_aggression_pact_with = PREV }
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+	# NATO memorandum invitations
+	every_country = {
+		limit = {
+			is_in_array = { global.nato_members = THIS }
+			NOT = { has_country_flag = DEC_atc_memo_asked }
+			NOT = { has_war_with = UKR }
+		}
+		set_country_flag = DEC_atc_memo_asked
+		country_event = { id = dec.30 hours = 8 }
+	}
+	custom_effect_tooltip = DEC_COA_atc_tt
+}
+
+DEC_atc_accept_memorandum = {
+	set_country_flag = DEC_atc_memo_accepted
+	# NAP with all rebels
+	every_other_country = {
+		limit = {
+			has_country_flag = DEC_rebel_nation
+			exists = yes
+			is_subject = no
+			NOT = { has_non_aggression_pact_with = PREV }
+		}
+		diplomatic_relation = {
+			country = PREV
+			relation = non_aggression_pact
+			active = yes
+		}
+	}
+	# NAP with other NATO members that accepted
+	every_other_country = {
+		limit = {
+			has_country_flag = DEC_atc_memo_accepted
+			NOT = { has_non_aggression_pact_with = PREV }
+		}
+		diplomatic_relation = {
+			country = PREV
+			relation = non_aggression_pact
+			active = yes
+		}
+	}
+}
+
+# When a new rebel appears after ATC — give NAP with rebels + memo NATO
+DEC_atc_on_new_rebel = {
+	if = {
+		limit = { has_global_flag = DEC_atc_created }
+		# THIS = new rebel
+		every_other_country = {
+			limit = {
+				OR = {
+					has_country_flag = DEC_rebel_nation
+					has_country_flag = DEC_atc_memo_accepted
+				}
+				exists = yes
+				is_subject = no
+				NOT = { has_non_aggression_pact_with = PREV }
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+	}
+}
+
+DEC_find_free_blockchain_enclave = {
+	# Sets global.DEC_bc_enclave_state to free UKR-owned enclave, or 0
+	# Uses any_state so missing enclave state IDs (when blockchain is disabled) do not error
+	set_variable = { global.DEC_bc_enclave_state = 0 }
+	random_state = {
+		limit = {
+			is_owned_by = UKR
+			has_state_flag = DEC_blockchain_enclave
+			NOT = { has_state_flag = DEC_blockchain_occupied }
+		}
+		set_variable = { global.DEC_bc_enclave_state = THIS.id }
+	}
+}
+
+DEC_return_blockchain_enclave = {
+	# THIS = nation that had blockchain capital
+	if = {
+		limit = { has_country_flag = DEC_blockchain_nation check_variable = { DEC_blockchain_state > 0 } }
+		var:DEC_blockchain_state = {
+			clr_state_flag = DEC_blockchain_occupied
+			UKR = { transfer_state = PREV }
+			remove_core_of = PREV
+		}
+		clr_country_flag = DEC_blockchain_nation
+		set_variable = { DEC_blockchain_state = 0 }
+		log = "DEC: blockchain enclave returned to UKR from [THIS.GetTag]"
+	}
+}
+
+DEC_check_blockchain_return = {
+	# THIS = country — if blockchain nation owns any non-enclave state, return enclave
+	if = {
+		limit = {
+			has_country_flag = DEC_blockchain_nation
+			any_owned_state = {
+				NOT = { has_state_flag = DEC_blockchain_enclave }
+			}
+		}
+		DEC_return_blockchain_enclave = yes
+	}
+}
+
+DEC_spawn_drone_template = {
+	division_template = {
+		name = "Drone Swarm"
+		is_locked = yes
+		regiments = {
+			Militia_Bat = { x = 0 y = 0 }
+			Militia_Bat = { x = 0 y = 1 }
+		}
+		priority = 2
+	}
+}
+
+# Exile independence path (replaces per-tag blockchain/drone focuses)
+DEC_establish_exile_government = {
+	set_country_flag = DEC_government_in_exile
+	set_country_flag = DEC_exile_path_open
+	set_country_flag = DEC_rebel_nation
+	add_political_power = 50
+	add_war_support = 0.05
+	DEC_update_coalition = yes
+	DEC_atc_on_new_rebel = yes
+}
+
+DEC_do_homeland_uprising = {
+	# ROOT: spawn historic-capital drone uprising for this tag
+	if = { limit = { OR = { original_tag = CHE tag = CHE } } DEC_drone_army_CHE = yes }
+	else_if = { limit = { OR = { original_tag = DAG tag = DAG } } DEC_drone_army_DAG = yes }
+	else_if = { limit = { OR = { original_tag = ING tag = ING } } DEC_drone_army_ING = yes }
+	else_if = { limit = { OR = { original_tag = CIR tag = CIR } } DEC_drone_army_CIR = yes }
+	else_if = { limit = { OR = { original_tag = NOG tag = NOG } } DEC_drone_army_NOG = yes }
+	else_if = { limit = { OR = { original_tag = TAT tag = TAT } } DEC_drone_army_TAT = yes }
+	else_if = { limit = { OR = { original_tag = BSH tag = BSH } } DEC_drone_army_BSH = yes }
+	else_if = { limit = { OR = { original_tag = CHU tag = CHU } } DEC_drone_army_CHU = yes }
+	else_if = { limit = { OR = { original_tag = MEL tag = MEL } } DEC_drone_army_MEL = yes }
+	else_if = { limit = { OR = { original_tag = UDM tag = UDM } } DEC_drone_army_UDM = yes }
+	else_if = { limit = { OR = { original_tag = ERZ tag = ERZ } } DEC_drone_army_ERZ = yes }
+	else_if = { limit = { OR = { original_tag = MOK tag = MOK } } DEC_drone_army_MOK = yes }
+	else_if = { limit = { OR = { original_tag = BJA tag = BJA } } DEC_drone_army_BJA = yes }
+	else_if = { limit = { OR = { original_tag = IGR tag = IGR } } DEC_drone_army_IGR = yes }
+	else_if = { limit = { OR = { original_tag = KAE tag = KAE } } DEC_drone_army_KAE = yes }
+	else_if = { limit = { OR = { original_tag = LAP tag = LAP } } DEC_drone_army_LAP = yes }
+	else_if = { limit = { OR = { original_tag = KOM tag = KOM } } DEC_drone_army_KOM = yes }
+	else_if = { limit = { OR = { original_tag = KHM tag = KHM } } DEC_drone_army_KHM = yes }
+	else_if = { limit = { OR = { original_tag = YAM tag = YAM } } DEC_drone_army_YAM = yes }
+	else_if = { limit = { OR = { original_tag = NEE tag = NEE } } DEC_drone_army_NEE = yes }
+	else_if = { limit = { OR = { original_tag = CSB tag = CSB } } DEC_drone_army_CSB = yes }
+	else_if = { limit = { OR = { original_tag = ESB tag = ESB } } DEC_drone_army_ESB = yes }
+	else_if = { limit = { OR = { original_tag = CKK tag = CKK } } DEC_drone_army_CKK = yes }
+	else_if = { limit = { OR = { original_tag = YAK tag = YAK } } DEC_drone_army_YAK = yes }
+	else_if = { limit = { OR = { original_tag = KHS tag = KHS } } DEC_drone_army_KHS = yes }
+	else_if = { limit = { OR = { original_tag = ALT tag = ALT } } DEC_drone_army_ALT = yes }
+	else_if = { limit = { OR = { original_tag = TUV tag = TUV } } DEC_drone_army_TUV = yes }
+	else_if = { limit = { OR = { original_tag = KLM tag = KLM } } DEC_drone_army_KLM = yes }
+	else_if = { limit = { OR = { original_tag = BRY tag = BRY } } DEC_drone_army_BRY = yes }
+	else_if = { limit = { OR = { original_tag = KUB tag = KUB } } DEC_drone_army_KUB = yes }
+	else_if = { limit = { OR = { original_tag = DON tag = DON } } DEC_drone_army_DON = yes }
+	else_if = { limit = { OR = { original_tag = VYK tag = VYK } } DEC_drone_army_VYK = yes }
+	else = {
+		DEC_spawn_drone_template = yes
+		add_manpower = 5000
+		add_war_support = 0.1
+		custom_effect_tooltip = DEC_drone_army_tt
+	}
+	clr_country_flag = DEC_government_in_exile
+	set_country_flag = DEC_exile_path_open
+	set_country_flag = DEC_rebel_nation
+	DEC_update_coalition = yes
+	DEC_atc_on_new_rebel = yes
+}
+
+DEC_exile_request_ukr_aid = {
+	if = {
+		limit = { country_exists = UKR UKR = { exists = yes has_capitulated = no } }
+		UKR = {
+			add_opinion_modifier = { target = ROOT modifier = DEC_decolonised_solidarity }
+		}
+		add_opinion_modifier = { target = UKR modifier = DEC_decolonised_solidarity }
+		add_equipment_to_stockpile = {
+			type = infantry_weapons_type
+			amount = 2500
+			producer = UKR
+		}
+		add_manpower = 1500
+		add_war_support = 0.03
+		if = {
+			limit = {
+				UKR = { has_war_with = SOV }
+				NOT = { has_war_with = SOV }
+				exists = yes
+			}
+			add_to_war = { targeted_alliance = UKR enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+}
+
+DEC_exile_request_coalition_aid = {
+	set_country_flag = DEC_rebel_nation
+	DEC_update_coalition = yes
+	DEC_atc_on_new_rebel = yes
+	every_other_country = {
+		limit = {
+			has_country_flag = DEC_rebel_nation
+			exists = yes
+			is_subject = no
+			NOT = { has_war_with = ROOT }
+		}
+		add_opinion_modifier = { target = ROOT modifier = DEC_decolonised_solidarity }
+		ROOT = { add_opinion_modifier = { target = PREV modifier = DEC_decolonised_solidarity } }
+	}
+	add_political_power = 40
+	add_war_support = 0.04
+}
+
+DEC_exile_request_western_aid = {
+	every_other_country = {
+		limit = {
+			OR = {
+				original_tag = USA
+				original_tag = ENG
+				original_tag = GER
+				original_tag = FRA
+				original_tag = POL
+				is_in_array = { global.nato_members = THIS }
+			}
+			exists = yes
+			has_capitulated = no
+			NOT = { has_war_with = ROOT }
+		}
+		add_opinion_modifier = { target = ROOT modifier = DEC_decolonised_solidarity }
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_weapons_type
+		amount = 1500
+		producer = USA
+	}
+	add_political_power = 50
+	add_war_support = 0.05
+	set_temp_variable = { treasury_change = 5 }
+	modify_treasury_effect = yes
+}
+
+DEC_apply_historical_claims = {
+	every_country = {
+		limit = {
+			OR = {
+				has_country_flag = DEC_rebel_nation
+				DEC_is_uprising_nation_tag = yes
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = PREV
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+				NOT = { is_claimed_by = PREV }
+			}
+			add_claim_by = PREV
+		}
+	}
+	every_state = {
+		limit = {
+			OR = {
+				is_owned_by = SOV
+				owner = { is_subject_of = SOV }
+			}
+			NOT = { DEC_is_muscovy_state = yes }
+			NOT = {
+				any_country = {
+					DEC_is_uprising_nation_tag = yes
+					PREV = { is_claimed_by = PREV }
+				}
+			}
+			NOT = {
+				any_country = {
+					DEC_is_uprising_nation_tag = yes
+					PREV = { is_core_of = PREV }
+				}
+			}
+		}
+		DEC_assign_residual_claim = yes
+	}
+	custom_effect_tooltip = DEC_COA_historical_claims_tt
+}
+
+DEC_assign_residual_claim = {
+	# THIS = state
+	if = {
+		limit = { OR = { state = 680 state = 681 state = 682 state = 685 state = 1067 state = 1069 state = 688 state = 689 } }
+		add_claim_by = SIB
+	}
+	else_if = {
+		limit = { OR = { state = 648 state = 678 state = 679 state = 683 state = 675 state = 676 state = 658 } }
+		add_claim_by = URA
+	}
+	else_if = {
+		limit = { OR = { state = 667 state = 668 state = 1118 state = 1140 } }
+		add_claim_by = KUB
+	}
+	else_if = {
+		limit = { is_on_continent = europe }
+		add_claim_by = SEV
+	}
+	else = {
+		add_claim_by = SIB
+	}
+}

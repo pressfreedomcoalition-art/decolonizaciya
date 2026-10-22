@@ -1,0 +1,596 @@
+############################################
+# NATO Free Russia / RUSFOR → full collapse
+# Hooks MD department_of_state.38001 satellites
+############################################
+
+DEC_end_subject_of_overlord = {
+	if = {
+		limit = { is_subject = yes }
+		OVERLORD = {
+			set_autonomy = {
+				target = PREV
+				autonomy_state = autonomy_free
+			}
+		}
+	}
+	clr_country_flag = SOV_subject_republic
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+}
+
+DEC_nato_release_republics = {
+	# Free anyone already satellited under democratic RUS
+	if = {
+		limit = { country_exists = RUS }
+		RUS = {
+			every_subject_country = {
+				DEC_end_subject_of_overlord = yes
+			}
+		}
+	}
+
+	# --- Finno-Ugric / North ---
+	if = {
+		limit = { NOT = { country_exists = KAE } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1128 } } RUS = { release = KAE } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1128 } } SOV = { release = KAE } }
+	}
+	else_if = {
+		limit = { KAE = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KAE = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = KOM } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 648 } } RUS = { release = KOM } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 648 } } SOV = { release = KOM } }
+	}
+	else_if = {
+		limit = { KOM = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KOM = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = NEE } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 683 } } RUS = { release = NEE } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 683 } } SOV = { release = NEE } }
+	}
+	else_if = {
+		limit = { NEE = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		NEE = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = KHM } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 678 } } RUS = { release = KHM } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 678 } } SOV = { release = KHM } }
+	}
+	else_if = {
+		limit = { KHM = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KHM = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = YAM } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 679 } } RUS = { release = YAM } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 679 } } SOV = { release = YAM } }
+	}
+	else_if = {
+		limit = { YAM = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		YAM = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = MEL } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1134 } } RUS = { release = MEL } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1134 } } SOV = { release = MEL } }
+	}
+	else_if = {
+		limit = { MEL = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		MEL = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = UDM } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1133 } } RUS = { release = UDM } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1133 } } SOV = { release = UDM } }
+	}
+	else_if = {
+		limit = { UDM = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		UDM = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = ERZ } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1132 } } RUS = { release = ERZ } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1132 } } SOV = { release = ERZ } }
+	}
+	else_if = {
+		limit = { ERZ = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		ERZ = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = MOK } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1132 } } RUS = { release = MOK } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1132 } } SOV = { release = MOK } }
+	}
+	else_if = {
+		limit = { MOK = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		MOK = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = BJA } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 647 } } RUS = { release = BJA } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 647 } } SOV = { release = BJA } }
+	}
+	else_if = {
+		limit = { BJA = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		BJA = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = IGR } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 644 } } RUS = { release = IGR } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 644 } } SOV = { release = IGR } }
+	}
+	else_if = {
+		limit = { IGR = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		IGR = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = LAP } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 643 } } RUS = { release = LAP } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 643 } } SOV = { release = LAP } }
+	}
+	else_if = {
+		limit = { LAP = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		LAP = { DEC_end_subject_of_overlord = yes }
+	}
+
+	# --- Turkic ---
+	if = {
+		limit = { NOT = { country_exists = TAT } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 661 } } RUS = { release = TAT } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 661 } } SOV = { release = TAT } }
+	}
+	else_if = {
+		limit = { TAT = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		TAT = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = BSH } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 664 } } RUS = { release = BSH } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 664 } } SOV = { release = BSH } }
+	}
+	else_if = {
+		limit = { BSH = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		BSH = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = CHU } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1135 } } RUS = { release = CHU } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1135 } } SOV = { release = CHU } }
+	}
+	else_if = {
+		limit = { CHU = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		CHU = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = NOG } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 666 } } RUS = { release = NOG } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 666 } } SOV = { release = NOG } }
+	}
+	else_if = {
+		limit = { NOG = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		NOG = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = YAK } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 688 } } RUS = { release = YAK } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 688 } } SOV = { release = YAK } }
+	}
+	else_if = {
+		limit = { YAK = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		YAK = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = KHS } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1065 } } RUS = { release = KHS } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1065 } } SOV = { release = KHS } }
+	}
+	else_if = {
+		limit = { KHS = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KHS = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = ALT } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 684 } } RUS = { release = ALT } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 684 } } SOV = { release = ALT } }
+	}
+	else_if = {
+		limit = { ALT = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		ALT = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = TUV } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1011 } } RUS = { release = TUV } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1011 } } SOV = { release = TUV } }
+	}
+	else_if = {
+		limit = { TUV = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		TUV = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = KBK } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 674 } } RUS = { release = KBK } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 674 } } SOV = { release = KBK } }
+	}
+	else_if = {
+		limit = { KBK = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KBK = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = KCC } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1125 } } RUS = { release = KCC } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1125 } } SOV = { release = KCC } }
+	}
+	else_if = {
+		limit = { KCC = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KCC = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = BLK } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 674 } } RUS = { release = BLK } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 674 } } SOV = { release = BLK } }
+	}
+	else_if = {
+		limit = { BLK = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		BLK = { DEC_end_subject_of_overlord = yes }
+	}
+
+	# --- Caucasus / others ---
+	if = {
+		limit = { NOT = { country_exists = CHE } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 672 } } RUS = { release = CHE } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 672 } } SOV = { release = CHE } }
+	}
+	else_if = {
+		limit = { CHE = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		CHE = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = DAG } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 671 } } RUS = { release = DAG } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 671 } } SOV = { release = DAG } }
+	}
+	else_if = {
+		limit = { DAG = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		DAG = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = ING } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1126 } } RUS = { release = ING } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1126 } } SOV = { release = ING } }
+	}
+	else_if = {
+		limit = { ING = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		ING = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = ADY } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1127 } } RUS = { release = ADY } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1127 } } SOV = { release = ADY } }
+	}
+	else_if = {
+		limit = { ADY = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		ADY = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = CIR } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1127 } } RUS = { release = CIR } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1127 } } SOV = { release = CIR } }
+	}
+	else_if = {
+		limit = { CIR = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		CIR = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = URA } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 676 } } RUS = { release = URA } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 676 } } SOV = { release = URA } }
+	}
+	else_if = {
+		limit = { URA = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		URA = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = DON } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 667 } } RUS = { release = DON } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 667 } } SOV = { release = DON } }
+	}
+	else_if = {
+		limit = { DON = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		DON = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = KUB } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 668 } } RUS = { release = KUB } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 668 } } SOV = { release = KUB } }
+	}
+	else_if = {
+		limit = { KUB = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KUB = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = VYK } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1118 } } RUS = { release = VYK } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1118 } } SOV = { release = VYK } }
+	}
+	else_if = {
+		limit = { VYK = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		VYK = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = KLM } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 1107 } } RUS = { release = KLM } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 1107 } } SOV = { release = KLM } }
+	}
+	else_if = {
+		limit = { KLM = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		KLM = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = BRY } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 686 } } RUS = { release = BRY } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 686 } } SOV = { release = BRY } }
+	}
+	else_if = {
+		limit = { BRY = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		BRY = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = CKK } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 689 } } RUS = { release = CKK } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 689 } } SOV = { release = CKK } }
+	}
+	else_if = {
+		limit = { CKK = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		CKK = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = ZKL } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 692 } } RUS = { release = ZKL } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 692 } } SOV = { release = ZKL } }
+	}
+	else_if = {
+		limit = { ZKL = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		ZKL = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = CSB } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 682 } } RUS = { release = CSB } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 682 } } SOV = { release = CSB } }
+	}
+	else_if = {
+		limit = { CSB = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		CSB = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = ESB } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 685 } } RUS = { release = ESB } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 685 } } SOV = { release = ESB } }
+	}
+	else_if = {
+		limit = { ESB = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		ESB = { DEC_end_subject_of_overlord = yes }
+	}
+	if = {
+		limit = { NOT = { country_exists = GOR } }
+		if = { limit = { country_exists = RUS RUS = { owns_state = 670 } } RUS = { release = GOR } }
+		else_if = { limit = { country_exists = SOV SOV = { owns_state = 670 } } SOV = { release = GOR } }
+	}
+	else_if = {
+		limit = { GOR = { OR = { is_subject_of = RUS is_subject_of = SOV } } }
+		GOR = { DEC_end_subject_of_overlord = yes }
+	}
+
+	# Final sweep — no subjects of RUS remain
+	if = {
+		limit = { country_exists = RUS }
+		RUS = {
+			every_subject_country = {
+				DEC_end_subject_of_overlord = yes
+			}
+		}
+	}
+}
+
+DEC_nato_invite_finno_to_finland = {
+	if = {
+		limit = {
+			country_exists = FIN
+			NOT = { FIN = { is_in_faction = yes } }
+		}
+		FIN = {
+			create_faction_from_template = faction_template_dec_fennoscandia
+		}
+	}
+	every_country = {
+		limit = {
+			DEC_is_finno_ugric_collapse = yes
+			exists = yes
+			is_subject = no
+			NOT = { tag = FIN }
+			NOT = { is_in_faction_with = FIN }
+		}
+		if = {
+			limit = { FIN = { is_faction_leader = yes } }
+			FIN = { add_to_faction = PREV }
+		}
+		else_if = {
+			limit = { FIN = { is_in_faction = yes } }
+			FIN = {
+				faction_leader = {
+					add_to_faction = PREVPREV
+				}
+			}
+		}
+		country_event = { id = dec.21 hours = 2 }
+	}
+}
+
+DEC_nato_invite_turkic_to_turkey = {
+	if = {
+		limit = {
+			country_exists = TUR
+			NOT = { TUR = { is_in_faction = yes } }
+		}
+		TUR = {
+			create_faction_from_template = faction_template_dec_turan
+		}
+	}
+	every_country = {
+		limit = {
+			DEC_is_turkic_collapse = yes
+			exists = yes
+			is_subject = no
+			NOT = { tag = TUR }
+			NOT = { is_in_faction_with = TUR }
+		}
+		if = {
+			limit = { TUR = { is_faction_leader = yes } }
+			TUR = { add_to_faction = PREV }
+		}
+		else_if = {
+			limit = { TUR = { is_in_faction = yes } }
+			TUR = {
+				faction_leader = {
+					add_to_faction = PREVPREV
+				}
+			}
+		}
+		country_event = { id = dec.22 hours = 2 }
+	}
+}
+
+DEC_rdk_start_revolution = {
+	if = {
+		limit = {
+			country_exists = RUS
+			RUS = {
+				OR = {
+					has_government = democratic
+					has_cosmetic_tag = RUS_RFOR
+				}
+				NOT = { has_civil_war = yes }
+				NOT = { has_country_flag = DEC_RDK_revolution_fired }
+			}
+		}
+		RUS = {
+			set_country_flag = DEC_RDK_revolution_fired
+			country_event = { id = dec.20 hours = 8 }
+		}
+	}
+	else_if = {
+		limit = {
+			country_exists = SOV
+			SOV = {
+				has_government = democratic
+				NOT = { has_civil_war = yes }
+				NOT = { has_country_flag = DEC_RDK_revolution_fired }
+			}
+			NOT = { country_exists = RUS }
+		}
+		SOV = {
+			set_country_flag = DEC_RDK_revolution_fired
+			country_event = { id = dec.20 hours = 8 }
+		}
+	}
+}
+
+DEC_rdk_spawn_civil_war = {
+	log = "DEC: RDK revolution vs [THIS.GetTag]"
+	start_civil_war = {
+		ideology = nationalist
+		size = 0.35
+		capital = 1172
+		states = {
+			1172
+			656
+			653
+			1173
+			1174
+			654
+		}
+		keep_unit_leaders_trigger = { always = no }
+		set_country_flag = DEC_RDK_revolution
+		set_cosmetic_tag = DEC_RNS
+		create_country_leader = {
+			name = "Denis Kapustin"
+			desc = DEC_RDK_kapustin_desc
+			picture = "gfx/leaders/SOV/DEC_denis_kapustin.dds"
+			expire = "2050.1.1"
+			ideology = Nat_Autocracy
+			traits = {
+				nationalist_Nat_Autocracy
+			}
+		}
+		set_temp_variable = { rul_party_temp = 22 }
+		set_temp_variable = { disable_elections = 1 }
+		change_ruling_party_effect = yes
+		set_temp_variable = { party_index = 22 }
+		set_temp_variable = { party_popularity_increase = 0.55 }
+		set_temp_variable = { temp_outlook_increase = 0.55 }
+		change_relative_party_popularity = yes
+		DEC_uprising_spawn_national_militia = yes
+		1172 = {
+			create_unit = {
+				division = "name = \"RDK Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.35 start_equipment_factor = 0.85"
+				owner = ROOT
+				count = 4
+			}
+		}
+	}
+}
+
+DEC_rdk_on_victory = {
+	log = "DEC: RDK victory — Russian National State"
+	set_country_flag = DEC_RDK_victory
+	clr_country_flag = DEC_RDK_revolution
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = DEC_RNS
+	set_politics = {
+		ruling_party = nationalist
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Denis Kapustin"
+		desc = DEC_RDK_kapustin_desc
+		picture = "gfx/leaders/SOV/DEC_denis_kapustin.dds"
+		expire = "2050.1.1"
+		ideology = Nat_Autocracy
+		traits = {
+			nationalist_Nat_Autocracy
+		}
+	}
+	set_temp_variable = { rul_party_temp = 22 }
+	set_temp_variable = { disable_elections = 1 }
+	change_ruling_party_effect = yes
+	load_focus_tree = {
+		tree = DEC_rdk_flag_tree
+		keep_completed = no
+	}
+	news_event = { id = dec.23 hours = 4 }
+}
+
+DEC_nato_full_collapse = {
+	log = "DEC: NATO federation path → full collapse (no subjects)"
+	set_global_flag = DEC_block_rus_federation_subjects
+	DEC_nato_release_republics = yes
+	if = {
+		limit = { NOT = { has_global_flag = DEC_nato_collapse_invites_done } }
+		set_global_flag = DEC_nato_collapse_invites_done
+		DEC_nato_invite_finno_to_finland = yes
+		DEC_nato_invite_turkic_to_turkey = yes
+		news_event = { id = dec.19 hours = 2 }
+	}
+	if = {
+		limit = { NOT = { has_global_flag = DEC_nato_rdk_triggered } }
+		set_global_flag = DEC_nato_rdk_triggered
+		DEC_rdk_start_revolution = yes
+	}
+}

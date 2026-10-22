@@ -1,0 +1,21 @@
+[h1]WW3: Russian Invasion (Альфа тест)[/h1]
+[b]Millennium Dawn submod · HOI4 1.19 · ALPHA 0.9.0[/b]
+
+[i]Temporary public alpha — not a finished release. Expect bugs, CTDs, and unfinished balance.[/i]
+
+Requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2777392649]Millennium Dawn: A Modern Day Mod[/url]. Enable MD first, then this mod.
+
+[h2]What you get[/h2]
+[list]
+[*]Decolonisation of RF subjects: new tags, opposition leaders, foci, decisions, alliances
+[*]Bookmarks: 2000 (MD), October 2013, 22 February 2022
+[*]Chuvashia / Bulgar Confederation politics, Volga Bulgaria restoration, libertarian blockchain / BulCoin / private drone armies
+[*]Wartime Chuvashia: manpower call-up and DeathNote.Rip character strikes
+[*]Mega tracks (one per tree): White Brotherhood, Black Brotherhood, Abya Yala, Asian Sphere, Bharat, World Caliphate
+[/list]
+
+[h2]Load order[/h2]
+1. Millennium Dawn
+2. WW3: Russian Invasion (Альфа тест)
+
+Report bugs in the discussions tab.

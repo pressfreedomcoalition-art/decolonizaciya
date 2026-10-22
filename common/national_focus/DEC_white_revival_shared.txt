@@ -1,0 +1,647 @@
+############################################
+# Shared: White Revival — full TZ tree
+############################################
+
+shared_focus = {
+	id = DEC_WHT_white_revival
+	icon = Ultranationalism
+	x = 20
+	y = 30
+	cost = 5
+	allow_branch = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	available = { DEC_can_access_white_revival = yes }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_white_revival"
+		set_variable = { DEC_wht_ns_amt = 0.10 }
+		DEC_WHT_boost_all = yes
+		add_political_power = 50
+		custom_effect_tooltip = DEC_WHT_boost_plus1_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_WHT_declare_brotherhood
+	icon = fascism
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -14
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_WHT_white_revival }
+	available = { DEC_can_access_white_revival = yes
+		is_subject = no
+		is_in_faction = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_declare_brotherhood"
+		DEC_create_white_brotherhood = yes
+		custom_effect_tooltip = DEC_WHT_declare_brotherhood_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_WHT_call_unity
+	icon = major_alliance
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -14
+	y = 2
+	cost = 8
+	prerequisite = { focus = DEC_WHT_declare_brotherhood }
+	available = { DEC_can_access_white_revival = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_call_unity"
+		DEC_invite_white_brotherhood_members = yes
+		custom_effect_tooltip = DEC_WHT_call_unity_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_WHT_call_oath
+	icon = oath_of_beirut
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -14
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_WHT_call_unity }
+	available = { DEC_can_access_white_revival = yes
+		is_faction_leader = yes
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_call_oath"
+		DEC_WHT_oath_start = yes
+		custom_effect_tooltip = DEC_WHT_call_oath_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_WHT_unite_brotherhood
+	icon = annex_country
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -14
+	y = 4
+	cost = 12
+	prerequisite = { focus = DEC_WHT_call_oath }
+	available = { DEC_can_access_white_revival = yes
+		is_faction_leader = yes
+		any_subject_country = { always = yes } }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_unite_brotherhood"
+		DEC_WHT_unite_brotherhood = yes
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_WHT_europe
+	icon = europe
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -10
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_WHT_white_revival }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_europe"
+		set_variable = { DEC_wht_ns_amt = 0.15 }
+		DEC_WHT_boost_europe = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_europe_west
+	icon = british_nationalism
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -20
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_europe }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_europe_west"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_europe_west = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_europe_north
+	icon = focus_NORDIC_mon_form_alliance
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -18
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_europe }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_europe_north"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_europe_north = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_europe_central
+	icon = german_nationalism
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -16
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_europe }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_europe_central"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_europe_central = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_europe_east
+	icon = europe_domination
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -12
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_europe }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_europe_east"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_europe_east = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_europe_russian
+	icon = russian_unity
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -8
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_europe }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_europe_russian"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_europe_russian = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_crusade_europe
+	icon = war_in_europe
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -10
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_WHT_reg_europe_west }
+	prerequisite = { focus = DEC_WHT_reg_europe_north }
+	prerequisite = { focus = DEC_WHT_reg_europe_central }
+	prerequisite = { focus = DEC_WHT_reg_europe_east }
+	prerequisite = { focus = DEC_WHT_reg_europe_russian }
+	available = {
+		DEC_can_access_white_revival = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_crusade_europe"
+		DEC_WHT_wargoals_europe = yes
+		custom_effect_tooltip = DEC_WHT_crusade_europe_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_WHT_na
+	icon = american_nationalism
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -4
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_WHT_white_revival }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_na"
+		set_variable = { DEC_wht_ns_amt = 0.15 }
+		DEC_WHT_boost_na = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_na_usa
+	icon = american_nationalism
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -6
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_na }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_na_usa"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_na_usa = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_na_canada
+	icon = war_against_canada
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -2
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_na }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_na_canada"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_na_canada = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_crusade_na
+	icon = war_against_the_united_states
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -4
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_WHT_reg_na_usa }
+	prerequisite = { focus = DEC_WHT_reg_na_canada }
+	available = {
+		DEC_can_access_white_revival = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_crusade_na"
+		DEC_WHT_wargoals_na = yes
+		custom_effect_tooltip = DEC_WHT_crusade_na_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_WHT_colonies
+	icon = focus_generic_fascist_militarism
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 4
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_WHT_white_revival }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_colonies"
+		set_variable = { DEC_wht_ns_amt = 0.15 }
+		DEC_WHT_boost_colonies = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_colonies_saf
+	icon = africa_guy_shield
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 0
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_colonies }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_colonies_saf"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_colonies_saf = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_colonies_rho
+	icon = african_expedition
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 2
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_colonies }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_colonies_rho"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_colonies_rho = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_colonies_cone
+	icon = focus_ARG_south_american_unity
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 6
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_colonies }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_colonies_cone"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_colonies_cone = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_crusade_colonies
+	icon = african_conflict
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 4
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_WHT_reg_colonies_saf }
+	prerequisite = { focus = DEC_WHT_reg_colonies_rho }
+	prerequisite = { focus = DEC_WHT_reg_colonies_cone }
+	available = {
+		DEC_can_access_white_revival = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_crusade_colonies"
+		DEC_WHT_wargoals_colonies = yes
+		custom_effect_tooltip = DEC_WHT_crusade_colonies_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_WHT_finno
+	icon = focus_FIN_expansion_towards_the_atlantic
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 12
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_WHT_white_revival }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_finno"
+		set_variable = { DEC_wht_ns_amt = 0.15 }
+		DEC_WHT_boost_finno = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_finno_fin
+	icon = focus_NORDIC_mon_form_alliance
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 8
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_finno }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_finno_fin"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_finno_fin = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_finno_est
+	icon = focus_NORDIC_dem_form_alliance
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 10
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_finno }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_finno_est"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_finno_est = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_finno_north_finno
+	icon = focus_generic_winter_warfare
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 14
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_finno }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_finno_north_finno"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_finno_north_finno = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_crusade_finno
+	icon = war_in_europe
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 12
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_WHT_reg_finno_fin }
+	prerequisite = { focus = DEC_WHT_reg_finno_est }
+	prerequisite = { focus = DEC_WHT_reg_finno_north_finno }
+	available = {
+		DEC_can_access_white_revival = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_crusade_finno"
+		DEC_WHT_wargoals_finno = yes
+		custom_effect_tooltip = DEC_WHT_crusade_finno_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_WHT_oceania
+	icon = oceania
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 18
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_WHT_white_revival }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_oceania"
+		set_variable = { DEC_wht_ns_amt = 0.15 }
+		DEC_WHT_boost_oceania = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_oceania_ast
+	icon = aboriginal_voting
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 16
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_oceania }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_oceania_ast"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_oceania_ast = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_reg_oceania_nzl
+	icon = oceania
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 20
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_WHT_oceania }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_reg_oceania_nzl"
+		set_variable = { DEC_wht_ns_amt = 0.20 }
+		DEC_WHT_boost_oceania_nzl = yes
+		custom_effect_tooltip = DEC_WHT_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_WHT_crusade_oceania
+	icon = ast_war_monger
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = 18
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_WHT_reg_oceania_ast }
+	prerequisite = { focus = DEC_WHT_reg_oceania_nzl }
+	available = {
+		DEC_can_access_white_revival = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_crusade_oceania"
+		DEC_WHT_wargoals_oceania = yes
+		custom_effect_tooltip = DEC_WHT_crusade_oceania_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_WHT_crusade_world
+	icon = FRA_crusader_icon
+	allow_branch = { DEC_can_access_white_revival = yes }
+	relative_position_id = DEC_WHT_white_revival
+	x = -4
+	y = 4
+	cost = 15
+	prerequisite = { focus = DEC_WHT_crusade_europe }
+	prerequisite = { focus = DEC_WHT_crusade_na }
+	prerequisite = { focus = DEC_WHT_crusade_colonies }
+	prerequisite = { focus = DEC_WHT_crusade_finno }
+	prerequisite = { focus = DEC_WHT_crusade_oceania }
+	prerequisite = { focus = DEC_WHT_crusade_europe }
+	prerequisite = { focus = DEC_WHT_crusade_na }
+	prerequisite = { focus = DEC_WHT_crusade_colonies }
+	prerequisite = { focus = DEC_WHT_crusade_finno }
+	prerequisite = { focus = DEC_WHT_crusade_oceania }
+	available = { DEC_can_access_white_revival = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_crusade_world"
+		DEC_WHT_wargoals_world = yes
+		custom_effect_tooltip = DEC_WHT_crusade_world_tt
+	}
+	ai_will_do = { base = 50 }
+}

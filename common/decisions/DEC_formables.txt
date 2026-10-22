@@ -1,0 +1,417 @@
+############################################
+# Formable supra-states (Decolonizaciya)
+############################################
+
+DEC_formables_category = {
+	DEC_form_circassia = {
+		icon = GFX_decision_generic_form_nation
+allowed = {
+			OR = {
+				original_tag = ADY
+				tag = ADY
+				original_tag = CIR
+				tag = CIR
+				original_tag = ABK
+				tag = ABK
+			}
+		}
+		visible = {
+			OR = {
+				tag = ADY
+				tag = CIR
+				tag = ABK
+				owns_state = 1127
+				owns_state = 1125
+				owns_state = 706
+			}
+			NOT = { has_country_flag = DEC_formed_CIR }
+			NOT = { has_country_flag = DEC_formed_KBC }
+		}
+		available = {
+			owns_state = 1127
+			owns_state = 1125
+			owns_state = 706
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { base = 20 }
+		complete_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_circassia"
+			set_cosmetic_tag = CIR
+			set_country_flag = DEC_formed_CIR
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 1127
+						state = 1125
+						state = 706
+					}
+				}
+				add_core_of = ROOT
+			}
+			add_political_power = 50
+			custom_effect_tooltip = DEC_form_circassia_tt
+		}
+	}
+
+	DEC_form_kuban_circassia = {
+		icon = GFX_decision_generic_form_nation
+allowed = {
+			OR = {
+				original_tag = KUB
+				tag = KUB
+				original_tag = CIR
+				tag = CIR
+				original_tag = KBC
+				tag = KBC
+			}
+		}
+		visible = {
+			OR = {
+				tag = KUB
+				tag = CIR
+				has_country_flag = DEC_formed_CIR
+				owns_state = 668
+				owns_state = 1140
+			}
+			NOT = { has_country_flag = DEC_formed_KBC }
+		}
+		available = {
+			owns_state = 668
+			owns_state = 1140
+			owns_state = 1127
+			owns_state = 1125
+			owns_state = 706
+		}
+		cost = 75
+		fire_only_once = yes
+		ai_will_do = { base = 15 }
+		complete_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_kuban_circassia"
+			set_cosmetic_tag = KBC
+			set_country_flag = DEC_formed_KBC
+			clr_country_flag = DEC_formed_CIR
+			every_owned_state = {
+				limit = {
+					OR = {
+						state = 668
+						state = 1140
+						state = 1127
+						state = 1125
+						state = 706
+					}
+				}
+				add_core_of = ROOT
+			}
+			add_political_power = 75
+			custom_effect_tooltip = DEC_form_kuban_circassia_tt
+		}
+	}
+
+	DEC_form_osetia_alania = {
+		icon = GFX_decision_generic_form_nation
+allowed = {
+			OR = {
+				original_tag = SOO
+				tag = SOO
+				original_tag = OSA
+				tag = OSA
+			}
+		}
+		visible = {
+			OR = {
+				tag = SOO
+				owns_state = 673
+				owns_state = 705
+			}
+			NOT = { has_country_flag = DEC_formed_OSA }
+		}
+		available = {
+			owns_state = 673
+			owns_state = 705
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { base = 25 }
+		complete_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_osetia_alania"
+			set_cosmetic_tag = OSA
+			set_country_flag = DEC_formed_OSA
+			673 = { add_core_of = ROOT }
+			705 = { add_core_of = ROOT }
+			add_political_power = 50
+			custom_effect_tooltip = DEC_form_osetia_alania_tt
+		}
+	}
+
+	DEC_form_caucasian_union = {
+		icon = GFX_decision_generic_form_nation
+allowed = {
+			OR = {
+				original_tag = CHE
+				tag = CHE
+				original_tag = DAG
+				tag = DAG
+				original_tag = CAU
+				tag = CAU
+				original_tag = CIR
+				tag = CIR
+				original_tag = OSA
+				tag = OSA
+				original_tag = KBC
+				tag = KBC
+				original_tag = ADY
+				tag = ADY
+				original_tag = KBK
+				tag = KBK
+				original_tag = ING
+				tag = ING
+				original_tag = BLK
+				tag = BLK
+			}
+		}
+		visible = {
+			OR = {
+				tag = CHE
+				tag = DAG
+				tag = CAU
+				has_country_flag = DEC_formed_CIR
+				has_country_flag = DEC_formed_OSA
+				has_country_flag = DEC_formed_KBC
+			}
+			NOT = { has_country_flag = DEC_formed_CAU }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DEC_form_caucasian_union_trigger_tt
+				count_triggers = {
+					amount = 6
+					671 = { is_owned_and_controlled_by = ROOT }
+					672 = { is_owned_and_controlled_by = ROOT }
+					1126 = { is_owned_and_controlled_by = ROOT }
+					673 = { is_owned_and_controlled_by = ROOT }
+					705 = { is_owned_and_controlled_by = ROOT }
+					706 = { is_owned_and_controlled_by = ROOT }
+					1127 = { is_owned_and_controlled_by = ROOT }
+					1125 = { is_owned_and_controlled_by = ROOT }
+					674 = { is_owned_and_controlled_by = ROOT }
+					670 = { is_owned_and_controlled_by = ROOT }
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 30
+		ai_will_do = { base = 10 }
+		complete_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_caucasian_union"
+			set_country_flag = DEC_forming_CAU
+		}
+		remove_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_caucasian_union remove"
+			set_cosmetic_tag = CAU
+			set_country_flag = DEC_formed_CAU
+			every_owned_state = {
+				limit = { is_core_of = CAU }
+				add_core_of = ROOT
+			}
+			add_political_power = 100
+			add_stability = 0.05
+			custom_effect_tooltip = DEC_form_caucasian_union_tt
+		}
+	}
+
+	# Chuvashia (or BCF) proclaims Volga Bulgaria
+	DEC_form_volga_bulgaria = {
+		icon = GFX_decision_generic_form_nation
+		allowed = {
+			OR = {
+				original_tag = CHU
+				tag = CHU
+				original_tag = BCF
+				tag = BCF
+			}
+		}
+		visible = {
+			OR = {
+				original_tag = CHU
+				original_tag = BCF
+				tag = CHU
+				tag = BCF
+			}
+			NOT = { has_country_flag = DEC_formed_VBG }
+			NOT = { has_country_flag = DEC_formed_BCF }
+			NOT = { has_country_flag = DEC_formed_IDL }
+		}
+		available = {
+			owns_state = 1135
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = DEC_form_volga_bulgaria_trigger_tt
+				OR = {
+					has_country_flag = DEC_CHU_any_power
+					has_completed_focus = DEC_CHU_vbg_restore
+					has_country_flag = DEC_CHU_vbg_unlocked
+				}
+			}
+		}
+		cost = 50
+		fire_only_once = yes
+		ai_will_do = { base = 12 }
+		complete_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_volga_bulgaria"
+			DEC_CHU_become_volga_bulgaria = yes
+			custom_effect_tooltip = DEC_form_volga_bulgaria_tt
+		}
+	}
+
+	DEC_form_bulgar_confederation = {
+		icon = GFX_decision_generic_form_nation
+allowed = {
+			OR = {
+				original_tag = VBG
+				tag = VBG
+				original_tag = CHU
+				tag = CHU
+				original_tag = TAT
+				tag = TAT
+				original_tag = BSH
+				tag = BSH
+				original_tag = MOK
+				tag = MOK
+				original_tag = ERZ
+				tag = ERZ
+				original_tag = MOV
+				tag = MOV
+				original_tag = BCF
+				tag = BCF
+			}
+		}
+		visible = {
+			OR = {
+				tag = VBG
+				tag = CHU
+				tag = TAT
+				tag = BSH
+				tag = MOK
+				tag = ERZ
+				tag = MOV
+				has_country_flag = DEC_formed_VBG
+			}
+			NOT = { has_country_flag = DEC_formed_BCF }
+			NOT = { has_country_flag = DEC_formed_IDL }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DEC_form_bulgar_confederation_trigger_tt
+				count_triggers = {
+					amount = 3
+					1135 = { is_owned_and_controlled_by = ROOT }
+					661 = { is_owned_and_controlled_by = ROOT }
+					664 = { is_owned_and_controlled_by = ROOT }
+					1132 = { is_owned_and_controlled_by = ROOT }
+					1134 = { is_owned_and_controlled_by = ROOT }
+				}
+			}
+		}
+		cost = 75
+		fire_only_once = yes
+		ai_will_do = { base = 15 }
+		complete_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_bulgar_confederation"
+			set_cosmetic_tag = BCF
+			set_country_flag = DEC_formed_BCF
+			every_owned_state = {
+				limit = { is_core_of = BCF }
+				add_core_of = ROOT
+			}
+			add_political_power = 75
+			custom_effect_tooltip = DEC_form_bulgar_confederation_tt
+		}
+	}
+
+	DEC_form_idel_ural = {
+		icon = GFX_decision_generic_form_nation
+allowed = {
+			OR = {
+				original_tag = TAT
+				tag = TAT
+				original_tag = BSH
+				tag = BSH
+				original_tag = CHU
+				tag = CHU
+				original_tag = VBG
+				tag = VBG
+				original_tag = UDM
+				tag = UDM
+				original_tag = MEL
+				tag = MEL
+				original_tag = MOK
+				tag = MOK
+				original_tag = ERZ
+				tag = ERZ
+				original_tag = MOV
+				tag = MOV
+				original_tag = VYK
+				tag = VYK
+				original_tag = IDL
+				tag = IDL
+				original_tag = BCF
+				tag = BCF
+			}
+		}
+		visible = {
+			OR = {
+				tag = TAT
+				tag = BSH
+				tag = CHU
+				tag = VBG
+				tag = UDM
+				tag = MEL
+				tag = MOK
+				tag = ERZ
+				tag = MOV
+				tag = VYK
+				has_country_flag = DEC_formed_BCF
+			}
+			NOT = { has_country_flag = DEC_formed_IDL }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = DEC_form_idel_ural_trigger_tt
+				count_triggers = {
+					amount = 5
+					661 = { is_owned_and_controlled_by = ROOT }
+					664 = { is_owned_and_controlled_by = ROOT }
+					1135 = { is_owned_and_controlled_by = ROOT }
+					1133 = { is_owned_and_controlled_by = ROOT }
+					1134 = { is_owned_and_controlled_by = ROOT }
+					1132 = { is_owned_and_controlled_by = ROOT }
+					1132 = { is_owned_and_controlled_by = ROOT }
+					1118 = { is_owned_and_controlled_by = ROOT }
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes
+		days_remove = 45
+		ai_will_do = { base = 12 }
+		complete_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_idel_ural"
+			set_country_flag = DEC_forming_IDL
+		}
+		remove_effect = {
+			log = "[GetDateText]: [This.GetName]: DEC_form_idel_ural remove"
+			set_cosmetic_tag = IDL
+			set_country_flag = DEC_formed_IDL
+			clr_country_flag = DEC_formed_BCF
+			every_owned_state = {
+				limit = { is_core_of = IDL }
+				add_core_of = ROOT
+			}
+			add_political_power = 100
+			add_stability = 0.05
+			custom_effect_tooltip = DEC_form_idel_ural_tt
+		}
+	}
+}

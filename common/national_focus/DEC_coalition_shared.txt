@@ -1,0 +1,351 @@
+############################################
+# Coalition shared continuation (UKR + rebels)
+# Slim ops for coalition + one exile independence branch
+############################################
+
+shared_focus = {
+	id = DEC_COA_machine_uprising
+	icon = generic_fascist_uprising
+	x = 160
+	y = 0
+	cost = 6
+	allow_branch = {
+		DEC_can_access_coalition_shared = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	available = {
+		OR = {
+			has_war_with = SOV
+			has_country_flag = DEC_rebel_nation
+			has_country_flag = DEC_UKR_coalition_access
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_machine_uprising"
+		set_country_flag = DEC_machine_uprising_done
+		add_war_support = 0.03
+		custom_effect_tooltip = DEC_COA_machine_uprising_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_COA_attack_cau
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = -5
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_attack_cau"
+		DEC_sep_add_cau = yes
+	}
+	ai_will_do = { base = 25 }
+}
+shared_focus = {
+	id = DEC_COA_attack_volga
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = -3
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_attack_volga"
+		DEC_sep_add_volga = yes
+	}
+	ai_will_do = { base = 25 }
+}
+shared_focus = {
+	id = DEC_COA_attack_north
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = -1
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_attack_north"
+		DEC_sep_add_north = yes
+	}
+	ai_will_do = { base = 25 }
+}
+shared_focus = {
+	id = DEC_COA_attack_ural
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = 1
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_attack_ural"
+		DEC_sep_add_ural = yes
+	}
+	ai_will_do = { base = 25 }
+}
+shared_focus = {
+	id = DEC_COA_attack_siberia
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = 3
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_attack_siberia"
+		DEC_sep_add_siberia = yes
+	}
+	ai_will_do = { base = 25 }
+}
+shared_focus = {
+	id = DEC_COA_attack_fareast
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = 5
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_attack_fareast"
+		DEC_sep_add_fareast = yes
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_COA_create_atc
+	icon = army_planning
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = -2
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_create_atc"
+		DEC_create_atc = yes
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_COA_genocide_conference
+	icon = nationalist_education
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_machine_uprising
+	x = 2
+	y = 2
+	cost = 5
+	prerequisite = { focus = DEC_COA_machine_uprising }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_genocide_conference"
+		DEC_sep_add_all_national_five = yes
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_COA_historical_claims
+	icon = annex_country
+	allow_branch = { DEC_can_access_coalition_shared = yes }
+	relative_position_id = DEC_COA_genocide_conference
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_COA_genocide_conference }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_COA_historical_claims"
+		DEC_apply_historical_claims = yes
+	}
+	ai_will_do = { base = 40 }
+}
+
+############################################
+# Exile independence branch (no capital / GIE)
+# Shared for all decolonizer / rebel nations in exile
+############################################
+
+shared_focus = {
+	id = DEC_EXL_government_in_exile
+	icon = propaganda
+	relative_position_id = DEC_COA_machine_uprising
+	x = 10
+	y = 0
+	cost = 5
+	allow_branch = { DEC_can_access_exile_branch = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	available = {
+		DEC_is_exile_without_capital = yes
+	}
+	bypass = {
+		has_country_flag = DEC_government_in_exile
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_EXL_government_in_exile"
+		DEC_establish_exile_government = yes
+		custom_effect_tooltip = DEC_EXL_government_in_exile_tt
+	}
+	ai_will_do = { base = 50 }
+}
+
+shared_focus = {
+	id = DEC_EXL_organize_diaspora
+	icon = fascist_threat
+	allow_branch = { DEC_can_access_exile_branch = yes }
+	relative_position_id = DEC_EXL_government_in_exile
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_EXL_government_in_exile }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		DEC_is_exile_without_capital = yes
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_EXL_organize_diaspora"
+		add_political_power = 75
+		add_stability = 0.05
+		add_manpower = 2500
+		custom_effect_tooltip = DEC_EXL_organize_diaspora_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_EXL_digital_resistance
+	icon = cyberwarfare
+	allow_branch = { DEC_can_access_exile_branch = yes }
+	relative_position_id = DEC_EXL_organize_diaspora
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_EXL_organize_diaspora }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	available = {
+		DEC_is_exile_without_capital = yes
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_EXL_digital_resistance"
+		set_country_flag = DEC_machine_uprising_done
+		add_war_support = 0.08
+		add_political_power = 50
+		custom_effect_tooltip = DEC_EXL_digital_resistance_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_EXL_homeland_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_exile_branch = yes }
+	relative_position_id = DEC_EXL_digital_resistance
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_EXL_digital_resistance }
+	search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	available = {
+		DEC_is_exile_without_capital = yes
+	}
+	bypass = {
+		AND = {
+			check_variable = { num_owned_states > 0 }
+			NOT = { has_country_flag = DEC_blockchain_nation }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_EXL_homeland_uprising"
+		DEC_do_homeland_uprising = yes
+		custom_effect_tooltip = DEC_EXL_homeland_uprising_tt
+	}
+	ai_will_do = { base = 80 }
+}
+
+shared_focus = {
+	id = DEC_EXL_request_ukr_aid
+	icon = army_planning
+	allow_branch = { DEC_can_access_exile_branch = yes }
+	relative_position_id = DEC_EXL_homeland_uprising
+	x = -2
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_EXL_homeland_uprising }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_ARMY }
+	available = {
+		has_completed_focus = DEC_EXL_homeland_uprising
+		country_exists = UKR
+		UKR = { exists = yes has_capitulated = no }
+		NOT = { has_war_with = UKR }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_EXL_request_ukr_aid"
+		DEC_exile_request_ukr_aid = yes
+		custom_effect_tooltip = DEC_EXL_request_ukr_aid_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_EXL_request_coalition_aid
+	icon = annex_country
+	allow_branch = { DEC_can_access_exile_branch = yes }
+	relative_position_id = DEC_EXL_homeland_uprising
+	x = 0
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_EXL_homeland_uprising }
+	search_filters = { FOCUS_FILTER_DIPLOMACY }
+	available = {
+		has_completed_focus = DEC_EXL_homeland_uprising
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_EXL_request_coalition_aid"
+		DEC_exile_request_coalition_aid = yes
+		custom_effect_tooltip = DEC_EXL_request_coalition_aid_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_EXL_request_western_aid
+	icon = nationalist_education
+	allow_branch = { DEC_can_access_exile_branch = yes }
+	relative_position_id = DEC_EXL_homeland_uprising
+	x = 2
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_EXL_homeland_uprising }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_WAR_SUPPORT }
+	available = {
+		has_completed_focus = DEC_EXL_homeland_uprising
+		OR = {
+			country_exists = USA
+			country_exists = ENG
+			country_exists = GER
+			country_exists = FRA
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_EXL_request_western_aid"
+		DEC_exile_request_western_aid = yes
+		custom_effect_tooltip = DEC_EXL_request_western_aid_tt
+	}
+	ai_will_do = { base = 35 }
+}

@@ -1,0 +1,598 @@
+############################################
+# Chuvash: Volga Bulgaria restoration + libertarian economy
+############################################
+
+shared_focus = {
+	id = DEC_CHU_vbg_restore
+	icon = GFX_DEC_CHU_vbg_restore
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_pol_root
+	x = -28
+	y = 0
+	cost = 8
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_restore"
+		DEC_CHU_ensure_bulgar_faction = yes
+		1135 = { add_core_of = VBG add_core_of = BCF }
+		661 = { add_claim_by = ROOT add_core_of = VBG add_core_of = BCF }
+		1134 = { add_claim_by = ROOT add_core_of = VBG add_core_of = BCF }
+		1118 = { add_claim_by = ROOT add_core_of = VBG add_core_of = BCF }
+		1133 = { add_claim_by = ROOT add_core_of = VBG add_core_of = BCF }
+		1132 = { add_claim_by = ROOT add_core_of = VBG add_core_of = BCF }
+		add_political_power = 75
+		add_war_support = 0.05
+		custom_effect_tooltip = DEC_CHU_vbg_restore_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+# Proclaim Volga Bulgaria identity (between ally/war columns at x=0)
+shared_focus = {
+	id = DEC_CHU_vbg_proclaim
+	icon = GFX_DEC_CHU_vbg_proclaim
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_restore
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_CHU_vbg_restore }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		owns_state = 1135
+		is_subject = no
+		NOT = { has_country_flag = DEC_formed_VBG }
+	}
+	bypass = {
+		has_country_flag = DEC_formed_VBG
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_proclaim"
+		DEC_CHU_become_volga_bulgaria = yes
+		custom_effect_tooltip = DEC_CHU_vbg_proclaim_tt
+	}
+	ai_will_do = { base = 10 }
+}
+
+shared_focus = {
+	id = DEC_CHU_vbg_ally_TAT
+	icon = GFX_DEC_CHU_vbg_ally
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_restore
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_restore }
+	mutually_exclusive = { focus = DEC_CHU_vbg_war_TAT }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	available = {
+		country_exists = TAT
+		TAT = {
+			exists = yes
+			is_subject = no
+			num_of_controlled_states > 0
+			NOT = { tag = ROOT }
+		}
+	}
+	bypass = {
+		OR = {
+			661 = { is_owned_by = ROOT }
+			TAT = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_ally_TAT"
+		TAT = { save_event_target_as = DEC_chu_vbg_tgt }
+		661 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_ally_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_ally_TAT_tt
+	}
+	ai_will_do = { base = 3 }
+}
+shared_focus = {
+	id = DEC_CHU_vbg_war_TAT
+	icon = GFX_DEC_CHU_vbg_war
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_restore
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_restore }
+	mutually_exclusive = { focus = DEC_CHU_vbg_ally_TAT }
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+	available = {
+		NOT = {
+			AND = {
+				DEC_is_libertarian_gov = yes
+				OR = {
+					AND = { country_exists = TAT TAT = { DEC_is_lib_or_anarchist_gov = yes } }
+					661 = { owner = { DEC_is_lib_or_anarchist_gov = yes } }
+				}
+			}
+		}
+		OR = {
+			AND = { country_exists = TAT TAT = { NOT = { tag = ROOT } } }
+			661 = { NOT = { is_owned_by = ROOT } }
+		}
+	}
+	bypass = {
+		OR = {
+			661 = { is_owned_by = ROOT }
+			TAT = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_war_TAT"
+		TAT = { save_event_target_as = DEC_chu_vbg_tgt }
+		661 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_war_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_war_TAT_tt
+	}
+	ai_will_do = { base = 1 }
+}
+
+shared_focus = {
+	id = DEC_CHU_vbg_ally_MEL
+	icon = GFX_DEC_CHU_vbg_ally
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_ally_TAT
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_TAT focus = DEC_CHU_vbg_war_TAT }
+	mutually_exclusive = { focus = DEC_CHU_vbg_war_MEL }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	available = {
+		country_exists = MEL
+		MEL = {
+			exists = yes
+			is_subject = no
+			num_of_controlled_states > 0
+			NOT = { tag = ROOT }
+		}
+	}
+	bypass = {
+		OR = {
+			1134 = { is_owned_by = ROOT }
+			MEL = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_ally_MEL"
+		MEL = { save_event_target_as = DEC_chu_vbg_tgt }
+		1134 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_ally_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_ally_MEL_tt
+	}
+	ai_will_do = { base = 3 }
+}
+shared_focus = {
+	id = DEC_CHU_vbg_war_MEL
+	icon = GFX_DEC_CHU_vbg_war
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_war_TAT
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_TAT focus = DEC_CHU_vbg_war_TAT }
+	mutually_exclusive = { focus = DEC_CHU_vbg_ally_MEL }
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+	available = {
+		NOT = {
+			AND = {
+				DEC_is_libertarian_gov = yes
+				OR = {
+					AND = { country_exists = MEL MEL = { DEC_is_lib_or_anarchist_gov = yes } }
+					1134 = { owner = { DEC_is_lib_or_anarchist_gov = yes } }
+				}
+			}
+		}
+		OR = {
+			AND = { country_exists = MEL MEL = { NOT = { tag = ROOT } } }
+			1134 = { NOT = { is_owned_by = ROOT } }
+		}
+	}
+	bypass = {
+		OR = {
+			1134 = { is_owned_by = ROOT }
+			MEL = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_war_MEL"
+		MEL = { save_event_target_as = DEC_chu_vbg_tgt }
+		1134 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_war_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_war_MEL_tt
+	}
+	ai_will_do = { base = 1 }
+}
+
+shared_focus = {
+	id = DEC_CHU_vbg_ally_VYK
+	icon = GFX_DEC_CHU_vbg_ally
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_ally_MEL
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_MEL focus = DEC_CHU_vbg_war_MEL }
+	mutually_exclusive = { focus = DEC_CHU_vbg_war_VYK }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	available = {
+		country_exists = VYK
+		VYK = {
+			exists = yes
+			is_subject = no
+			num_of_controlled_states > 0
+			NOT = { tag = ROOT }
+		}
+	}
+	bypass = {
+		OR = {
+			1118 = { is_owned_by = ROOT }
+			VYK = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_ally_VYK"
+		VYK = { save_event_target_as = DEC_chu_vbg_tgt }
+		1118 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_ally_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_ally_VYK_tt
+	}
+	ai_will_do = { base = 3 }
+}
+shared_focus = {
+	id = DEC_CHU_vbg_war_VYK
+	icon = GFX_DEC_CHU_vbg_war
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_war_MEL
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_MEL focus = DEC_CHU_vbg_war_MEL }
+	mutually_exclusive = { focus = DEC_CHU_vbg_ally_VYK }
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+	available = {
+		NOT = {
+			AND = {
+				DEC_is_libertarian_gov = yes
+				OR = {
+					AND = { country_exists = VYK VYK = { DEC_is_lib_or_anarchist_gov = yes } }
+					1118 = { owner = { DEC_is_lib_or_anarchist_gov = yes } }
+				}
+			}
+		}
+		OR = {
+			AND = { country_exists = VYK VYK = { NOT = { tag = ROOT } } }
+			1118 = { NOT = { is_owned_by = ROOT } }
+		}
+	}
+	bypass = {
+		OR = {
+			1118 = { is_owned_by = ROOT }
+			VYK = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_war_VYK"
+		VYK = { save_event_target_as = DEC_chu_vbg_tgt }
+		1118 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_war_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_war_VYK_tt
+	}
+	ai_will_do = { base = 1 }
+}
+
+shared_focus = {
+	id = DEC_CHU_vbg_ally_UDM
+	icon = GFX_DEC_CHU_vbg_ally
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_ally_VYK
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_VYK focus = DEC_CHU_vbg_war_VYK }
+	mutually_exclusive = { focus = DEC_CHU_vbg_war_UDM }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	available = {
+		country_exists = UDM
+		UDM = {
+			exists = yes
+			is_subject = no
+			num_of_controlled_states > 0
+			NOT = { tag = ROOT }
+		}
+	}
+	bypass = {
+		OR = {
+			1133 = { is_owned_by = ROOT }
+			UDM = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_ally_UDM"
+		UDM = { save_event_target_as = DEC_chu_vbg_tgt }
+		1133 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_ally_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_ally_UDM_tt
+	}
+	ai_will_do = { base = 3 }
+}
+shared_focus = {
+	id = DEC_CHU_vbg_war_UDM
+	icon = GFX_DEC_CHU_vbg_war
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_war_VYK
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_VYK focus = DEC_CHU_vbg_war_VYK }
+	mutually_exclusive = { focus = DEC_CHU_vbg_ally_UDM }
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+	available = {
+		NOT = {
+			AND = {
+				DEC_is_libertarian_gov = yes
+				OR = {
+					AND = { country_exists = UDM UDM = { DEC_is_lib_or_anarchist_gov = yes } }
+					1133 = { owner = { DEC_is_lib_or_anarchist_gov = yes } }
+				}
+			}
+		}
+		OR = {
+			AND = { country_exists = UDM UDM = { NOT = { tag = ROOT } } }
+			1133 = { NOT = { is_owned_by = ROOT } }
+		}
+	}
+	bypass = {
+		OR = {
+			1133 = { is_owned_by = ROOT }
+			UDM = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_war_UDM"
+		UDM = { save_event_target_as = DEC_chu_vbg_tgt }
+		1133 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_war_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_war_UDM_tt
+	}
+	ai_will_do = { base = 1 }
+}
+
+shared_focus = {
+	id = DEC_CHU_vbg_ally_MOK
+	icon = GFX_DEC_CHU_vbg_ally
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_ally_UDM
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_UDM focus = DEC_CHU_vbg_war_UDM }
+	mutually_exclusive = { focus = DEC_CHU_vbg_war_MOK }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	available = {
+		country_exists = MOK
+		MOK = {
+			exists = yes
+			is_subject = no
+			num_of_controlled_states > 0
+			NOT = { tag = ROOT }
+		}
+	}
+	bypass = {
+		OR = {
+			1132 = { is_owned_by = ROOT }
+			MOK = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_ally_MOK"
+		MOK = { save_event_target_as = DEC_chu_vbg_tgt }
+		1132 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_ally_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_ally_MOK_tt
+	}
+	ai_will_do = { base = 3 }
+}
+shared_focus = {
+	id = DEC_CHU_vbg_war_MOK
+	icon = GFX_DEC_CHU_vbg_war
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_war_UDM
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_UDM focus = DEC_CHU_vbg_war_UDM }
+	mutually_exclusive = { focus = DEC_CHU_vbg_ally_MOK }
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+	available = {
+		NOT = {
+			AND = {
+				DEC_is_libertarian_gov = yes
+				OR = {
+					AND = { country_exists = MOK MOK = { DEC_is_lib_or_anarchist_gov = yes } }
+					1132 = { owner = { DEC_is_lib_or_anarchist_gov = yes } }
+				}
+			}
+		}
+		OR = {
+			AND = { country_exists = MOK MOK = { NOT = { tag = ROOT } } }
+			1132 = { NOT = { is_owned_by = ROOT } }
+		}
+	}
+	bypass = {
+		OR = {
+			1132 = { is_owned_by = ROOT }
+			MOK = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_war_MOK"
+		MOK = { save_event_target_as = DEC_chu_vbg_tgt }
+		1132 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_war_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_war_MOK_tt
+	}
+	ai_will_do = { base = 1 }
+}
+
+shared_focus = {
+	id = DEC_CHU_vbg_ally_ERZ
+	icon = GFX_DEC_CHU_vbg_ally
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_ally_MOK
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_MOK focus = DEC_CHU_vbg_war_MOK }
+	mutually_exclusive = { focus = DEC_CHU_vbg_war_ERZ }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	available = {
+		country_exists = ERZ
+		ERZ = {
+			exists = yes
+			is_subject = no
+			num_of_controlled_states > 0
+			NOT = { tag = ROOT }
+		}
+	}
+	bypass = {
+		OR = {
+			1132 = { is_owned_by = ROOT }
+			ERZ = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_ally_ERZ"
+		ERZ = { save_event_target_as = DEC_chu_vbg_tgt }
+		1132 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_ally_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_ally_ERZ_tt
+	}
+	ai_will_do = { base = 3 }
+}
+shared_focus = {
+	id = DEC_CHU_vbg_war_ERZ
+	icon = GFX_DEC_CHU_vbg_war
+	allow_branch = { DEC_CHU_vbg_path_open = yes }
+	relative_position_id = DEC_CHU_vbg_war_MOK
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_vbg_ally_MOK focus = DEC_CHU_vbg_war_MOK }
+	mutually_exclusive = { focus = DEC_CHU_vbg_ally_ERZ }
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+	available = {
+		NOT = {
+			AND = {
+				DEC_is_libertarian_gov = yes
+				OR = {
+					AND = { country_exists = ERZ ERZ = { DEC_is_lib_or_anarchist_gov = yes } }
+					1132 = { owner = { DEC_is_lib_or_anarchist_gov = yes } }
+				}
+			}
+		}
+		OR = {
+			AND = { country_exists = ERZ ERZ = { NOT = { tag = ROOT } } }
+			1132 = { NOT = { is_owned_by = ROOT } }
+		}
+	}
+	bypass = {
+		OR = {
+			1132 = { is_owned_by = ROOT }
+			ERZ = { is_in_faction_with = ROOT }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_vbg_war_ERZ"
+		ERZ = { save_event_target_as = DEC_chu_vbg_tgt }
+		1132 = { save_event_target_as = DEC_chu_vbg_st }
+		DEC_CHU_vbg_war_saved = yes
+		custom_effect_tooltip = DEC_CHU_vbg_war_ERZ_tt
+	}
+	ai_will_do = { base = 1 }
+}
+
+shared_focus = {
+	id = DEC_CHU_lib_bc
+	icon = GFX_DEC_CHU_lib_bc
+	allow_branch = { DEC_CHU_lib_path_open = yes }
+	relative_position_id = DEC_CHU_pol_root
+	x = 28
+	y = 0
+	cost = 8
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_lib_bc"
+		add_ideas = DEC_CHU_blockchain_state
+		set_country_flag = DEC_CHU_freedom_tick
+		add_political_power = 80
+		custom_effect_tooltip = DEC_CHU_lib_bc_tt
+	}
+	ai_will_do = { base = 9 }
+}
+
+shared_focus = {
+	id = DEC_CHU_lib_pmcs
+	icon = GFX_DEC_CHU_lib_pmcs
+	allow_branch = { DEC_CHU_lib_path_open = yes }
+	relative_position_id = DEC_CHU_lib_bc
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_CHU_lib_bc }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_lib_pmcs"
+		add_ideas = DEC_CHU_private_armies
+		set_country_flag = DEC_CHU_priv_pmcs
+		DEC_spawn_drone_template = yes
+		add_manpower = 5000
+		custom_effect_tooltip = DEC_CHU_lib_pmcs_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_lib_coin
+	icon = GFX_DEC_CHU_lib_coin
+	allow_branch = { DEC_CHU_coin_path_open = yes }
+	relative_position_id = DEC_CHU_pol_root
+	x = 22
+	y = 0
+	cost = 7
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_lib_coin"
+		add_ideas = DEC_CHU_bulcoin
+		set_country_flag = DEC_CHU_bulcoin_tick
+		set_temp_variable = { treasury_change = 8 }
+		modify_treasury_effect = yes
+		add_stability = 0.08
+		custom_effect_tooltip = DEC_CHU_lib_coin_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_lib_priv
+	icon = GFX_DEC_CHU_lib_priv
+	allow_branch = { DEC_CHU_lib_path_open = yes }
+	relative_position_id = DEC_CHU_lib_coin
+	x = 0
+	y = 1
+	cost = 10
+	prerequisite = { focus = DEC_CHU_lib_coin }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_lib_priv"
+		add_ideas = DEC_CHU_privatization
+		set_country_flag = DEC_CHU_priv_industry
+		set_variable = { DEC_chu_priv_months = 0 }
+		custom_effect_tooltip = DEC_CHU_lib_priv_tt
+	}
+	ai_will_do = { base = 10 }
+}

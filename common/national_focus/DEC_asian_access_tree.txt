@@ -1,0 +1,51 @@
+# Access tree for Asian liberatables
+focus_tree = {
+	id = dec_asian_access_focus
+	country = {
+		factor = 0
+				modifier = { add = 40 tag = YAK }
+		modifier = { add = 40 tag = BRY }
+		modifier = { add = 40 tag = KHS }
+		modifier = { add = 40 tag = ALT }
+		modifier = { add = 40 tag = TUV }
+		modifier = { add = 40 tag = CKK }
+		modifier = { add = 40 tag = FAR }
+		modifier = { add = 40 tag = SIB }
+		modifier = { add = 40 tag = NEE }
+		modifier = { add = 40 tag = YAM }
+		modifier = { add = 40 tag = KLM }
+		modifier = { add = 22 tag = TIB }
+		modifier = { add = 22 tag = RYU }
+		modifier = { add = 22 tag = HKG }
+		modifier = { add = 22 tag = MAC }
+		modifier = { add = 22 tag = OMG }
+		modifier = { add = 20 tag = ASN }
+		modifier = { add = 18 tag = TAI }
+		modifier = { add = 18 tag = MON }
+		modifier = { add = 18 tag = NKO }
+		modifier = { add = 18 tag = LAO }
+		modifier = { add = 18 tag = CBD }
+		modifier = { add = 18 tag = BRM }
+		modifier = { add = 18 tag = BRU }
+		modifier = { add = 18 tag = SIN }
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1400 }
+	shared_focus = DEC_ASI_asian_awakening
+	shared_focus = DEC_RST_state_restoration
+	shared_focus = DEC_COA_machine_uprising
+
+	focus = {
+		id = DEC_ASI_local_council
+		icon = asian_union
+		x = 2
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_local_council"
+			add_political_power = 50
+			add_stability = 0.03
+		}
+	}
+}

@@ -1,0 +1,19 @@
+faction_template_dec_caucasian_union = {
+	name = DEC_CAUCASIAN_UNION_FACTION
+	icon = GFX_faction_icon_cis
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = {
+		always = no
+	}
+
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		war_declaration_generated_tension_25
+		war_declaration_threat_75
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}

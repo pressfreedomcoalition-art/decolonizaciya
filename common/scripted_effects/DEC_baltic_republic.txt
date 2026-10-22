@@ -1,0 +1,105 @@
+############################################
+# Baltic Republic (BLT) — Bund der Vertriebenen
+############################################
+
+# BdV takes power (party + leaders). Rename to East Prussia is a separate focus.
+DEC_BLT_bdv_take_power = {
+	log = "[GetDateText]: [This.GetName]: DEC_BLT_bdv_take_power"
+	set_party_name = {
+		ideology = nationalist
+		long_name = BLT_BDV_party_long
+		name = BLT_BDV_party
+	}
+	set_variable = { party_pop_array^21 = 0.55 }
+	add_popularity = { ideology = nationalist popularity = 0.55 }
+	set_variable = { ruling_party = 21 }
+	recalculate_party = yes
+	set_politics = { ruling_party = nationalist elections_allowed = no }
+	kill_country_leader = yes
+	create_country_leader = {
+		name = "Bernd Fabritius"
+		desc = POLITICS_FABRITIUS_DESC
+		picture = "gfx/leaders/DEC/bernd_fabritius.dds"
+		expire = "2060.1.1"
+		ideology = Nat_Populism
+		traits = { }
+	}
+	create_country_leader = {
+		name = "Frank Bayard"
+		desc = POLITICS_BAYARD_DESC
+		picture = "gfx/leaders/DEC/frank_bayard.dds"
+		expire = "2060.1.1"
+		ideology = Nat_Autocracy
+		traits = { }
+	}
+	set_country_flag = DEC_BLT_bdv_in_power
+	set_country_flag = DEC_rebel_nation
+	custom_effect_tooltip = DEC_BLT_bdv_power_tt
+}
+
+# Focus reward: rename to East Prussia + Prussian eagle flag
+DEC_BLT_restore_east_prussia = {
+	log = "[GetDateText]: [This.GetName]: DEC_BLT_restore_east_prussia"
+	if = {
+		limit = { NOT = { has_country_flag = DEC_BLT_bdv_in_power } }
+		DEC_BLT_bdv_take_power = yes
+	}
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = DEC_BLT_BDV
+	set_country_flag = DEC_BLT_east_prussia
+	add_stability = 0.05
+	add_war_support = 0.05
+	custom_effect_tooltip = DEC_BLT_east_prussia_tt
+}
+
+# Legacy alias (white NS conversion / old call sites)
+DEC_BLT_bdv_victory = {
+	DEC_BLT_bdv_take_power = yes
+}
+
+DEC_uprising_BLT = {
+	log = "DEC: BLT uprising vs SOV"
+	642 = { add_core_of = BLT }
+	if = {
+		limit = { NOT = { country_exists = BLT } }
+		SOV = { release = BLT }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = BLT
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			BLT = { transfer_state = PREV }
+		}
+	}
+	BLT = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_national_militia = yes
+		DEC_BLT_bdv_take_power = yes
+		load_focus_tree = {
+			tree = dec_baltic_republic_focus
+			keep_completed = no
+		}
+		642 = {
+			create_unit = {
+				division = "name = \"Baltic Brigade\" division_template = \"National Volunteers\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = BLT
+				prioritize_location = 6332
+				count = 3
+			}
+		}
+		declare_war_on = { target = SOV type = annex_everything }
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		BLT = {
+			add_to_war = { targeted_alliance = ROOT enemy = SOV hostility_reason = asked_to_join }
+		}
+	}
+	set_global_flag = DEC_BLT_independent_uprising
+}

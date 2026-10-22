@@ -1,0 +1,331 @@
+faction_template_dec_coalition = {
+	name = DEC_COALITION_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		war_declaration_generated_tension_25
+		war_declaration_threat_75
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_idel_ural = {
+	name = DEC_IDEL_URAL_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_bulgar = {
+	name = DEC_BULGAR_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_fennoscandia = {
+	name = DEC_FENNOSCANDIA_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_turan = {
+	name = DEC_TURAN_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_ural = {
+	name = DEC_URAL_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_siberia = {
+	name = DEC_SIBERIA_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_fareast = {
+	name = DEC_FAREAST_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_democratic_non_aligned
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_world_caliphate = {
+	name = DEC_WORLD_CALIPHATE_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_caliphate_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_white_brotherhood = {
+	name = DEC_WHITE_BROTHERHOOD_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_white_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_black_brotherhood = {
+	name = DEC_BLACK_BROTHERHOOD_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_black_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_black_panthers_america = {
+	name = DEC_BLACK_PANTHERS_AMERICA_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_black_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_black_panthers_europe = {
+	name = DEC_BLACK_PANTHERS_EUROPE_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_black_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_abya_yala = {
+	name = DEC_ABYA_YALA_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_indigenous_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_turtle_island = {
+	name = DEC_TURTLE_ISLAND_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_indigenous_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_melanesian_league = {
+	name = DEC_MELANESIAN_LEAGUE_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_indigenous_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_asian_sphere = {
+	name = DEC_ASIAN_SPHERE_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_asian_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_greater_east_asia = {
+	name = DEC_GREATER_EAST_ASIA_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_asian_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_asean_revival = {
+	name = DEC_ASEAN_REVIVAL_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_asian_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_hindu_rashtra = {
+	name = DEC_HINDU_RASHTRA_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_hindu_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_sangh_parivar = {
+	name = DEC_SANGH_PARIVAR_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_hindu_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}
+
+faction_template_dec_indic_diaspora = {
+	name = DEC_INDIC_DIASPORA_FACTION
+	icon = GFX_faction_logo_generic_4
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = { always = no }
+	default_rules = {
+		joining_rule_dec_hindu_list
+		joining_rule_has_no_war
+		war_declaration_rule_faction_leader_only
+		call_to_war_rule_defensive_only
+		dismissal_rule_impossible
+	}
+}

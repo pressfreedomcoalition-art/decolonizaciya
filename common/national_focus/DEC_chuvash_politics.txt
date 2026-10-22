@@ -1,0 +1,959 @@
+############################################
+# Chuvash politics: binary ideology forks -> party -> take power
+# Propaganda focuses add group/slot popularity.
+############################################
+
+shared_focus = {
+	id = DEC_CHU_pol_root
+	icon = GFX_DEC_CHU_pol_root
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	x = 270
+	y = 0
+	cost = 4
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_root"
+		add_political_power = 50
+		add_stability = 0.02
+		custom_effect_tooltip = DEC_CHU_pol_root_tt
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_g_dem
+	icon = GFX_DEC_CHU_pol_g_dem
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_root
+	x = -16
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_root }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_sov }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_g_dem"
+		add_popularity = { ideology = democratic popularity = 0.08 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_dem_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_g_sov
+	icon = GFX_DEC_CHU_pol_g_sov
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_root
+	x = 16
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_root }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_dem }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_g_sov"
+		add_popularity = { ideology = communism popularity = 0.04 }
+		add_popularity = { ideology = nationalist popularity = 0.03 }
+		add_popularity = { ideology = neutrality popularity = 0.03 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_sov_tt
+	}
+	ai_will_do = { base = 5 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_c_street
+	icon = GFX_DEC_CHU_pol_c_street
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_dem
+	x = -8
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_dem }
+	mutually_exclusive = { focus = DEC_CHU_pol_c_reform }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_c_street"
+		add_popularity = { ideology = democratic popularity = 0.05 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_dem_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_c_reform
+	icon = GFX_DEC_CHU_pol_c_reform
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_dem
+	x = 8
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_dem }
+	mutually_exclusive = { focus = DEC_CHU_pol_c_street }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_c_reform"
+		add_popularity = { ideology = democratic popularity = 0.05 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_dem_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_lib
+	icon = GFX_DEC_CHU_pol_p_lib
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_street
+	x = -4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_street }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_cons }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_lib"
+		add_to_variable = { party_pop_array^2 = 0.08 }
+		clamp_variable = { var = party_pop_array^2 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_lib_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_cons
+	icon = GFX_DEC_CHU_pol_p_cons
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_street
+	x = 4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_street }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_lib }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_cons"
+		add_to_variable = { party_pop_array^1 = 0.08 }
+		clamp_variable = { var = party_pop_array^1 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_cons_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_soc
+	icon = GFX_DEC_CHU_pol_p_soc
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_reform
+	x = -4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_reform }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_wa }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_soc"
+		add_to_variable = { party_pop_array^3 = 0.08 }
+		clamp_variable = { var = party_pop_array^3 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_soc_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_wa
+	icon = GFX_DEC_CHU_pol_p_wa
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_reform
+	x = 4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_reform }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_soc }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_wa"
+		add_to_variable = { party_pop_array^0 = 0.08 }
+		clamp_variable = { var = party_pop_array^0 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_wa_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_g_com
+	icon = GFX_DEC_CHU_pol_g_com
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_sov
+	x = -10
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_sov }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_third }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_g_com"
+		add_popularity = { ideology = communism popularity = 0.08 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_com_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_g_third
+	icon = GFX_DEC_CHU_pol_g_third
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_sov
+	x = 10
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_sov }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_com }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_g_third"
+		add_popularity = { ideology = neutrality popularity = 0.05 }
+		add_popularity = { ideology = nationalist popularity = 0.05 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_third_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_est
+	icon = GFX_DEC_CHU_pol_p_est
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_com
+	x = -4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_com }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_kprf }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_est"
+		add_to_variable = { party_pop_array^6 = 0.08 }
+		clamp_variable = { var = party_pop_array^6 min = 0 max = 1 }
+		add_popularity = { ideology = communism popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_est_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_kprf
+	icon = GFX_DEC_CHU_pol_p_kprf
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_com
+	x = 4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_com }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_est }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_kprf"
+		add_to_variable = { party_pop_array^4 = 0.08 }
+		clamp_variable = { var = party_pop_array^4 min = 0 max = 1 }
+		add_popularity = { ideology = communism popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_kprf_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_g_neu
+	icon = GFX_DEC_CHU_pol_g_neu
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_third
+	x = -12
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_third }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_nat }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_ummah }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_g_neu"
+		add_popularity = { ideology = neutrality popularity = 0.08 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_neu_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_g_ummah
+	icon = GFX_DEC_CHU_pol_g_ummah
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_third
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_third }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_neu }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_nat }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_g_ummah"
+		add_popularity = { ideology = fascism popularity = 0.08 }
+		add_to_variable = { party_pop_array^11 = 0.05 }
+		clamp_variable = { var = party_pop_array^11 min = 0 max = 1 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_ummah_tt
+	}
+	ai_will_do = { base = 3 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_argadu
+	icon = GFX_DEC_CHU_pol_p_argadu
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_ummah
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_ummah }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_argadu"
+		add_to_variable = { party_pop_array^11 = 0.08 }
+		clamp_variable = { var = party_pop_array^11 min = 0 max = 1 }
+		add_popularity = { ideology = fascism popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_argadu_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_g_nat
+	icon = GFX_DEC_CHU_pol_g_nat
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_third
+	x = 12
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_third }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_neu }
+	mutually_exclusive = { focus = DEC_CHU_pol_g_ummah }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_g_nat"
+		add_popularity = { ideology = nationalist popularity = 0.08 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_nat_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_oresh
+	icon = GFX_DEC_CHU_pol_p_oresh
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_neu
+	x = -8
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_neu }
+	mutually_exclusive = { focus = DEC_CHU_pol_c_neu }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_oresh"
+		add_to_variable = { party_pop_array^16 = 0.08 }
+		clamp_variable = { var = party_pop_array^16 min = 0 max = 1 }
+		add_popularity = { ideology = neutrality popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_oresh_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_c_neu
+	icon = GFX_DEC_CHU_pol_c_neu
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_neu
+	x = 8
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_neu }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_oresh }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_c_neu"
+		add_popularity = { ideology = neutrality popularity = 0.05 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_neu_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_olen
+	icon = GFX_DEC_CHU_pol_p_olen
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_neu
+	x = -4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_neu }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_luk }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_olen"
+		add_to_variable = { party_pop_array^19 = 0.08 }
+		clamp_variable = { var = party_pop_array^19 min = 0 max = 1 }
+		add_popularity = { ideology = neutrality popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_olen_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_luk
+	icon = GFX_DEC_CHU_pol_p_luk
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_neu
+	x = 6
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_neu }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_olen }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_luk"
+		add_to_variable = { party_pop_array^17 = 0.08 }
+		clamp_variable = { var = party_pop_array^17 min = 0 max = 1 }
+		add_popularity = { ideology = neutrality popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_luk_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_khuz
+	icon = GFX_DEC_CHU_pol_p_khuz
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_nat
+	x = -14
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_nat }
+	mutually_exclusive = { focus = DEC_CHU_pol_c_nat }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_khuz"
+		add_to_variable = { party_pop_array^20 = 0.08 }
+		clamp_variable = { var = party_pop_array^20 min = 0 max = 1 }
+		add_popularity = { ideology = nationalist popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_khuz_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_c_nat
+	icon = GFX_DEC_CHU_pol_c_nat
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_g_nat
+	x = 8
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_g_nat }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_khuz }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_c_nat"
+		add_popularity = { ideology = nationalist popularity = 0.05 }
+		add_political_power = 25
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_boost_nat_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_evd
+	icon = GFX_DEC_CHU_pol_p_evd
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_nat
+	x = -4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_nat }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_yukh }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_evd"
+		add_to_variable = { party_pop_array^21 = 0.08 }
+		clamp_variable = { var = party_pop_array^21 min = 0 max = 1 }
+		add_popularity = { ideology = nationalist popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_evd_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_p_yukh
+	icon = GFX_DEC_CHU_pol_p_yukh
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_c_nat
+	x = 4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_pol_c_nat }
+	mutually_exclusive = { focus = DEC_CHU_pol_p_evd }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_p_yukh"
+		add_to_variable = { party_pop_array^22 = 0.08 }
+		clamp_variable = { var = party_pop_array^22 min = 0 max = 1 }
+		add_popularity = { ideology = nationalist popularity = 0.04 }
+		add_political_power = 20
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pol_slot_yukh_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_lib
+	icon = GFX_DEC_CHU_pol_pwr_lib
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_lib
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_lib }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^2 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_lib"
+		add_to_variable = { party_pop_array^2 = 0.18 }
+		clamp_variable = { var = party_pop_array^2 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.12 }
+		set_variable = { ruling_party = 2 }
+		recalculate_party = yes
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_west = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_lib_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_cons
+	icon = GFX_DEC_CHU_pol_pwr_cons
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_cons
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_cons }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^1 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_cons"
+		add_to_variable = { party_pop_array^1 = 0.18 }
+		clamp_variable = { var = party_pop_array^1 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.12 }
+		set_variable = { ruling_party = 1 }
+		recalculate_party = yes
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_west = yes
+		DEC_CHU_unlock_vbg = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_cons_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_soc
+	icon = GFX_DEC_CHU_pol_pwr_soc
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_soc
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_soc }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^3 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_soc"
+		add_to_variable = { party_pop_array^3 = 0.18 }
+		clamp_variable = { var = party_pop_array^3 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.12 }
+		set_variable = { ruling_party = 3 }
+		recalculate_party = yes
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_west = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_soc_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_wa
+	icon = GFX_DEC_CHU_pol_pwr_wa
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_wa
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_wa }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^0 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_wa"
+		add_to_variable = { party_pop_array^0 = 0.18 }
+		clamp_variable = { var = party_pop_array^0 min = 0 max = 1 }
+		add_popularity = { ideology = democratic popularity = 0.12 }
+		set_variable = { ruling_party = 0 }
+		recalculate_party = yes
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_west = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_wa_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_est
+	icon = GFX_DEC_CHU_pol_pwr_est
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_est
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_est }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^6 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_est"
+		add_to_variable = { party_pop_array^6 = 0.18 }
+		clamp_variable = { var = party_pop_array^6 min = 0 max = 1 }
+		add_popularity = { ideology = communism popularity = 0.12 }
+		set_variable = { ruling_party = 6 }
+		recalculate_party = yes
+		set_politics = { ruling_party = communism elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_est = yes
+		DEC_CHU_unlock_vbg = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_est_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_kprf
+	icon = GFX_DEC_CHU_pol_pwr_kprf
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_kprf
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_kprf }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^4 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_kprf"
+		add_to_variable = { party_pop_array^4 = 0.18 }
+		clamp_variable = { var = party_pop_array^4 min = 0 max = 1 }
+		add_popularity = { ideology = communism popularity = 0.12 }
+		set_variable = { ruling_party = 4 }
+		recalculate_party = yes
+		set_politics = { ruling_party = communism elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_left = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_kprf_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_oresh
+	icon = GFX_DEC_CHU_pol_pwr_oresh
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_oresh
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_oresh }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^16 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_oresh"
+		add_to_variable = { party_pop_array^16 = 0.18 }
+		clamp_variable = { var = party_pop_array^16 min = 0 max = 1 }
+		add_popularity = { ideology = neutrality popularity = 0.12 }
+		set_variable = { ruling_party = 16 }
+		recalculate_party = yes
+		set_politics = { ruling_party = neutrality elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_lib = yes
+		DEC_CHU_unlock_vbg = yes
+		DEC_CHU_unlock_lib = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_oresh_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_olen
+	icon = GFX_DEC_CHU_pol_pwr_olen
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_olen
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_olen }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^19 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_olen"
+		add_to_variable = { party_pop_array^19 = 0.18 }
+		clamp_variable = { var = party_pop_array^19 min = 0 max = 1 }
+		add_popularity = { ideology = neutrality popularity = 0.12 }
+		set_variable = { ruling_party = 19 }
+		recalculate_party = yes
+		set_politics = { ruling_party = neutrality elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_left = yes
+		set_country_flag = DEC_CHU_left_front_power
+		custom_effect_tooltip = DEC_CHU_pol_pwr_olen_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_luk
+	icon = GFX_DEC_CHU_pol_pwr_luk
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_luk
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_luk }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^17 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_luk"
+		add_to_variable = { party_pop_array^17 = 0.18 }
+		clamp_variable = { var = party_pop_array^17 min = 0 max = 1 }
+		add_popularity = { ideology = neutrality popularity = 0.12 }
+		set_variable = { ruling_party = 17 }
+		recalculate_party = yes
+		set_politics = { ruling_party = neutrality elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_nat = yes
+		DEC_CHU_unlock_vbg = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_luk_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_khuz
+	icon = GFX_DEC_CHU_pol_pwr_khuz
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_khuz
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_khuz }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^20 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_khuz"
+		add_to_variable = { party_pop_array^20 = 0.18 }
+		clamp_variable = { var = party_pop_array^20 min = 0 max = 1 }
+		add_popularity = { ideology = nationalist popularity = 0.12 }
+		set_variable = { ruling_party = 20 }
+		recalculate_party = yes
+		set_politics = { ruling_party = nationalist elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_nat = yes
+		DEC_CHU_unlock_vbg = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_khuz_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_evd
+	icon = GFX_DEC_CHU_pol_pwr_evd
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_evd
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_evd }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^21 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_evd"
+		add_to_variable = { party_pop_array^21 = 0.18 }
+		clamp_variable = { var = party_pop_array^21 min = 0 max = 1 }
+		add_popularity = { ideology = nationalist popularity = 0.12 }
+		set_variable = { ruling_party = 21 }
+		recalculate_party = yes
+		set_politics = { ruling_party = nationalist elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_nat = yes
+		DEC_CHU_unlock_vbg = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_evd_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_yukh
+	icon = GFX_DEC_CHU_pol_pwr_yukh
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_yukh
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_yukh }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^22 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_yukh"
+		add_to_variable = { party_pop_array^22 = 0.18 }
+		clamp_variable = { var = party_pop_array^22 min = 0 max = 1 }
+		add_popularity = { ideology = nationalist popularity = 0.12 }
+		set_variable = { ruling_party = 22 }
+		recalculate_party = yes
+		set_politics = { ruling_party = nationalist elections_allowed = yes }
+		add_political_power = 100
+		add_stability = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_nat = yes
+		DEC_CHU_unlock_vbg = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_yukh_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pol_pwr_argadu
+	icon = GFX_DEC_CHU_pol_pwr_argadu
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_p_argadu
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_pol_p_argadu }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = {
+		check_variable = { party_pop_array^11 > 0.08 }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pol_pwr_argadu"
+		add_to_variable = { party_pop_array^11 = 0.18 }
+		clamp_variable = { var = party_pop_array^11 min = 0 max = 1 }
+		add_popularity = { ideology = fascism popularity = 0.12 }
+		set_variable = { ruling_party = 11 }
+		recalculate_party = yes
+		set_politics = { ruling_party = fascism elections_allowed = no }
+		add_political_power = 100
+		add_stability = 0.02
+		add_war_support = 0.05
+		DEC_CHU_after_take_power = yes
+		DEC_CHU_set_camp_argadu = yes
+		DEC_CHU_unlock_vbg = yes
+		custom_effect_tooltip = DEC_CHU_pol_pwr_argadu_tt
+	}
+	ai_will_do = { base = 7 }
+}

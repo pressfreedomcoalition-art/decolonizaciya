@@ -1,0 +1,4160 @@
+############################################
+# Mega ideology sparks: boost + uprising (merged)
+# Unlocked by completing regional focuses (reg_*)
+############################################
+
+DEC_mega_spark_category = {
+	DEC_WHT_spark_europe_west = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ENG
+			FRA
+			BEL
+			HOL
+			IRE
+			LUX
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_europe_west
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_europe_west
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_europe_west -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ENG original_tag = ENG } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_ENG = yes
+				DEC_WHT_uprising_ENG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = FRA original_tag = FRA } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_FRA = yes
+				DEC_WHT_uprising_FRA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BEL original_tag = BEL } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_BEL = yes
+				DEC_WHT_uprising_BEL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HOL original_tag = HOL } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_HOL = yes
+				DEC_WHT_uprising_HOL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = IRE original_tag = IRE } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_IRE = yes
+				DEC_WHT_uprising_IRE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LUX original_tag = LUX } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_LUX = yes
+				DEC_WHT_uprising_LUX = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_europe_north = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			DEN
+			ICE
+			NRY
+			SWE
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_europe_north
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_europe_north
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_europe_north -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = DEN original_tag = DEN } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_DEN = yes
+				DEC_WHT_uprising_DEN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ICE original_tag = ICE } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_ICE = yes
+				DEC_WHT_uprising_ICE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NRY original_tag = NRY } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_NRY = yes
+				DEC_WHT_uprising_NRY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SWE original_tag = SWE } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SWE = yes
+				DEC_WHT_uprising_SWE = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_europe_central = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			AUS
+			CZE
+			GER
+			HUN
+			LIC
+			POL
+			SLO
+			SWI
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_europe_central
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_europe_central
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_europe_central -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = AUS original_tag = AUS } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_AUS = yes
+				DEC_WHT_uprising_AUS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CZE original_tag = CZE } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_CZE = yes
+				DEC_WHT_uprising_CZE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GER original_tag = GER } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_GER = yes
+				DEC_WHT_uprising_GER = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HUN original_tag = HUN } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_HUN = yes
+				DEC_WHT_uprising_HUN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LIC original_tag = LIC } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_LIC = yes
+				DEC_WHT_uprising_LIC = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = POL original_tag = POL } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_POL = yes
+				DEC_WHT_uprising_POL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SLO original_tag = SLO } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SLO = yes
+				DEC_WHT_uprising_SLO = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SWI original_tag = SWI } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SWI = yes
+				DEC_WHT_uprising_SWI = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_europe_east = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ADO
+			ALB
+			BLR
+			BOS
+			BUL
+			CRO
+			CYP
+			FYR
+			GRE
+			HLS
+			ITA
+			KOS
+			LAT
+			LIT
+			MLT
+			MLV
+			MNT
+			POR
+			ROM
+			SER
+			SLV
+			SMA
+			SPR
+			UKR
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_europe_east
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_europe_east
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_europe_east -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ADO original_tag = ADO } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_ADO = yes
+				DEC_WHT_uprising_ADO = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ALB original_tag = ALB } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_ALB = yes
+				DEC_WHT_uprising_ALB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BLR original_tag = BLR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_BLR = yes
+				DEC_WHT_uprising_BLR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BOS original_tag = BOS } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_BOS = yes
+				DEC_WHT_uprising_BOS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BUL original_tag = BUL } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_BUL = yes
+				DEC_WHT_uprising_BUL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CRO original_tag = CRO } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_CRO = yes
+				DEC_WHT_uprising_CRO = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CYP original_tag = CYP } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_CYP = yes
+				DEC_WHT_uprising_CYP = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = FYR original_tag = FYR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_FYR = yes
+				DEC_WHT_uprising_FYR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GRE original_tag = GRE } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_GRE = yes
+				DEC_WHT_uprising_GRE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HLS original_tag = HLS } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_HLS = yes
+				DEC_WHT_uprising_HLS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ITA original_tag = ITA } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_ITA = yes
+				DEC_WHT_uprising_ITA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KOS original_tag = KOS } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_KOS = yes
+				DEC_WHT_uprising_KOS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LAT original_tag = LAT } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_LAT = yes
+				DEC_WHT_uprising_LAT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LIT original_tag = LIT } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_LIT = yes
+				DEC_WHT_uprising_LIT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MLT original_tag = MLT } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_MLT = yes
+				DEC_WHT_uprising_MLT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MLV original_tag = MLV } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_MLV = yes
+				DEC_WHT_uprising_MLV = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MNT original_tag = MNT } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_MNT = yes
+				DEC_WHT_uprising_MNT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = POR original_tag = POR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_POR = yes
+				DEC_WHT_uprising_POR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ROM original_tag = ROM } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_ROM = yes
+				DEC_WHT_uprising_ROM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SER original_tag = SER } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SER = yes
+				DEC_WHT_uprising_SER = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SLV original_tag = SLV } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SLV = yes
+				DEC_WHT_uprising_SLV = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SMA original_tag = SMA } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SMA = yes
+				DEC_WHT_uprising_SMA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SPR original_tag = SPR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SPR = yes
+				DEC_WHT_uprising_SPR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = UKR original_tag = UKR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_UKR = yes
+				DEC_WHT_uprising_UKR = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_europe_russian = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BGR
+			DON
+			KUB
+			RUS
+			SEV
+			SMO
+			SOV
+			VOR
+			VYK
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_europe_russian
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_europe_russian
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_europe_russian -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BGR original_tag = BGR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_BGR = yes
+				DEC_WHT_uprising_BGR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = DON original_tag = DON } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_DON = yes
+				DEC_WHT_uprising_DON = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KUB original_tag = KUB } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_KUB = yes
+				DEC_WHT_uprising_KUB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = RUS original_tag = RUS } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_RUS = yes
+				DEC_WHT_uprising_RUS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SEV original_tag = SEV } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SEV = yes
+				DEC_WHT_uprising_SEV = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SMO original_tag = SMO } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SMO = yes
+				DEC_WHT_uprising_SMO = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SOV original_tag = SOV } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_SOV = yes
+				DEC_WHT_uprising_SOV = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VOR original_tag = VOR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_VOR = yes
+				DEC_WHT_uprising_VOR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VYK original_tag = VYK } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_VYK = yes
+				DEC_WHT_uprising_VYK = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_na_usa = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			USA
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_na_usa
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_na_usa
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_na_usa -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = USA original_tag = USA } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_USA = yes
+				DEC_WHT_uprising_USA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_na_canada = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			CAN
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_na_canada
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_na_canada
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_na_canada -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = CAN original_tag = CAN } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_CAN = yes
+				DEC_WHT_uprising_CAN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_colonies_saf = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			APT
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_colonies_saf
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_colonies_saf
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_colonies_saf -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = APT original_tag = APT } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_APT = yes
+				DEC_WHT_uprising_APT = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_colonies_rho = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			RHO
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_colonies_rho
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_colonies_rho
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_colonies_rho -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = RHO original_tag = RHO } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_RHO = yes
+				DEC_WHT_uprising_RHO = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_colonies_cone = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ARG
+			BRA
+			CHL
+			URG
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_colonies_cone
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_colonies_cone
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_colonies_cone -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ARG original_tag = ARG } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_ARG = yes
+				DEC_WHT_uprising_ARG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BRA original_tag = BRA } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_BRA = yes
+				DEC_WHT_uprising_BRA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CHL original_tag = CHL } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_CHL = yes
+				DEC_WHT_uprising_CHL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = URG original_tag = URG } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_URG = yes
+				DEC_WHT_uprising_URG = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_finno_fin = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			FIN
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_finno_fin
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_finno_fin
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_finno_fin -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = FIN original_tag = FIN } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_FIN = yes
+				DEC_WHT_uprising_FIN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_finno_est = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			EST
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_finno_est
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_finno_est
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_finno_est -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = EST original_tag = EST } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_EST = yes
+				DEC_WHT_uprising_EST = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_finno_north_finno = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BJA
+			IGR
+			KAE
+			LAP
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_finno_north_finno
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_finno_north_finno
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_finno_north_finno -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BJA original_tag = BJA } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_BJA = yes
+				DEC_WHT_uprising_BJA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = IGR original_tag = IGR } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_IGR = yes
+				DEC_WHT_uprising_IGR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KAE original_tag = KAE } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_KAE = yes
+				DEC_WHT_uprising_KAE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LAP original_tag = LAP } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_LAP = yes
+				DEC_WHT_uprising_LAP = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_oceania_ast = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			AST
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_oceania_ast
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_oceania_ast
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_oceania_ast -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = AST original_tag = AST } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_AST = yes
+				DEC_WHT_uprising_AST = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_WHT_spark_oceania_nzl = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_white_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			NZL
+		}
+		visible = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_WHT_reg_oceania_nzl
+		}
+		available = {
+			DEC_can_access_white_revival = yes
+			has_completed_focus = DEC_WHT_reg_oceania_nzl
+			NOT = { FROM = { has_country_flag = DEC_WHT_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_WHT_spark_oceania_nzl -> [From.GetName]"
+			FROM = { set_country_flag = DEC_WHT_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = NZL original_tag = NZL } } }
+				set_variable = { DEC_wht_ns_amt = 0.25 }
+				DEC_WHT_boost_country_NZL = yes
+				DEC_WHT_uprising_NZL = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_west_sahel = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BFA
+			CHA
+			GAM
+			MAL
+			NGR
+			SEN
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_west_sahel
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_west_sahel
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_west_sahel -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BFA original_tag = BFA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BFA = yes
+				DEC_BAW_uprising_BFA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CHA original_tag = CHA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_CHA = yes
+				DEC_BAW_uprising_CHA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GAM original_tag = GAM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_GAM = yes
+				DEC_BAW_uprising_GAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MAL original_tag = MAL } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_MAL = yes
+				DEC_BAW_uprising_MAL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NGR original_tag = NGR } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_NGR = yes
+				DEC_BAW_uprising_NGR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SEN original_tag = SEN } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SEN = yes
+				DEC_BAW_uprising_SEN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_west_guinea = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BEN
+			CDI
+			GAH
+			GUB
+			GUI
+			LIB
+			SIE
+			TOG
+			VER
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_west_guinea
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_west_guinea
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_west_guinea -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BEN original_tag = BEN } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BEN = yes
+				DEC_BAW_uprising_BEN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CDI original_tag = CDI } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_CDI = yes
+				DEC_BAW_uprising_CDI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GAH original_tag = GAH } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_GAH = yes
+				DEC_BAW_uprising_GAH = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GUB original_tag = GUB } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_GUB = yes
+				DEC_BAW_uprising_GUB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GUI original_tag = GUI } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_GUI = yes
+				DEC_BAW_uprising_GUI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LIB original_tag = LIB } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_LIB = yes
+				DEC_BAW_uprising_LIB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SIE original_tag = SIE } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SIE = yes
+				DEC_BAW_uprising_SIE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TOG original_tag = TOG } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_TOG = yes
+				DEC_BAW_uprising_TOG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VER original_tag = VER } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_VER = yes
+				DEC_BAW_uprising_VER = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_west_nigeria = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			NIG
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_west_nigeria
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_west_nigeria
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_west_nigeria -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = NIG original_tag = NIG } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_NIG = yes
+				DEC_BAW_uprising_NIG = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_central_congo = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			CAR
+			CNG
+			DRC
+			SSU
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_central_congo
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_central_congo
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_central_congo -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = CAR original_tag = CAR } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_CAR = yes
+				DEC_BAW_uprising_CAR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CNG original_tag = CNG } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_CNG = yes
+				DEC_BAW_uprising_CNG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = DRC original_tag = DRC } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_DRC = yes
+				DEC_BAW_uprising_DRC = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SSU original_tag = SSU } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SSU = yes
+				DEC_BAW_uprising_SSU = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_central_equatorial = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			CAM
+			EGU
+			GAB
+			SAO
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_central_equatorial
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_central_equatorial
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_central_equatorial -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = CAM original_tag = CAM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_CAM = yes
+				DEC_BAW_uprising_CAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = EGU original_tag = EGU } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_EGU = yes
+				DEC_BAW_uprising_EGU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GAB original_tag = GAB } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_GAB = yes
+				DEC_BAW_uprising_GAB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SAO original_tag = SAO } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SAO = yes
+				DEC_BAW_uprising_SAO = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_east_horn = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			DJI
+			ERI
+			ETH
+			SML
+			SOM
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_east_horn
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_east_horn
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_east_horn -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = DJI original_tag = DJI } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_DJI = yes
+				DEC_BAW_uprising_DJI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ERI original_tag = ERI } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_ERI = yes
+				DEC_BAW_uprising_ERI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ETH original_tag = ETH } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_ETH = yes
+				DEC_BAW_uprising_ETH = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SML original_tag = SML } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SML = yes
+				DEC_BAW_uprising_SML = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SOM original_tag = SOM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SOM = yes
+				DEC_BAW_uprising_SOM = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_east_lakes = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BUR
+			KEN
+			RWA
+			TNZ
+			UGA
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_east_lakes
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_east_lakes
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_east_lakes -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BUR original_tag = BUR } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BUR = yes
+				DEC_BAW_uprising_BUR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KEN original_tag = KEN } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_KEN = yes
+				DEC_BAW_uprising_KEN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = RWA original_tag = RWA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_RWA = yes
+				DEC_BAW_uprising_RWA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TNZ original_tag = TNZ } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_TNZ = yes
+				DEC_BAW_uprising_TNZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = UGA original_tag = UGA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_UGA = yes
+				DEC_BAW_uprising_UGA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_east_sudan = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			SUD
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_east_sudan
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_east_sudan
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_east_sudan -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = SUD original_tag = SUD } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SUD = yes
+				DEC_BAW_uprising_SUD = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_east_islands = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			COM
+			MAD
+			MRT
+			SEY
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_east_islands
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_east_islands
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_east_islands -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = COM original_tag = COM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_COM = yes
+				DEC_BAW_uprising_COM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MAD original_tag = MAD } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_MAD = yes
+				DEC_BAW_uprising_MAD = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MRT original_tag = MRT } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_MRT = yes
+				DEC_BAW_uprising_MRT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SEY original_tag = SEY } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SEY = yes
+				DEC_BAW_uprising_SEY = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_south_cape = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BOT
+			LES
+			NAM
+			SAF
+			SWA
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_south_cape
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_south_cape
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_south_cape -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BOT original_tag = BOT } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BOT = yes
+				DEC_BAW_uprising_BOT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LES original_tag = LES } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_LES = yes
+				DEC_BAW_uprising_LES = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NAM original_tag = NAM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_NAM = yes
+				DEC_BAW_uprising_NAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SAF original_tag = SAF } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SAF = yes
+				DEC_BAW_uprising_SAF = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SWA original_tag = SWA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SWA = yes
+				DEC_BAW_uprising_SWA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_south_miombo = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			AGL
+			MLW
+			MOZ
+			ZAM
+			ZIM
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_south_miombo
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_south_miombo
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_south_miombo -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = AGL original_tag = AGL } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_AGL = yes
+				DEC_BAW_uprising_AGL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MLW original_tag = MLW } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_MLW = yes
+				DEC_BAW_uprising_MLW = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MOZ original_tag = MOZ } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_MOZ = yes
+				DEC_BAW_uprising_MOZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ZAM original_tag = ZAM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_ZAM = yes
+				DEC_BAW_uprising_ZAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ZIM original_tag = ZIM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_ZIM = yes
+				DEC_BAW_uprising_ZIM = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_america_usa = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			USA
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_america_usa
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_america_usa
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_america_usa -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = USA original_tag = USA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_USA = yes
+				DEC_BAW_uprising_USA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_america_caribbean = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BAH
+			BAR
+			CUB
+			DOM
+			HAI
+			JAM
+			TRI
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_america_caribbean
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_america_caribbean
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_america_caribbean -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BAH original_tag = BAH } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BAH = yes
+				DEC_BAW_uprising_BAH = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BAR original_tag = BAR } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BAR = yes
+				DEC_BAW_uprising_BAR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CUB original_tag = CUB } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_CUB = yes
+				DEC_BAW_uprising_CUB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = DOM original_tag = DOM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_DOM = yes
+				DEC_BAW_uprising_DOM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HAI original_tag = HAI } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_HAI = yes
+				DEC_BAW_uprising_HAI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = JAM original_tag = JAM } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_JAM = yes
+				DEC_BAW_uprising_JAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TRI original_tag = TRI } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_TRI = yes
+				DEC_BAW_uprising_TRI = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_america_central_am = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BLZ
+			HON
+			NIC
+			PAN
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_america_central_am
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_america_central_am
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_america_central_am -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BLZ original_tag = BLZ } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BLZ = yes
+				DEC_BAW_uprising_BLZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HON original_tag = HON } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_HON = yes
+				DEC_BAW_uprising_HON = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NIC original_tag = NIC } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_NIC = yes
+				DEC_BAW_uprising_NIC = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAN original_tag = PAN } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_PAN = yes
+				DEC_BAW_uprising_PAN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_america_south_am = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BRA
+			COL
+			FGU
+			GUY
+			SUR
+			VEN
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_america_south_am
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_america_south_am
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_america_south_am -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BRA original_tag = BRA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BRA = yes
+				DEC_BAW_uprising_BRA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = COL original_tag = COL } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_COL = yes
+				DEC_BAW_uprising_COL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = FGU original_tag = FGU } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_FGU = yes
+				DEC_BAW_uprising_FGU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GUY original_tag = GUY } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_GUY = yes
+				DEC_BAW_uprising_GUY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SUR original_tag = SUR } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_SUR = yes
+				DEC_BAW_uprising_SUR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VEN original_tag = VEN } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_VEN = yes
+				DEC_BAW_uprising_VEN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_europe_eng = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ENG
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_europe_eng
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_europe_eng
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_europe_eng -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ENG original_tag = ENG } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_ENG = yes
+				DEC_BAW_uprising_ENG = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_europe_fra = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			FRA
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_europe_fra
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_europe_fra
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_europe_fra -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = FRA original_tag = FRA } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_FRA = yes
+				DEC_BAW_uprising_FRA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_europe_bel = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BEL
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_europe_bel
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_europe_bel
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_europe_bel -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BEL original_tag = BEL } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_BEL = yes
+				DEC_BAW_uprising_BEL = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_europe_hol = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			HOL
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_europe_hol
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_europe_hol
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_europe_hol -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = HOL original_tag = HOL } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_HOL = yes
+				DEC_BAW_uprising_HOL = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_BAW_spark_europe_por = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_black_brotherhood_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			POR
+		}
+		visible = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_BAW_reg_europe_por
+		}
+		available = {
+			DEC_can_access_black_awakening = yes
+			has_completed_focus = DEC_BAW_reg_europe_por
+			NOT = { FROM = { has_country_flag = DEC_BAW_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_BAW_spark_europe_por -> [From.GetName]"
+			FROM = { set_country_flag = DEC_BAW_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = POR original_tag = POR } } }
+				set_variable = { DEC_baw_ns_amt = 0.25 }
+				DEC_BAW_boost_country_POR = yes
+				DEC_BAW_uprising_POR = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_north_plains = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			GLC
+			LKT
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_north_plains
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_north_plains
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_north_plains -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = GLC original_tag = GLC } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_GLC = yes
+				DEC_IND_uprising_GLC = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LKT original_tag = LKT } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_LKT = yes
+				DEC_IND_uprising_LKT = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_north_pacific = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			CAS
+			GRN
+			HWI
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_north_pacific
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_north_pacific
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_north_pacific -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = CAS original_tag = CAS } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_CAS = yes
+				DEC_IND_uprising_CAS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GRN original_tag = GRN } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_GRN = yes
+				DEC_IND_uprising_GRN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HWI original_tag = HWI } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_HWI = yes
+				DEC_IND_uprising_HWI = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_north_settlers = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			CAN
+			USA
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_north_settlers
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_north_settlers
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_north_settlers -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = CAN original_tag = CAN } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_CAN = yes
+				DEC_IND_uprising_CAN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = USA original_tag = USA } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_USA = yes
+				DEC_IND_uprising_USA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_meso_mexico = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			MEX
+			YUC
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_meso_mexico
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_meso_mexico
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_meso_mexico -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = MEX original_tag = MEX } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_MEX = yes
+				DEC_IND_uprising_MEX = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = YUC original_tag = YUC } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_YUC = yes
+				DEC_IND_uprising_YUC = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_meso_central = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BLZ
+			COS
+			ELS
+			GUA
+			HON
+			NIC
+			PAN
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_meso_central
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_meso_central
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_meso_central -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BLZ original_tag = BLZ } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_BLZ = yes
+				DEC_IND_uprising_BLZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = COS original_tag = COS } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_COS = yes
+				DEC_IND_uprising_COS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ELS original_tag = ELS } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_ELS = yes
+				DEC_IND_uprising_ELS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GUA original_tag = GUA } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_GUA = yes
+				DEC_IND_uprising_GUA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HON original_tag = HON } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_HON = yes
+				DEC_IND_uprising_HON = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NIC original_tag = NIC } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_NIC = yes
+				DEC_IND_uprising_NIC = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAN original_tag = PAN } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_PAN = yes
+				DEC_IND_uprising_PAN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_andes_tauantinsuyu = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BOL
+			ECU
+			PRU
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_andes_tauantinsuyu
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_andes_tauantinsuyu
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_andes_tauantinsuyu -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BOL original_tag = BOL } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_BOL = yes
+				DEC_IND_uprising_BOL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ECU original_tag = ECU } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_ECU = yes
+				DEC_IND_uprising_ECU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PRU original_tag = PRU } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_PRU = yes
+				DEC_IND_uprising_PRU = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_andes_northern = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			COL
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_andes_northern
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_andes_northern
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_andes_northern -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = COL original_tag = COL } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_COL = yes
+				DEC_IND_uprising_COL = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_south_amazon = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BRA
+			GUY
+			SUR
+			VEN
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_south_amazon
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_south_amazon
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_south_amazon -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BRA original_tag = BRA } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_BRA = yes
+				DEC_IND_uprising_BRA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GUY original_tag = GUY } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_GUY = yes
+				DEC_IND_uprising_GUY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SUR original_tag = SUR } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_SUR = yes
+				DEC_IND_uprising_SUR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VEN original_tag = VEN } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_VEN = yes
+				DEC_IND_uprising_VEN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_south_cone = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ARG
+			CHL
+			PAR
+			PAT
+			URG
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_south_cone
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_south_cone
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_south_cone -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ARG original_tag = ARG } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_ARG = yes
+				DEC_IND_uprising_ARG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CHL original_tag = CHL } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_CHL = yes
+				DEC_IND_uprising_CHL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAR original_tag = PAR } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_PAR = yes
+				DEC_IND_uprising_PAR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAT original_tag = PAT } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_PAT = yes
+				DEC_IND_uprising_PAT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = URG original_tag = URG } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_URG = yes
+				DEC_IND_uprising_URG = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_melanesia_black_pacific = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			FIJ
+			PAP
+			SOL
+			VAN
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_melanesia_black_pacific
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_melanesia_black_pacific
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_melanesia_black_pacific -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = FIJ original_tag = FIJ } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_FIJ = yes
+				DEC_IND_uprising_FIJ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAP original_tag = PAP } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_PAP = yes
+				DEC_IND_uprising_PAP = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SOL original_tag = SOL } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_SOL = yes
+				DEC_IND_uprising_SOL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VAN original_tag = VAN } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_VAN = yes
+				DEC_IND_uprising_VAN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_melanesia_timor = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			TIM
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_melanesia_timor
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_melanesia_timor
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_melanesia_timor -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = TIM original_tag = TIM } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_TIM = yes
+				DEC_IND_uprising_TIM = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_polynesia_maori = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			KIR
+			NZL
+			SAM
+			TON
+			TUL
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_polynesia_maori
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_polynesia_maori
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_polynesia_maori -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = KIR original_tag = KIR } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_KIR = yes
+				DEC_IND_uprising_KIR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NZL original_tag = NZL } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_NZL = yes
+				DEC_IND_uprising_NZL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SAM original_tag = SAM } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_SAM = yes
+				DEC_IND_uprising_SAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TON original_tag = TON } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_TON = yes
+				DEC_IND_uprising_TON = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TUL original_tag = TUL } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_TUL = yes
+				DEC_IND_uprising_TUL = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_polynesia_micronesia = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			MIC
+			NAU
+			PAU
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_polynesia_micronesia
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_polynesia_micronesia
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_polynesia_micronesia -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = MIC original_tag = MIC } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_MIC = yes
+				DEC_IND_uprising_MIC = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NAU original_tag = NAU } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_NAU = yes
+				DEC_IND_uprising_NAU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAU original_tag = PAU } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_PAU = yes
+				DEC_IND_uprising_PAU = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_IND_spark_polynesia_australia = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_indigenous_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			AST
+		}
+		visible = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_IND_reg_polynesia_australia
+		}
+		available = {
+			DEC_can_access_indigenous_awakening = yes
+			has_completed_focus = DEC_IND_reg_polynesia_australia
+			NOT = { FROM = { has_country_flag = DEC_IND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_IND_spark_polynesia_australia -> [From.GetName]"
+			FROM = { set_country_flag = DEC_IND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = AST original_tag = AST } } }
+				set_variable = { DEC_ind_ns_amt = 0.25 }
+				DEC_IND_boost_country_AST = yes
+				DEC_IND_uprising_AST = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_china_core = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			CHI
+			TAI
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_china_core
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_china_core
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_china_core -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = CHI original_tag = CHI } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_CHI = yes
+				DEC_ASI_uprising_CHI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TAI original_tag = TAI } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_TAI = yes
+				DEC_ASI_uprising_TAI = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_china_coasts = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			HKG
+			MAC
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_china_coasts
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_china_coasts
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_china_coasts -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = HKG original_tag = HKG } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_HKG = yes
+				DEC_ASI_uprising_HKG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MAC original_tag = MAC } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_MAC = yes
+				DEC_ASI_uprising_MAC = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_china_highlands = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			MON
+			OMG
+			TIB
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_china_highlands
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_china_highlands
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_china_highlands -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = MON original_tag = MON } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_MON = yes
+				DEC_ASI_uprising_MON = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = OMG original_tag = OMG } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_OMG = yes
+				DEC_ASI_uprising_OMG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TIB original_tag = TIB } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_TIB = yes
+				DEC_ASI_uprising_TIB = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_northeast_japan = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			JAP
+			RYU
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_northeast_japan
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_northeast_japan
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_northeast_japan -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = JAP original_tag = JAP } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_JAP = yes
+				DEC_ASI_uprising_JAP = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = RYU original_tag = RYU } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_RYU = yes
+				DEC_ASI_uprising_RYU = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_northeast_korea = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			KOR
+			NKO
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_northeast_korea
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_northeast_korea
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_northeast_korea -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = KOR original_tag = KOR } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_KOR = yes
+				DEC_ASI_uprising_KOR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NKO original_tag = NKO } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_NKO = yes
+				DEC_ASI_uprising_NKO = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_mainland_indochina = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			CBD
+			LAO
+			VIE
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_mainland_indochina
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_mainland_indochina
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_mainland_indochina -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = CBD original_tag = CBD } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_CBD = yes
+				DEC_ASI_uprising_CBD = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LAO original_tag = LAO } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_LAO = yes
+				DEC_ASI_uprising_LAO = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VIE original_tag = VIE } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_VIE = yes
+				DEC_ASI_uprising_VIE = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_mainland_theravada = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BRM
+			SIA
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_mainland_theravada
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_mainland_theravada
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_mainland_theravada -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BRM original_tag = BRM } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_BRM = yes
+				DEC_ASI_uprising_BRM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SIA original_tag = SIA } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_SIA = yes
+				DEC_ASI_uprising_SIA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_maritime_malay = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BRU
+			IND
+			MAY
+			SIN
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_maritime_malay
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_maritime_malay
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_maritime_malay -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BRU original_tag = BRU } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_BRU = yes
+				DEC_ASI_uprising_BRU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = IND original_tag = IND } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_IND = yes
+				DEC_ASI_uprising_IND = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MAY original_tag = MAY } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_MAY = yes
+				DEC_ASI_uprising_MAY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SIN original_tag = SIN } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_SIN = yes
+				DEC_ASI_uprising_SIN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_ASI_spark_maritime_philippines = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_asian_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			PHI
+		}
+		visible = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_ASI_reg_maritime_philippines
+		}
+		available = {
+			DEC_can_access_asian_awakening = yes
+			has_completed_focus = DEC_ASI_reg_maritime_philippines
+			NOT = { FROM = { has_country_flag = DEC_ASI_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_ASI_spark_maritime_philippines -> [From.GetName]"
+			FROM = { set_country_flag = DEC_ASI_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = PHI original_tag = PHI } } }
+				set_variable = { DEC_asi_ns_amt = 0.25 }
+				DEC_ASI_boost_country_PHI = yes
+				DEC_ASI_uprising_PHI = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_india_core = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			RAJ
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_india_core
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_india_core
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_india_core -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = RAJ original_tag = RAJ } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_RAJ = yes
+				DEC_HND_uprising_RAJ = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_india_bengal = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BAN
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_india_bengal
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_india_bengal
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_india_bengal -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BAN original_tag = BAN } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_BAN = yes
+				DEC_HND_uprising_BAN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_himalaya_kingdoms = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BHU
+			NEP
+			SIK
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_himalaya_kingdoms
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_himalaya_kingdoms
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_himalaya_kingdoms -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BHU original_tag = BHU } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_BHU = yes
+				DEC_HND_uprising_BHU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NEP original_tag = NEP } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_NEP = yes
+				DEC_HND_uprising_NEP = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SIK original_tag = SIK } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_SIK = yes
+				DEC_HND_uprising_SIK = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_island_lanka = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			SRI
+			TML
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_island_lanka
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_island_lanka
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_island_lanka -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = SRI original_tag = SRI } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_SRI = yes
+				DEC_HND_uprising_SRI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TML original_tag = TML } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_TML = yes
+				DEC_HND_uprising_TML = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_island_maldives = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			MLD
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_island_maldives
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_island_maldives
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_island_maldives -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = MLD original_tag = MLD } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_MLD = yes
+				DEC_HND_uprising_MLD = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_northwest_punjab_kashmir = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			KAS
+			KHA
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_northwest_punjab_kashmir
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_northwest_punjab_kashmir
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_northwest_punjab_kashmir -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = KAS original_tag = KAS } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_KAS = yes
+				DEC_HND_uprising_KAS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KHA original_tag = KHA } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_KHA = yes
+				DEC_HND_uprising_KHA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_diaspora_caribbean = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			GUY
+			SUR
+			TRI
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_diaspora_caribbean
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_diaspora_caribbean
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_diaspora_caribbean -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = GUY original_tag = GUY } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_GUY = yes
+				DEC_HND_uprising_GUY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SUR original_tag = SUR } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_SUR = yes
+				DEC_HND_uprising_SUR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TRI original_tag = TRI } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_TRI = yes
+				DEC_HND_uprising_TRI = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_diaspora_mauritius = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			MRT
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_diaspora_mauritius
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_diaspora_mauritius
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_diaspora_mauritius -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = MRT original_tag = MRT } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_MRT = yes
+				DEC_HND_uprising_MRT = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_HND_spark_diaspora_pacific = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_hindu_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			FIJ
+		}
+		visible = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_HND_reg_diaspora_pacific
+		}
+		available = {
+			DEC_can_access_hindu_awakening = yes
+			has_completed_focus = DEC_HND_reg_diaspora_pacific
+			NOT = { FROM = { has_country_flag = DEC_HND_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_HND_spark_diaspora_pacific -> [From.GetName]"
+			FROM = { set_country_flag = DEC_HND_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = FIJ original_tag = FIJ } } }
+				set_variable = { DEC_hnd_ns_amt = 0.25 }
+				DEC_HND_boost_country_FIJ = yes
+				DEC_HND_uprising_FIJ = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_afr_maghreb = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ALG
+			CYR
+			EGY
+			FEZ
+			KBY
+			LBA
+			MAU
+			MOR
+			SHA
+			SUD
+			TRP
+			TUN
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_afr_maghreb
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_afr_maghreb
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_afr_maghreb -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ALG original_tag = ALG } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_ALG = yes
+				DEC_CAL_uprising_ALG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CYR original_tag = CYR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_CYR = yes
+				DEC_CAL_uprising_CYR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = EGY original_tag = EGY } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_EGY = yes
+				DEC_CAL_uprising_EGY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = FEZ original_tag = FEZ } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_FEZ = yes
+				DEC_CAL_uprising_FEZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KBY original_tag = KBY } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KBY = yes
+				DEC_CAL_uprising_KBY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LBA original_tag = LBA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_LBA = yes
+				DEC_CAL_uprising_LBA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MAU original_tag = MAU } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_MAU = yes
+				DEC_CAL_uprising_MAU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MOR original_tag = MOR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_MOR = yes
+				DEC_CAL_uprising_MOR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SHA original_tag = SHA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SHA = yes
+				DEC_CAL_uprising_SHA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SUD original_tag = SUD } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SUD = yes
+				DEC_CAL_uprising_SUD = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TRP original_tag = TRP } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TRP = yes
+				DEC_CAL_uprising_TRP = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TUN original_tag = TUN } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TUN = yes
+				DEC_CAL_uprising_TUN = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_afr_black = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			AIA
+			BFA
+			CHA
+			COM
+			DAR
+			DJI
+			GAM
+			GUB
+			GUI
+			MAL
+			NGR
+			NIG
+			SEN
+			SHB
+			SIE
+			SML
+			SOM
+			TUA
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_afr_black
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_afr_black
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_afr_black -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = AIA original_tag = AIA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_AIA = yes
+				DEC_CAL_uprising_AIA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BFA original_tag = BFA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BFA = yes
+				DEC_CAL_uprising_BFA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CHA original_tag = CHA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_CHA = yes
+				DEC_CAL_uprising_CHA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = COM original_tag = COM } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_COM = yes
+				DEC_CAL_uprising_COM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = DAR original_tag = DAR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_DAR = yes
+				DEC_CAL_uprising_DAR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = DJI original_tag = DJI } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_DJI = yes
+				DEC_CAL_uprising_DJI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GAM original_tag = GAM } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_GAM = yes
+				DEC_CAL_uprising_GAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GUB original_tag = GUB } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_GUB = yes
+				DEC_CAL_uprising_GUB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = GUI original_tag = GUI } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_GUI = yes
+				DEC_CAL_uprising_GUI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MAL original_tag = MAL } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_MAL = yes
+				DEC_CAL_uprising_MAL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NGR original_tag = NGR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_NGR = yes
+				DEC_CAL_uprising_NGR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NIG original_tag = NIG } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_NIG = yes
+				DEC_CAL_uprising_NIG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SEN original_tag = SEN } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SEN = yes
+				DEC_CAL_uprising_SEN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SHB original_tag = SHB } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SHB = yes
+				DEC_CAL_uprising_SHB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SIE original_tag = SIE } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SIE = yes
+				DEC_CAL_uprising_SIE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SML original_tag = SML } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SML = yes
+				DEC_CAL_uprising_SML = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SOM original_tag = SOM } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SOM = yes
+				DEC_CAL_uprising_SOM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TUA original_tag = TUA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TUA = yes
+				DEC_CAL_uprising_TUA = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_asia_me = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			AQY
+			BHR
+			HAM
+			HEZ
+			HOU
+			IRQ
+			ISI
+			JOR
+			KUR
+			KUW
+			LEB
+			NUS
+			OMA
+			PAL
+			PER
+			QAT
+			SAU
+			SYR
+			TUR
+			UAE
+			YEM
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_asia_me
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_asia_me
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_asia_me -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = AQY original_tag = AQY } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_AQY = yes
+				DEC_CAL_uprising_AQY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BHR original_tag = BHR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BHR = yes
+				DEC_CAL_uprising_BHR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HAM original_tag = HAM } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_HAM = yes
+				DEC_CAL_uprising_HAM = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HEZ original_tag = HEZ } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_HEZ = yes
+				DEC_CAL_uprising_HEZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HOU original_tag = HOU } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_HOU = yes
+				DEC_CAL_uprising_HOU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = IRQ original_tag = IRQ } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_IRQ = yes
+				DEC_CAL_uprising_IRQ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ISI original_tag = ISI } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_ISI = yes
+				DEC_CAL_uprising_ISI = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = JOR original_tag = JOR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_JOR = yes
+				DEC_CAL_uprising_JOR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KUR original_tag = KUR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KUR = yes
+				DEC_CAL_uprising_KUR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KUW original_tag = KUW } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KUW = yes
+				DEC_CAL_uprising_KUW = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = LEB original_tag = LEB } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_LEB = yes
+				DEC_CAL_uprising_LEB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NUS original_tag = NUS } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_NUS = yes
+				DEC_CAL_uprising_NUS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = OMA original_tag = OMA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_OMA = yes
+				DEC_CAL_uprising_OMA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAL original_tag = PAL } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_PAL = yes
+				DEC_CAL_uprising_PAL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PER original_tag = PER } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_PER = yes
+				DEC_CAL_uprising_PER = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = QAT original_tag = QAT } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_QAT = yes
+				DEC_CAL_uprising_QAT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SAU original_tag = SAU } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SAU = yes
+				DEC_CAL_uprising_SAU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = SYR original_tag = SYR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_SYR = yes
+				DEC_CAL_uprising_SYR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TUR original_tag = TUR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TUR = yes
+				DEC_CAL_uprising_TUR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = UAE original_tag = UAE } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_UAE = yes
+				DEC_CAL_uprising_UAE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = YEM original_tag = YEM } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_YEM = yes
+				DEC_CAL_uprising_YEM = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_asia_central = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			AFG
+			BDA
+			BLC
+			HAZ
+			KAS
+			PAK
+			TAJ
+			TAL
+			TRK
+			TTP
+			UZB
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_asia_central
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_asia_central
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_asia_central -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = AFG original_tag = AFG } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_AFG = yes
+				DEC_CAL_uprising_AFG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BDA original_tag = BDA } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BDA = yes
+				DEC_CAL_uprising_BDA = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BLC original_tag = BLC } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BLC = yes
+				DEC_CAL_uprising_BLC = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = HAZ original_tag = HAZ } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_HAZ = yes
+				DEC_CAL_uprising_HAZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KAS original_tag = KAS } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KAS = yes
+				DEC_CAL_uprising_KAS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = PAK original_tag = PAK } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_PAK = yes
+				DEC_CAL_uprising_PAK = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TAJ original_tag = TAJ } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TAJ = yes
+				DEC_CAL_uprising_TAJ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TAL original_tag = TAL } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TAL = yes
+				DEC_CAL_uprising_TAL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TRK original_tag = TRK } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TRK = yes
+				DEC_CAL_uprising_TRK = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TTP original_tag = TTP } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TTP = yes
+				DEC_CAL_uprising_TTP = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = UZB original_tag = UZB } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_UZB = yes
+				DEC_CAL_uprising_UZB = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_asia_north = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ETK
+			KAZ
+			KRP
+			KYR
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_asia_north
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_asia_north
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_asia_north -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ETK original_tag = ETK } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_ETK = yes
+				DEC_CAL_uprising_ETK = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KAZ original_tag = KAZ } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KAZ = yes
+				DEC_CAL_uprising_KAZ = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KRP original_tag = KRP } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KRP = yes
+				DEC_CAL_uprising_KRP = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KYR original_tag = KYR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KYR = yes
+				DEC_CAL_uprising_KYR = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_asia_far = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ACE
+			BAN
+			BNG
+			BRU
+			IND
+			MAY
+			MLD
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_asia_far
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_asia_far
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_asia_far -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ACE original_tag = ACE } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_ACE = yes
+				DEC_CAL_uprising_ACE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BAN original_tag = BAN } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BAN = yes
+				DEC_CAL_uprising_BAN = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BNG original_tag = BNG } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BNG = yes
+				DEC_CAL_uprising_BNG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BRU original_tag = BRU } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BRU = yes
+				DEC_CAL_uprising_BRU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = IND original_tag = IND } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_IND = yes
+				DEC_CAL_uprising_IND = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MAY original_tag = MAY } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_MAY = yes
+				DEC_CAL_uprising_MAY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = MLD original_tag = MLD } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_MLD = yes
+				DEC_CAL_uprising_MLD = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_eur_cau = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ADY
+			AZE
+			BLK
+			CAU
+			CHE
+			CIR
+			DAG
+			ING
+			KBK
+			KCC
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_eur_cau
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_eur_cau
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_eur_cau -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ADY original_tag = ADY } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_ADY = yes
+				DEC_CAL_uprising_ADY = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = AZE original_tag = AZE } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_AZE = yes
+				DEC_CAL_uprising_AZE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BLK original_tag = BLK } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BLK = yes
+				DEC_CAL_uprising_BLK = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CAU original_tag = CAU } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_CAU = yes
+				DEC_CAL_uprising_CAU = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CHE original_tag = CHE } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_CHE = yes
+				DEC_CAL_uprising_CHE = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = CIR original_tag = CIR } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_CIR = yes
+				DEC_CAL_uprising_CIR = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = DAG original_tag = DAG } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_DAG = yes
+				DEC_CAL_uprising_DAG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = ING original_tag = ING } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_ING = yes
+				DEC_CAL_uprising_ING = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KBK original_tag = KBK } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KBK = yes
+				DEC_CAL_uprising_KBK = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KCC original_tag = KCC } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KCC = yes
+				DEC_CAL_uprising_KCC = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_eur_volga = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			BCF
+			BSH
+			IDL
+			NOG
+			TAT
+			VBG
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_eur_volga
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_eur_volga
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_eur_volga -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = BCF original_tag = BCF } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BCF = yes
+				DEC_CAL_uprising_BCF = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BSH original_tag = BSH } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BSH = yes
+				DEC_CAL_uprising_BSH = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = IDL original_tag = IDL } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_IDL = yes
+				DEC_CAL_uprising_IDL = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NOG original_tag = NOG } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_NOG = yes
+				DEC_CAL_uprising_NOG = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = TAT original_tag = TAT } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_TAT = yes
+				DEC_CAL_uprising_TAT = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = VBG original_tag = VBG } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_VBG = yes
+				DEC_CAL_uprising_VBG = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+	DEC_CAL_spark_eur_balk = {
+		icon = GFX_decision_generic_national_unity
+		allowed = { DEC_is_ummah_nation = yes }
+		priority = 80
+		cost = 40
+		fire_only_once = yes
+		days_remove = 7
+		targets = {
+			ALB
+			BOS
+			KOS
+			NCY
+		}
+		visible = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_world_caliphate
+			has_completed_focus = DEC_CAL_reg_eur_balk
+		}
+		available = {
+			DEC_can_access_caliphate_branch = yes
+			has_completed_focus = DEC_CAL_reg_eur_balk
+			NOT = { FROM = { has_country_flag = DEC_CAL_was_sparked } }
+		}
+		ai_will_do = { base = 1 }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision DEC_CAL_spark_eur_balk -> [From.GetName]"
+			FROM = { set_country_flag = DEC_CAL_was_sparked }
+			if = {
+				limit = { FROM = { OR = { tag = ALB original_tag = ALB } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_ALB = yes
+				DEC_CAL_uprising_ALB = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = BOS original_tag = BOS } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_BOS = yes
+				DEC_CAL_uprising_BOS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = KOS original_tag = KOS } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_KOS = yes
+				DEC_CAL_uprising_KOS = yes
+			}
+			else_if = {
+				limit = { FROM = { OR = { tag = NCY original_tag = NCY } } }
+				set_variable = { DEC_cal_rad_amt = 0.25 }
+				DEC_CAL_boost_country_NCY = yes
+				DEC_CAL_uprising_NCY = yes
+			}
+			custom_effect_tooltip = DEC_mega_spark_tt
+		}
+	}
+}

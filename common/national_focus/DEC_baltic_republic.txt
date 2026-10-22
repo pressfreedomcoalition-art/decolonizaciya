@@ -1,0 +1,70 @@
+############################################
+# Baltic Republic (BLT) — BdV → East Prussia
+############################################
+
+focus_tree = {
+	id = dec_baltic_republic_focus
+	country = {
+		factor = 0
+		modifier = { add = 40 tag = BLT }
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1000 }
+
+	shared_focus = DEC_NOR_bjarmia_uprising
+	shared_focus = DEC_RST_state_restoration
+	shared_focus = DEC_CAL_world_caliphate
+	shared_focus = DEC_COA_machine_uprising
+
+	focus = {
+		id = DEC_BLT_bdv_power
+		icon = generic_fascism
+		x = 8
+		y = 0
+		cost = 5
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			OR = {
+				original_tag = BLT
+				tag = BLT
+			}
+			NOT = { has_country_flag = DEC_BLT_bdv_in_power }
+		}
+		bypass = {
+			has_country_flag = DEC_BLT_bdv_in_power
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_BLT_bdv_power"
+			DEC_BLT_bdv_take_power = yes
+			custom_effect_tooltip = DEC_BLT_bdv_power_tt
+		}
+		ai_will_do = { base = 20 }
+	}
+
+	focus = {
+		id = DEC_BLT_east_prussia
+		icon = generic_form_nation
+		x = 0
+		y = 1
+		relative_position_id = DEC_BLT_bdv_power
+		cost = 7
+		prerequisite = { focus = DEC_BLT_bdv_power }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		available = {
+			OR = {
+				original_tag = BLT
+				tag = BLT
+			}
+			has_country_flag = DEC_BLT_bdv_in_power
+		}
+		bypass = {
+			has_cosmetic_tag = DEC_BLT_BDV
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_BLT_east_prussia"
+			DEC_BLT_restore_east_prussia = yes
+			custom_effect_tooltip = DEC_BLT_east_prussia_tt
+		}
+		ai_will_do = { base = 25 }
+	}
+}

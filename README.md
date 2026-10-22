@@ -1,50 +1,24 @@
-# Millennium Dawn: Деколонизация РФ
+# WW3: Russian Invasion (Альфа тест)
 
-Сабмод к **[Millennium Dawn: A Modern Day Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2777392649)** (MD 2.0 / HOI4 `1.19.*`) про деколонизацию субъектов РФ: новые тэги, фокусы, ивенты и решения.
+Сабмод к **[Millennium Dawn: A Modern Day Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=2777392649)** (HOI4 `1.19.*`).
 
-Зависимость обязательна: без MD сабмод не предназначен к запуску.
+Публичная **альфа 0.9.0** — нестабильно, баги ожидаемы. Без Millennium Dawn не запускайте.
 
-## Что уже есть (прототип 0.1)
+## Что внутри
 
-| Тэг | Суть | Земля (cores при старте) |
-|-----|------|---------------------------|
-| **VBG** | Волжская Булгария | 1135 Чувашия (+ claim на 661 Татарстан) |
-| **CIR** | Черкесия | 1127 Адыгея, 1125 КЧР, 674 КБР |
+- Деколонизация субъектов РФ: новые страны, лидеры оппозиции, фокусы, решения, альянсы
+- Поздние старты **октябрь 2013** и **22 февраля 2022**
+- Чувашия: политика партий, Волга-Булгария, либертарианская экономика, военные фокусы DeathNote.Rip
+- Mega-ветки (White / Black / Indigenous / Asian / Hindu / Caliphate) — по одной на дерево
 
-- Ивенты `dec.1`–`dec.5`, решения в категории «Деколонизация РФ»
-- Мини-деревья фокусов для VBG и CIR
-- В **debug-режиме** HOI4: решение «DEBUG: Start decolonisation wave» → затем решения на релиз VBG/CIR
+## Установка
 
-MD уже содержит освобождаемые тэги вроде `CHU`, `TAT`, `ADY` — этот сабмод добавляет **новые** политические формы (восстановленная Булгария / объединённая Черкесия), не копируя workshop MD.
-
-## Установка (локально)
-
-1. Подпишись/поставь **Millennium Dawn** из Steam Workshop (`2777392649`).
-2. Скопируй `decolonizaciya.mod` в  
-   `Documents\Paradox Interactive\Hearts of Iron IV\mod\`  
-   (в репо файл уже с `path="C:/git/decolonizaciya"` — поправь путь, если клон в другом месте).
-3. Либо держи мод как папку внутри `...\Hearts of Iron IV\mod\decolonizaciya\` и укажи относительный `path="mod/decolonizaciya"`.
-4. В лаунчере HOI4 включи **сначала** Millennium Dawn, **затем** этот сабмод.
-
-Workshop-публикация — позже.
-
-## Структура
-
-```
-common/country_tags/   — VBG, CIR
-common/countries/      — цвета/gfx
-common/national_focus/ — мини-фокусы
-common/decisions/      — прототип решений
-common/on_actions/     — cores при старте
-events/                — dec.*
-localisation/          — EN + RU
-history/countries/     — стартовая политика тэгов
-```
-
-Нельзя править файлы MD в `steamapps\workshop\...` — только этот репозиторий.
+1. Подписка на Millennium Dawn Workshop `2777392649`
+2. Этот мод из Workshop **или** локально: `decolonizaciya.mod` → `Documents\Paradox Interactive\Hearts of Iron IV\mod\`
+3. В лаунчере: сначала MD, затем **WW3: Russian Invasion (Альфа тест)**
+4. В `logs/game.log`: `DEC: cores applied`
 
 ## Версии
 
-- `supported_version = "1.19.*"`
-- `dependencies = { "Millennium Dawn: A Modern Day Mod" }`
-- сабмод `0.1.0`
+- HOI4 `1.19.*` + Millennium Dawn 2.0
+- сабмод `0.9.0` (Альфа тест)

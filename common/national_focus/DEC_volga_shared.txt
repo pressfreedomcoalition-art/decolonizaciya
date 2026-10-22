@@ -1,0 +1,345 @@
+############################################
+# Volga block: Turkic + Finno-Ugric (Chuvash OR)
+############################################
+
+shared_focus = {
+	id = DEC_VOL_tatar_uprising
+	icon = generic_fascist_uprising
+	x = 12
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_volga_turkic = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = TAT
+			AND = { DEC_TAT_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_TAT } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_volga_turkic_ready = yes
+		OR = {
+			tag = TAT
+			has_war_with = SOV
+			SOV = { owns_state = 661 }
+			TAT = { is_subject_of = SOV }
+			NOT = { country_exists = TAT }
+			DEC_TAT_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_tatar_uprising"
+		if = {
+			limit = { NOT = { DEC_TAT_already_independent = yes } }
+			DEC_uprising_TAT = yes
+		}
+		set_country_flag = DEC_VOL_branch_unlocked
+		set_country_flag = DEC_VOL_turkic_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 20 }
+}
+
+shared_focus = {
+	id = DEC_VOL_bashkir_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_volga_turkic = yes }
+	relative_position_id = DEC_VOL_tatar_uprising
+	x = 3
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_VOL_tatar_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = BSH
+			AND = { DEC_BSH_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_BSH } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_volga_turkic_ready = yes
+		OR = {
+			tag = BSH
+			has_war_with = SOV
+			SOV = { owns_state = 664 }
+			BSH = { is_subject_of = SOV }
+			NOT = { country_exists = BSH }
+			DEC_BSH_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_bashkir_uprising"
+		if = {
+			limit = { NOT = { DEC_BSH_already_independent = yes } }
+			DEC_uprising_BSH = yes
+		}
+		set_country_flag = DEC_URA_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 18 }
+}
+
+shared_focus = {
+	id = DEC_VOL_chuvash_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { OR = { DEC_can_access_volga_turkic = yes DEC_can_access_volga_finno = yes } }
+	relative_position_id = DEC_VOL_tatar_uprising
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_VOL_tatar_uprising }
+	prerequisite = { focus = DEC_VOL_erzya_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = CHU
+			AND = { DEC_CHU_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_CHU } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		OR = {
+			DEC_sep_volga_finno_ready = yes
+			DEC_sep_volga_turkic_ready = yes
+		}
+		OR = {
+			tag = CHU
+			has_war_with = SOV
+			SOV = { owns_state = 1135 }
+			CHU = { is_subject_of = SOV }
+			NOT = { country_exists = CHU }
+			DEC_CHU_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_chuvash_uprising"
+		if = {
+			limit = { NOT = { DEC_CHU_already_independent = yes } }
+			DEC_uprising_CHU = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		custom_effect_tooltip = DEC_VOL_chuvash_or_tt
+	}
+	ai_will_do = { base = 18 }
+}
+
+shared_focus = {
+	id = DEC_VOL_erzya_uprising
+	icon = generic_fascist_uprising
+	x = 20
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_volga_finno = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = ERZ
+			AND = { DEC_ERZ_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_ERZ } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_volga_finno_ready = yes
+		OR = {
+			tag = ERZ
+			has_war_with = SOV
+			SOV = { owns_state = 1132 }
+			ERZ = { is_subject_of = SOV }
+			NOT = { country_exists = ERZ }
+			DEC_ERZ_already_independent = yes
+			has_global_flag = DEC_NOR_block_complete
+			has_country_flag = DEC_VOL_finno_unlocked
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_erzya_uprising"
+		if = {
+			limit = { NOT = { DEC_ERZ_already_independent = yes } }
+			DEC_uprising_ERZ = yes
+		}
+		set_country_flag = DEC_VOL_branch_unlocked
+		set_country_flag = DEC_VOL_finno_unlocked
+		set_country_flag = DEC_VOL_turkic_unlocked
+		set_global_flag = DEC_VOL_finno_opened_turkic
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		custom_effect_tooltip = DEC_VOL_finno_opens_turkic_tt
+	}
+	ai_will_do = { base = 20 }
+}
+
+shared_focus = {
+	id = DEC_VOL_moksha_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_volga_finno = yes }
+	relative_position_id = DEC_VOL_erzya_uprising
+	x = -3
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_VOL_erzya_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = MOK
+			AND = { DEC_MOK_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_MOK } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_volga_finno_ready = yes
+		OR = {
+			tag = MOK
+			has_war_with = SOV
+			SOV = { owns_state = 1132 }
+			MOK = { is_subject_of = SOV }
+			NOT = { country_exists = MOK }
+			DEC_MOK_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_moksha_uprising"
+		if = {
+			limit = { NOT = { DEC_MOK_already_independent = yes } }
+			DEC_uprising_MOK = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 16 }
+}
+
+shared_focus = {
+	id = DEC_VOL_mari_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_volga_finno = yes }
+	relative_position_id = DEC_VOL_erzya_uprising
+	x = 3
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_VOL_erzya_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = MEL
+			AND = { DEC_MEL_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_MEL } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_volga_finno_ready = yes
+		OR = {
+			tag = MEL
+			has_war_with = SOV
+			SOV = { owns_state = 1134 }
+			MEL = { is_subject_of = SOV }
+			NOT = { country_exists = MEL }
+			DEC_MEL_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_mari_uprising"
+		if = {
+			limit = { NOT = { DEC_MEL_already_independent = yes } }
+			DEC_uprising_MEL = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 16 }
+}
+
+shared_focus = {
+	id = DEC_VOL_udmurt_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_volga_finno = yes }
+	relative_position_id = DEC_VOL_mari_uprising
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_VOL_mari_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = UDM
+			AND = { DEC_UDM_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_UDM } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_volga_finno_ready = yes
+		OR = {
+			tag = UDM
+			has_war_with = SOV
+			SOV = { owns_state = 1133 }
+			UDM = { is_subject_of = SOV }
+			NOT = { country_exists = UDM }
+			DEC_UDM_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_udmurt_uprising"
+		if = {
+			limit = { NOT = { DEC_UDM_already_independent = yes } }
+			DEC_uprising_UDM = yes
+		}
+		set_global_flag = DEC_VOL_block_complete
+		set_country_flag = DEC_NOR_branch_unlocked
+		set_country_flag = DEC_URA_branch_unlocked
+		custom_effect_tooltip = DEC_VOL_block_complete_tt
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 20 }
+}
+
+shared_focus = {
+	id = DEC_VOL_idel_ural
+	icon = army_planning
+	allow_branch = { DEC_can_access_volga_branch = yes }
+	relative_position_id = DEC_VOL_udmurt_uprising
+	x = -2
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_VOL_udmurt_uprising }
+	mutually_exclusive = { focus = DEC_VOL_bulgar_confederation }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		DEC_is_idel_ural_invitee = yes
+		has_global_flag = DEC_VOL_block_complete
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_idel_ural"
+		DEC_create_idel_ural_faction = yes
+		set_global_flag = DEC_VOL_idel_ural_formed
+		custom_effect_tooltip = DEC_VOL_idel_ural_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_VOL_bulgar_confederation
+	icon = small_arms_west
+	allow_branch = { DEC_can_access_volga_turkic = yes }
+	relative_position_id = DEC_VOL_udmurt_uprising
+	x = 2
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_VOL_udmurt_uprising }
+	mutually_exclusive = { focus = DEC_VOL_idel_ural }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		DEC_is_bulgar_invitee = yes
+		has_global_flag = DEC_VOL_block_complete
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_VOL_bulgar_confederation"
+		DEC_create_bulgar_faction = yes
+		set_global_flag = DEC_VOL_bulgar_formed
+		custom_effect_tooltip = DEC_VOL_bulgar_tt
+	}
+	ai_will_do = { base = 25 }
+}

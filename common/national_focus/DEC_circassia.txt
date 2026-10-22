@@ -7,7 +7,22 @@ focus_tree = {
 			tag = CIR
 		}
 	}
-	default = no
+	
+# Decolonizaciya shared blocks
+	shared_focus = DEC_CAU_chechnya_uprising
+	shared_focus = DEC_CAL_world_caliphate
+	shared_focus = DEC_COA_machine_uprising
+	shared_focus = DEC_RST_state_restoration
+	shared_focus = DEC_CSK_kuban_uprising
+	shared_focus = DEC_VOL_tatar_uprising
+	shared_focus = DEC_VOL_erzya_uprising
+	shared_focus = DEC_NOR_bjarmia_uprising
+	shared_focus = DEC_TUR_call_of_turan
+	shared_focus = DEC_MON_kalmyk_uprising
+	shared_focus = DEC_URA_komi_uprising
+	shared_focus = DEC_SIB_central_uprising
+	shared_focus = DEC_FE_chukotka_uprising
+default = no
 	continuous_focus_position = { x = 50 y = 1500 }
 
 	focus = {

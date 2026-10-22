@@ -20,7 +20,7 @@ capital = 1127
 		health_02
 		social_02
 		export_economy
-		volunteer_only
+		volunteer_army
 		no_women_in_military
 		officer_basic_training
 		non_state_actor
@@ -43,11 +43,11 @@ capital = 1127
 	sort_influence = yes
 
 	set_popularities = {
-		democratic = 35.0
-		communism = 10.0
-		fascism = 5.0
-		neutrality = 20.0
-		nationalist = 30.0
+		democratic = 40.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 10.0
+		nationalist = 50.0
 	}
 	set_politics = {
 		ruling_party = nationalist
@@ -57,17 +57,54 @@ capital = 1127
 	}
 
 	start_politics_input = yes
-	set_variable = { party_pop_array^2 = 0.20 }
-	set_variable = { party_pop_array^6 = 0.15 }
+	set_variable = { party_pop_array^0 = 0.1 }
+	set_variable = { party_pop_array^2 = 0.2 }
+	set_variable = { party_pop_array^3 = 0.1 }
+	set_variable = { party_pop_array^16 = 0.1 }
 	set_variable = { party_pop_array^20 = 0.35 }
+	set_variable = { party_pop_array^21 = 0.15 }
 	set_variable = { ruling_party = 20 }
 	startup_politics = yes
 
 	create_country_leader = {
-		name = "Circassian National Congress"
-		desc = "POLITICS_CIR_CONGRESS_DESC"
-		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+		name = "Ibrahim Yaganov"
+		picture = "gfx/leaders/DEC/ibrahim_yaganov.dds"
 		ideology = Nat_Populism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Kase Kik"
+		picture = "gfx/leaders/DEC/kase_kik.dds"
+		ideology = liberalism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Beslan Kmuzov"
+		picture = "gfx/leaders/DEC/beslan_kmuzov.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Ruslan Keshev"
+		picture = "gfx/leaders/DEC/ruslan_keshev.dds"
+		ideology = Nat_Fascism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Murat Berzegov"
+		picture = "gfx/leaders/DEC/murat_berzegov.dds"
+		ideology = Western_Autocracy
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Asker Sokht"
+		picture = "gfx/leaders/DEC/asker_sokht.dds"
+		ideology = socialism
 		traits = { }
 	}
 

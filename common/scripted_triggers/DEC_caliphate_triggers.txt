@@ -1,0 +1,589 @@
+############################################
+# World Caliphate access + regional blocks
+############################################
+
+DEC_has_radical_islam = {
+	salafist_caliphate_are_in_power = yes
+}
+
+DEC_owns_mecca = {
+	controls_state = 177
+}
+
+DEC_can_access_caliphate_branch = {
+	DEC_is_ummah_nation = yes
+	DEC_has_radical_islam = yes
+	NOT = {
+		OR = {
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_HND_hindu_awakening
+		}
+	}
+}
+
+DEC_is_caliphate_invitee = {
+	DEC_is_ummah_nation = yes
+	DEC_has_radical_islam = yes
+	exists = yes
+	NOT = { has_war_with = ROOT }
+	OR = {
+		is_subject = no
+		is_subject_of = ROOT
+	}
+}
+
+DEC_is_ummah_nation = {
+	OR = {
+		original_tag = KHF
+		tag = KHF
+		original_tag = ACE
+		tag = ACE
+		original_tag = ADY
+		tag = ADY
+		original_tag = AFG
+		tag = AFG
+		original_tag = AIA
+		tag = AIA
+		original_tag = ALA
+		tag = ALA
+		original_tag = ALB
+		tag = ALB
+		original_tag = ALG
+		tag = ALG
+		original_tag = ANJ
+		tag = ANJ
+		original_tag = AQY
+		tag = AQY
+		original_tag = ARA
+		tag = ARA
+		original_tag = AZE
+		tag = AZE
+		original_tag = BAN
+		tag = BAN
+		original_tag = BDA
+		tag = BDA
+		original_tag = BFA
+		tag = BFA
+		original_tag = BHR
+		tag = BHR
+		original_tag = BLC
+		tag = BLC
+		original_tag = BCF
+		tag = BCF
+		original_tag = BLK
+		tag = BLK
+		original_tag = BNG
+		tag = BNG
+		original_tag = BOS
+		tag = BOS
+		original_tag = BRU
+		tag = BRU
+		original_tag = BSH
+		tag = BSH
+		original_tag = CAM
+		tag = CAM
+		original_tag = CAU
+		tag = CAU
+		original_tag = CDI
+		tag = CDI
+		original_tag = CHA
+		tag = CHA
+		original_tag = CHE
+		tag = CHE
+		original_tag = CIR
+		tag = CIR
+		original_tag = COM
+		tag = COM
+		original_tag = CYR
+		tag = CYR
+		original_tag = DAG
+		tag = DAG
+		original_tag = DAR
+		tag = DAR
+		original_tag = DJI
+		tag = DJI
+		original_tag = DRU
+		tag = DRU
+		original_tag = EGY
+		tag = EGY
+		original_tag = ERI
+		tag = ERI
+		original_tag = ETK
+		tag = ETK
+		original_tag = FEZ
+		tag = FEZ
+		original_tag = FSA
+		tag = FSA
+		original_tag = GAM
+		tag = GAM
+		original_tag = GNA
+		tag = GNA
+		original_tag = GNC
+		tag = GNC
+		original_tag = GOR
+		tag = GOR
+		original_tag = GUB
+		tag = GUB
+		original_tag = GUI
+		tag = GUI
+		original_tag = HAM
+		tag = HAM
+		original_tag = HAZ
+		tag = HAZ
+		original_tag = HEJ
+		tag = HEJ
+		original_tag = HEZ
+		tag = HEZ
+		original_tag = HOR
+		tag = HOR
+		original_tag = HOU
+		tag = HOU
+		original_tag = HRM
+		tag = HRM
+		original_tag = IDL
+		tag = IDL
+		original_tag = IEK
+		tag = IEK
+		original_tag = IKR
+		tag = IKR
+		original_tag = IND
+		tag = IND
+		original_tag = ING
+		tag = ING
+		original_tag = IRQ
+		tag = IRQ
+		original_tag = ISI
+		tag = ISI
+		original_tag = JOR
+		tag = JOR
+		original_tag = JUB
+		tag = JUB
+		original_tag = KAS
+		tag = KAS
+		original_tag = KAZ
+		tag = KAZ
+		original_tag = KBC
+		tag = KBC
+		original_tag = KBK
+		tag = KBK
+		original_tag = KBY
+		tag = KBY
+		original_tag = KCC
+		tag = KCC
+		original_tag = KOS
+		tag = KOS
+		original_tag = KRP
+		tag = KRP
+		original_tag = KUR
+		tag = KUR
+		original_tag = KUW
+		tag = KUW
+		original_tag = KYR
+		tag = KYR
+		original_tag = LBA
+		tag = LBA
+		original_tag = LEB
+		tag = LEB
+		original_tag = LGN
+		tag = LGN
+		original_tag = LOR
+		tag = LOR
+		original_tag = MAL
+		tag = MAL
+		original_tag = MAU
+		tag = MAU
+		original_tag = MAY
+		tag = MAY
+		original_tag = MLD
+		tag = MLD
+		original_tag = MOR
+		tag = MOR
+		original_tag = MTE
+		tag = MTE
+		original_tag = NCY
+		tag = NCY
+		original_tag = NEJ
+		tag = NEJ
+		original_tag = NGR
+		tag = NGR
+		original_tag = NIG
+		tag = NIG
+		original_tag = NOG
+		tag = NOG
+		original_tag = NUS
+		tag = NUS
+		original_tag = OMA
+		tag = OMA
+		original_tag = PAK
+		tag = PAK
+		original_tag = PAL
+		tag = PAL
+		original_tag = PER
+		tag = PER
+		original_tag = PKK
+		tag = PKK
+		original_tag = PUK
+		tag = PUK
+		original_tag = PUN
+		tag = PUN
+		original_tag = QAT
+		tag = QAT
+		original_tag = QTF
+		tag = QTF
+		original_tag = ROJ
+		tag = ROJ
+		original_tag = SAU
+		tag = SAU
+		original_tag = SAZ
+		tag = SAZ
+		original_tag = SEL
+		tag = SEL
+		original_tag = SEN
+		tag = SEN
+		original_tag = SHA
+		tag = SHA
+		original_tag = SHB
+		tag = SHB
+		original_tag = SIE
+		tag = SIE
+		original_tag = SML
+		tag = SML
+		original_tag = SNA
+		tag = SNA
+		original_tag = SOM
+		tag = SOM
+		original_tag = SUD
+		tag = SUD
+		original_tag = SWS
+		tag = SWS
+		original_tag = SYR
+		tag = SYR
+		original_tag = TAB
+		tag = TAB
+		original_tag = TAJ
+		tag = TAJ
+		original_tag = TAL
+		tag = TAL
+		original_tag = TAT
+		tag = TAT
+		original_tag = TIE
+		tag = TIE
+		original_tag = TLS
+		tag = TLS
+		original_tag = TRK
+		tag = TRK
+		original_tag = TRP
+		tag = TRP
+		original_tag = TTP
+		tag = TTP
+		original_tag = TUA
+		tag = TUA
+		original_tag = TUN
+		tag = TUN
+		original_tag = TUR
+		tag = TUR
+		original_tag = UAE
+		tag = UAE
+		original_tag = UZB
+		tag = UZB
+		original_tag = VBG
+		tag = VBG
+		original_tag = VOJ
+		tag = VOJ
+		original_tag = YEM
+		tag = YEM
+		original_tag = ZAN
+		tag = ZAN
+	}
+}
+
+DEC_CAL_is_afr_maghreb = {
+	OR = {
+		original_tag = EGY
+		tag = EGY
+		original_tag = LBA
+		tag = LBA
+		original_tag = TUN
+		tag = TUN
+		original_tag = ALG
+		tag = ALG
+		original_tag = MOR
+		tag = MOR
+		original_tag = MAU
+		tag = MAU
+		original_tag = SHA
+		tag = SHA
+		original_tag = SUD
+		tag = SUD
+		original_tag = CYR
+		tag = CYR
+		original_tag = FEZ
+		tag = FEZ
+		original_tag = TRP
+		tag = TRP
+		original_tag = KBY
+		tag = KBY
+	}
+}
+
+DEC_CAL_is_afr_black = {
+	OR = {
+		original_tag = SEN
+		tag = SEN
+		original_tag = GAM
+		tag = GAM
+		original_tag = GUI
+		tag = GUI
+		original_tag = GUB
+		tag = GUB
+		original_tag = SIE
+		tag = SIE
+		original_tag = MAL
+		tag = MAL
+		original_tag = NGR
+		tag = NGR
+		original_tag = BFA
+		tag = BFA
+		original_tag = CHA
+		tag = CHA
+		original_tag = NIG
+		tag = NIG
+		original_tag = SOM
+		tag = SOM
+		original_tag = SML
+		tag = SML
+		original_tag = DJI
+		tag = DJI
+		original_tag = COM
+		tag = COM
+		original_tag = TUA
+		tag = TUA
+		original_tag = SHB
+		tag = SHB
+		original_tag = AIA
+		tag = AIA
+		original_tag = DAR
+		tag = DAR
+	}
+}
+
+DEC_CAL_is_asia_far = {
+	OR = {
+		original_tag = IND
+		tag = IND
+		original_tag = MAY
+		tag = MAY
+		original_tag = BRU
+		tag = BRU
+		original_tag = ACE
+		tag = ACE
+		original_tag = BNG
+		tag = BNG
+		original_tag = BAN
+		tag = BAN
+		original_tag = MLD
+		tag = MLD
+	}
+}
+
+DEC_CAL_is_asia_central = {
+	OR = {
+		original_tag = UZB
+		tag = UZB
+		original_tag = TRK
+		tag = TRK
+		original_tag = TAJ
+		tag = TAJ
+		original_tag = AFG
+		tag = AFG
+		original_tag = HAZ
+		tag = HAZ
+		original_tag = BDA
+		tag = BDA
+		original_tag = TAL
+		tag = TAL
+		original_tag = TTP
+		tag = TTP
+		original_tag = PAK
+		tag = PAK
+		original_tag = BLC
+		tag = BLC
+		original_tag = KAS
+		tag = KAS
+	}
+}
+
+DEC_CAL_is_asia_north = {
+	OR = {
+		original_tag = KAZ
+		tag = KAZ
+		original_tag = KYR
+		tag = KYR
+		original_tag = ETK
+		tag = ETK
+		original_tag = KRP
+		tag = KRP
+	}
+}
+
+DEC_CAL_is_asia_me = {
+	OR = {
+		original_tag = TUR
+		tag = TUR
+		original_tag = SAU
+		tag = SAU
+		original_tag = UAE
+		tag = UAE
+		original_tag = QAT
+		tag = QAT
+		original_tag = KUW
+		tag = KUW
+		original_tag = BHR
+		tag = BHR
+		original_tag = OMA
+		tag = OMA
+		original_tag = JOR
+		tag = JOR
+		original_tag = IRQ
+		tag = IRQ
+		original_tag = SYR
+		tag = SYR
+		original_tag = YEM
+		tag = YEM
+		original_tag = LEB
+		tag = LEB
+		original_tag = PAL
+		tag = PAL
+		original_tag = PER
+		tag = PER
+		original_tag = ISI
+		tag = ISI
+		original_tag = AQY
+		tag = AQY
+		original_tag = NUS
+		tag = NUS
+		original_tag = HAM
+		tag = HAM
+		original_tag = HOU
+		tag = HOU
+		original_tag = HEZ
+		tag = HEZ
+		original_tag = KUR
+		tag = KUR
+	}
+}
+
+DEC_CAL_is_eur_volga = {
+	OR = {
+		original_tag = TAT
+		tag = TAT
+		original_tag = BSH
+		tag = BSH
+		original_tag = NOG
+		tag = NOG
+		original_tag = VBG
+		tag = VBG
+		original_tag = BCF
+		tag = BCF
+		original_tag = IDL
+		tag = IDL
+	}
+}
+
+DEC_CAL_is_eur_cau = {
+	OR = {
+		original_tag = AZE
+		tag = AZE
+		original_tag = CHE
+		tag = CHE
+		original_tag = DAG
+		tag = DAG
+		original_tag = ING
+		tag = ING
+		original_tag = KBK
+		tag = KBK
+		original_tag = KCC
+		tag = KCC
+		original_tag = ADY
+		tag = ADY
+		original_tag = CIR
+		tag = CIR
+		original_tag = BLK
+		tag = BLK
+		original_tag = CAU
+		tag = CAU
+	}
+}
+
+DEC_CAL_is_eur_balk = {
+	OR = {
+		original_tag = ALB
+		tag = ALB
+		original_tag = BOS
+		tag = BOS
+		original_tag = KOS
+		tag = KOS
+		original_tag = NCY
+		tag = NCY
+	}
+}
+
+DEC_CAL_is_africa = {
+	OR = {
+		DEC_CAL_is_afr_maghreb = yes
+		DEC_CAL_is_afr_black = yes
+	}
+}
+
+DEC_CAL_is_asia = {
+	OR = {
+		DEC_CAL_is_asia_far = yes
+		DEC_CAL_is_asia_central = yes
+		DEC_CAL_is_asia_north = yes
+		DEC_CAL_is_asia_me = yes
+	}
+}
+
+DEC_CAL_is_europe = {
+	OR = {
+		DEC_CAL_is_eur_volga = yes
+		DEC_CAL_is_eur_cau = yes
+		DEC_CAL_is_eur_balk = yes
+	}
+}
+
+DEC_CAL_africa_block_complete = {
+	OR = {
+		has_country_flag = DEC_CAL_africa_block_done
+		AND = {
+			has_completed_focus = DEC_CAL_reg_afr_maghreb
+			has_completed_focus = DEC_CAL_reg_afr_black
+		}
+	}
+}
+
+DEC_CAL_asia_block_complete = {
+	OR = {
+		has_country_flag = DEC_CAL_asia_block_done
+		AND = {
+			has_completed_focus = DEC_CAL_reg_asia_me
+			has_completed_focus = DEC_CAL_reg_asia_central
+			has_completed_focus = DEC_CAL_reg_asia_north
+			has_completed_focus = DEC_CAL_reg_asia_far
+		}
+	}
+}
+
+DEC_CAL_europe_block_complete = {
+	OR = {
+		has_country_flag = DEC_CAL_europe_block_done
+		AND = {
+			has_completed_focus = DEC_CAL_reg_eur_cau
+			has_completed_focus = DEC_CAL_reg_eur_volga
+			has_completed_focus = DEC_CAL_reg_eur_balk
+		}
+	}
+}

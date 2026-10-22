@@ -1,0 +1,75 @@
+############################################
+# DEC mega-faction joining: list members only
+############################################
+
+joining_rule_dec_white_list = {
+	type = joining_rules
+	ai_will_do = { base = 0 }
+	available = { is_locked_faction = no }
+	can_remove = {
+		NOT = { ROOT = { is_locked_faction = yes } }
+	}
+	trigger = {
+		DEC_is_white_brotherhood_invitee = yes
+	}
+}
+
+joining_rule_dec_black_list = {
+	type = joining_rules
+	ai_will_do = { base = 0 }
+	available = { is_locked_faction = no }
+	can_remove = {
+		NOT = { ROOT = { is_locked_faction = yes } }
+	}
+	trigger = {
+		DEC_is_black_brotherhood_invitee = yes
+	}
+}
+
+joining_rule_dec_indigenous_list = {
+	type = joining_rules
+	ai_will_do = { base = 0 }
+	available = { is_locked_faction = no }
+	can_remove = {
+		NOT = { ROOT = { is_locked_faction = yes } }
+	}
+	trigger = {
+		DEC_is_indigenous_invitee = yes
+	}
+}
+
+joining_rule_dec_asian_list = {
+	type = joining_rules
+	ai_will_do = { base = 0 }
+	available = { is_locked_faction = no }
+	can_remove = {
+		NOT = { ROOT = { is_locked_faction = yes } }
+	}
+	trigger = {
+		DEC_is_asian_invitee = yes
+	}
+}
+
+joining_rule_dec_hindu_list = {
+	type = joining_rules
+	ai_will_do = { base = 0 }
+	available = { is_locked_faction = no }
+	can_remove = {
+		NOT = { ROOT = { is_locked_faction = yes } }
+	}
+	trigger = {
+		DEC_is_hindu_invitee = yes
+	}
+}
+
+joining_rule_dec_caliphate_list = {
+	type = joining_rules
+	ai_will_do = { base = 0 }
+	available = { is_locked_faction = no }
+	can_remove = {
+		NOT = { ROOT = { is_locked_faction = yes } }
+	}
+	trigger = {
+		DEC_is_caliphate_invitee = yes
+	}
+}

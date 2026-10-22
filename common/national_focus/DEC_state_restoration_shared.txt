@@ -1,0 +1,349 @@
+############################################
+# Shared: State Restoration (liberatable nations)
+# Industry + Military rebuild for post-secession states
+############################################
+
+shared_focus = {
+	id = DEC_RST_state_restoration
+	icon = national_unity
+	x = 230
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_state_restoration = yes
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+	available = {
+		is_subject = no
+		num_of_controlled_states > 0
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_state_restoration"
+		add_political_power = 75
+		add_stability = 0.05
+		add_war_support = 0.03
+	}
+	ai_will_do = { base = 50 }
+}
+
+############################################
+# Industry branch
+############################################
+
+shared_focus = {
+	id = DEC_RST_industrial_survey
+	icon = nationalist_education
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_state_restoration
+	x = -5
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_RST_state_restoration }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_industrial_survey"
+		DEC_rst_add_civ_4 = yes
+		DEC_rst_add_infra_2 = yes
+		add_political_power = 25
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_RST_restore_railways
+	icon = infrastructure
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_industrial_survey
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_RST_industrial_survey }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_restore_railways"
+		add_ideas = DEC_rst_railway_effort
+		DEC_rst_add_infra_3 = yes
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_RST_restart_civilian_plants
+	icon = industry_civilian
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_restore_railways
+	x = -2
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_RST_restore_railways }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_restart_civilian_plants"
+		DEC_rst_add_civ_8 = yes
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_RST_restore_defense_plants
+	icon = industry_civilian
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_restore_railways
+	x = 2
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_RST_restore_railways }
+	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_restore_defense_plants"
+		DEC_rst_add_mil_6 = yes
+	}
+	ai_will_do = { base = 38 }
+}
+
+shared_focus = {
+	id = DEC_RST_heavy_industry
+	icon = industry_civilian
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_restart_civilian_plants
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_RST_restart_civilian_plants }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_heavy_industry"
+		DEC_rst_add_civ_8 = yes
+		DEC_rst_add_mil_2 = yes
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_RST_expand_arms
+	icon = industry_military
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_restore_defense_plants
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_RST_restore_defense_plants }
+	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_expand_arms"
+		DEC_rst_add_mil_8 = yes
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_RST_strategic_industry
+	icon = industry_civilian
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_heavy_industry
+	x = 2
+	y = 1
+	cost = 9
+	prerequisite = { focus = DEC_RST_heavy_industry }
+	prerequisite = { focus = DEC_RST_expand_arms }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_strategic_industry"
+		DEC_rst_add_civ_6 = yes
+		DEC_rst_add_mil_6 = yes
+		DEC_rst_add_infra_2 = yes
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_RST_national_university
+	icon = nationalist_education
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_strategic_industry
+	x = 0
+	y = 1
+	cost = 10
+	prerequisite = { focus = DEC_RST_strategic_industry }
+	search_filters = { FOCUS_FILTER_RESEARCH }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_national_university"
+		add_research_slot = 1
+		add_ideas = DEC_rst_national_university
+		add_political_power = 50
+	}
+	ai_will_do = { base = 45 }
+}
+
+############################################
+# Military branch
+############################################
+
+shared_focus = {
+	id = DEC_RST_raise_volunteers
+	icon = small_arms_west
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_state_restoration
+	x = 5
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_RST_state_restoration }
+	search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_MANPOWER }
+	available = {
+		num_of_controlled_states > 0
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_raise_volunteers"
+		DEC_rst_spawn_volunteers_5 = yes
+		add_war_support = 0.05
+	}
+	ai_will_do = { base = 55 }
+}
+
+shared_focus = {
+	id = DEC_RST_national_service
+	icon = annex_country
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_raise_volunteers
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_RST_raise_volunteers }
+	search_filters = { FOCUS_FILTER_MANPOWER }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_national_service"
+		add_ideas = DEC_rst_national_service
+		add_manpower = 25000
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_RST_army_readiness
+	icon = small_arms_west
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_raise_volunteers
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_RST_raise_volunteers }
+	search_filters = { FOCUS_FILTER_ARMY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_army_readiness"
+		add_ideas = DEC_rst_army_readiness
+		army_experience = 25
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_RST_war_materiel
+	icon = industry_military
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_raise_volunteers
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_RST_raise_volunteers }
+	search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_war_materiel"
+		add_ideas = DEC_rst_war_materiel
+		add_equipment_to_stockpile = {
+			type = infantry_weapons_type
+			amount = 5000
+			producer = ROOT
+		}
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_RST_call_reserves
+	icon = fascist_threat
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_army_readiness
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_RST_national_service }
+	prerequisite = { focus = DEC_RST_army_readiness }
+	prerequisite = { focus = DEC_RST_war_materiel }
+	search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_MANPOWER }
+	available = {
+		num_of_controlled_states > 0
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_call_reserves"
+		DEC_rst_spawn_reserves_8 = yes
+		add_war_support = 0.05
+	}
+	ai_will_do = { base = 50 }
+}
+
+shared_focus = {
+	id = DEC_RST_patriotic_levy
+	icon = alliance
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_call_reserves
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_RST_call_reserves }
+	search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_patriotic_levy"
+		add_ideas = DEC_rst_patriotic_levy
+		add_manpower = 40000
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_RST_officer_corps
+	icon = small_arms_west
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_call_reserves
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_RST_call_reserves }
+	search_filters = { FOCUS_FILTER_ARMY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_officer_corps"
+		add_ideas = DEC_rst_officer_corps
+		army_experience = 40
+		add_command_power = 25
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_RST_total_mobilization
+	icon = small_arms_west
+	allow_branch = { DEC_can_access_state_restoration = yes }
+	relative_position_id = DEC_RST_call_reserves
+	x = 0
+	y = 2
+	cost = 8
+	prerequisite = { focus = DEC_RST_patriotic_levy }
+	prerequisite = { focus = DEC_RST_officer_corps }
+	search_filters = { FOCUS_FILTER_ARMY FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+	available = {
+		has_war = yes
+		num_of_controlled_states > 0
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_RST_total_mobilization"
+		DEC_rst_spawn_mobilization_12 = yes
+		add_war_support = 0.08
+		add_stability = -0.03
+	}
+	ai_will_do = {
+		base = 60
+		modifier = {
+			factor = 0
+			has_war = no
+		}
+	}
+}

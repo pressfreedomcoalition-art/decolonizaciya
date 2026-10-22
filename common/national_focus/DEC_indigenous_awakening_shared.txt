@@ -1,0 +1,696 @@
+############################################
+# Shared: Indigenous Awakening — Коренное пробуждение
+# Americas + Oceania
+############################################
+
+shared_focus = {
+	id = DEC_IND_indigenous_awakening
+	icon = native_americans
+	x = 20
+	y = 30
+	cost = 5
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_indigenous_awakening"
+		set_variable = { DEC_ind_ns_amt = 0.10 }
+		DEC_IND_boost_all = yes
+		add_political_power = 50
+		custom_effect_tooltip = DEC_IND_boost_plus1_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_IND_declare_council
+	icon = aztec_icon
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -22
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_IND_indigenous_awakening }
+	available = { DEC_can_access_indigenous_awakening = yes
+		is_subject = no
+		is_in_faction = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_declare_council"
+		DEC_create_abya_yala_council = yes
+		custom_effect_tooltip = DEC_IND_declare_council_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_IND_call_unity
+	icon = maya
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -22
+	y = 2
+	cost = 8
+	prerequisite = { focus = DEC_IND_declare_council }
+	available = { DEC_can_access_indigenous_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_call_unity"
+		DEC_invite_abya_yala_members = yes
+		custom_effect_tooltip = DEC_IND_call_unity_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_IND_call_oath
+	icon = oath_of_beirut
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -22
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_IND_call_unity }
+	available = { DEC_can_access_indigenous_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_call_oath"
+		DEC_IND_oath_start = yes
+		custom_effect_tooltip = DEC_IND_call_oath_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_IND_unite_council
+	icon = annex_country
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -22
+	y = 4
+	cost = 12
+	prerequisite = { focus = DEC_IND_call_oath }
+	available = { DEC_can_access_indigenous_awakening = yes
+		is_faction_leader = yes
+		any_subject_country = { always = yes } }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_unite_council"
+		DEC_IND_unite_council = yes
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_IND_turtle_island
+	icon = native_americans
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -14
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_IND_north }
+	available = { DEC_can_access_indigenous_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_turtle_island"
+		DEC_IND_create_turtle_island = yes
+		custom_effect_tooltip = DEC_IND_turtle_island_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_IND_melanesian_league
+	icon = oceania
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 14
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_IND_melanesia }
+	available = { DEC_can_access_indigenous_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_melanesian_league"
+		DEC_IND_create_melanesian_league = yes
+		custom_effect_tooltip = DEC_IND_melanesian_league_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_IND_north
+	icon = native_americans
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -18
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_IND_indigenous_awakening }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_north"
+		set_variable = { DEC_ind_ns_amt = 0.15 }
+		DEC_IND_boost_north = yes
+		custom_effect_tooltip = DEC_IND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_north_plains
+	icon = native_americans
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -20
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_north }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_north_plains"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_north_plains = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_north_pacific
+	icon = oceania
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -18
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_north }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_north_pacific"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_north_pacific = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_north_settlers
+	icon = american_nationalism
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -16
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_north }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_north_settlers"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_north_settlers = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_crusade_north
+	icon = war_against_the_united_states
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -18
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_IND_reg_north_plains }
+	prerequisite = { focus = DEC_IND_reg_north_pacific }
+	prerequisite = { focus = DEC_IND_reg_north_settlers }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_crusade_north"
+		DEC_IND_wargoals_north = yes
+		custom_effect_tooltip = DEC_IND_crusade_north_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_IND_meso
+	icon = maya
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -8
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_IND_indigenous_awakening }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_meso"
+		set_variable = { DEC_ind_ns_amt = 0.15 }
+		DEC_IND_boost_meso = yes
+		custom_effect_tooltip = DEC_IND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_meso_mexico
+	icon = aztec_icon
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -12
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_meso }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_meso_mexico"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_meso_mexico = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_meso_central
+	icon = maya
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -10
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_meso }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_meso_central"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_meso_central = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_crusade_meso
+	icon = war_against_mexico
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -8
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_IND_reg_meso_mexico }
+	prerequisite = { focus = DEC_IND_reg_meso_central }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_crusade_meso"
+		DEC_IND_wargoals_meso = yes
+		custom_effect_tooltip = DEC_IND_crusade_meso_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_IND_andes
+	icon = aztec_icon
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -4
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_IND_indigenous_awakening }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_andes"
+		set_variable = { DEC_ind_ns_amt = 0.15 }
+		DEC_IND_boost_andes = yes
+		custom_effect_tooltip = DEC_IND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_andes_tauantinsuyu
+	icon = aztec_icon
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -6
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_andes }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_andes_tauantinsuyu"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_andes_tauantinsuyu = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_andes_northern
+	icon = maya
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -2
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_andes }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_andes_northern"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_andes_northern = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_crusade_andes
+	icon = war
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = -4
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_IND_reg_andes_tauantinsuyu }
+	prerequisite = { focus = DEC_IND_reg_andes_northern }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_crusade_andes"
+		DEC_IND_wargoals_andes = yes
+		custom_effect_tooltip = DEC_IND_crusade_andes_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_IND_south
+	icon = focus_ARG_south_american_unity
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 4
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_IND_indigenous_awakening }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_south"
+		set_variable = { DEC_ind_ns_amt = 0.15 }
+		DEC_IND_boost_south = yes
+		custom_effect_tooltip = DEC_IND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_south_amazon
+	icon = focus_CHL_the_spirit_of_the_war_of_the_pacific
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 2
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_south }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_south_amazon"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_south_amazon = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_south_cone
+	icon = focus_ARG_south_american_unity
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 6
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_south }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_south_cone"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_south_cone = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_crusade_south
+	icon = war_against_australia
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 4
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_IND_reg_south_amazon }
+	prerequisite = { focus = DEC_IND_reg_south_cone }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_crusade_south"
+		DEC_IND_wargoals_south = yes
+		custom_effect_tooltip = DEC_IND_crusade_south_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_IND_melanesia
+	icon = oceania
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 10
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_IND_indigenous_awakening }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_melanesia"
+		set_variable = { DEC_ind_ns_amt = 0.15 }
+		DEC_IND_boost_melanesia = yes
+		custom_effect_tooltip = DEC_IND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_melanesia_black_pacific
+	icon = oceania
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 8
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_melanesia }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_melanesia_black_pacific"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_melanesia_black_pacific = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_melanesia_timor
+	icon = asia_pacific
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 12
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_melanesia }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_melanesia_timor"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_melanesia_timor = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_crusade_melanesia
+	icon = ast_war_monger
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 10
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_IND_reg_melanesia_black_pacific }
+	prerequisite = { focus = DEC_IND_reg_melanesia_timor }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_crusade_melanesia"
+		DEC_IND_wargoals_melanesia = yes
+		custom_effect_tooltip = DEC_IND_crusade_melanesia_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_IND_polynesia
+	icon = aboriginal_voting
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 18
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_IND_indigenous_awakening }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_polynesia"
+		set_variable = { DEC_ind_ns_amt = 0.15 }
+		DEC_IND_boost_polynesia = yes
+		custom_effect_tooltip = DEC_IND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_polynesia_maori
+	icon = oceania
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 16
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_polynesia }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_polynesia_maori"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_polynesia_maori = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_polynesia_micronesia
+	icon = asia_pacific
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 20
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_polynesia }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_polynesia_micronesia"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_polynesia_micronesia = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_reg_polynesia_australia
+	icon = aboriginal_voting
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 22
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_IND_polynesia }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_reg_polynesia_australia"
+		set_variable = { DEC_ind_ns_amt = 0.20 }
+		DEC_IND_boost_polynesia_australia = yes
+		custom_effect_tooltip = DEC_IND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_IND_crusade_polynesia
+	icon = war_against_australia
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 18
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_IND_reg_polynesia_maori }
+	prerequisite = { focus = DEC_IND_reg_polynesia_micronesia }
+	prerequisite = { focus = DEC_IND_reg_polynesia_australia }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_crusade_polynesia"
+		DEC_IND_wargoals_polynesia = yes
+		custom_effect_tooltip = DEC_IND_crusade_polynesia_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_IND_crusade_world
+	icon = war4
+	allow_branch = { DEC_can_access_indigenous_awakening = yes }
+	relative_position_id = DEC_IND_indigenous_awakening
+	x = 0
+	y = 4
+	cost = 15
+	prerequisite = { focus = DEC_IND_crusade_north }
+	prerequisite = { focus = DEC_IND_crusade_meso }
+	prerequisite = { focus = DEC_IND_crusade_andes }
+	prerequisite = { focus = DEC_IND_crusade_south }
+	prerequisite = { focus = DEC_IND_crusade_melanesia }
+	prerequisite = { focus = DEC_IND_crusade_polynesia }
+	prerequisite = { focus = DEC_IND_crusade_north }
+	prerequisite = { focus = DEC_IND_crusade_meso }
+	prerequisite = { focus = DEC_IND_crusade_andes }
+	prerequisite = { focus = DEC_IND_crusade_south }
+	prerequisite = { focus = DEC_IND_crusade_melanesia }
+	prerequisite = { focus = DEC_IND_crusade_polynesia }
+	available = { DEC_can_access_indigenous_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_IND_crusade_world"
+		DEC_IND_wargoals_world = yes
+		custom_effect_tooltip = DEC_IND_crusade_world_tt
+	}
+	ai_will_do = { base = 50 }
+}

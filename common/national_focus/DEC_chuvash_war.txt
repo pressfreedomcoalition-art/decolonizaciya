@@ -1,0 +1,61 @@
+############################################
+# Chuvash war manpower + DeathNote.Rip
+############################################
+
+shared_focus = {
+	id = DEC_CHU_war_in
+	icon = GFX_DEC_CHU_war_in
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_pol_root
+	x = 34
+	y = 0
+	cost = 5
+	search_filters = { FOCUS_FILTER_MANPOWER }
+	available = { has_war = yes }
+	cancel_if_invalid = yes
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_war_in"
+		add_manpower = 100000
+		custom_effect_tooltip = DEC_CHU_war_in_tt
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_CHU_war_diaspora
+	icon = GFX_DEC_CHU_war_diaspora
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_war_in
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_CHU_war_in }
+	search_filters = { FOCUS_FILTER_MANPOWER }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_war_diaspora"
+		add_manpower = 500000
+		custom_effect_tooltip = DEC_CHU_war_diaspora_tt
+	}
+	ai_will_do = { base = 10 }
+}
+
+shared_focus = {
+	id = DEC_CHU_war_chuvash
+	icon = GFX_DEC_CHU_war_dn
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } }
+	relative_position_id = DEC_CHU_war_diaspora
+	x = 0
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_CHU_war_diaspora }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	available = { has_war = yes }
+	cancel_if_invalid = yes
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_war_chuvash"
+		set_country_flag = DEC_CHU_dn_active
+		custom_effect_tooltip = DEC_CHU_war_chuvash_tt
+		hidden_effect = { DEC_CHU_dn_fire_order = yes }
+	}
+	ai_will_do = { base = 8 }
+}

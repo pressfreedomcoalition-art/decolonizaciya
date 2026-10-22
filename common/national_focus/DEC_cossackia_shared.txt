@@ -1,0 +1,245 @@
+############################################
+# Decolonizaciya — Cossackia shared focuses
+# Parallel to Caucasus: Kuban / Don / Yaik → Kazakia | Intermarium
+############################################
+
+shared_focus = {
+	id = DEC_CSK_kuban_uprising
+	icon = generic_fascist_uprising
+	x = 28
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_cossackia_branch = yes
+		OR = {
+			DEC_is_cossack_nation = yes
+			has_country_flag = DEC_CSK_branch_unlocked
+			has_war_with = SOV
+			DEC_has_anti_rf_focus_done = yes
+		}
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = KUB
+			AND = { DEC_KUB_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_KUB } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_cossack_ready = yes
+		OR = {
+			tag = KUB
+			has_war_with = SOV
+			SOV = { owns_state = 668 }
+			KUB = { is_subject_of = SOV }
+			NOT = { country_exists = KUB }
+			DEC_KUB_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CSK_kuban_uprising"
+		if = {
+			limit = { NOT = { DEC_KUB_already_independent = yes } }
+			DEC_uprising_KUB = yes
+		}
+		set_global_flag = DEC_CSK_any_uprising_done
+		set_country_flag = DEC_CSK_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_cossackia_block = yes
+	}
+	ai_will_do = {
+		base = 20
+		modifier = {
+			factor = 4
+			has_war_with = SOV
+		}
+	}
+}
+
+shared_focus = {
+	id = DEC_CSK_don_uprising
+	icon = generic_fascist_uprising
+	x = 4
+	y = 0
+	relative_position_id = DEC_CSK_kuban_uprising
+	cost = 5
+	allow_branch = {
+		DEC_can_access_cossackia_branch = yes
+		OR = {
+			DEC_is_cossack_nation = yes
+			has_country_flag = DEC_CSK_branch_unlocked
+			has_war_with = SOV
+			DEC_has_anti_rf_focus_done = yes
+		}
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = DON
+			AND = { DEC_DON_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_DON } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_cossack_ready = yes
+		OR = {
+			tag = DON
+			has_war_with = SOV
+			SOV = { owns_state = 667 }
+			DON = { is_subject_of = SOV }
+			NOT = { country_exists = DON }
+			DEC_DON_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CSK_don_uprising"
+		if = {
+			limit = { NOT = { DEC_DON_already_independent = yes } }
+			DEC_uprising_DON = yes
+		}
+		set_global_flag = DEC_CSK_any_uprising_done
+		set_country_flag = DEC_CSK_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_cossackia_block = yes
+	}
+	ai_will_do = {
+		base = 20
+		modifier = {
+			factor = 4
+			has_war_with = SOV
+		}
+	}
+}
+
+shared_focus = {
+	id = DEC_CSK_yaik_uprising
+	icon = generic_fascist_uprising
+	x = 8
+	y = 0
+	relative_position_id = DEC_CSK_kuban_uprising
+	cost = 5
+	allow_branch = {
+		DEC_can_access_cossackia_branch = yes
+		OR = {
+			DEC_is_cossack_nation = yes
+			has_country_flag = DEC_CSK_branch_unlocked
+			has_war_with = SOV
+			DEC_has_anti_rf_focus_done = yes
+		}
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = VYK
+			AND = { DEC_VYK_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_VYK } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_cossack_ready = yes
+		OR = {
+			tag = VYK
+			has_war_with = SOV
+			SOV = { owns_state = 1118 }
+			VYK = { is_subject_of = SOV }
+			NOT = { country_exists = VYK }
+			DEC_VYK_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CSK_yaik_uprising"
+		if = {
+			limit = { NOT = { DEC_VYK_already_independent = yes } }
+			DEC_uprising_VYK = yes
+		}
+		set_global_flag = DEC_CSK_any_uprising_done
+		set_country_flag = DEC_CSK_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		DEC_try_finish_cossackia_block = yes
+	}
+	ai_will_do = {
+		base = 18
+		modifier = {
+			factor = 4
+			has_war_with = SOV
+		}
+	}
+}
+
+shared_focus = {
+	id = DEC_CSK_create_kazakia
+	icon = fascist_threat
+	x = 2
+	y = 2
+	relative_position_id = DEC_CSK_kuban_uprising
+	cost = 8
+	prerequisite = { focus = DEC_CSK_kuban_uprising }
+	prerequisite = { focus = DEC_CSK_don_uprising }
+	prerequisite = { focus = DEC_CSK_yaik_uprising }
+	mutually_exclusive = { focus = DEC_CSK_join_intermarium }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		OR = {
+			DEC_is_cossack_nation = yes
+			original_tag = UKR
+			tag = UKR
+			original_tag = ZKL
+			tag = ZKL
+		}
+		OR = {
+			has_completed_focus = DEC_CSK_kuban_uprising
+			has_completed_focus = DEC_CSK_don_uprising
+			has_completed_focus = DEC_CSK_yaik_uprising
+			has_global_flag = DEC_CSK_any_uprising_done
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CSK_create_kazakia"
+		DEC_create_kazakia = yes
+		set_global_flag = DEC_CSK_kazakia_formed
+		set_country_flag = DEC_formed_CSK
+		news_event = { id = dec.10 hours = 6 }
+		custom_effect_tooltip = DEC_CSK_create_kazakia_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_CSK_join_intermarium
+	icon = industry_civilian
+	x = 6
+	y = 2
+	relative_position_id = DEC_CSK_kuban_uprising
+	cost = 8
+	prerequisite = { focus = DEC_CSK_kuban_uprising }
+	prerequisite = { focus = DEC_CSK_don_uprising }
+	prerequisite = { focus = DEC_CSK_yaik_uprising }
+	mutually_exclusive = { focus = DEC_CSK_create_kazakia }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_in_faction = no
+		DEC_intermarium_exists = yes
+		OR = {
+			DEC_is_cossack_nation = yes
+			original_tag = UKR
+			tag = UKR
+			original_tag = ZKL
+			tag = ZKL
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CSK_join_intermarium"
+		DEC_join_intermarium = yes
+		set_global_flag = DEC_CSK_joined_intermarium
+		custom_effect_tooltip = DEC_CSK_join_intermarium_tt
+	}
+	ai_will_do = {
+		base = 25
+		modifier = {
+			factor = 0
+			NOT = { DEC_intermarium_exists = yes }
+		}
+	}
+}

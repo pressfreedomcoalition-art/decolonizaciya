@@ -1,0 +1,131 @@
+############################################
+# State Restoration branch access
+############################################
+
+DEC_is_restoration_nation = {
+	OR = {
+		DEC_is_uprising_nation_tag = yes
+		has_country_flag = DEC_rebel_nation
+		has_country_flag = DEC_RDK_revolution
+		has_country_flag = DEC_blockchain_nation
+		# DEC formables / liberatables
+		original_tag = VBG
+		tag = VBG
+		original_tag = CIR
+		tag = CIR
+		original_tag = BGR
+		tag = BGR
+		original_tag = SMO
+		tag = SMO
+		original_tag = VOR
+		tag = VOR
+		original_tag = SEV
+		tag = SEV
+		original_tag = IDL
+		tag = IDL
+		original_tag = BCF
+		tag = BCF
+		original_tag = BLK
+		tag = BLK
+		original_tag = KBC
+		tag = KBC
+		original_tag = OSA
+		tag = OSA
+		original_tag = CAU
+		tag = CAU
+		original_tag = ZKL
+		tag = ZKL
+		original_tag = APT
+		tag = APT
+		original_tag = RHO
+		tag = RHO
+		original_tag = ADY
+		tag = ADY
+		original_tag = KBK
+		tag = KBK
+		original_tag = KCC
+		tag = KCC
+		original_tag = SIB
+		tag = SIB
+		original_tag = OMG
+		tag = OMG
+		original_tag = FAR
+		tag = FAR
+		original_tag = GOR
+		tag = GOR
+		original_tag = MOV
+		tag = MOV
+		original_tag = MON
+		tag = MON
+		# Ukraine liberatables
+		original_tag = DPR
+		tag = DPR
+		original_tag = LPR
+		tag = LPR
+		original_tag = NOV
+		tag = NOV
+		original_tag = CRI
+		tag = CRI
+		# China liberatables (MD tags)
+		original_tag = TIB
+		tag = TIB
+		original_tag = ETR
+		tag = ETR
+		original_tag = UYG
+		tag = UYG
+		original_tag = HKG
+		tag = HKG
+		original_tag = MAC
+		tag = MAC
+		# Iran liberatables (MD tags)
+		original_tag = KUR
+		tag = KUR
+		original_tag = BAL
+		tag = BAL
+		original_tag = AHV
+		tag = AHV
+		original_tag = KHU
+		tag = KHU
+	}
+}
+
+DEC_can_access_state_restoration = {
+	OR = {
+		DEC_is_restoration_nation = yes
+		AND = {
+			is_subject = no
+			NOT = {
+				OR = {
+					original_tag = SOV
+					tag = SOV
+					original_tag = UKR
+					tag = UKR
+					original_tag = CHI
+					tag = CHI
+					original_tag = PER
+					tag = PER
+					original_tag = RUS
+					tag = RUS
+				}
+			}
+			OR = {
+				has_war_with = SOV
+				has_war_with = UKR
+				has_war_with = CHI
+				has_war_with = PER
+				any_core_state = {
+					OR = {
+						is_owned_by = SOV
+						is_owned_by = UKR
+						is_owned_by = CHI
+						is_owned_by = PER
+						owner = { is_subject_of = SOV }
+						owner = { is_subject_of = UKR }
+						owner = { is_subject_of = CHI }
+						owner = { is_subject_of = PER }
+					}
+				}
+			}
+		}
+	}
+}

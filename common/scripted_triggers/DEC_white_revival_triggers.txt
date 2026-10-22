@@ -1,0 +1,632 @@
+############################################
+# White Revival / White Brotherhood (full TZ)
+############################################
+
+DEC_has_ns = {
+	nationalist_fascist_are_in_power = yes
+}
+
+DEC_has_white_right_ideology = {
+	OR = {
+		western_autocrats_are_in_power = yes
+		western_conservatism_are_in_power = yes
+		neutrality_neutral_conservatism_are_in_power = yes
+		emerging_reactionaries_are_in_power = yes
+		nationalist_right_wing_populists_are_in_power = yes
+		nationalist_fascist_are_in_power = yes
+		nationalist_military_junta_are_in_power = yes
+		nationalist_monarchists_are_in_power = yes
+	}
+}
+
+DEC_is_white_brotherhood_nation = {
+	OR = {
+		original_tag = ENG
+		tag = ENG
+		original_tag = FRA
+		tag = FRA
+		original_tag = BEL
+		tag = BEL
+		original_tag = HOL
+		tag = HOL
+		original_tag = LUX
+		tag = LUX
+		original_tag = IRE
+		tag = IRE
+		original_tag = SWE
+		tag = SWE
+		original_tag = NRY
+		tag = NRY
+		original_tag = DEN
+		tag = DEN
+		original_tag = ICE
+		tag = ICE
+		original_tag = GER
+		tag = GER
+		original_tag = AUS
+		tag = AUS
+		original_tag = SWI
+		tag = SWI
+		original_tag = LIC
+		tag = LIC
+		original_tag = POL
+		tag = POL
+		original_tag = CZE
+		tag = CZE
+		original_tag = SLO
+		tag = SLO
+		original_tag = HUN
+		tag = HUN
+		original_tag = ITA
+		tag = ITA
+		original_tag = SPR
+		tag = SPR
+		original_tag = POR
+		tag = POR
+		original_tag = GRE
+		tag = GRE
+		original_tag = CYP
+		tag = CYP
+		original_tag = MLT
+		tag = MLT
+		original_tag = UKR
+		tag = UKR
+		original_tag = BLR
+		tag = BLR
+		original_tag = MLV
+		tag = MLV
+		original_tag = LAT
+		tag = LAT
+		original_tag = LIT
+		tag = LIT
+		original_tag = BLT
+		tag = BLT
+		original_tag = ROM
+		tag = ROM
+		original_tag = BUL
+		tag = BUL
+		original_tag = SER
+		tag = SER
+		original_tag = CRO
+		tag = CRO
+		original_tag = SLV
+		tag = SLV
+		original_tag = BOS
+		tag = BOS
+		original_tag = ALB
+		tag = ALB
+		original_tag = MNT
+		tag = MNT
+		original_tag = KOS
+		tag = KOS
+		original_tag = FYR
+		tag = FYR
+		original_tag = ADO
+		tag = ADO
+		original_tag = SMA
+		tag = SMA
+		original_tag = HLS
+		tag = HLS
+		original_tag = BGR
+		tag = BGR
+		original_tag = SMO
+		tag = SMO
+		original_tag = VOR
+		tag = VOR
+		original_tag = SEV
+		tag = SEV
+		original_tag = SOV
+		tag = SOV
+		original_tag = RUS
+		tag = RUS
+		original_tag = VYK
+		tag = VYK
+		original_tag = DON
+		tag = DON
+		original_tag = KUB
+		tag = KUB
+		original_tag = USA
+		tag = USA
+		original_tag = CAN
+		tag = CAN
+		original_tag = APT
+		tag = APT
+		original_tag = RHO
+		tag = RHO
+		original_tag = ARG
+		tag = ARG
+		original_tag = URG
+		tag = URG
+		original_tag = CHL
+		tag = CHL
+		original_tag = BRA
+		tag = BRA
+		original_tag = FIN
+		tag = FIN
+		original_tag = EST
+		tag = EST
+		original_tag = IGR
+		tag = IGR
+		original_tag = KAE
+		tag = KAE
+		original_tag = LAP
+		tag = LAP
+		original_tag = BJA
+		tag = BJA
+		# Volga RF subjects on White path (e.g. Chuvash)
+		original_tag = CHU
+		tag = CHU
+		original_tag = MEL
+		tag = MEL
+		original_tag = UDM
+		tag = UDM
+		original_tag = ERZ
+		tag = ERZ
+		original_tag = MOK
+		tag = MOK
+		original_tag = MOV
+		tag = MOV
+		original_tag = AST
+		tag = AST
+		original_tag = NZL
+		tag = NZL
+		has_cosmetic_tag = DEC_RNS
+		has_cosmetic_tag = DEC_RNS_imperial
+		has_cosmetic_tag = DEC_RNS_rdk
+		has_cosmetic_tag = DEC_RNS_tricolor
+		has_cosmetic_tag = DEC_RNS_wbw
+		has_cosmetic_tag = WBR
+	}
+}
+
+DEC_WHT_is_europe = {
+		OR = {
+			original_tag = ENG
+			tag = ENG
+			original_tag = FRA
+			tag = FRA
+			original_tag = BEL
+			tag = BEL
+			original_tag = HOL
+			tag = HOL
+			original_tag = LUX
+			tag = LUX
+			original_tag = IRE
+			tag = IRE
+			original_tag = SWE
+			tag = SWE
+			original_tag = NRY
+			tag = NRY
+			original_tag = DEN
+			tag = DEN
+			original_tag = ICE
+			tag = ICE
+			original_tag = GER
+			tag = GER
+			original_tag = AUS
+			tag = AUS
+			original_tag = SWI
+			tag = SWI
+			original_tag = LIC
+			tag = LIC
+			original_tag = POL
+			tag = POL
+			original_tag = CZE
+			tag = CZE
+			original_tag = SLO
+			tag = SLO
+			original_tag = HUN
+			tag = HUN
+			original_tag = ITA
+			tag = ITA
+			original_tag = SPR
+			tag = SPR
+			original_tag = POR
+			tag = POR
+			original_tag = GRE
+			tag = GRE
+			original_tag = CYP
+			tag = CYP
+			original_tag = MLT
+			tag = MLT
+			original_tag = UKR
+			tag = UKR
+			original_tag = BLR
+			tag = BLR
+			original_tag = MLV
+			tag = MLV
+			original_tag = LAT
+			tag = LAT
+			original_tag = LIT
+			tag = LIT
+			original_tag = ROM
+			tag = ROM
+			original_tag = BUL
+			tag = BUL
+			original_tag = SER
+			tag = SER
+			original_tag = CRO
+			tag = CRO
+			original_tag = SLV
+			tag = SLV
+			original_tag = BOS
+			tag = BOS
+			original_tag = ALB
+			tag = ALB
+			original_tag = MNT
+			tag = MNT
+			original_tag = KOS
+			tag = KOS
+			original_tag = FYR
+			tag = FYR
+			original_tag = ADO
+			tag = ADO
+			original_tag = SMA
+			tag = SMA
+			original_tag = HLS
+			tag = HLS
+			original_tag = BGR
+			tag = BGR
+			original_tag = SMO
+			tag = SMO
+			original_tag = VOR
+			tag = VOR
+			original_tag = SEV
+			tag = SEV
+			original_tag = SOV
+			tag = SOV
+			original_tag = RUS
+			tag = RUS
+			original_tag = VYK
+			tag = VYK
+			original_tag = DON
+			tag = DON
+			original_tag = KUB
+			tag = KUB
+		}
+}
+
+DEC_WHT_is_europe_west = {
+		OR = {
+			original_tag = ENG
+			tag = ENG
+			original_tag = FRA
+			tag = FRA
+			original_tag = BEL
+			tag = BEL
+			original_tag = HOL
+			tag = HOL
+			original_tag = LUX
+			tag = LUX
+			original_tag = IRE
+			tag = IRE
+		}
+}
+
+DEC_WHT_is_europe_north = {
+		OR = {
+			original_tag = SWE
+			tag = SWE
+			original_tag = NRY
+			tag = NRY
+			original_tag = DEN
+			tag = DEN
+			original_tag = ICE
+			tag = ICE
+		}
+}
+
+DEC_WHT_is_europe_central = {
+		OR = {
+			original_tag = GER
+			tag = GER
+			original_tag = AUS
+			tag = AUS
+			original_tag = SWI
+			tag = SWI
+			original_tag = LIC
+			tag = LIC
+			original_tag = POL
+			tag = POL
+			original_tag = CZE
+			tag = CZE
+			original_tag = SLO
+			tag = SLO
+			original_tag = HUN
+			tag = HUN
+		}
+}
+
+DEC_WHT_is_europe_east = {
+		OR = {
+			original_tag = ITA
+			tag = ITA
+			original_tag = SPR
+			tag = SPR
+			original_tag = POR
+			tag = POR
+			original_tag = GRE
+			tag = GRE
+			original_tag = CYP
+			tag = CYP
+			original_tag = MLT
+			tag = MLT
+			original_tag = UKR
+			tag = UKR
+			original_tag = BLR
+			tag = BLR
+			original_tag = MLV
+			tag = MLV
+			original_tag = LAT
+			tag = LAT
+			original_tag = LIT
+			tag = LIT
+			original_tag = ROM
+			tag = ROM
+			original_tag = BUL
+			tag = BUL
+			original_tag = SER
+			tag = SER
+			original_tag = CRO
+			tag = CRO
+			original_tag = SLV
+			tag = SLV
+			original_tag = BOS
+			tag = BOS
+			original_tag = ALB
+			tag = ALB
+			original_tag = MNT
+			tag = MNT
+			original_tag = KOS
+			tag = KOS
+			original_tag = FYR
+			tag = FYR
+			original_tag = ADO
+			tag = ADO
+			original_tag = SMA
+			tag = SMA
+			original_tag = HLS
+			tag = HLS
+		}
+}
+
+DEC_WHT_is_europe_russian = {
+		OR = {
+			original_tag = BGR
+			tag = BGR
+			original_tag = SMO
+			tag = SMO
+			original_tag = VOR
+			tag = VOR
+			original_tag = SEV
+			tag = SEV
+			original_tag = SOV
+			tag = SOV
+			original_tag = RUS
+			tag = RUS
+			original_tag = VYK
+			tag = VYK
+			original_tag = DON
+			tag = DON
+			original_tag = KUB
+			tag = KUB
+		}
+}
+
+DEC_WHT_europe_block_complete = {
+	OR = {
+		has_country_flag = DEC_WHT_europe_block_done
+		AND = {
+			has_completed_focus = DEC_WHT_reg_europe_west
+			has_completed_focus = DEC_WHT_reg_europe_north
+			has_completed_focus = DEC_WHT_reg_europe_central
+			has_completed_focus = DEC_WHT_reg_europe_east
+			has_completed_focus = DEC_WHT_reg_europe_russian
+		}
+	}
+}
+
+DEC_WHT_is_na = {
+		OR = {
+			original_tag = USA
+			tag = USA
+			original_tag = CAN
+			tag = CAN
+		}
+}
+
+DEC_WHT_is_na_usa = {
+		OR = {
+			original_tag = USA
+			tag = USA
+		}
+}
+
+DEC_WHT_is_na_canada = {
+		OR = {
+			original_tag = CAN
+			tag = CAN
+		}
+}
+
+DEC_WHT_na_block_complete = {
+	OR = {
+		has_country_flag = DEC_WHT_na_block_done
+		AND = {
+			has_completed_focus = DEC_WHT_reg_na_usa
+			has_completed_focus = DEC_WHT_reg_na_canada
+		}
+	}
+}
+
+DEC_WHT_is_colonies = {
+		OR = {
+			original_tag = APT
+			tag = APT
+			original_tag = RHO
+			tag = RHO
+			original_tag = ARG
+			tag = ARG
+			original_tag = URG
+			tag = URG
+			original_tag = CHL
+			tag = CHL
+			original_tag = BRA
+			tag = BRA
+		}
+}
+
+DEC_WHT_is_colonies_saf = {
+		OR = {
+			original_tag = APT
+			tag = APT
+		}
+}
+
+DEC_WHT_is_colonies_rho = {
+		OR = {
+			original_tag = RHO
+			tag = RHO
+		}
+}
+
+DEC_WHT_is_colonies_cone = {
+		OR = {
+			original_tag = ARG
+			tag = ARG
+			original_tag = URG
+			tag = URG
+			original_tag = CHL
+			tag = CHL
+			original_tag = BRA
+			tag = BRA
+		}
+}
+
+DEC_WHT_colonies_block_complete = {
+	OR = {
+		has_country_flag = DEC_WHT_colonies_block_done
+		AND = {
+			has_completed_focus = DEC_WHT_reg_colonies_saf
+			has_completed_focus = DEC_WHT_reg_colonies_rho
+			has_completed_focus = DEC_WHT_reg_colonies_cone
+		}
+	}
+}
+
+DEC_WHT_is_finno = {
+		OR = {
+			original_tag = FIN
+			tag = FIN
+			original_tag = EST
+			tag = EST
+			original_tag = IGR
+			tag = IGR
+			original_tag = KAE
+			tag = KAE
+			original_tag = LAP
+			tag = LAP
+			original_tag = BJA
+			tag = BJA
+		}
+}
+
+DEC_WHT_is_finno_fin = {
+		OR = {
+			original_tag = FIN
+			tag = FIN
+		}
+}
+
+DEC_WHT_is_finno_est = {
+		OR = {
+			original_tag = EST
+			tag = EST
+		}
+}
+
+DEC_WHT_is_finno_north_finno = {
+		OR = {
+			original_tag = IGR
+			tag = IGR
+			original_tag = KAE
+			tag = KAE
+			original_tag = LAP
+			tag = LAP
+			original_tag = BJA
+			tag = BJA
+		}
+}
+
+DEC_WHT_finno_block_complete = {
+	OR = {
+		has_country_flag = DEC_WHT_finno_block_done
+		AND = {
+			has_completed_focus = DEC_WHT_reg_finno_fin
+			has_completed_focus = DEC_WHT_reg_finno_est
+			has_completed_focus = DEC_WHT_reg_finno_north_finno
+		}
+	}
+}
+
+DEC_WHT_is_oceania = {
+		OR = {
+			original_tag = AST
+			tag = AST
+			original_tag = NZL
+			tag = NZL
+		}
+}
+
+DEC_WHT_is_oceania_ast = {
+		OR = {
+			original_tag = AST
+			tag = AST
+		}
+}
+
+DEC_WHT_is_oceania_nzl = {
+		OR = {
+			original_tag = NZL
+			tag = NZL
+		}
+}
+
+DEC_WHT_oceania_block_complete = {
+	OR = {
+		has_country_flag = DEC_WHT_oceania_block_done
+		AND = {
+			has_completed_focus = DEC_WHT_reg_oceania_ast
+			has_completed_focus = DEC_WHT_reg_oceania_nzl
+		}
+	}
+}
+
+DEC_can_access_white_revival = {
+	DEC_is_white_brotherhood_nation = yes
+	DEC_has_white_right_ideology = yes
+	NOT = { DEC_has_radical_islam = yes }
+	NOT = {
+		OR = {
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_ASI_asian_awakening
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_CAL_world_caliphate
+		}
+	}
+}
+
+DEC_is_white_brotherhood_invitee = {
+	DEC_is_white_brotherhood_nation = yes
+	OR = {
+		DEC_has_ns = yes
+		DEC_has_white_right_ideology = yes
+	}
+	exists = yes
+	NOT = { has_war_with = ROOT }
+	OR = {
+		is_subject = no
+		is_subject_of = ROOT
+	}
+}

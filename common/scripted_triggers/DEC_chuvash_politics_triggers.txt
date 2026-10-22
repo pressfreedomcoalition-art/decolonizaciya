@@ -1,0 +1,51 @@
+############################################
+# Chuvash politics: libertarian / anarchist checks
+############################################
+
+DEC_is_libertarian_gov = {
+	check_variable = { ruling_party = 16 }
+}
+
+DEC_is_anarchist_gov = {
+	check_variable = { ruling_party = 5 }
+}
+
+DEC_is_lib_or_anarchist_gov = {
+	OR = {
+		DEC_is_libertarian_gov = yes
+		DEC_is_anarchist_gov = yes
+	}
+}
+
+DEC_CHU_vbg_path_open = {
+	OR = {
+		original_tag = CHU
+		original_tag = BCF
+	}
+	has_country_flag = DEC_CHU_vbg_unlocked
+}
+
+DEC_CHU_lib_path_open = {
+	OR = {
+		original_tag = CHU
+		original_tag = BCF
+	}
+	has_country_flag = DEC_CHU_lib_unlocked
+}
+
+DEC_CHU_coin_path_open = {
+	OR = {
+		original_tag = CHU
+		original_tag = BCF
+	}
+	has_country_flag = DEC_CHU_any_power
+	NOT = { has_country_flag = DEC_CHU_left_front_power }
+}
+
+DEC_CHU_state_path_open = {
+	OR = {
+		original_tag = CHU
+		original_tag = BCF
+	}
+	has_country_flag = DEC_CHU_any_power
+}

@@ -1,0 +1,316 @@
+############################################
+# Decolonizaciya — Caucasian Union shared focuses
+# Root: Chechnya → Dagestan → Ingush / Alans / Circassia → Union → Volga
+# Cossackia is a separate parallel branch (DEC_cossackia_shared.txt).
+# Bypass if the uprising target is already independent (not SOV subject).
+############################################
+
+shared_focus = {
+	id = DEC_CAU_chechnya_uprising
+	icon = generic_fascist_uprising
+	x = 10
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_cau_uprising_branch = yes
+		OR = {
+			has_country_flag = DEC_CAU_branch_unlocked
+			has_war_with = SOV
+			DEC_has_anti_rf_focus_done = yes
+			has_global_flag = DEC_TUR_block_complete
+		}
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	# Already free Chechnya (or you ARE Chechnya) → skip as completed
+	bypass = {
+		OR = {
+			tag = CHE
+			AND = { DEC_CHE_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_CHE } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		OR = {
+			tag = CHE
+			has_war_with = SOV
+			SOV = { owns_state = 672 }
+			CHE = { is_subject_of = SOV }
+			NOT = { country_exists = CHE }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_chechnya_uprising"
+		if = {
+			limit = { NOT = { DEC_CHE_already_independent = yes } }
+			DEC_uprising_CHE = yes
+		}
+		set_global_flag = DEC_CAU_any_uprising_done
+		set_country_flag = DEC_CAU_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = {
+		base = 25
+		modifier = {
+			factor = 4
+			has_war_with = SOV
+		}
+	}
+}
+
+shared_focus = {
+	id = DEC_CAU_dagestan_uprising
+	icon = generic_fascist_uprising
+	x = 0
+	y = 1
+	relative_position_id = DEC_CAU_chechnya_uprising
+	cost = 5
+	prerequisite = { focus = DEC_CAU_chechnya_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		AND = { DEC_DAG_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_DAG } }
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		OR = {
+			has_war_with = SOV
+			SOV = { owns_state = 671 }
+			DAG = { is_subject_of = SOV }
+			NOT = { country_exists = DAG }
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_dagestan_uprising"
+		if = {
+			limit = { NOT = { DEC_DAG_already_independent = yes } }
+			DEC_uprising_DAG = yes
+		}
+		set_global_flag = DEC_CAU_any_uprising_done
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = {
+		base = 20
+		modifier = {
+			factor = 5
+			has_war_with = SOV
+		}
+	}
+}
+
+shared_focus = {
+	id = DEC_CAU_ingush_uprising
+	icon = generic_fascist_uprising
+	x = -4
+	y = 1
+	relative_position_id = DEC_CAU_dagestan_uprising
+	cost = 5
+	prerequisite = { focus = DEC_CAU_dagestan_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		AND = { DEC_ING_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_ING } }
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		OR = {
+			SOV = { owns_state = 1126 }
+			ING = { is_subject_of = SOV }
+			NOT = { country_exists = ING }
+			DEC_ING_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_ingush_uprising"
+		if = {
+			limit = { NOT = { DEC_ING_already_independent = yes } }
+			DEC_uprising_ING = yes
+		}
+		set_global_flag = DEC_CAU_any_uprising_done
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 15 }
+}
+
+shared_focus = {
+	id = DEC_CAU_alans_uprising
+	icon = generic_fascist_uprising
+	x = 0
+	y = 1
+	relative_position_id = DEC_CAU_dagestan_uprising
+	cost = 5
+	prerequisite = { focus = DEC_CAU_dagestan_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	# Skip only if BOTH Karachay-Cherkessia and Kabardino-Balkaria are free
+	bypass = {
+		AND = { DEC_ALANS_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_ALANS } }
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		OR = {
+			SOV = { owns_state = 1125 }
+			SOV = { owns_state = 674 }
+			KCC = { is_subject_of = SOV }
+			KBK = { is_subject_of = SOV }
+			DEC_ALANS_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_alans_uprising"
+		if = {
+			limit = { NOT = { DEC_ALANS_already_independent = yes } }
+			DEC_uprising_ALANS = yes
+		}
+		set_global_flag = DEC_CAU_any_uprising_done
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 15 }
+}
+
+shared_focus = {
+	id = DEC_CAU_circassia_uprising
+	icon = generic_fascist_uprising
+	x = 4
+	y = 1
+	relative_position_id = DEC_CAU_dagestan_uprising
+	cost = 5
+	prerequisite = { focus = DEC_CAU_dagestan_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		AND = { DEC_CIR_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_CIR } }
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		OR = {
+			SOV = { owns_state = 1127 }
+			ADY = { is_subject_of = SOV }
+			AND = {
+				NOT = { country_exists = CIR }
+				SOV = { owns_state = 1127 }
+			}
+			DEC_CIR_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_circassia_uprising"
+		if = {
+			limit = { NOT = { DEC_CIR_already_independent = yes } }
+			DEC_uprising_CIR = yes
+		}
+		set_global_flag = DEC_CAU_any_uprising_done
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 15 }
+}
+
+shared_focus = {
+	id = DEC_CAU_nogai_uprising
+	icon = generic_fascist_uprising
+	x = 8
+	y = 1
+	relative_position_id = DEC_CAU_dagestan_uprising
+	cost = 5
+	prerequisite = { focus = DEC_CAU_dagestan_uprising }
+	prerequisite = { focus = DEC_VOL_bashkir_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = NOG
+			AND = { DEC_NOG_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_NOG } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		OR = {
+			tag = NOG
+			has_war_with = SOV
+			SOV = { owns_state = 666 }
+			NOG = { is_subject_of = SOV }
+			NOT = { country_exists = NOG }
+			DEC_NOG_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_nogai_uprising"
+		if = {
+			limit = { NOT = { DEC_NOG_already_independent = yes } }
+			DEC_uprising_NOG = yes
+		}
+		set_global_flag = DEC_CAU_any_uprising_done
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 14 }
+}
+
+# Caucasian Union + unlock Volga: Caucasus nations only
+shared_focus = {
+	id = DEC_CAU_create_union
+	icon = infrastructure
+	x = 0
+	y = 2
+	relative_position_id = DEC_CAU_dagestan_uprising
+	cost = 8
+	allow_branch = {
+		DEC_is_caucasus_nation = yes
+	}
+	prerequisite = {
+		focus = DEC_CAU_chechnya_uprising
+		focus = DEC_CAU_dagestan_uprising
+		focus = DEC_CAU_ingush_uprising
+		focus = DEC_CAU_alans_uprising
+		focus = DEC_CAU_circassia_uprising
+	}
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		DEC_is_caucasus_nation = yes
+		is_faction_leader = no
+		OR = {
+			has_completed_focus = DEC_CAU_chechnya_uprising
+			has_completed_focus = DEC_CAU_dagestan_uprising
+			has_completed_focus = DEC_CAU_ingush_uprising
+			has_completed_focus = DEC_CAU_alans_uprising
+			has_completed_focus = DEC_CAU_circassia_uprising
+			has_global_flag = DEC_CAU_any_uprising_done
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_create_union"
+		DEC_create_caucasian_union = yes
+		set_global_flag = DEC_CAU_union_formed
+		set_country_flag = DEC_formed_CAU
+		set_country_flag = DEC_VOL_branch_unlocked
+		custom_effect_tooltip = DEC_CAU_create_union_tt
+		custom_effect_tooltip = DEC_CAU_unlocks_volga_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+# South Caucasus: optional invitations after peace with Russia
+shared_focus = {
+	id = DEC_CAU_invite_south
+	icon = generic_treaty
+	x = 0
+	y = 1
+	relative_position_id = DEC_CAU_create_union
+	cost = 5
+	allow_branch = {
+		DEC_is_caucasus_nation = yes
+	}
+	prerequisite = { focus = DEC_CAU_create_union }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		DEC_is_caucasus_nation = yes
+		is_faction_leader = yes
+		has_global_flag = DEC_CAU_union_formed
+		NOT = { has_war_with = SOV }
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CAU_invite_south"
+		DEC_invite_south_caucasus_to_union = yes
+		custom_effect_tooltip = DEC_CAU_invite_south_tt
+	}
+	ai_will_do = {
+		base = 20
+		modifier = {
+			factor = 0
+			has_war_with = SOV
+		}
+	}
+}

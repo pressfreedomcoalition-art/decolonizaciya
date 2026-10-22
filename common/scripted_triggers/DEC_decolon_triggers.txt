@@ -1,0 +1,738 @@
+############################################
+# Decolonizaciya — access / invitee triggers
+############################################
+
+DEC_tag_in_list = {
+	always = yes
+}
+
+DEC_is_volga_nation = {
+	OR = {
+		original_tag = TAT
+		original_tag = BSH
+		original_tag = CHU
+		original_tag = MEL
+		original_tag = UDM
+		original_tag = ERZ
+		original_tag = MOK
+		original_tag = VBG
+		original_tag = IDL
+		original_tag = BCF
+		original_tag = NOG
+		tag = TAT
+		tag = BSH
+		tag = CHU
+		tag = MEL
+		tag = UDM
+		tag = ERZ
+		tag = MOK
+		tag = VBG
+		tag = IDL
+		tag = BCF
+		tag = NOG
+	}
+}
+
+DEC_is_volga_finno_nation = {
+	OR = {
+		original_tag = ERZ
+		original_tag = MOK
+		original_tag = MEL
+		original_tag = UDM
+		tag = ERZ
+		tag = MOK
+		tag = MEL
+		tag = UDM
+	}
+}
+
+DEC_is_volga_turkic_nation = {
+	OR = {
+		original_tag = TAT
+		original_tag = BSH
+		original_tag = CHU
+		original_tag = NOG
+		original_tag = VBG
+		original_tag = BCF
+		original_tag = IDL
+		tag = TAT
+		tag = BSH
+		tag = CHU
+		tag = NOG
+		tag = VBG
+		tag = BCF
+		tag = IDL
+	}
+}
+
+# Ukraine sees uprising branches only after Support Coalition
+DEC_ukr_has_uprising_access = {
+	OR = {
+		original_tag = UKR
+		tag = UKR
+	}
+	has_country_flag = DEC_UKR_coalition_access
+}
+
+DEC_is_ukraine_tag = {
+	OR = {
+		original_tag = UKR
+		tag = UKR
+	}
+}
+
+# Shared legacy unlock (CAU / anti-RF) — used by finno side
+# UKR: only via DEC_UKR_coalition_access (not war / anti-RF alone)
+DEC_can_access_volga_branch = {
+	OR = {
+		DEC_ukr_has_uprising_access = yes
+		AND = {
+			NOT = { DEC_is_ukraine_tag = yes }
+			OR = {
+				DEC_is_volga_nation = yes
+				has_country_flag = DEC_VOL_branch_unlocked
+				has_global_flag = DEC_CAU_union_formed
+				has_global_flag = DEC_CAU_any_uprising_done
+				DEC_has_anti_rf_focus_done = yes
+				has_war_with = SOV
+			}
+		}
+	}
+}
+
+# Finno-Ugric Volga: own peoples / CAU-antiRF / full North block
+DEC_can_access_volga_finno = {
+	OR = {
+		DEC_is_volga_finno_nation = yes
+		has_country_flag = DEC_VOL_finno_unlocked
+		has_global_flag = DEC_NOR_block_complete
+		DEC_can_access_volga_branch = yes
+	}
+}
+
+# Turkic Volga: own peoples / OR unlocked from Finno-Ugric path
+DEC_can_access_volga_turkic = {
+	OR = {
+		DEC_is_volga_turkic_nation = yes
+		has_country_flag = DEC_VOL_turkic_unlocked
+		has_completed_focus = DEC_VOL_erzya_uprising
+		has_global_flag = DEC_VOL_finno_opened_turkic
+	}
+}
+
+DEC_is_north_nation = {
+	OR = {
+		original_tag = BJA
+		original_tag = IGR
+		original_tag = KAE
+		original_tag = LAP
+		original_tag = BLT
+		original_tag = FIN
+		original_tag = NRY
+		original_tag = SWE
+		original_tag = EST
+		original_tag = LAT
+		original_tag = LIT
+		tag = BJA
+		tag = IGR
+		tag = KAE
+		tag = LAP
+		tag = BLT
+		tag = FIN
+		tag = NRY
+		tag = SWE
+		tag = EST
+		tag = LAT
+		tag = LIT
+	}
+}
+
+DEC_can_access_north_branch = {
+	OR = {
+		DEC_ukr_has_uprising_access = yes
+		AND = {
+			NOT = { DEC_is_ukraine_tag = yes }
+			OR = {
+				DEC_is_north_nation = yes
+				has_global_flag = DEC_VOL_block_complete
+				has_country_flag = DEC_NOR_branch_unlocked
+				has_war_with = SOV
+				has_completed_focus = FIN_distance_from_russia
+			}
+		}
+	}
+}
+
+DEC_is_external_turkic = {
+	OR = {
+		original_tag = TUR
+		original_tag = AZE
+		original_tag = KAZ
+		original_tag = UZB
+		original_tag = KYR
+		original_tag = TRK
+		tag = TUR
+		tag = AZE
+		tag = KAZ
+		tag = UZB
+		tag = KYR
+		tag = TRK
+	}
+}
+
+DEC_is_internal_turkic = {
+	OR = {
+		original_tag = TAT
+		original_tag = BSH
+		original_tag = CHU
+		original_tag = NOG
+		original_tag = YAK
+		original_tag = KHS
+		original_tag = ALT
+		original_tag = TUV
+		original_tag = KCC
+		original_tag = KBK
+		original_tag = BLK
+		tag = TAT
+		tag = BSH
+		tag = CHU
+		tag = NOG
+		tag = YAK
+		tag = KHS
+		tag = ALT
+		tag = TUV
+	}
+}
+
+DEC_is_turkic_nation = {
+	OR = {
+		DEC_is_external_turkic = yes
+		DEC_is_internal_turkic = yes
+	}
+}
+
+DEC_can_access_turan_branch = {
+	OR = {
+		DEC_ukr_has_uprising_access = yes
+		AND = {
+			NOT = { DEC_is_ukraine_tag = yes }
+			OR = {
+				DEC_is_turkic_nation = yes
+				has_country_flag = DEC_TUR_branch_unlocked
+				has_war_with = SOV
+				DEC_has_anti_rf_focus_done = yes
+				has_global_flag = DEC_MON_block_complete
+			}
+		}
+	}
+}
+
+DEC_any_decolon_block_complete = {
+	OR = {
+		has_global_flag = DEC_CAU_union_formed
+		has_global_flag = DEC_CSK_kazakia_formed
+		has_global_flag = DEC_CSK_joined_intermarium
+		has_global_flag = DEC_CSK_block_complete
+		has_global_flag = DEC_VOL_block_complete
+		has_global_flag = DEC_TUR_block_complete
+		has_global_flag = DEC_NOR_block_complete
+		has_global_flag = DEC_MON_block_complete
+		has_completed_focus = DEC_CSK_create_kazakia
+		has_completed_focus = DEC_CSK_join_intermarium
+		has_completed_focus = DEC_CAU_create_union
+		has_completed_focus = DEC_VOL_udmurt_uprising
+	}
+}
+
+DEC_is_mongol_nation = {
+	OR = {
+		original_tag = KLM
+		original_tag = BRY
+		original_tag = MON
+		original_tag = OMG
+		tag = KLM
+		tag = BRY
+		tag = MON
+		tag = OMG
+	}
+}
+
+DEC_is_mongol_branch_external = {
+	OR = {
+		original_tag = CHI
+		original_tag = JAP
+		tag = CHI
+		tag = JAP
+	}
+}
+
+# Mongols + CHI/JAP: after anti-RF / war. Others: after any complete block / full Turan.
+# UKR: only via Support Coalition
+DEC_can_access_mongol_branch = {
+	OR = {
+		DEC_ukr_has_uprising_access = yes
+		AND = {
+			NOT = { DEC_is_ukraine_tag = yes }
+			OR = {
+				AND = {
+					OR = {
+						DEC_is_mongol_nation = yes
+						DEC_is_mongol_branch_external = yes
+					}
+					OR = {
+						has_country_flag = DEC_MON_branch_unlocked
+						has_war_with = SOV
+						DEC_has_anti_rf_focus_done = yes
+					}
+				}
+				DEC_any_decolon_block_complete = yes
+				has_country_flag = DEC_MON_branch_unlocked
+				has_global_flag = DEC_TUR_block_complete
+			}
+		}
+	}
+}
+
+DEC_is_ural_nation = {
+	OR = {
+		original_tag = KOM
+		original_tag = KHM
+		original_tag = YAM
+		original_tag = NEE
+		original_tag = URA
+		tag = KOM
+		tag = KHM
+		tag = YAM
+		tag = NEE
+		tag = URA
+	}
+}
+
+DEC_can_access_ural_branch = {
+	OR = {
+		DEC_ukr_has_uprising_access = yes
+		AND = {
+			NOT = { DEC_is_ukraine_tag = yes }
+			OR = {
+				DEC_is_ural_nation = yes
+				has_global_flag = DEC_VOL_block_complete
+				has_global_flag = DEC_TUR_block_complete
+				has_completed_focus = DEC_VOL_bashkir_uprising
+				has_country_flag = DEC_URA_branch_unlocked
+				has_war_with = SOV
+			}
+		}
+	}
+}
+
+DEC_is_siberia_nation = {
+	OR = {
+		original_tag = CSB
+		original_tag = ESB
+		original_tag = SIB
+		tag = CSB
+		tag = ESB
+		tag = SIB
+	}
+}
+
+DEC_can_access_siberia_branch = {
+	OR = {
+		DEC_ukr_has_uprising_access = yes
+		AND = {
+			NOT = { DEC_is_ukraine_tag = yes }
+			OR = {
+				DEC_is_siberia_nation = yes
+				has_global_flag = DEC_URA_block_complete
+				has_global_flag = DEC_TUR_siberia_unlocked
+				has_global_flag = DEC_MON_block_complete
+				has_global_flag = DEC_TUR_block_complete
+				has_country_flag = DEC_SIB_branch_unlocked
+				has_war_with = SOV
+			}
+		}
+	}
+}
+
+DEC_is_fareast_nation = {
+	OR = {
+		original_tag = ZKL
+		original_tag = CKK
+		tag = ZKL
+		tag = CKK
+	}
+}
+
+DEC_can_access_fareast_branch = {
+	OR = {
+		DEC_ukr_has_uprising_access = yes
+		AND = {
+			NOT = { DEC_is_ukraine_tag = yes }
+			OR = {
+				DEC_is_fareast_nation = yes
+				has_global_flag = DEC_SIB_block_complete
+				has_country_flag = DEC_FE_branch_unlocked
+				has_war_with = SOV
+			}
+		}
+	}
+}
+
+############################################
+# Separatism / rifles for uprising focuses
+############################################
+
+DEC_can_fund_uprising_rifles = {
+	has_equipment = { infantry_weapons_type > 9999 }
+}
+
+DEC_sep_north_ready = {
+	SOV = { check_variable = { DEC_sep_north > 39.99 } }
+}
+DEC_sep_volga_finno_ready = {
+	SOV = { check_variable = { DEC_sep_volga_finno > 39.99 } }
+}
+DEC_sep_volga_turkic_ready = {
+	SOV = { check_variable = { DEC_sep_volga_turkic > 39.99 } }
+}
+DEC_sep_cossack_ready = {
+	SOV = { check_variable = { DEC_sep_cossack > 39.99 } }
+}
+DEC_sep_ural_ready = {
+	SOV = { check_variable = { DEC_sep_ural > 39.99 } }
+}
+DEC_sep_siberia_ready = {
+	SOV = { check_variable = { DEC_sep_siberia > 39.99 } }
+}
+DEC_sep_fareast_ready = {
+	SOV = { check_variable = { DEC_sep_fareast > 39.99 } }
+}
+DEC_sep_turan_ready = {
+	SOV = { check_variable = { DEC_sep_turan > 39.99 } }
+}
+DEC_sep_mongol_ready = {
+	SOV = { check_variable = { DEC_sep_mongol > 39.99 } }
+}
+
+DEC_ukr_controls_rdk_border = {
+	any_controlled_state = {
+		any_neighbor_state = {
+			OR = {
+				state = 1172 # Belgorod
+				state = 1174 # Bryansk
+				state = 656  # Voronezh
+			}
+		}
+	}
+}
+
+# Independence bypass helpers
+DEC_TAT_already_independent = {
+	country_exists = TAT
+	TAT = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 661 }
+}
+DEC_BSH_already_independent = {
+	country_exists = BSH
+	BSH = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 664 }
+}
+DEC_CHU_already_independent = {
+	country_exists = CHU
+	CHU = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1135 }
+}
+DEC_MEL_already_independent = {
+	country_exists = MEL
+	MEL = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1134 }
+}
+DEC_UDM_already_independent = {
+	country_exists = UDM
+	UDM = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1133 }
+}
+DEC_ERZ_already_independent = {
+	country_exists = ERZ
+	ERZ = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1132 }
+}
+DEC_MOK_already_independent = {
+	country_exists = MOK
+	MOK = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1132 }
+}
+DEC_NOG_already_independent = {
+	country_exists = NOG
+	NOG = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 666 }
+}
+DEC_BJA_already_independent = {
+	country_exists = BJA
+	BJA = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 647 }
+}
+DEC_IGR_already_independent = {
+	country_exists = IGR
+	IGR = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 644 }
+}
+DEC_BLT_already_independent = {
+	country_exists = BLT
+	BLT = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 642 }
+}
+DEC_KAE_already_independent = {
+	country_exists = KAE
+	KAE = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1128 }
+}
+DEC_LAP_already_independent = {
+	country_exists = LAP
+	LAP = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 643 }
+}
+DEC_KLM_already_independent = {
+	country_exists = KLM
+	KLM = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1107 }
+}
+DEC_BRY_already_independent = {
+	country_exists = BRY
+	BRY = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 686 }
+}
+DEC_KOM_already_independent = {
+	country_exists = KOM
+	KOM = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 648 }
+}
+DEC_KHM_already_independent = {
+	country_exists = KHM
+	KHM = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 678 }
+}
+DEC_YAM_already_independent = {
+	country_exists = YAM
+	YAM = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 679 }
+}
+DEC_NEE_already_independent = {
+	country_exists = NEE
+	NEE = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 683 }
+}
+DEC_YAK_already_independent = {
+	country_exists = YAK
+	YAK = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 688 }
+}
+DEC_KHS_already_independent = {
+	country_exists = KHS
+	KHS = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1065 }
+}
+DEC_ALT_already_independent = {
+	country_exists = ALT
+	ALT = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 684 }
+}
+DEC_TUV_already_independent = {
+	country_exists = TUV
+	TUV = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 1011 }
+}
+DEC_CKK_already_independent = {
+	country_exists = CKK
+	CKK = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 689 }
+}
+DEC_CSB_already_independent = {
+	country_exists = CSB
+	CSB = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 682 }
+}
+DEC_ESB_already_independent = {
+	country_exists = ESB
+	ESB = { is_subject = no NOT = { is_subject_of = SOV } owns_state = 685 }
+}
+
+DEC_is_idel_ural_invitee = {
+	OR = {
+		DEC_is_volga_nation = yes
+		original_tag = TAT
+		original_tag = BSH
+		original_tag = CHU
+		original_tag = MEL
+		original_tag = UDM
+		original_tag = ERZ
+		original_tag = MOK
+	}
+}
+DEC_is_bulgar_invitee = {
+	OR = {
+		original_tag = TAT
+		original_tag = CHU
+		original_tag = BSH
+		original_tag = VBG
+		original_tag = BCF
+		tag = TAT
+		tag = CHU
+		tag = BSH
+		tag = VBG
+		tag = BCF
+	}
+}
+DEC_is_fennoscandia_invitee = {
+	DEC_is_north_nation = yes
+}
+DEC_is_turan_invitee = {
+	OR = {
+		DEC_is_turkic_nation = yes
+		DEC_is_mongol_nation = yes
+	}
+}
+DEC_is_ural_invitee = {
+	DEC_is_ural_nation = yes
+}
+DEC_is_siberia_invitee = {
+	OR = {
+		DEC_is_siberia_nation = yes
+		original_tag = YAK
+		original_tag = BRY
+	}
+}
+DEC_is_fareast_invitee = {
+	OR = {
+		DEC_is_fareast_nation = yes
+		original_tag = ZKL
+	}
+}
+
+# Finno-Ugric liberated tags invited into Finland's faction after NATO collapse
+DEC_is_finno_ugric_collapse = {
+	OR = {
+		original_tag = KAE
+		original_tag = KOM
+		original_tag = NEE
+		original_tag = KHM
+		original_tag = YAM
+		original_tag = MEL
+		original_tag = UDM
+		original_tag = ERZ
+		original_tag = MOK
+		original_tag = BJA
+		original_tag = IGR
+		original_tag = LAP
+		tag = KAE
+		tag = KOM
+		tag = NEE
+		tag = KHM
+		tag = YAM
+		tag = MEL
+		tag = UDM
+		tag = ERZ
+		tag = MOK
+		tag = BJA
+		tag = IGR
+		tag = LAP
+	}
+}
+
+# Turkic liberated tags invited into Turkey's faction after NATO collapse
+DEC_is_turkic_collapse = {
+	OR = {
+		DEC_is_internal_turkic = yes
+		original_tag = TAT
+		original_tag = BSH
+		original_tag = CHU
+		original_tag = NOG
+		original_tag = YAK
+		original_tag = KHS
+		original_tag = ALT
+		original_tag = TUV
+		original_tag = KBK
+		original_tag = KCC
+		original_tag = BLK
+		tag = TAT
+		tag = BSH
+		tag = CHU
+		tag = NOG
+		tag = YAK
+		tag = KHS
+		tag = ALT
+		tag = TUV
+		tag = KBK
+		tag = KCC
+		tag = BLK
+	}
+}
+
+DEC_nato_collapse_ready = {
+	country_exists = RUS
+	RUS = {
+		any_subject_country = {
+			OR = {
+				original_tag = TAT
+				original_tag = BSH
+				original_tag = KAE
+				original_tag = KOM
+				original_tag = URA
+				original_tag = NEE
+				tag = TAT
+				tag = BSH
+				tag = KAE
+				tag = KOM
+				tag = URA
+				tag = NEE
+			}
+		}
+	}
+}
+
+# Tags that use russian_subjects_focus_tree (mega ideology branches attach here)
+DEC_is_russian_federation_subject = {
+	OR = {
+		original_tag = YAK
+		original_tag = BRY
+		original_tag = KHS
+		original_tag = ADY
+		original_tag = CKK
+		original_tag = NEE
+		original_tag = YAM
+		original_tag = ALT
+		original_tag = KAE
+		original_tag = KOM
+		original_tag = TUV
+		original_tag = KLM
+		original_tag = KBK
+		original_tag = DAG
+		original_tag = ING
+		original_tag = GOR
+		original_tag = FAR
+		original_tag = SIB
+		original_tag = KUB
+		original_tag = KCC
+		original_tag = CHU
+		original_tag = MEL
+		original_tag = MOV
+		original_tag = UDM
+		original_tag = TAT
+		original_tag = BSH
+		original_tag = CHE
+		original_tag = ERZ
+		original_tag = MOK
+		original_tag = NOG
+		original_tag = VBG
+		original_tag = BCF
+		original_tag = IDL
+		tag = YAK
+		tag = BRY
+		tag = KHS
+		tag = ADY
+		tag = CKK
+		tag = NEE
+		tag = YAM
+		tag = ALT
+		tag = KAE
+		tag = KOM
+		tag = TUV
+		tag = KLM
+		tag = KBK
+		tag = DAG
+		tag = ING
+		tag = GOR
+		tag = FAR
+		tag = SIB
+		tag = KUB
+		tag = KCC
+		tag = CHU
+		tag = MEL
+		tag = MOV
+		tag = UDM
+		tag = TAT
+		tag = BSH
+		tag = CHE
+		tag = ERZ
+		tag = MOK
+		tag = NOG
+		tag = VBG
+		tag = BCF
+		tag = IDL
+	}
+}

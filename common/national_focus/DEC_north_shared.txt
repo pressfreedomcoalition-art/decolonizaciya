@@ -1,0 +1,222 @@
+############################################
+# North block → Fennoscandia
+############################################
+
+shared_focus = {
+	id = DEC_NOR_bjarmia_uprising
+	icon = generic_fascist_uprising
+	x = 40
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_north_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = BJA
+			AND = { DEC_BJA_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_BJA } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_north_ready = yes
+		OR = {
+			tag = BJA
+			has_war_with = SOV
+			SOV = { owns_state = 647 }
+			NOT = { country_exists = BJA }
+			DEC_BJA_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_NOR_bjarmia_uprising"
+		if = {
+			limit = { NOT = { DEC_BJA_already_independent = yes } }
+			DEC_uprising_BJA = yes
+		}
+		set_country_flag = DEC_NOR_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 18 }
+}
+
+shared_focus = {
+	id = DEC_NOR_ingria_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_north_branch = yes }
+	relative_position_id = DEC_NOR_bjarmia_uprising
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_NOR_bjarmia_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = IGR
+			AND = { DEC_IGR_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_IGR } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_north_ready = yes
+		OR = {
+			tag = IGR
+			has_war_with = SOV
+			SOV = { owns_state = 644 }
+			NOT = { country_exists = IGR }
+			DEC_IGR_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_NOR_ingria_uprising"
+		if = {
+			limit = { NOT = { DEC_IGR_already_independent = yes } }
+			DEC_uprising_IGR = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 16 }
+}
+
+shared_focus = {
+	id = DEC_NOR_baltic_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_north_branch = yes }
+	relative_position_id = DEC_NOR_ingria_uprising
+	x = 2
+	y = 0
+	cost = 5
+	prerequisite = { focus = DEC_NOR_ingria_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = BLT
+			AND = { DEC_BLT_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_BLT } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_north_ready = yes
+		OR = {
+			tag = BLT
+			has_war_with = SOV
+			SOV = { owns_state = 642 }
+			NOT = { country_exists = BLT }
+			DEC_BLT_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_NOR_baltic_uprising"
+		if = {
+			limit = { NOT = { DEC_BLT_already_independent = yes } }
+			DEC_uprising_BLT = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		custom_effect_tooltip = DEC_BLT_bdv_power_tt
+	}
+	ai_will_do = { base = 14 }
+}
+
+shared_focus = {
+	id = DEC_NOR_karelia_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_north_branch = yes }
+	relative_position_id = DEC_NOR_ingria_uprising
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_NOR_ingria_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = KAE
+			AND = { DEC_KAE_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_KAE } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_north_ready = yes
+		OR = {
+			tag = KAE
+			has_war_with = SOV
+			SOV = { owns_state = 1128 }
+			NOT = { country_exists = KAE }
+			DEC_KAE_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_NOR_karelia_uprising"
+		if = {
+			limit = { NOT = { DEC_KAE_already_independent = yes } }
+			DEC_uprising_KAE = yes
+		}
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = { base = 16 }
+}
+
+shared_focus = {
+	id = DEC_NOR_lapland_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_north_branch = yes }
+	relative_position_id = DEC_NOR_karelia_uprising
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_NOR_karelia_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = LAP
+			AND = { DEC_LAP_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_LAP } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_north_ready = yes
+		OR = {
+			tag = LAP
+			has_war_with = SOV
+			SOV = { owns_state = 643 }
+			NOT = { country_exists = LAP }
+			DEC_LAP_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_NOR_lapland_uprising"
+		if = {
+			limit = { NOT = { DEC_LAP_already_independent = yes } }
+			DEC_uprising_LAP = yes
+		}
+		set_global_flag = DEC_NOR_block_complete
+		set_country_flag = DEC_VOL_finno_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		custom_effect_tooltip = DEC_NOR_unlocks_volga_finno_tt
+	}
+	ai_will_do = { base = 16 }
+}
+
+shared_focus = {
+	id = DEC_NOR_fennoscandia
+	icon = industry_civilian
+	allow_branch = { DEC_can_access_north_branch = yes }
+	relative_position_id = DEC_NOR_lapland_uprising
+	x = 0
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_NOR_lapland_uprising }
+	search_filters = { FOCUS_FILTER_DIPLOMACY FOCUS_FILTER_POLITICAL }
+	available = {
+		is_faction_leader = no
+		DEC_is_north_nation = yes
+		has_global_flag = DEC_NOR_block_complete
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_NOR_fennoscandia"
+		DEC_create_fennoscandia = yes
+		set_global_flag = DEC_NOR_fennoscandia_formed
+		custom_effect_tooltip = DEC_NOR_fennoscandia_tt
+	}
+	ai_will_do = { base = 35 }
+}

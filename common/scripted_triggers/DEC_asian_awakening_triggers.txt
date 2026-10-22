@@ -1,0 +1,309 @@
+############################################
+# Asian Awakening / Азиатское пробуждение
+# East + Southeast Asia (India reserved for Hindu)
+############################################
+
+DEC_has_asian_right_ideology = {
+	OR = {
+		western_autocrats_are_in_power = yes
+		western_conservatism_are_in_power = yes
+		neutrality_neutral_conservatism_are_in_power = yes
+		emerging_reactionaries_are_in_power = yes
+		nationalist_right_wing_populists_are_in_power = yes
+		nationalist_fascist_are_in_power = yes
+		nationalist_military_junta_are_in_power = yes
+		nationalist_monarchists_are_in_power = yes
+	}
+}
+
+DEC_is_asian_nation = {
+	OR = {
+		original_tag = CHI
+		tag = CHI
+		original_tag = TAI
+		tag = TAI
+		original_tag = HKG
+		tag = HKG
+		original_tag = MAC
+		tag = MAC
+		original_tag = TIB
+		tag = TIB
+		original_tag = MON
+		tag = MON
+		original_tag = OMG
+		tag = OMG
+		original_tag = KOR
+		tag = KOR
+		original_tag = NKO
+		tag = NKO
+		original_tag = JAP
+		tag = JAP
+		original_tag = RYU
+		tag = RYU
+		original_tag = VIE
+		tag = VIE
+		original_tag = LAO
+		tag = LAO
+		original_tag = CBD
+		tag = CBD
+		original_tag = SIA
+		tag = SIA
+		original_tag = BRM
+		tag = BRM
+		original_tag = MAY
+		tag = MAY
+		original_tag = SIN
+		tag = SIN
+		original_tag = BRU
+		tag = BRU
+		original_tag = IND
+		tag = IND
+		original_tag = PHI
+		tag = PHI
+		# Far East / Siberian RF subjects on Asian path
+		original_tag = YAK
+		tag = YAK
+		original_tag = BRY
+		tag = BRY
+		original_tag = KHS
+		tag = KHS
+		original_tag = ALT
+		tag = ALT
+		original_tag = TUV
+		tag = TUV
+		original_tag = CKK
+		tag = CKK
+		original_tag = FAR
+		tag = FAR
+		original_tag = SIB
+		tag = SIB
+		original_tag = NEE
+		tag = NEE
+		original_tag = YAM
+		tag = YAM
+		original_tag = KLM
+		tag = KLM
+		has_cosmetic_tag = ASN
+		has_cosmetic_tag = DEC_GEA
+		has_cosmetic_tag = DEC_SEA
+	}
+}
+
+DEC_ASI_is_china = {
+		OR = {
+			original_tag = CHI
+			tag = CHI
+			original_tag = TAI
+			tag = TAI
+			original_tag = HKG
+			tag = HKG
+			original_tag = MAC
+			tag = MAC
+			original_tag = TIB
+			tag = TIB
+			original_tag = MON
+			tag = MON
+			original_tag = OMG
+			tag = OMG
+		}
+}
+
+DEC_ASI_is_china_core = {
+		OR = {
+			original_tag = CHI
+			tag = CHI
+			original_tag = TAI
+			tag = TAI
+		}
+}
+
+DEC_ASI_is_china_coasts = {
+		OR = {
+			original_tag = HKG
+			tag = HKG
+			original_tag = MAC
+			tag = MAC
+		}
+}
+
+DEC_ASI_is_china_highlands = {
+		OR = {
+			original_tag = TIB
+			tag = TIB
+			original_tag = MON
+			tag = MON
+			original_tag = OMG
+			tag = OMG
+		}
+}
+
+DEC_ASI_china_block_complete = {
+	OR = {
+		has_country_flag = DEC_ASI_china_block_done
+		AND = {
+			has_completed_focus = DEC_ASI_reg_china_core
+			has_completed_focus = DEC_ASI_reg_china_coasts
+			has_completed_focus = DEC_ASI_reg_china_highlands
+		}
+	}
+}
+
+DEC_ASI_is_northeast = {
+		OR = {
+			original_tag = KOR
+			tag = KOR
+			original_tag = NKO
+			tag = NKO
+			original_tag = JAP
+			tag = JAP
+			original_tag = RYU
+			tag = RYU
+		}
+}
+
+DEC_ASI_is_northeast_korea = {
+		OR = {
+			original_tag = KOR
+			tag = KOR
+			original_tag = NKO
+			tag = NKO
+		}
+}
+
+DEC_ASI_is_northeast_japan = {
+		OR = {
+			original_tag = JAP
+			tag = JAP
+			original_tag = RYU
+			tag = RYU
+		}
+}
+
+DEC_ASI_northeast_block_complete = {
+	OR = {
+		has_country_flag = DEC_ASI_northeast_block_done
+		AND = {
+			has_completed_focus = DEC_ASI_reg_northeast_japan
+			has_completed_focus = DEC_ASI_reg_northeast_korea
+		}
+	}
+}
+
+DEC_ASI_is_mainland = {
+		OR = {
+			original_tag = VIE
+			tag = VIE
+			original_tag = LAO
+			tag = LAO
+			original_tag = CBD
+			tag = CBD
+			original_tag = SIA
+			tag = SIA
+			original_tag = BRM
+			tag = BRM
+		}
+}
+
+DEC_ASI_is_mainland_indochina = {
+		OR = {
+			original_tag = VIE
+			tag = VIE
+			original_tag = LAO
+			tag = LAO
+			original_tag = CBD
+			tag = CBD
+		}
+}
+
+DEC_ASI_is_mainland_theravada = {
+		OR = {
+			original_tag = SIA
+			tag = SIA
+			original_tag = BRM
+			tag = BRM
+		}
+}
+
+DEC_ASI_mainland_block_complete = {
+	OR = {
+		has_country_flag = DEC_ASI_mainland_block_done
+		AND = {
+			has_completed_focus = DEC_ASI_reg_mainland_indochina
+			has_completed_focus = DEC_ASI_reg_mainland_theravada
+		}
+	}
+}
+
+DEC_ASI_is_maritime = {
+		OR = {
+			original_tag = MAY
+			tag = MAY
+			original_tag = SIN
+			tag = SIN
+			original_tag = BRU
+			tag = BRU
+			original_tag = IND
+			tag = IND
+			original_tag = PHI
+			tag = PHI
+		}
+}
+
+DEC_ASI_is_maritime_malay = {
+		OR = {
+			original_tag = MAY
+			tag = MAY
+			original_tag = SIN
+			tag = SIN
+			original_tag = BRU
+			tag = BRU
+			original_tag = IND
+			tag = IND
+		}
+}
+
+DEC_ASI_is_maritime_philippines = {
+		OR = {
+			original_tag = PHI
+			tag = PHI
+		}
+}
+
+DEC_ASI_maritime_block_complete = {
+	OR = {
+		has_country_flag = DEC_ASI_maritime_block_done
+		AND = {
+			has_completed_focus = DEC_ASI_reg_maritime_malay
+			has_completed_focus = DEC_ASI_reg_maritime_philippines
+		}
+	}
+}
+
+DEC_can_access_asian_awakening = {
+	DEC_is_asian_nation = yes
+	DEC_has_asian_right_ideology = yes
+	NOT = { DEC_has_radical_islam = yes }
+	NOT = {
+		OR = {
+			has_completed_focus = DEC_WHT_white_revival
+			has_completed_focus = DEC_BAW_black_awakening
+			has_completed_focus = DEC_IND_indigenous_awakening
+			has_completed_focus = DEC_HND_hindu_awakening
+			has_completed_focus = DEC_CAL_world_caliphate
+		}
+	}
+}
+
+DEC_is_asian_invitee = {
+	DEC_is_asian_nation = yes
+	OR = {
+		DEC_has_ns = yes
+		DEC_has_asian_right_ideology = yes
+	}
+	exists = yes
+	NOT = { has_war_with = ROOT }
+	OR = {
+		is_subject = no
+		is_subject_of = ROOT
+	}
+}

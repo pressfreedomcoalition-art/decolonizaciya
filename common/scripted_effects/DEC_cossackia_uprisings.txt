@@ -1,0 +1,224 @@
+############################################
+# Cossack uprisings + Kazakia / Intermarium
+############################################
+
+DEC_uprising_spawn_cossack_militia = {
+	division_template = {
+		name = "Cossack Host"
+		is_locked = yes
+		regiments = {
+			Militia_Bat = { x = 0 y = 0 }
+			Militia_Bat = { x = 0 y = 1 }
+			Militia_Bat = { x = 1 y = 0 }
+			Militia_Bat = { x = 1 y = 1 }
+		}
+		priority = 2
+	}
+}
+
+DEC_uprising_KUB = {
+	log = "DEC: Kuban Cossack uprising — independent war vs SOV"
+	668 = { add_core_of = KUB }
+	1140 = { add_core_of = KUB }
+	if = {
+		limit = { NOT = { country_exists = KUB } }
+		SOV = { release = KUB }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = KUB
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			KUB = { transfer_state = PREV }
+		}
+	}
+	KUB = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_cossack_militia = yes
+		668 = {
+			create_unit = {
+				division = "name = \"Kuban Host\" division_template = \"Cossack Host\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = KUB
+				prioritize_location = 3734
+				count = 3
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		KUB = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+	set_global_flag = DEC_KUB_independent_uprising
+}
+
+DEC_uprising_DON = {
+	log = "DEC: Don Cossack uprising — independent war vs SOV"
+	667 = { add_core_of = DON }
+	if = {
+		limit = { NOT = { country_exists = DON } }
+		SOV = { release = DON }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = DON
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			DON = { transfer_state = PREV }
+		}
+	}
+	DON = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_cossack_militia = yes
+		667 = {
+			create_unit = {
+				division = "name = \"Don Host\" division_template = \"Cossack Host\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = DON
+				prioritize_location = 9417
+				count = 3
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		DON = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+	set_global_flag = DEC_DON_independent_uprising
+}
+
+DEC_uprising_VYK = {
+	log = "DEC: Verkhneyayitskoe uprising — independent war vs SOV"
+	1118 = { add_core_of = VYK }
+	if = {
+		limit = { NOT = { country_exists = VYK } }
+		SOV = { release = VYK }
+	}
+	else = {
+		every_state = {
+			limit = {
+				is_core_of = VYK
+				OR = {
+					is_owned_by = SOV
+					owner = { is_subject_of = SOV }
+				}
+			}
+			VYK = { transfer_state = PREV }
+		}
+	}
+	VYK = {
+		DEC_uprising_free_from_SOV = yes
+		clr_country_flag = SOV_subject_republic
+		DEC_uprising_spawn_cossack_militia = yes
+		1118 = {
+			create_unit = {
+				division = "name = \"Yaik Host\" division_template = \"Cossack Host\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				owner = VYK
+				prioritize_location = 10224
+				count = 3
+			}
+		}
+		declare_war_on = {
+			target = SOV
+			type = annex_everything
+		}
+	}
+	if = {
+		limit = { ROOT = { has_war_with = SOV } }
+		VYK = {
+			add_to_war = {
+				targeted_alliance = ROOT
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+	set_global_flag = DEC_VYK_independent_uprising
+}
+
+DEC_create_kazakia = {
+	log = "DEC: Creating Kazakia faction"
+	DEC_mark_named_alliance_member = yes
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	set_rule = { can_create_factions = yes }
+	create_faction_from_template = faction_template_dec_kazakia
+	# Invite Cossack hosts + Ukraine + Zeleny Klin
+	every_other_country = {
+		limit = {
+			DEC_is_kazakia_invitee = yes
+			exists = yes
+			NOT = { has_war_with = ROOT }
+			OR = {
+				is_subject = no
+				is_subject_of = ROOT
+			}
+		}
+		set_country_flag = DEC_joined_named_faction
+		if = { limit = { is_in_faction = yes } leave_faction = yes }
+		ROOT = { add_to_faction = PREV }
+		hidden_effect = {
+			country_event = { id = dec.13 hours = 2 }
+		}
+	}
+}
+
+DEC_join_intermarium = {
+	log = "DEC: Joining Intermarium / Baltic–Black Sea Union"
+	DEC_mark_named_alliance_member = yes
+	if = {
+		limit = { is_in_faction = yes }
+		leave_faction = yes
+	}
+	if = {
+		limit = {
+			any_other_country = {
+				is_faction_leader = yes
+				OR = {
+					has_faction_template = faction_template_intermarium_faction
+					has_faction_template = faction_template_baltic_sea_union
+				}
+			}
+		}
+		random_other_country = {
+			limit = {
+				is_faction_leader = yes
+				OR = {
+					has_faction_template = faction_template_intermarium_faction
+					has_faction_template = faction_template_baltic_sea_union
+				}
+			}
+			add_to_faction = ROOT
+		}
+	}
+}

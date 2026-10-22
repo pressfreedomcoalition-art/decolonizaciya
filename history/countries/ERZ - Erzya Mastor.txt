@@ -1,0 +1,111 @@
+capital = 1132
+# East Mordovia (Erzya) after map split
+2000.1.1 = {
+	set_variable = { currency_strength = 0.65 }
+	set_country_flag = dynamic_flag
+	set_variable = { gdp_per_capita = 8.000 }
+
+	add_ideas = {
+		partially_nationalized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		standard_regulations
+		recession
+		corruption_level_04
+		farmers
+		bureau_02
+		defence_02
+		police_02
+		edu_02
+		health_02
+		social_02
+		export_economy
+		volunteer_army
+		no_women_in_military
+		officer_basic_training
+		non_state_actor
+		pluralist
+		no_currency_backing
+	}
+
+	inherit_technology = SOV
+
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 70 }
+	add_to_array = { influence_array = SOV.id }
+	add_to_array = { influence_array_val = 25 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	set_popularities = {
+		democratic = 40.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 10.0
+		nationalist = 50.0
+	}
+	set_politics = {
+		ruling_party = nationalist
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+	set_variable = { party_pop_array^0 = 0.1 }
+	set_variable = { party_pop_array^2 = 0.15 }
+	set_variable = { party_pop_array^3 = 0.15 }
+	set_variable = { party_pop_array^16 = 0.1 }
+	set_variable = { party_pop_array^20 = 0.4 }
+	set_variable = { party_pop_array^21 = 0.1 }
+	set_variable = { ruling_party = 20 }
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Syres Bolyaen"
+		desc = "POLITICS_BOLYAEN_DESC"
+		picture = "gfx/leaders/DEC/syres_bolyaen.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Vitaliy Romashkin"
+		picture = "gfx/leaders/DEC/vitaliy_romashkin.dds"
+		ideology = liberalism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Nuyat Vidyay"
+		picture = "gfx/leaders/DEC/nuyat_vidyay.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Kshumantsyan Pirguzh"
+		picture = "gfx/leaders/DEC/kshumantsyan_pirguzh.dds"
+		ideology = Nat_Fascism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Mariz Kemal"
+		picture = "gfx/leaders/DEC/mariz_kemal.dds"
+		ideology = Western_Autocracy
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Grigory Musalyov"
+		picture = "gfx/leaders/DEC/grigory_musalyov.dds"
+		ideology = socialism
+		traits = { }
+	}
+
+	set_variable = { overall_productivity = 900 }
+	set_variable = { cb_policy_rate = 3 }
+}

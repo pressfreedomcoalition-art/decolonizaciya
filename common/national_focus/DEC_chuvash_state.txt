@@ -1,0 +1,803 @@
+############################################
+# Chuvashia / BCF: independent state tree
+# Unlocks after any party take-power focus.
+# Placed below politics (y=8) — no overlap with VBG/lib/war.
+############################################
+
+shared_focus = {
+	id = DEC_CHU_state_root
+	icon = GFX_DEC_CHU_state_root
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_pol_root
+	x = 0
+	y = 8
+	cost = 5
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_state_root"
+		add_political_power = 75
+		add_stability = 0.03
+		custom_effect_tooltip = DEC_CHU_state_root_tt
+	}
+	ai_will_do = { base = 12 }
+}
+
+shared_focus = {
+	id = DEC_CHU_ind_root
+	icon = GFX_DEC_CHU_ind_root
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_state_root
+	x = -18
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_state_root }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_ind_root"
+		add_ideas = DEC_CHU_ind_drive
+		custom_effect_tooltip = DEC_CHU_ind_root_tt
+	}
+	ai_will_do = { base = 9 }
+}
+
+shared_focus = {
+	id = DEC_CHU_ind_tractor
+	icon = GFX_DEC_CHU_ind_tractor
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_ind_root
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_ind_root }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_ind_tractor"
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		add_political_power = 25
+		custom_effect_tooltip = DEC_CHU_ind_tractor_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_ind_chem
+	icon = GFX_DEC_CHU_ind_chem
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_ind_root
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_ind_root }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_ind_chem"
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		add_tech_bonus = { name = DEC_CHU_chem_bonus bonus = 0.5 uses = 1 category = industry }
+		custom_effect_tooltip = DEC_CHU_ind_chem_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_ind_volga
+	icon = GFX_DEC_CHU_ind_volga
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_ind_root
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_ind_root }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_ind_volga"
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = infrastructure size > 0 include_locked = yes } }
+			add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+		}
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = infrastructure size > 0 include_locked = yes } }
+			add_building_construction = { type = infrastructure level = 1 instant_build = yes }
+		}
+		custom_effect_tooltip = DEC_CHU_ind_volga_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_ind_heavy
+	icon = GFX_DEC_CHU_ind_heavy
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_ind_tractor
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_ind_tractor }
+	prerequisite = { focus = DEC_CHU_ind_chem }
+	prerequisite = { focus = DEC_CHU_ind_volga }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_ind_heavy"
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+		add_ideas = DEC_CHU_heavy_industry
+		custom_effect_tooltip = DEC_CHU_ind_heavy_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_army_root
+	icon = GFX_DEC_CHU_army_root
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_state_root
+	x = -6
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_state_root }
+	search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT FOCUS_FILTER_MANPOWER }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_army_root"
+		add_ideas = DEC_CHU_army_reform
+		custom_effect_tooltip = DEC_CHU_army_root_tt
+	}
+	ai_will_do = { base = 9 }
+}
+
+shared_focus = {
+	id = DEC_CHU_army_draft
+	icon = GFX_DEC_CHU_army_draft
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_army_root
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_army_root }
+	search_filters = { FOCUS_FILTER_MANPOWER }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_army_draft"
+		add_manpower = 25000
+		add_war_support = 0.05
+		custom_effect_tooltip = DEC_CHU_army_draft_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_army_officers
+	icon = GFX_DEC_CHU_army_officers
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_army_root
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_army_root }
+	search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_army_officers"
+		army_experience = 25
+		add_ideas = DEC_CHU_officer_school
+		custom_effect_tooltip = DEC_CHU_army_officers_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_army_milind
+	icon = GFX_DEC_CHU_army_milind
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_army_root
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_army_root }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_army_milind"
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = arms_factory size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = arms_factory level = 1 instant_build = yes }
+		}
+		custom_effect_tooltip = DEC_CHU_army_milind_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_army_doctrine
+	icon = GFX_DEC_CHU_army_doctrine
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_army_draft
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_army_draft }
+	prerequisite = { focus = DEC_CHU_army_officers }
+	prerequisite = { focus = DEC_CHU_army_milind }
+	search_filters = { FOCUS_FILTER_MILITARY_EQUIPMENT }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_army_doctrine"
+		add_doctrine_cost_reduction = { name = DEC_CHU_land_doc cost_reduction = 0.5 uses = 2 category = land_doctrine }
+		add_ideas = DEC_CHU_defense_doctrine
+		custom_effect_tooltip = DEC_CHU_army_doctrine_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_cul_root
+	icon = GFX_DEC_CHU_cul_root
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_state_root
+	x = 4
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_state_root }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_cul_root"
+		add_political_power = 40
+		custom_effect_tooltip = DEC_CHU_cul_root_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_cul_tene
+	icon = GFX_DEC_CHU_cul_tene
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power NOT = { has_country_flag = DEC_CHU_camp_argadu } }
+	relative_position_id = DEC_CHU_cul_root
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_cul_root }
+	mutually_exclusive = { focus = DEC_CHU_cul_secular }
+	mutually_exclusive = { focus = DEC_CHU_cul_islam }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_cul_tene"
+		add_ideas = DEC_CHU_tene_tur
+		add_stability = 0.04
+		custom_effect_tooltip = DEC_CHU_cul_tene_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_cul_keremet
+	icon = GFX_DEC_CHU_cul_keremet
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power NOT = { has_country_flag = DEC_CHU_camp_argadu } }
+	relative_position_id = DEC_CHU_cul_tene
+	x = -1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_cul_tene }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_cul_keremet"
+		add_ideas = DEC_CHU_keremet
+		add_war_support = 0.05
+		custom_effect_tooltip = DEC_CHU_cul_keremet_tt
+	}
+	ai_will_do = { base = 5 }
+}
+
+shared_focus = {
+	id = DEC_CHU_cul_calendar
+	icon = GFX_DEC_CHU_cul_calendar
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power NOT = { has_country_flag = DEC_CHU_camp_argadu } }
+	relative_position_id = DEC_CHU_cul_tene
+	x = 1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_cul_tene }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_cul_calendar"
+		add_stability = 0.03
+		add_political_power = 50
+		custom_effect_tooltip = DEC_CHU_cul_calendar_tt
+	}
+	ai_will_do = { base = 5 }
+}
+
+shared_focus = {
+	id = DEC_CHU_cul_secular
+	icon = GFX_DEC_CHU_cul_secular
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_cul_root
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_cul_root }
+	mutually_exclusive = { focus = DEC_CHU_cul_tene }
+	mutually_exclusive = { focus = DEC_CHU_cul_islam }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_cul_secular"
+		add_ideas = DEC_CHU_secular_civic
+		add_research_slot = 1
+		custom_effect_tooltip = DEC_CHU_cul_secular_tt
+	}
+	ai_will_do = { base = 5 }
+}
+
+shared_focus = {
+	id = DEC_CHU_cul_islam
+	icon = GFX_DEC_CHU_cul_islam
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_argadu }
+	relative_position_id = DEC_CHU_cul_root
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_cul_root }
+	mutually_exclusive = { focus = DEC_CHU_cul_tene }
+	mutually_exclusive = { focus = DEC_CHU_cul_secular }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_cul_islam"
+		add_ideas = DEC_CHU_islamic_bulgar
+		add_popularity = { ideology = fascism popularity = 0.05 }
+		custom_effect_tooltip = DEC_CHU_cul_islam_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_hub
+	icon = GFX_DEC_CHU_pty_hub
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_state_root
+	x = 14
+	y = 1
+	cost = 4
+	prerequisite = { focus = DEC_CHU_state_root }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_hub"
+		add_political_power = 50
+		custom_effect_tooltip = DEC_CHU_pty_hub_tt
+	}
+	ai_will_do = { base = 10 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_west
+	icon = GFX_DEC_CHU_pty_west
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_west }
+	relative_position_id = DEC_CHU_pty_hub
+	x = -6
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_hub }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_west"
+		add_stability = 0.04
+		add_ideas = DEC_CHU_west_program
+		custom_effect_tooltip = DEC_CHU_pty_west_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_west_corr
+	icon = GFX_DEC_CHU_pty_west_corr
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_west }
+	relative_position_id = DEC_CHU_pty_west
+	x = -1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_west }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_west_corr"
+		add_political_power = 75
+		add_stability = 0.03
+		custom_effect_tooltip = DEC_CHU_pty_west_corr_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_west_euro
+	icon = GFX_DEC_CHU_pty_west_euro
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_west }
+	relative_position_id = DEC_CHU_pty_west
+	x = 1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_west }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_west_euro"
+		add_opinion_modifier = { target = USA modifier = DEC_chu_west_align }
+		add_opinion_modifier = { target = ENG modifier = DEC_chu_west_align }
+		add_opinion_modifier = { target = GER modifier = DEC_chu_west_align }
+		custom_effect_tooltip = DEC_CHU_pty_west_euro_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_est
+	icon = GFX_DEC_CHU_pty_est
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_est }
+	relative_position_id = DEC_CHU_pty_hub
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_hub }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_est"
+		add_ideas = DEC_CHU_est_continuity
+		add_political_power = 60
+		custom_effect_tooltip = DEC_CHU_pty_est_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_est_cont
+	icon = GFX_DEC_CHU_pty_est_cont
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_est }
+	relative_position_id = DEC_CHU_pty_est
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_est }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_est_cont"
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		add_stability = 0.05
+		custom_effect_tooltip = DEC_CHU_pty_est_cont_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_left
+	icon = GFX_DEC_CHU_pty_left
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_left }
+	relative_position_id = DEC_CHU_pty_hub
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_hub }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_left"
+		add_ideas = DEC_CHU_left_program
+		add_popularity = { ideology = communism popularity = 0.05 }
+		custom_effect_tooltip = DEC_CHU_pty_left_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_left_work
+	icon = GFX_DEC_CHU_pty_left_work
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_left }
+	relative_position_id = DEC_CHU_pty_left
+	x = -1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_left }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_left_work"
+		add_manpower = 15000
+		add_stability = 0.03
+		custom_effect_tooltip = DEC_CHU_pty_left_work_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_left_plan
+	icon = GFX_DEC_CHU_pty_left_plan
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_left }
+	relative_position_id = DEC_CHU_pty_left
+	x = 1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_left }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_left_plan"
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		random_owned_controlled_state = {
+			limit = { is_core_of = ROOT free_building_slots = { building = industrial_complex size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+		}
+		custom_effect_tooltip = DEC_CHU_pty_left_plan_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_nat
+	icon = GFX_DEC_CHU_pty_nat
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power OR = { has_country_flag = DEC_CHU_camp_nat has_country_flag = DEC_CHU_camp_lib } }
+	relative_position_id = DEC_CHU_pty_hub
+	x = 6
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_hub }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_nat"
+		add_ideas = DEC_CHU_nat_program
+		add_stability = 0.03
+		custom_effect_tooltip = DEC_CHU_pty_nat_tt
+	}
+	ai_will_do = { base = 7 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_nat_lang
+	icon = GFX_DEC_CHU_pty_nat_lang
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power OR = { has_country_flag = DEC_CHU_camp_nat has_country_flag = DEC_CHU_camp_lib } }
+	relative_position_id = DEC_CHU_pty_nat
+	x = -1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_nat }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_nat_lang"
+		add_ideas = DEC_CHU_language_law
+		add_political_power = 40
+		custom_effect_tooltip = DEC_CHU_pty_nat_lang_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_nat_mem
+	icon = GFX_DEC_CHU_pty_nat_mem
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power OR = { has_country_flag = DEC_CHU_camp_nat has_country_flag = DEC_CHU_camp_lib } }
+	relative_position_id = DEC_CHU_pty_nat
+	x = 1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_nat }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_nat_mem"
+		add_war_support = 0.06
+		add_stability = 0.02
+		custom_effect_tooltip = DEC_CHU_pty_nat_mem_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_argadu
+	icon = GFX_DEC_CHU_pty_argadu
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_argadu }
+	relative_position_id = DEC_CHU_pty_hub
+	x = 10
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_hub }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_argadu"
+		add_ideas = DEC_CHU_argadu_program
+		add_popularity = { ideology = fascism popularity = 0.06 }
+		custom_effect_tooltip = DEC_CHU_pty_argadu_tt
+	}
+	ai_will_do = { base = 8 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_argadu_ummah
+	icon = GFX_DEC_CHU_pty_argadu_ummah
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_argadu }
+	relative_position_id = DEC_CHU_pty_argadu
+	x = -1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_argadu }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_argadu_ummah"
+		add_to_variable = { party_pop_array^11 = 0.08 }
+		clamp_variable = { var = party_pop_array^11 min = 0 max = 1 }
+		recalculate_party = yes
+		custom_effect_tooltip = DEC_CHU_pty_argadu_ummah_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_pty_argadu_law
+	icon = GFX_DEC_CHU_pty_argadu_law
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_argadu }
+	relative_position_id = DEC_CHU_pty_argadu
+	x = 1
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_pty_argadu }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_pty_argadu_law"
+		add_ideas = DEC_CHU_argadu_law
+		add_stability = -0.02
+		add_war_support = 0.08
+		custom_effect_tooltip = DEC_CHU_pty_argadu_law_tt
+	}
+	ai_will_do = { base = 5 }
+}
+
+shared_focus = {
+	id = DEC_CHU_dip_root
+	icon = GFX_DEC_CHU_dip_root
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_state_root
+	x = 28
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_CHU_state_root }
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_dip_root"
+		add_political_power = 50
+		custom_effect_tooltip = DEC_CHU_dip_root_tt
+	}
+	ai_will_do = { base = 9 }
+}
+
+shared_focus = {
+	id = DEC_CHU_dip_nato
+	icon = GFX_DEC_CHU_dip_nato
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power has_country_flag = DEC_CHU_camp_west }
+	relative_position_id = DEC_CHU_dip_root
+	x = -2
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_CHU_dip_root }
+	mutually_exclusive = { focus = DEC_CHU_dip_bulgar }
+	available = {
+		has_country_flag = DEC_CHU_camp_west
+		NOT = { has_idea = NATO_member }
+		USA = { exists = yes is_faction_leader = yes }
+		is_subject = no
+	}
+	bypass = {
+		has_idea = NATO_member
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_dip_nato"
+		DEC_nato_admit_quiet = yes
+		custom_effect_tooltip = DEC_CHU_dip_nato_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_dip_bulgar
+	icon = GFX_DEC_CHU_dip_bulgar
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_dip_root
+	x = 2
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_CHU_dip_root }
+	mutually_exclusive = { focus = DEC_CHU_dip_nato }
+	available = {
+		is_subject = no
+		NOT = { has_idea = NATO_member }
+	}
+	bypass = {
+		is_in_faction = yes is_faction_leader = yes
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_dip_bulgar"
+		DEC_CHU_ensure_bulgar_faction = yes
+		set_country_flag = DEC_CHU_bulgar_faction
+		custom_effect_tooltip = DEC_CHU_dip_bulgar_tt
+	}
+	ai_will_do = { base = 6 }
+}
+
+shared_focus = {
+	id = DEC_CHU_dip_volga
+	icon = GFX_DEC_CHU_dip_volga
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_dip_bulgar
+	x = -2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_dip_bulgar }
+	available = {
+		has_country_flag = DEC_CHU_bulgar_faction
+		is_faction_leader = yes
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_dip_volga"
+		DEC_CHU_invite_volga_heirs = yes
+		custom_effect_tooltip = DEC_CHU_dip_volga_tt
+	}
+	ai_will_do = { base = 5 }
+}
+
+shared_focus = {
+	id = DEC_CHU_dip_euro
+	icon = GFX_DEC_CHU_dip_euro
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_dip_bulgar
+	x = 0
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_dip_bulgar }
+	available = {
+		has_country_flag = DEC_CHU_bulgar_faction
+		is_faction_leader = yes
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_dip_euro"
+		DEC_CHU_invite_euro_heirs = yes
+		custom_effect_tooltip = DEC_CHU_dip_euro_tt
+	}
+	ai_will_do = { base = 4 }
+}
+
+shared_focus = {
+	id = DEC_CHU_dip_cau
+	icon = GFX_DEC_CHU_dip_cau
+	allow_branch = { OR = { original_tag = CHU original_tag = BCF } has_country_flag = DEC_CHU_any_power }
+	relative_position_id = DEC_CHU_dip_bulgar
+	x = 2
+	y = 1
+	cost = 6
+	prerequisite = { focus = DEC_CHU_dip_bulgar }
+	available = {
+		has_country_flag = DEC_CHU_bulgar_faction
+		is_faction_leader = yes
+	}
+	search_filters = { FOCUS_FILTER_POLITICAL }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_CHU_dip_cau"
+		DEC_CHU_invite_cau_heirs = yes
+		custom_effect_tooltip = DEC_CHU_dip_cau_tt
+	}
+	ai_will_do = { base = 4 }
+}

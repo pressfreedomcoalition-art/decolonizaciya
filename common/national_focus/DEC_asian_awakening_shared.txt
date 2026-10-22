@@ -1,0 +1,510 @@
+############################################
+# Shared: Asian Awakening — Азиатское пробуждение
+############################################
+
+shared_focus = {
+	id = DEC_ASI_asian_awakening
+	icon = asia
+	x = 20
+	y = 30
+	cost = 5
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	available = { DEC_can_access_asian_awakening = yes }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_asian_awakening"
+		set_variable = { DEC_asi_ns_amt = 0.10 }
+		DEC_ASI_boost_all = yes
+		add_political_power = 50
+		custom_effect_tooltip = DEC_ASI_boost_plus1_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_ASI_declare_sphere
+	icon = asian_union
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -15
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_ASI_asian_awakening }
+	available = { DEC_can_access_asian_awakening = yes
+		is_subject = no
+		is_in_faction = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_declare_sphere"
+		DEC_create_asian_sphere = yes
+		custom_effect_tooltip = DEC_ASI_declare_sphere_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_ASI_call_unity
+	icon = alliance_with_asia
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -15
+	y = 2
+	cost = 8
+	prerequisite = { focus = DEC_ASI_declare_sphere }
+	available = { DEC_can_access_asian_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_call_unity"
+		DEC_invite_asian_sphere_members = yes
+		custom_effect_tooltip = DEC_ASI_call_unity_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_ASI_call_oath
+	icon = oath_of_beirut
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -15
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_ASI_call_unity }
+	available = { DEC_can_access_asian_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_call_oath"
+		DEC_ASI_oath_start = yes
+		custom_effect_tooltip = DEC_ASI_call_oath_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_ASI_unite_sphere
+	icon = annex_country
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -15
+	y = 4
+	cost = 12
+	prerequisite = { focus = DEC_ASI_call_oath }
+	available = { DEC_can_access_asian_awakening = yes
+		is_faction_leader = yes
+		any_subject_country = { always = yes } }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_unite_sphere"
+		DEC_ASI_unite_sphere = yes
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_ASI_greater_east_asia
+	icon = japanese_imperialism
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -7
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_ASI_china }
+	available = { DEC_can_access_asian_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_greater_east_asia"
+		DEC_ASI_create_greater_east_asia = yes
+		custom_effect_tooltip = DEC_ASI_gea_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_ASI_asean_revival
+	icon = asean_mutual_trade
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 9
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_ASI_mainland }
+	available = { DEC_can_access_asian_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_asean_revival"
+		DEC_ASI_create_asean_revival = yes
+		custom_effect_tooltip = DEC_ASI_sea_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_ASI_china
+	icon = chinese_nationalism
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -11
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_ASI_asian_awakening }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_china"
+		set_variable = { DEC_asi_ns_amt = 0.15 }
+		DEC_ASI_boost_china = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_china_core
+	icon = china
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -13
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_china }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_china_core"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_china_core = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_china_coasts
+	icon = china_lighthouse_of_democracy
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -11
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_china }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_china_coasts"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_china_coasts = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_china_highlands
+	icon = china_central_asia
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -9
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_china }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_china_highlands"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_china_highlands = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_crusade_china
+	icon = war_against_china
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -11
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_ASI_reg_china_core }
+	prerequisite = { focus = DEC_ASI_reg_china_coasts }
+	prerequisite = { focus = DEC_ASI_reg_china_highlands }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_crusade_china"
+		DEC_ASI_wargoals_china = yes
+		custom_effect_tooltip = DEC_ASI_crusade_china_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_ASI_northeast
+	icon = korean_peninsula
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -3
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_ASI_asian_awakening }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_northeast"
+		set_variable = { DEC_asi_ns_amt = 0.15 }
+		DEC_ASI_boost_northeast = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_northeast_korea
+	icon = korea_reunification_flag
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -5
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_northeast }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_northeast_korea"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_northeast_korea = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_northeast_japan
+	icon = japanese_imperial_glory
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -1
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_northeast }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_northeast_japan"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_northeast_japan = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_crusade_northeast
+	icon = war_in_asia
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = -3
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_ASI_reg_northeast_japan }
+	prerequisite = { focus = DEC_ASI_reg_northeast_korea }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_crusade_northeast"
+		DEC_ASI_wargoals_northeast = yes
+		custom_effect_tooltip = DEC_ASI_crusade_northeast_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_ASI_mainland
+	icon = asia
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 5
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_ASI_asian_awakening }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_mainland"
+		set_variable = { DEC_asi_ns_amt = 0.15 }
+		DEC_ASI_boost_mainland = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_mainland_indochina
+	icon = asia_friend
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 3
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_mainland }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_mainland_indochina"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_mainland_indochina = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_mainland_theravada
+	icon = focus_SIA_defenders_of_constitutional_liberty
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 7
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_mainland }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_mainland_theravada"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_mainland_theravada = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_crusade_mainland
+	icon = war_in_asia
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 5
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_ASI_reg_mainland_indochina }
+	prerequisite = { focus = DEC_ASI_reg_mainland_theravada }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_crusade_mainland"
+		DEC_ASI_wargoals_mainland = yes
+		custom_effect_tooltip = DEC_ASI_crusade_mainland_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_ASI_maritime
+	icon = asia_pacific
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 13
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_ASI_asian_awakening }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_maritime"
+		set_variable = { DEC_asi_ns_amt = 0.15 }
+		DEC_ASI_boost_maritime = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_maritime_malay
+	icon = asean_mutual_trade
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 11
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_maritime }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_maritime_malay"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_maritime_malay = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_reg_maritime_philippines
+	icon = filipino_unity
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 15
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_ASI_maritime }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_reg_maritime_philippines"
+		set_variable = { DEC_asi_ns_amt = 0.20 }
+		DEC_ASI_boost_maritime_philippines = yes
+		custom_effect_tooltip = DEC_ASI_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_ASI_crusade_maritime
+	icon = war_in_asia
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 13
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_ASI_reg_maritime_malay }
+	prerequisite = { focus = DEC_ASI_reg_maritime_philippines }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_crusade_maritime"
+		DEC_ASI_wargoals_maritime = yes
+		custom_effect_tooltip = DEC_ASI_crusade_maritime_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_ASI_crusade_world
+	icon = war4
+	allow_branch = { DEC_can_access_asian_awakening = yes }
+	relative_position_id = DEC_ASI_asian_awakening
+	x = 1
+	y = 4
+	cost = 15
+	prerequisite = { focus = DEC_ASI_crusade_china }
+	prerequisite = { focus = DEC_ASI_crusade_northeast }
+	prerequisite = { focus = DEC_ASI_crusade_mainland }
+	prerequisite = { focus = DEC_ASI_crusade_maritime }
+	prerequisite = { focus = DEC_ASI_crusade_china }
+	prerequisite = { focus = DEC_ASI_crusade_northeast }
+	prerequisite = { focus = DEC_ASI_crusade_mainland }
+	prerequisite = { focus = DEC_ASI_crusade_maritime }
+	available = { DEC_can_access_asian_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_ASI_crusade_world"
+		DEC_ASI_wargoals_world = yes
+		custom_effect_tooltip = DEC_ASI_crusade_world_tt
+	}
+	ai_will_do = { base = 50 }
+}

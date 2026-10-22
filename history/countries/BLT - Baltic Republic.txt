@@ -1,0 +1,103 @@
+capital = 642
+2000.1.1 = {
+	set_variable = { currency_strength = 0.70 }
+	set_country_flag = dynamic_flag
+	set_variable = { gdp_per_capita = 10.000 }
+
+	add_ideas = {
+		partially_nationalized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		standard_regulations
+		recession
+		corruption_level_03
+		farmers
+		bureau_03
+		defence_03
+		police_03
+		edu_03
+		health_03
+		social_02
+		export_economy
+		volunteer_army
+		no_women_in_military
+		officer_basic_training
+		non_state_actor
+		pluralist
+		no_currency_backing
+	}
+
+	inherit_technology = SOV
+
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 55 }
+	add_to_array = { influence_array = GER.id }
+	add_to_array = { influence_array_val = 25 }
+	add_to_array = { influence_array = SOV.id }
+	add_to_array = { influence_array_val = 15 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	set_popularities = {
+		democratic = 30.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 25.0
+		nationalist = 45.0
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+	set_variable = { party_pop_array^0 = 0.10 }
+	set_variable = { party_pop_array^2 = 0.20 }
+	set_variable = { party_pop_array^16 = 0.15 }
+	set_variable = { party_pop_array^17 = 0.10 }
+	set_variable = { party_pop_array^20 = 0.10 }
+	set_variable = { party_pop_array^21 = 0.35 }
+	set_variable = { ruling_party = 2 }
+	startup_politics = yes
+
+	# Bund der Vertriebenen — Bernd Fabritius
+	create_country_leader = {
+		name = "Bernd Fabritius"
+		desc = POLITICS_FABRITIUS_DESC
+		picture = "gfx/leaders/DEC/bernd_fabritius.dds"
+		expire = "2060.1.1"
+		ideology = Nat_Populism
+		traits = { }
+	}
+
+	# Magister of the Teutonic Order — Frank Bayard
+	create_country_leader = {
+		name = "Frank Bayard"
+		desc = POLITICS_BAYARD_DESC
+		picture = "gfx/leaders/DEC/frank_bayard.dds"
+		expire = "2060.1.1"
+		ideology = Nat_Autocracy
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Baltic Civic Assembly"
+		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+		ideology = liberalism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Königsberg Conservatives"
+		picture = "gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+		ideology = Neutral_conservatism
+		traits = { }
+	}
+
+	set_variable = { overall_productivity = 950 }
+	set_variable = { cb_policy_rate = 3 }
+}

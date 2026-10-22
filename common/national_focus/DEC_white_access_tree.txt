@@ -1,0 +1,32 @@
+# Access tree for White Brotherhood liberatables (APT / RHO / Russian white tags)
+focus_tree = {
+	id = dec_white_brotherhood_access_focus
+	country = {
+		factor = 0
+		modifier = { add = 22 tag = APT }
+		modifier = { add = 22 tag = RHO }
+		modifier = { add = 20 tag = BGR }
+		modifier = { add = 20 tag = SMO }
+		modifier = { add = 20 tag = VOR }
+		modifier = { add = 20 tag = SEV }
+	}
+	default = no
+	continuous_focus_position = { x = 50 y = 1400 }
+	shared_focus = DEC_WHT_white_revival
+	shared_focus = DEC_RST_state_restoration
+	shared_focus = DEC_COA_machine_uprising
+
+	focus = {
+		id = DEC_WHT_local_council
+		icon = Ultranationalism
+		x = 2
+		y = 0
+		cost = 3
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEC_WHT_local_council"
+			add_political_power = 50
+			add_stability = 0.03
+		}
+	}
+}

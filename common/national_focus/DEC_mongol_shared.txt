@@ -1,0 +1,102 @@
+############################################
+# Mongol block — Mongol peoples + CHI/JAP (+ after any complete block)
+############################################
+
+shared_focus = {
+	id = DEC_MON_kalmyk_uprising
+	icon = generic_fascist_uprising
+	x = 62
+	y = 0
+	cost = 5
+	allow_branch = {
+		DEC_can_access_mongol_branch = yes
+	}
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = KLM
+			AND = { DEC_KLM_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_KLM } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_mongol_ready = yes
+		OR = {
+			tag = KLM
+			has_country_flag = DEC_MON_branch_unlocked
+			DEC_any_decolon_block_complete = yes
+			has_war_with = SOV
+			SOV = { owns_state = 1107 }
+			NOT = { country_exists = KLM }
+			DEC_KLM_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_MON_kalmyk_uprising"
+		if = {
+			limit = { NOT = { DEC_KLM_already_independent = yes } }
+			DEC_uprising_KLM = yes
+		}
+		set_country_flag = DEC_MON_branch_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+	}
+	ai_will_do = {
+		base = 15
+		modifier = {
+			factor = 2
+			DEC_is_mongol_nation = yes
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				tag = CHI
+				tag = JAP
+			}
+			has_war_with = SOV
+		}
+	}
+}
+
+shared_focus = {
+	id = DEC_MON_buryatia_uprising
+	icon = generic_fascist_uprising
+	allow_branch = { DEC_can_access_mongol_branch = yes }
+	relative_position_id = DEC_MON_kalmyk_uprising
+	x = 0
+	y = 1
+	cost = 5
+	prerequisite = { focus = DEC_MON_kalmyk_uprising }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+	bypass = {
+		OR = {
+			tag = BRY
+			AND = { DEC_BRY_already_independent = yes NOT = { has_country_flag = DEC_uprising_refocus_BRY } }
+		}
+	}
+	available = {
+		DEC_can_fund_uprising_rifles = yes
+		DEC_sep_mongol_ready = yes
+		OR = {
+			tag = BRY
+			has_country_flag = DEC_MON_branch_unlocked
+			has_war_with = SOV
+			SOV = { owns_state = 686 }
+			NOT = { country_exists = BRY }
+			DEC_BRY_already_independent = yes
+		}
+	}
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_MON_buryatia_uprising"
+		if = {
+			limit = { NOT = { DEC_BRY_already_independent = yes } }
+			DEC_uprising_BRY = yes
+		}
+		set_global_flag = DEC_MON_block_complete
+		set_country_flag = DEC_TUR_branch_unlocked
+		set_country_flag = DEC_SIB_branch_unlocked
+		set_global_flag = DEC_TUR_siberia_unlocked
+		custom_effect_tooltip = DEC_uprising_independent_tt
+		custom_effect_tooltip = DEC_MON_unlocks_sib_tur_tt
+	}
+	ai_will_do = { base = 14 }
+}

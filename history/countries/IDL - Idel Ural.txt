@@ -1,0 +1,109 @@
+capital = 661
+2000.1.1 = {
+	set_variable = { currency_strength = 0.65 }
+	set_country_flag = dynamic_flag
+	set_variable = { gdp_per_capita = 8.000 }
+
+	add_ideas = {
+		partially_nationalized_healthcare
+		balanced_protections
+		standard_maintenance
+		us_dollar
+		standard_regulations
+		recession
+		corruption_level_04
+		farmers
+		bureau_02
+		defence_02
+		police_02
+		edu_02
+		health_02
+		social_02
+		export_economy
+		volunteer_army
+		no_women_in_military
+		officer_basic_training
+		non_state_actor
+		pluralist
+		no_currency_backing
+	}
+
+	inherit_technology = SOV
+
+	init_influence = yes
+	set_variable = { domestic_influence_amount = 70 }
+	add_to_array = { influence_array = SOV.id }
+	add_to_array = { influence_array_val = 25 }
+	add_to_array = { influence_array = USA.id }
+	add_to_array = { influence_array_val = 10 }
+	sort_influence = yes
+
+	set_popularities = {
+		democratic = 50.0
+		communism = 0.0
+		fascism = 0.0
+		neutrality = 15.0
+		nationalist = 35.0
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "2000.1.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	start_politics_input = yes
+	set_variable = { party_pop_array^0 = 0.1 }
+	set_variable = { party_pop_array^2 = 0.25 }
+	set_variable = { party_pop_array^3 = 0.15 }
+	set_variable = { party_pop_array^16 = 0.15 }
+	set_variable = { party_pop_array^20 = 0.25 }
+	set_variable = { party_pop_array^21 = 0.1 }
+	set_variable = { ruling_party = 2 }
+	startup_politics = yes
+
+	create_country_leader = {
+		name = "Rafis Kashapov"
+		picture = "gfx/leaders/DEC/rafis_kashapov.dds"
+		ideology = liberalism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Aida Abdrakhmanova"
+		picture = "gfx/leaders/DEC/aida_abdrakhmanova.dds"
+		ideology = Neutral_Libertarian
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Syres Bolyaen"
+		picture = "gfx/leaders/DEC/syres_bolyaen.dds"
+		ideology = Nat_Populism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Ruslan Gabbasov"
+		picture = "gfx/leaders/DEC/ruslan_gabbasov.dds"
+		ideology = Western_Autocracy
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Fauzia Bayramova"
+		picture = "gfx/leaders/DEC/fauzia_bayramova.dds"
+		ideology = Nat_Fascism
+		traits = { }
+	}
+
+	create_country_leader = {
+		name = "Ilya Ignatov"
+		picture = "gfx/leaders/DEC/ilya_ignatov.dds"
+		ideology = socialism
+		traits = { }
+	}
+
+	set_variable = { overall_productivity = 900 }
+	set_variable = { cb_policy_rate = 3 }
+}

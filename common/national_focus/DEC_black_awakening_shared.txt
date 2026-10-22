@@ -1,0 +1,821 @@
+############################################
+# Shared: Black Awakening — Чёрное пробуждение
+############################################
+
+shared_focus = {
+	id = DEC_BAW_black_awakening
+	icon = africa
+	x = 20
+	y = 30
+	cost = 5
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	available = { DEC_can_access_black_awakening = yes }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_black_awakening"
+		set_variable = { DEC_baw_ns_amt = 0.10 }
+		DEC_BAW_boost_all = yes
+		add_political_power = 50
+		custom_effect_tooltip = DEC_BAW_boost_plus1_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_BAW_declare_brotherhood
+	icon = focus_ETH_organization_of_african_unity
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -26
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_BAW_black_awakening }
+	available = { DEC_can_access_black_awakening = yes
+		is_subject = no
+		is_in_faction = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_declare_brotherhood"
+		DEC_create_black_brotherhood = yes
+		custom_effect_tooltip = DEC_BAW_declare_brotherhood_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_BAW_call_unity
+	icon = africa_guy_shield
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -26
+	y = 2
+	cost = 8
+	prerequisite = { focus = DEC_BAW_declare_brotherhood }
+	available = { DEC_can_access_black_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_call_unity"
+		DEC_invite_black_brotherhood_members = yes
+		custom_effect_tooltip = DEC_BAW_call_unity_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_BAW_call_oath
+	icon = oath_of_beirut
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -26
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_BAW_call_unity }
+	available = { DEC_can_access_black_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_call_oath"
+		DEC_BAW_oath_start = yes
+		custom_effect_tooltip = DEC_BAW_call_oath_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_BAW_unite_brotherhood
+	icon = annex_country
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -26
+	y = 4
+	cost = 12
+	prerequisite = { focus = DEC_BAW_call_oath }
+	available = { DEC_can_access_black_awakening = yes
+		is_faction_leader = yes
+		any_subject_country = { always = yes } }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_unite_brotherhood"
+		DEC_BAW_unite_brotherhood = yes
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_BAW_panthers_america
+	icon = african_conflict
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 14
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_BAW_america }
+	available = { DEC_can_access_black_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_panthers_america"
+		DEC_BAW_create_panthers_america = yes
+		custom_effect_tooltip = DEC_BAW_panthers_america_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_BAW_panthers_europe
+	icon = europe
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 26
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_BAW_europe }
+	available = { DEC_can_access_black_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_panthers_europe"
+		DEC_BAW_create_panthers_europe = yes
+		custom_effect_tooltip = DEC_BAW_panthers_europe_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_BAW_west
+	icon = westwards
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -20
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_BAW_black_awakening }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_west"
+		set_variable = { DEC_baw_ns_amt = 0.15 }
+		DEC_BAW_boost_west = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_west_sahel
+	icon = desert_warfare
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -24
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_west }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_west_sahel"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_west_sahel = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_west_guinea
+	icon = africa2
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -22
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_west }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_west_guinea"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_west_guinea = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_west_nigeria
+	icon = africa3
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -18
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_west }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_west_nigeria"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_west_nigeria = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_crusade_west
+	icon = african_conflict
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -20
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_BAW_reg_west_sahel }
+	prerequisite = { focus = DEC_BAW_reg_west_guinea }
+	prerequisite = { focus = DEC_BAW_reg_west_nigeria }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_crusade_west"
+		DEC_BAW_wargoals_west = yes
+		custom_effect_tooltip = DEC_BAW_crusade_west_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_BAW_central
+	icon = africa2
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -14
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_BAW_black_awakening }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_central"
+		set_variable = { DEC_baw_ns_amt = 0.15 }
+		DEC_BAW_boost_central = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_central_congo
+	icon = africa
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -16
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_central }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_central_congo"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_central_congo = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_central_equatorial
+	icon = africa3
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -12
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_central }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_central_equatorial"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_central_equatorial = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_crusade_central
+	icon = african_expedition
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -14
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_BAW_reg_central_congo }
+	prerequisite = { focus = DEC_BAW_reg_central_equatorial }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_crusade_central"
+		DEC_BAW_wargoals_central = yes
+		custom_effect_tooltip = DEC_BAW_crusade_central_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_BAW_east
+	icon = eastwards
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -6
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_BAW_black_awakening }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_east"
+		set_variable = { DEC_baw_ns_amt = 0.15 }
+		DEC_BAW_boost_east = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_east_horn
+	icon = africa_guy_shield
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -10
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_east }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_east_horn"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_east_horn = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_east_lakes
+	icon = africa2
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -8
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_east }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_east_lakes"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_east_lakes = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_east_sudan
+	icon = desert_warfare
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -4
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_east }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_east_sudan"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_east_sudan = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_east_islands
+	icon = africa3
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -2
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_east }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_east_islands"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_east_islands = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_crusade_east
+	icon = african_conflict
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -6
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_BAW_reg_east_horn }
+	prerequisite = { focus = DEC_BAW_reg_east_lakes }
+	prerequisite = { focus = DEC_BAW_reg_east_sudan }
+	prerequisite = { focus = DEC_BAW_reg_east_islands }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_crusade_east"
+		DEC_BAW_wargoals_east = yes
+		custom_effect_tooltip = DEC_BAW_crusade_east_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_BAW_south
+	icon = southwards
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 2
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_BAW_black_awakening }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_south"
+		set_variable = { DEC_baw_ns_amt = 0.15 }
+		DEC_BAW_boost_south = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_south_cape
+	icon = africa
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 0
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_south }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_south_cape"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_south_cape = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_south_miombo
+	icon = africa2
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 4
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_south }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_south_miombo"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_south_miombo = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_crusade_south
+	icon = african_expedition
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 2
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_BAW_reg_south_cape }
+	prerequisite = { focus = DEC_BAW_reg_south_miombo }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_crusade_south"
+		DEC_BAW_wargoals_south = yes
+		custom_effect_tooltip = DEC_BAW_crusade_south_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_BAW_america
+	icon = american_nationalism
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 10
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_BAW_black_awakening }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_america"
+		set_variable = { DEC_baw_ns_amt = 0.15 }
+		DEC_BAW_boost_america = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_america_usa
+	icon = american_nationalism
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 6
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_america }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_america_usa"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_america_usa = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_america_caribbean
+	icon = alliance_with_cuba
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 8
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_america }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_america_caribbean"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_america_caribbean = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_america_south_am
+	icon = focus_ARG_south_american_unity
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 12
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_america }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_america_south_am"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_america_south_am = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_america_central_am
+	icon = maya
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 16
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_america }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_america_central_am"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_america_central_am = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_crusade_america
+	icon = war_against_the_united_states
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 10
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_BAW_reg_america_usa }
+	prerequisite = { focus = DEC_BAW_reg_america_caribbean }
+	prerequisite = { focus = DEC_BAW_reg_america_central_am }
+	prerequisite = { focus = DEC_BAW_reg_america_south_am }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_crusade_america"
+		DEC_BAW_wargoals_america = yes
+		custom_effect_tooltip = DEC_BAW_crusade_america_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_BAW_europe
+	icon = europe
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 20
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_BAW_black_awakening }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_europe"
+		set_variable = { DEC_baw_ns_amt = 0.15 }
+		DEC_BAW_boost_europe = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_europe_fra
+	icon = FRA_crusader_icon
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 18
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_europe }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_europe_fra"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_europe_fra = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_europe_eng
+	icon = british_nationalism
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 20
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_europe }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_europe_eng"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_europe_eng = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_europe_bel
+	icon = focus_BEL_legacy_of_the_great_war
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 22
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_europe }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_europe_bel"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_europe_bel = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_europe_hol
+	icon = dutch_zwarte_piet
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 24
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_europe }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_europe_hol"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_europe_hol = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_reg_europe_por
+	icon = europe_domination
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 26
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_BAW_europe }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_reg_europe_por"
+		set_variable = { DEC_baw_ns_amt = 0.20 }
+		DEC_BAW_boost_europe_por = yes
+		custom_effect_tooltip = DEC_BAW_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_BAW_crusade_europe
+	icon = war_in_europe
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = 20
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_BAW_reg_europe_eng }
+	prerequisite = { focus = DEC_BAW_reg_europe_fra }
+	prerequisite = { focus = DEC_BAW_reg_europe_bel }
+	prerequisite = { focus = DEC_BAW_reg_europe_hol }
+	prerequisite = { focus = DEC_BAW_reg_europe_por }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_crusade_europe"
+		DEC_BAW_wargoals_europe = yes
+		custom_effect_tooltip = DEC_BAW_crusade_europe_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_BAW_crusade_world
+	icon = war4
+	allow_branch = { DEC_can_access_black_awakening = yes }
+	relative_position_id = DEC_BAW_black_awakening
+	x = -6
+	y = 4
+	cost = 15
+	prerequisite = { focus = DEC_BAW_crusade_west }
+	prerequisite = { focus = DEC_BAW_crusade_central }
+	prerequisite = { focus = DEC_BAW_crusade_east }
+	prerequisite = { focus = DEC_BAW_crusade_south }
+	prerequisite = { focus = DEC_BAW_crusade_america }
+	prerequisite = { focus = DEC_BAW_crusade_europe }
+	prerequisite = { focus = DEC_BAW_crusade_west }
+	prerequisite = { focus = DEC_BAW_crusade_central }
+	prerequisite = { focus = DEC_BAW_crusade_east }
+	prerequisite = { focus = DEC_BAW_crusade_south }
+	prerequisite = { focus = DEC_BAW_crusade_america }
+	prerequisite = { focus = DEC_BAW_crusade_europe }
+	available = { DEC_can_access_black_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_BAW_crusade_world"
+		DEC_BAW_wargoals_world = yes
+		custom_effect_tooltip = DEC_BAW_crusade_world_tt
+	}
+	ai_will_do = { base = 50 }
+}

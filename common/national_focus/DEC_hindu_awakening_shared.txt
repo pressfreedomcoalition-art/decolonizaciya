@@ -1,0 +1,550 @@
+############################################
+# Shared: Hindu Awakening — Индусское пробуждение
+############################################
+
+shared_focus = {
+	id = DEC_HND_hindu_awakening
+	icon = hindu_india
+	x = 20
+	y = 30
+	cost = 5
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	available = { DEC_can_access_hindu_awakening = yes }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_hindu_awakening"
+		set_variable = { DEC_hnd_ns_amt = 0.10 }
+		DEC_HND_boost_all = yes
+		add_political_power = 50
+		custom_effect_tooltip = DEC_HND_boost_plus1_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_HND_declare_rashtra
+	icon = dharmic_alliance_01
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -17
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_HND_hindu_awakening }
+	available = { DEC_can_access_hindu_awakening = yes
+		is_subject = no
+		is_in_faction = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_declare_rashtra"
+		DEC_create_hindu_rashtra = yes
+		custom_effect_tooltip = DEC_HND_declare_rashtra_tt
+	}
+	ai_will_do = { base = 45 }
+}
+
+shared_focus = {
+	id = DEC_HND_call_unity
+	icon = hindu_government
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -17
+	y = 2
+	cost = 8
+	prerequisite = { focus = DEC_HND_declare_rashtra }
+	available = { DEC_can_access_hindu_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_call_unity"
+		DEC_invite_hindu_rashtra_members = yes
+		custom_effect_tooltip = DEC_HND_call_unity_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_HND_call_oath
+	icon = hindu_document
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -17
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_HND_call_unity }
+	available = { DEC_can_access_hindu_awakening = yes
+		is_faction_leader = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_call_oath"
+		DEC_HND_oath_start = yes
+		custom_effect_tooltip = DEC_HND_call_oath_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_HND_unite_rashtra
+	icon = annex_country
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -17
+	y = 4
+	cost = 12
+	prerequisite = { focus = DEC_HND_call_oath }
+	available = { DEC_can_access_hindu_awakening = yes
+		is_faction_leader = yes
+		any_subject_country = { always = yes } }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_unite_rashtra"
+		DEC_HND_unite_rashtra = yes
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_HND_sangh
+	icon = hindu_tiger
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -9
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_HND_india }
+	available = { DEC_can_access_hindu_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_sangh"
+		DEC_HND_create_sangh = yes
+		custom_effect_tooltip = DEC_HND_sangh_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_HND_diaspora_league
+	icon = hindu_04
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 17
+	y = 1
+	cost = 8
+	prerequisite = { focus = DEC_HND_diaspora }
+	available = { DEC_can_access_hindu_awakening = yes
+		is_subject = no }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_diaspora_league"
+		DEC_HND_create_diaspora = yes
+		custom_effect_tooltip = DEC_HND_diaspora_tt
+	}
+	ai_will_do = { base = 40 }
+}
+
+shared_focus = {
+	id = DEC_HND_india
+	icon = india
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -13
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_HND_hindu_awakening }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_india"
+		set_variable = { DEC_hnd_ns_amt = 0.15 }
+		DEC_HND_boost_india = yes
+		custom_effect_tooltip = DEC_HND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_india_core
+	icon = hindu_india
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -15
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_india }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_india_core"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_india_core = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_india_bengal
+	icon = india_star
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -11
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_india }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_india_bengal"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_india_bengal = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_crusade_india
+	icon = war_against_india
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -13
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_HND_reg_india_core }
+	prerequisite = { focus = DEC_HND_reg_india_bengal }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_crusade_india"
+		DEC_HND_wargoals_india = yes
+		custom_effect_tooltip = DEC_HND_crusade_india_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_HND_himalaya
+	icon = hindu_military1
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -5
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_HND_hindu_awakening }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_himalaya"
+		set_variable = { DEC_hnd_ns_amt = 0.15 }
+		DEC_HND_boost_himalaya = yes
+		custom_effect_tooltip = DEC_HND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_himalaya_kingdoms
+	icon = hindu_deal_06
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -7
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_himalaya }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_himalaya_kingdoms"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_himalaya_kingdoms = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_crusade_himalaya
+	icon = war_against_india
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -5
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_HND_reg_himalaya_kingdoms }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_crusade_himalaya"
+		DEC_HND_wargoals_himalaya = yes
+		custom_effect_tooltip = DEC_HND_crusade_himalaya_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_HND_island
+	icon = india_tiger_01
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 1
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_HND_hindu_awakening }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_island"
+		set_variable = { DEC_hnd_ns_amt = 0.15 }
+		DEC_HND_boost_island = yes
+		custom_effect_tooltip = DEC_HND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_island_lanka
+	icon = hindu_tiger
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -1
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_island }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_island_lanka"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_island_lanka = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_island_maldives
+	icon = india_free
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 3
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_island }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_island_maldives"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_island_maldives = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_crusade_island
+	icon = war_against_india
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 1
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_HND_reg_island_lanka }
+	prerequisite = { focus = DEC_HND_reg_island_maldives }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_crusade_island"
+		DEC_HND_wargoals_island = yes
+		custom_effect_tooltip = DEC_HND_crusade_island_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_HND_northwest
+	icon = indian_army
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 7
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_HND_hindu_awakening }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_northwest"
+		set_variable = { DEC_hnd_ns_amt = 0.15 }
+		DEC_HND_boost_northwest = yes
+		custom_effect_tooltip = DEC_HND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_northwest_punjab_kashmir
+	icon = indian_religious_divide
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 5
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_northwest }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_northwest_punjab_kashmir"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_northwest_punjab_kashmir = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_crusade_northwest
+	icon = war_against_india
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 7
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_HND_reg_northwest_punjab_kashmir }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_crusade_northwest"
+		DEC_HND_wargoals_northwest = yes
+		custom_effect_tooltip = DEC_HND_crusade_northwest_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_HND_diaspora
+	icon = india_star
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 11
+	y = 1
+	cost = 7
+	prerequisite = { focus = DEC_HND_hindu_awakening }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_diaspora"
+		set_variable = { DEC_hnd_ns_amt = 0.15 }
+		DEC_HND_boost_diaspora = yes
+		custom_effect_tooltip = DEC_HND_boost_plus2_tt
+	}
+	ai_will_do = { base = 30 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_diaspora_caribbean
+	icon = hindu_04
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 9
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_diaspora }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_diaspora_caribbean"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_diaspora_caribbean = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_diaspora_pacific
+	icon = oceania
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 13
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_diaspora }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_diaspora_pacific"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_diaspora_pacific = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_reg_diaspora_mauritius
+	icon = africa3
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 15
+	y = 2
+	cost = 7
+	prerequisite = { focus = DEC_HND_diaspora }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_reg_diaspora_mauritius"
+		set_variable = { DEC_hnd_ns_amt = 0.20 }
+		DEC_HND_boost_diaspora_mauritius = yes
+		custom_effect_tooltip = DEC_HND_boost_plus3_tt
+	}
+	ai_will_do = { base = 25 }
+}
+
+shared_focus = {
+	id = DEC_HND_crusade_diaspora
+	icon = war_against_india
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = 11
+	y = 3
+	cost = 10
+	prerequisite = { focus = DEC_HND_reg_diaspora_caribbean }
+	prerequisite = { focus = DEC_HND_reg_diaspora_mauritius }
+	prerequisite = { focus = DEC_HND_reg_diaspora_pacific }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_crusade_diaspora"
+		DEC_HND_wargoals_diaspora = yes
+		custom_effect_tooltip = DEC_HND_crusade_diaspora_tt
+	}
+	ai_will_do = { base = 35 }
+}
+
+shared_focus = {
+	id = DEC_HND_crusade_world
+	icon = war4
+	allow_branch = { DEC_can_access_hindu_awakening = yes }
+	relative_position_id = DEC_HND_hindu_awakening
+	x = -3
+	y = 4
+	cost = 15
+	prerequisite = { focus = DEC_HND_crusade_india }
+	prerequisite = { focus = DEC_HND_crusade_himalaya }
+	prerequisite = { focus = DEC_HND_crusade_island }
+	prerequisite = { focus = DEC_HND_crusade_northwest }
+	prerequisite = { focus = DEC_HND_crusade_diaspora }
+	prerequisite = { focus = DEC_HND_crusade_india }
+	prerequisite = { focus = DEC_HND_crusade_himalaya }
+	prerequisite = { focus = DEC_HND_crusade_island }
+	prerequisite = { focus = DEC_HND_crusade_northwest }
+	prerequisite = { focus = DEC_HND_crusade_diaspora }
+	available = { DEC_can_access_hindu_awakening = yes }
+	search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		log = "[GetDateText]: [Root.GetName]: Focus DEC_HND_crusade_world"
+		DEC_HND_wargoals_world = yes
+		custom_effect_tooltip = DEC_HND_crusade_world_tt
+	}
+	ai_will_do = { base = 50 }
+}
